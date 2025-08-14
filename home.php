@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clover | Beranda</title>
-    <link rel="stylesheet" href="">
+    <title>Home</title>
 </head>
 <body>
-    <h1>Beranda</h1>
+    <p>Ini adlaah halama home</p>
 </body>
 </html>

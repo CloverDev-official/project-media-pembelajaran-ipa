@@ -2,24 +2,28 @@
     <nav class="flex justify-between items-center p-5">
         <h1 class="text-xl font-bold">Science Explorer</h1>
         <ul class="hidden md:flex gap-10 items-center">
-            <li>Beranda</li>
-            <li>Materi</li>
-            <li>Gim</li>
-            <li>Jelajahi</li>
-            <li>Bantuan</li>
-            <li><i class="bi bi-person-circle text-xl"></i></li>
+            <a href="../view/beranda.php"><li>Beranda</li></a>
+            <a href="../view/materi.php"><li>Materi</li></a>
+            <a href="../view/gim.php"><li>Gim</li></a>
+            <a href="../view/.php"><li>Jelajahi</li></a>
+            <a href="../view/.php"><li>Bantuan</li></a>
+            <a href="../view/.php"><li><i class="bi bi-person-circle text-xl"></i></li></a>
         </ul>
-        <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+        <div class="flex gap-5 md:hidden text-2xl">
+            <button id="menu-btn" ><i class="bi bi-list font-semibold"></i></button>
+            <a href="../view/.php" ><i class="bi bi-person-circle text-2xl"></i></a>
+        </div>
+        
     </nav>
 
     <!-- Menu mobile -->
     <ul id="mobile-menu" class="hidden flex-col gap-10 p-5 bg-gray-200 md:hidden">
-        <li>Beranda</li>
-        <li>Materi</li>
-        <li>Gim</li>
-        <li>Jelajahi</li>
-        <li>Bantuan</li>
-        <li><i class="bi bi-person-circle text-xl"></i></li>
+        <a href="../view/beranda.php" class="text-lg mt-0 m-3 font-semibold"><li>Beranda</li></a>
+        <a href="../view/materi.php" class="text-lg mt-0 m-3 font-semibold"><li>Materi</li></a>
+        <a href="../view/gim.php" class="text-lg mt-0 m-3 font-semibold"><li>Gim</li></a>
+        <a href="../view/.php" class="text-lg mt-0 m-3 font-semibold"><li>Jelajahi</li></a>
+        <a href="../view/.php" class="text-lg mt-0 m-3 font-semibold"><li>Bantuan</li></a>
+        
     </ul>
 </header>
 

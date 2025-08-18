@@ -10,7 +10,7 @@
 
 <body>
     <?php include("../shared/header.php"); ?>
-    <main>
+    <main class="min-h-screen">
         <!-- hero section -->
         <div class="bg-img-hero-section-beranda">
             <div class="flex justify-center items-center h-[89vh] ">

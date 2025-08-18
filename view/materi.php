@@ -10,7 +10,7 @@
 
 <body>
     <?php include("../shared/header.php"); ?>
-    <main>
+    <main class="min-h-screen">
         <div class="p-4">
             <div class="flex justify-center flex-col lg:flex-row gap-10 mt-10">
                 <div class="flex justify-center">

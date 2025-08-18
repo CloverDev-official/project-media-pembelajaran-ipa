@@ -1,1 +1,3 @@
-andak codingan di file php
+andak codingan di folder view
+codingan menggunakan .php
+gunakan include yang sudah di sediakan

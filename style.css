@@ -8,3 +8,11 @@
     background-size: cover;
 
 }
+
+/* background untuk login (Alfarez Ganteng banget jir) */
+
+.bg-img-login {
+    /* background-image: url(img/background.jpg); Nanti backgroundnya diganti */
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

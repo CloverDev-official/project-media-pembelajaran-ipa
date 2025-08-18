@@ -14,13 +14,13 @@
         <!-- hero section -->
         <div class="bg-img-hero-section-beranda">
             <div class="flex justify-center items-center h-[89vh] ">
-                <div class="text-center">
-                    <h1 class="text-5xl font-bold mb-4 text-white text-shadow-md">Selamat Datang Science Explorer</h1>
+                <div class="text-center m-5">
+                    <h1 class="md:text-5xl text-4xl font-bold mb-4 text-white text-shadow-md">Selamat Datang Science Explorer</h1>
                     <p class="text-md text-white font-semibold text-shadow-md">
                         Selami dunia sains dengan pelajaran
                         interaktif yang membuat pembelajaran menjadi menyenangkan!
                     </p>
-                    <a href="" class="flex justify-center items-center mt-7">
+                    <a href="materi.php" class="flex justify-center items-center mt-7">
                         <button
                             class="p-2 rounded-xl bg-green-600 shadow-lg text-md text-white px-20 font-bold text-shadow-sm">
                             Mulai <i class="fa fa-rocket"></i>
@@ -32,39 +32,39 @@
         <!-- content -->
         <div class="p-4">
             <!-- dashboard -->
-            <div class="flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-52 mt-10 p-4">
+            <div class="flex flex-col lg:flex-row justify-center  gap-10 lg:gap-52 mt-10 p-4">
                 <!-- Progres Pembelajaran -->
-                <div class="m-5 w-full max-w-md">
-                    <h1 class="font-bold text-2xl lg:text-3xl">Progres Pembelajaran <i class="bi bi-bar-chart-fill"></i>
-                    </h1>
-                    <p class="mt-4">Pantau Terus Pencapaian Kamu!</p>
-                    <div class="flex flex-col sm:flex-row gap-5 mt-10">
-                        <div class="border rounded-md p-4 border-gray-400 flex-1">
-                            <p class="text-gray-700">Pembelajaran yang selesai</p>
-                            <p class="font-semibold text-2xl">12</p>
-                        </div>
-                        <div class="border border-gray-400 rounded-md p-4 flex-1">
-                            <p class="text-gray-700">Nilai Rata-Rata</p>
-                            <p class="font-semibold text-2xl">85%</p>
+                <div class="flex justify-center ">
+                    <div class="w-full max-w-md ">
+                        <h1 class="font-bold text-2xl lg:text-3xl">Progres Pembelajaran </h1>
+                        <p class="mt-4">Pantau Terus Pencapaian Kamu!</p>
+                        <div class="flex flex-col sm:flex-row gap-5 mt-10">
+                            <div class="border rounded-md p-4 border-gray-400 flex-1">
+                                <p class="text-gray-700">Pembelajaran yang selesai</p>
+                                <p class="font-semibold text-2xl">12</p>
+                            </div>
+                            <div class="border border-gray-400 rounded-md p-4 flex-1">
+                                <p class="text-gray-700">Nilai Rata-Rata</p>
+                                <p class="font-semibold text-2xl">85%</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Nilai seiring waktu -->
-                <div class="m-5 w-full max-w-md">
-                    <h1 class="font-bold text-2xl lg:text-3xl">Progres Pembelajaran <i class="bi bi-bar-chart-fill"></i>
-                    </h1>
-                    <p class="mt-4">Pantau Terus Pencapaian Kamu!</p>
-                    <div class="flex flex-col sm:flex-row gap-5 mt-10">
-                        <div class="border rounded-md p-4 border-gray-400 flex-1">
-                            <p class="text-gray-700">Pembelajaran yang selesai</p>
-                            <p class="font-semibold text-2xl">12</p>
-                        </div>
-                        <div class="border border-gray-400 rounded-md p-4 flex-1">
-                            <p class="text-gray-700">Nilai Rata-Rata</p>
-                            <p class="font-semibold text-2xl">85%</p>
+                <div class="flex justify-center">
+                    <div class=" w-full max-w-md">
+                        <h1 class="font-bold text-2xl lg:text-3xl">Nilai Seiring Waktu <i
+                                class="bi bi-bar-chart-fill"></i>
+                        </h1>
+                        <p class="mt-4">Pantau perkembangan nilai kamu setiap ujian!</p>
+                        <div class="mt-10 border border-gray-400 rounded-md p-4">
+                            <!-- atur ukuran manual -->
+                            <canvas id="nilaiChart" width="100" height="150"></canvas>
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
             <!-- Preview Materi Pembelajaran -->
@@ -124,7 +124,8 @@
                 </div>
                 <div class="flex flex-wrap justify-center gap-6">
                     <!-- topik 1 -->
-                    <div class="flex flex-col sm:flex-row gap-5 border border-gray-700 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
+                    <div
+                        class="flex flex-col sm:flex-row gap-5 border border-gray-700 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
                             <h1 class="font-bold text-xl">Physics Basics</h1>
@@ -139,7 +140,8 @@
                         </div>
                     </div>
                     <!-- topik 2 -->
-                    <div class="flex flex-col sm:flex-row gap-5 border border-gray-700 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
+                    <div
+                        class="flex flex-col sm:flex-row gap-5 border border-gray-700 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
                             <h1 class="font-bold text-xl">Physics Basics</h1>
@@ -154,7 +156,8 @@
                         </div>
                     </div>
                     <!-- topik 3 -->
-                    <div class="flex flex-col sm:flex-row gap-5 border border-gray-700 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
+                    <div
+                        class="flex flex-col sm:flex-row gap-5 border border-gray-700 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
                             <h1 class="font-bold text-xl">Physics Basics</h1>
@@ -172,7 +175,51 @@
             </div>
         </div>
     </main>
-    <?php include("../shared/footer.php");  ?>
+    <?php include("../shared/footer.php"); ?>
+    <script>
+        const ctx = document.getElementById('nilaiChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Ujian 1', 'Ujian 2', 'Ujian 3', 'Ujian 4', 'Ujian 5'],
+                datasets: [{
+                    label: 'Nilai',
+                    data: [70, 80, 85, 90, 88],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',   // merah
+                        'rgba(54, 162, 235, 0.6)',   // biru
+                        'rgba(255, 206, 86, 0.6)',   // kuning
+                        'rgba(75, 192, 192, 0.6)',   // hijau toska
+                        'rgba(153, 102, 255, 0.6)'   // ungu
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 206, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(153, 102, 255)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+
+            options: {
+                responsive: true,   // ❌ nonaktifkan resize otomatis
+                maintainAspectRatio: false, // biar height/width ikuti canvas
+                plugins: {
+                    legend: { display: true }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <main class="bg-img-login">
-            <form action="" method="ridohersa" class="bg-white p-6 rounded shadow-2xl w-full max-w-sm mx-auto mt-20">
+            <form action="" method="POST" class="bg-white p-6 rounded shadow-2xl w-full max-w-sm mx-auto mt-20">
                 <h2 class="text-2xl font</form>-bold mb-4 text-center">Login Murid</h2>
                 <div class="mb-4">
                 <label for="nipd" class="block text-gray-700 font-medium mb-2">NIPD</label>

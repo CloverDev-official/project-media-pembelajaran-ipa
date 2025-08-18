@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Nilai seiring waktu -->
+               <!-- Nilai seiring waktu -->
                 <div class="flex justify-center">
                     <div class=" w-full max-w-md">
                         <h1 class="font-bold text-2xl lg:text-3xl">Nilai Seiring Waktu <i

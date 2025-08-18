@@ -1,0 +1,34 @@
+<footer class="flex flex-col px-6 md:px-20 mt-12">
+  <!-- Bagian atas -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-5 mb-8 gap-8">
+    <!-- Logo + deskripsi -->
+    <div class="flex flex-col md:max-w-xl">
+      <img src="" alt="Logo" class="w-48 h-20 mb-3">
+      <p class="text-sm md:text-base">
+        Website ini adalah platform edukasi interaktif yang menyajikan materi Fisika, Biologi, dan Kimia dasar dengan tampilan menarik, dilengkapi animasi, video, kuis, dan rangkuman visual, sehingga memudahkan siswa memahami konsep IPA secara menyenangkan dan efektif.
+      </p>
+    </div>
+
+    <!-- Sosial Media -->
+    <div class="flex flex-col">
+      <h4 class="text-base font-semibold">Ikuti kami di sosial media</h4>
+      <div class="flex gap-4 mt-3">
+        <a href="" class="text-xl hover:text-gray-500 transition-all duration-200 ease-in-out"><i class="bi bi-facebook"></i></a>
+        <a href="" class="text-xl hover:text-gray-500 transition-all duration-200 ease-in-out"><i class="bi bi-instagram"></i></a>
+        <a href="" class="text-xl hover:text-gray-500 transition-all duration-200 ease-in-out"><i class="bi bi-telegram"></i></a>
+        <a href="" class="text-xl hover:text-gray-500 transition-all duration-200 ease-in-out"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-gray-300">
+
+  <!-- Bagian bawah -->
+  <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-44 p-6 text-sm">
+    <p>&copy;2025 CloverDev. All Rights Reserved.</p>
+    <div class="flex gap-6">
+      <a href="" class="hover:underline">Privacy Policy</a>
+      <a href="" class="hover:underline">Terms of Service</a>
+    </div>
+  </div>
+</footer>

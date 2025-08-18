@@ -49,19 +49,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- Nilai seiring waktu -->
-                <div class="m-5 w-full max-w-md">
-                    <h1 class="font-bold text-2xl lg:text-3xl">Progres Pembelajaran <i class="bi bi-bar-chart-fill"></i>
-                    </h1>
-                    <p class="mt-4">Pantau Terus Pencapaian Kamu!</p>
-                    <div class="flex flex-col sm:flex-row gap-5 mt-10">
-                        <div class="border rounded-md p-4 border-gray-400 flex-1">
-                            <p class="text-gray-700">Pembelajaran yang selesai</p>
-                            <p class="font-semibold text-2xl">12</p>
-                        </div>
-                        <div class="border border-gray-400 rounded-md p-4 flex-1">
-                            <p class="text-gray-700">Nilai Rata-Rata</p>
-                            <p class="font-semibold text-2xl">85%</p>
+               <!-- Nilai seiring waktu -->
+                <div class="flex justify-center">
+                    <div class=" w-full max-w-md">
+                        <h1 class="font-bold text-2xl lg:text-3xl">Nilai Seiring Waktu <i
+                                class="bi bi-bar-chart-fill"></i>
+                        </h1>
+                        <p class="mt-4">Pantau perkembangan nilai kamu setiap ujian!</p>
+                        <div class="mt-10 border border-gray-400 rounded-md p-4">
+                            <!-- atur ukuran manual -->
+                            <canvas id="nilaiChart" width="100" height="150"></canvas>
                         </div>
                     </div>
                 </div>

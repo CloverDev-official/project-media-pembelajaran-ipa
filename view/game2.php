@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Game Studi Kasus - Tubuh & Kesehatan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <?php include("../shared/link.php"); ?>
   <style>
     .fade-in { animation: fadeIn 0.7s ease-in; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

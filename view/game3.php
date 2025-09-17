@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Petualangan Si Singa</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <?php include("../shared/link.php"); ?>
 </head>
 <body class="bg-gradient-to-b from-yellow-100 to-orange-200 min-h-screen flex items-center justify-center p-6">
 

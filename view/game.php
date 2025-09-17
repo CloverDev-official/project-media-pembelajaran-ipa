@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Puzzle Tubuh Manusia & Hewan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <?php include("../shared/link.php"); ?>
   <style>
     .dropzone {
       transition: all 0.3s ease;

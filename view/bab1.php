@@ -95,7 +95,7 @@
                             <!-- Overlay Soal -->
                             <div id="soal" class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-center p-6">
                                 <p id="pertanyaan" class="text-xl font-semibold text-white mb-6"></p>
-                                <div id="opsi" class="flex flex-col gap-3 w-full max-w-sm"></div>
+                                <div id="opsi" class="flex flex-col gap-3 w-full max-w-s    m"></div>
                             </div>
                             </div>
                         </div>

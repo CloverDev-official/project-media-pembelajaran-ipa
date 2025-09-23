@@ -86,7 +86,7 @@
                         </div>
                     </div>
 
-                                        <!-- Container Video -->
+                    <!-- Container Video -->
                     <div class="flex justify-center items-center my-10">
                     <div id="video-container" class="relative w-full max-w-[640px]">
                         

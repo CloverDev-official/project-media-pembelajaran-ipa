@@ -6,94 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IPAVERSE | BAB 1</title>
     <?php include("../shared/link.php"); ?>
-    <style>
-        ::-webkit-scrollbar { display: none; }
-        #player iframe {
-        width: 100% !important;
-        height: 100% !important;
-        border: 0;
-        }
-            /* Progress bar */
-    #progress-container {
-      position: relative;
-      height: 10px;
-      background: #ddd;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 15px 0;
-    }
-    #progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background: #2196f3;
-      border-radius: 5px;
-      width: 0%;
-    }
-    #watched-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background: #4caf50;
-      opacity: 0.3;
-      border-radius: 5px;
-      width: 0%;
-    }
-    #progress-tooltip {
-      position: absolute;
-      top: -30px;
-      background: black;
-      color: white;
-      padding: 2px 5px;
-      font-size: 12px;
-      border-radius: 4px;
-      pointer-events: none;
-      opacity: 0;
-      white-space: nowrap;
-    }
-    /* Tombol */
-    .btn {
-      border: 0;
-      padding: 8px 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 16px;
-      margin-right: 10px;
-      cursor: pointer;
-      color: #fff;
-      transition: transform 0.15s ease;
-    }
-    .btn:hover { transform: scale(1.05); }
-    .btn:active { transform: scale(0.95); }
-    #btnPlay { background: linear-gradient(to top, #16a34a, #22c55e); }
-    #btnPause { background: linear-gradient(to top, #dc2626, #ef4444); }
-    #btnRestart { background: linear-gradient(to top, #ca8a04, #eab308); }
-    /* Overlay soal */
-    #soal {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
-      z-index: 10;
-    }
-    #opsi button {
-      margin: 5px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }       
-    </style>
+    <link rel="stylesheet" href="../shared/vidInteraktif.css">
     <script src="../script/sidebar.js" defer></script>
 </head>
 
@@ -180,7 +93,7 @@
                         <!-- Responsive wrapper untuk player -->
                         <div class="relative pb-[56.25%] h-0"> <!-- 16:9 ratio -->
                         <!-- Player -->
-                        <div div id="player" class="w-full max-w-2xl aspect-video bg-black"></div>
+                        <div id="player" class="w-full max-w-2xl aspect-video bg-black"></div>
                         </div>
 
                         <!-- Overlay Soal -->

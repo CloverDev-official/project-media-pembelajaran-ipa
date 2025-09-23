@@ -14,22 +14,22 @@
         </div>
 
         <ul class="mt-3 flex flex-col gap-5 text-white text-xl font-semibold capitalize">
-            <li class="transition-all rounded-lg  hover:bg-green-700 relative">
-                <a href="../panelGuru/index.php" class="pl-3 py-1">
+            <li>
+                <a href="../panelGuru/index.php" class="hover:bg-green-700 pl-3 py-3 rounded-lg relative">
                     <i class="bi bi-speedometer2"></i>
                     <span class="menu-text">dasboard</span>
                     <span class="tooltip">dasboard</span>
                 </a>
             </li>
             <li class="transition-all rounded-lg  hover:bg-green-700 relative">
-                <a href="../panelGuru/dataSiswa.php" class="pl-3 py-1">
+                <a href="../panelGuru/dataSiswa.php" class="pl-3 py-3">
                     <i class="bi bi-mortarboard-fill"></i>
-                    <span class="menu-text">siswa</span>
-                    <span class="tooltip">siswa</span>
+                    <span class="menu-text">data siswa</span>
+                    <span class="tooltip">data siswa</span>
                 </a>
             </li>
-            <li class="transition-all rounded-lg  hover:bg-green-700 relative">
-                <a href="../paneGuru/rekapNilai.php" class="bg-green-700 pl-3 py-1  rounded-lg relative">
+            <li class="transition-all rounded-lg  bg-green-700 relative">
+                <a href="../panelGuru/rekapNilai.php" class="pl-3 py-3">
                     <i class="bi bi-folder-fill"></i>
                     <span class="menu-text">rekap nilai</span>
                     <span class="tooltip">rekap nilai</span>

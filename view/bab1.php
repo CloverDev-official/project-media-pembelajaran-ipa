@@ -24,12 +24,11 @@
                 </div>
             </div>
         </div>
-
         <!-- Content + Sidebar -->
         <div>
             <div class="flex flex-row justify-center m-3 ml-8 md:m-10  gap-10">
                 <!-- Content -->
-                <div class="md:w-4/4 m-5 text-start">
+                <div class="md:w-4/4 ml-7 mt-5 mb-5 text-start">
                     <ul class="list-decimal font-bold text-2xl" id="pengertian">
                         <li>Pengertian Pertumbuhan dan Perkembangan</li>
                     </ul>

@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPAVERSE | Dasboard Guru</title>
     <?php include("../shared/link.php"); ?>
-    <?php include("../shared/sidebarGuru_css.php"); ?>
+    <link rel="stylesheet" href="../shared/sidebarGuru.css">
 </head>
-
 
 <body class="relative bg-gray-50">
     <main class="min-h-screen ">
         <!-- Sidebar -->
         <?php include("../sidebar/sidebarGuru.php") ?>
-
         <!-- Konten -->
         <div id="content" class="flex-1 transition-all duration-300 p-5">            
             <!-- header -->
@@ -129,14 +126,17 @@
                     </div>
                     <!-- data siswa -->
                     <div class="grid lg:grid-rows-2 gap-4">
-                        <!-- container data siswa -->
+                        <!-- wrapper table siswa -->
                         <div class="bg-white p-4 rounded-lg shadow-md">
+                            <!-- header tabel siswa -->
                             <div class="flex justify-between mb-10 mt-2">
+                                <!-- judul -->
                                 <h1 class="font-bold text-3xl capitalize">
                                     <i class="bi bi-mortarboard-fill"></i>
                                     tabel siswa
                                 </h1>
-                                <a href="../panelAdmin/.php">
+                                <!-- button -->
+                                <a href="../panelGuru/dataSiswa.php">
                                     <button class="p-2 rounded-lg text-sm border bg-green-300 font-normal capitalize text-green-900 transition-all duration-150 hover:scale-105 active:scale-95">
                                         lihat semua
                                     </button>
@@ -149,14 +149,15 @@
                                     <h1 class="my-4 font-semibold text-lg">Kelas 9A</h1>
                                     <div class="rounded-lg border overflow-hidden shadow-lg">
                                         <table class="table-auto  w-full">
+                                            <!-- table head -->
                                             <thead>
                                                 <tr class="bg-green-300 text-center">
                                                     <th class="border-r border-black px-4 py-2  capitalize">no</th>
-                                                    <th class="border-r border-black px-4 py-2  capitalize">nama siswa
-                                                    </th>
+                                                    <th class="border-r border-black px-4 py-2  capitalize">nama siswa</th>
                                                     <th class=" px-4 py-2  capitalize">kelas</th>
                                                 </tr>
                                             </thead>
+                                            <!-- table body -->
                                             <tbody class="text-center">
                                                 <tr class="bg-white hover:bg-gray-200">
                                                     <td class="border-t border-r px-4 py-2">1</td>
@@ -182,14 +183,15 @@
                                     <h1 class="my-4 font-semibold text-lg">Kelas 9B</h1>
                                     <div class="rounded-lg border overflow-hidden shadow-lg">
                                         <table class="table-auto  w-full">
+                                            <!-- table head -->
                                             <thead>
                                                 <tr class="bg-green-300 text-center">
                                                     <th class="border-r border-black px-4 py-2 capitalize">no</th>
-                                                    <th class="border-r border-black px-4 py-2 capitalize">nama siswa
-                                                    </th>
+                                                    <th class="border-r border-black px-4 py-2 capitalize">nama siswa</th>
                                                     <th class=" px-4 py-2 capitalize">kelas</th>
                                                 </tr>
                                             </thead>
+                                            <!-- table body -->
                                             <tbody class="text-center">
                                                 <tr class="bg-white hover:bg-gray-200">
                                                     <td class="border-t border-r px-4 py-2">1</td>
@@ -212,7 +214,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- container rekap nilai -->
+                        <!-- wrapper rekap nilai -->
                         <div class="hidden lg:block  bg-white p-4 rounded-md shadow-md">
                             <div class="flex justify-between mb-10 mt-2">
                                 <h1 class="font-bold text-3xl capitalize">
@@ -234,8 +236,9 @@
                             </div>
                             <h1 class="my-4 font-semibold text-lg">Kelas 9B</h1>
                             <div class=" rounded-lg border overflow-hidden shadow-lg">
-                                
-                                    <table class="table-fixed  lg:w-full">
+                                <!-- wrapper scroll horizontal -->
+                                <div class="overflow-x-auto">
+                                    <table class="table-fixed lg:w-full">
                                         <thead>
                                             <tr class="bg-green-300 text-center">
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">no.</th>
@@ -243,10 +246,6 @@
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 1</th>
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 2</th>
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 3</th>
-                                                <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 4</th>
-                                                <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 5</th>
-                                                <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 6</th>
-                                                <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 7</th>
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">ulangan</th>
                                                 <th class="px-4 py-2 font-normal  capitalize">rata - rata</th>
                                             </tr>
@@ -254,11 +253,7 @@
                                         <tbody class="text-center">
                                             <tr class="bg-white hover:bg-gray-200">
                                                 <td class="border-t border-r px-4 py-2">1</td>
-                                                <td class="border-t border-r px-4 py-2 capitalize">ghaizan</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
+                                                <td class="border-t border-r px-4 py-2 capitalize">muhammad ghaizan </td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
@@ -272,19 +267,11 @@
                                                 <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t  px-4 py-2">90</td>
                                             </tr>
                                             <tr class="bg-white hover:bg-gray-200">
                                                 <td class="border-t border-r px-4 py-2">3</td>
                                                 <td class="border-t border-r px-4 py-2 capitalize">ghaizan</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
-                                                <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>
                                                 <td class="border-t border-r  px-4 py-2">90</td>

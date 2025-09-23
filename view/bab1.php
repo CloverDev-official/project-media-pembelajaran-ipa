@@ -25,7 +25,6 @@
             </div>
         </div>
 
-        </div>
         <!-- Content + Sidebar -->
         <div>
             <div class="flex flex-row justify-center m-3 ml-8 md:m-10  gap-10">

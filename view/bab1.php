@@ -25,10 +25,10 @@
             </div>
         </section>
 
+        </div>
         <!-- Content + Sidebar -->
         <div>
-            <div class="flex flex-row justify-center m-3 ml-8 md:m-10 gap-10">
-
+            <div class="flex flex-row justify-center m-3 ml-8 md:m-10  gap-10">
                 <!-- Content -->
                 <div class="md:w-4/4 m-5 text-start">
                     <ul class="list-decimal font-bold text-2xl" id="pengertian">

@@ -7,7 +7,7 @@
     <title>IPAVERSE | BAB 1</title>
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/vidInteraktif.css">
-    <script src="../script/sidebar.js" defer></script>
+    <script src="../script/sidebar.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
@@ -26,7 +26,7 @@
         </section>
 
         <!-- Content + Sidebar -->
-        <div class="m-3 md:m-10">
+        <div>
             <div class="flex flex-row justify-center gap-10">
 
                 <!-- Content -->

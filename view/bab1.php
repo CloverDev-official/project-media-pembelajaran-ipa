@@ -8,6 +8,7 @@
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/vidInteraktif.css">
     <script src="../script/sidebar.js" defer></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
 <body class="relative">

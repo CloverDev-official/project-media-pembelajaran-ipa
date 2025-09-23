@@ -16,14 +16,14 @@
 
     <main class="min-h-screen">
         <!-- Hero Section -->
-        <section class="bg-[url(../img/section.png)] bg-no-repeat bg-cover hero">
+        <div class="bg-[url(../img/section.png)] bg-no-repeat bg-cover hero">
             <div class="flex items-center h-[90vh]">
                 <div class="p-10 text-white">
                     <h1 class="font-bold text-5xl md:text-7xl">BAB 1</h1>
                     <p class="font-bold text-3xl md:text-4xl">Pertumbuhan dan perkembangan</p>
                 </div>
             </div>
-        </section>
+        </div>
 
         </div>
         <!-- Content + Sidebar -->

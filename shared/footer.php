@@ -1,4 +1,4 @@
-<footer class="flex flex-col px-6 md:px-20 mt-12 bg-white">
+<footer class="flex flex-col px-6 md:px-20 mt-12 bg-white z-10">
   <!-- Bagian atas -->
   <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-5 mb-8 gap-8">
     <!-- Logo + deskripsi -->
@@ -10,7 +10,7 @@
     </div>
 
     <!-- Sosial Media -->
-    <div class="flex flex-col z-10">
+    <div class="flex flex-col">
       <h4 class="text-base font-semibold">Ikuti kami di sosial media</h4>
       <div class="flex justify-center items-center gap-4 mt-3">
         <a href="" class="text-2xl text-blue-500 hover:text-blue-700 transition-all duration-200 ease-in-out scale-95 hover:scale-120"><i class="bi bi-facebook"></i></a>

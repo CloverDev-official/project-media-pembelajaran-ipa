@@ -7,6 +7,7 @@
     <title>IPAVERSE | BAB 1</title>
     <?php include("../shared/link.php"); ?>
     <script src="../script/sidebar.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <style>
     ::-webkit-scrollbar {
@@ -26,13 +27,11 @@
                 </div>
             </div>
         </div>
-
         <!-- Content + Sidebar -->
         <div>
-            <div class="flex flex-row justify-center m-3 md:m-10  gap-10">
-
+            <div class="flex flex-row justify-center m-3 ml-8 md:m-10  gap-10">
                 <!-- Content -->
-                <div class="md:w-4/4 m-5 text-start">
+                <div class="md:w-4/4 ml-7 mt-5 mb-5 text-start">
                     <ul class="list-decimal font-bold text-2xl" id="pengertian">
                         <li>Pengertian Pertumbuhan dan Perkembangan </li>
                     </ul>
@@ -86,20 +85,7 @@
                                 <li>Menuju kedewasaan</li>
                             </ul>
                         </div>
-                    </div>
-                        <!-- Container Video -->
-                             <div class="flex justify-center items-center my-10">
-                            <div id="video-container" class="relative w-[640px] h-[360px]">
-                            <!-- Player YouTube -->
-                            <div id="player" class="w-[640px] h-[360px] bg-black"></div>
-
-                            <!-- Overlay Soal -->
-                            <div id="soal" class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-center p-6">
-                                <p id="pertanyaan" class="text-xl font-semibold text-white mb-6"></p>
-                                <div id="opsi" class="flex flex-col gap-3 w-full max-w-s    m"></div>
-                            </div>
-                            </div>
-                        </div>
+                    </div>  
                     <!-- Sub Bab -->
                     <h1 class="text-xl font-semibold mt-10" id="subBabPertama">A. Pertumbuhan dan Perkembangan pada Manusia </h1>
                     <ul class="list-disc mt-5 ml-10 mb-5">

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPAVERSE | Beranda</title>
     <?php include("../shared/link.php"); ?>
 </head>
+
 <style>
     @layer utilities {
         @keyframes float {
@@ -52,52 +52,55 @@
 
         <!-- content -->
         <div class="p-4 mb-20 ">
-
-            <!-- Preview Materi Pembelajaran -->
+            <!-- wrapper preview card materi  -->
             <div class="flex flex-col items-center mt-32 px-4">
+                <!-- judul section -->
                 <div class="text-center mb-10 ">
-
                     <div class="text-5xl animate-float"><i class="fa fa-book text-green-600 "></i></div>
-                    <h1
-                        class="font-bold text-3xl sm:text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-green-600">
-                        Materi Pembelajaran</h1>
+                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-green-600">Materi Pembelajaran</h1>
                     <p class="text-md text-gray-700 mt-5">Pilih dari topik dibawah:</p>
                 </div>
-                <!-- Container -->
+                <!-- Container preview materi -->
                 <div class="container mx-auto px-4">
                     <!-- Desktop mode (flex) -->
                     <div class="hidden md:flex flex-wrap justify-center gap-6 mb-5">
                         <!-- bab 1 -->
-                        <div
-                            class="bg-green-500 border-t border-r border-green-600 hover:translate-x-[-13.5px] hover:bg-green-600 text-white hover:text-gray-200 transition-all border-l-[6px] border-b-[6px] hover:border-l hover:border-b hover:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                        <div class="bg-green-500 border-t border-r border-green-600 hover:translate-x-[-13.5px] hover:bg-green-600 text-white hover:text-gray-200 transition-all border-l-[6px] border-b-[6px] hover:border-l hover:border-b hover:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                            <!-- nomer bab -->
                             <div class="absolute  bg-green-500 p-1 rounded-tl-md rounded-br-md text-shadow-2xs ">
                                 <p class="text-sm">Bab 1</p>
                             </div>
+                            <!-- img card materi -->
                             <div class="bg-gray-200 h-64 rounded-tl-md rounded-tr-3xl rounded-bl-3xl"></div>
+                            <!-- judul card materi -->
                             <div class="p-3  text-shadow-2xs">
                                 <h1 class="font-bold text-xl">Fisika Dasar</h1>
                                 <p class="text-sm">Jelajahi Konsep dasar dalam ilmu Fisika.</p>
                             </div>
                         </div>
                         <!-- bab 2 -->
-                        <div
-                            class="border-t border-r hover:border-l hover:border-b hover:scale-95 border-green-600 text-white hover:text-gray-200 hover:translate-x-[-13.5px] bg-green-500 hover:bg-green-600 transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                        <div class="border-t border-r hover:border-l hover:border-b hover:scale-95 border-green-600 text-white hover:text-gray-200 hover:translate-x-[-13.5px] bg-green-500 hover:bg-green-600 transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                            <!-- nomer bab -->
                             <div class="absolute  bg-green-500 p-1 rounded-tl-md rounded-br-md">
                                 <p class="text-sm">Bab 2</p>
                             </div>
+                            <!-- img card materi -->
                             <div class="bg-gray-200 h-64 rounded-tl-xl rounded-tr-3xl rounded-bl-3xl"></div>
+                            <!-- judul card materi -->
                             <div class="p-3">
                                 <h1 class="font-semibold text-xl">Fisika Lanjutan</h1>
                                 <p class="text-sm">Pelajari hukum-hukum lanjutan dalam Fisika.</p>
                             </div>
                         </div>
                         <!-- bab 3 -->
-                        <div
-                            class="border-t border-r border-green-600 hover:border-l hover:border-b hover:scale-95 hover:translate-x-[-13.5px] hover:bg-green-600 bg-green-500 text-white hover:text-gray-200 shadow-2xs transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-bl-xl  rounded-tr-3xl rounded-b-lg w-72 relative">
+                        <div class="border-t border-r border-green-600 hover:border-l hover:border-b hover:scale-95 hover:translate-x-[-13.5px] hover:bg-green-600 bg-green-500 text-white hover:text-gray-200 shadow-2xs transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-bl-xl  rounded-tr-3xl rounded-b-lg w-72 relative">
+                            <!-- nomer bab -->
                             <div class="absolute bg-green-500 p-1 rounded-tl-md rounded-br-md">
                                 <p class="text-sm">Bab 3</p>
                             </div>
+                            <!-- img card materi -->
                             <div class="bg-gray-200 h-64 rounded-tl-md rounded-tr-3xl rounded-bl-3xl"></div>
+                            <!-- judul card materi -->
                             <div class="p-3">
                                 <h1 class="font-semibold text-xl">Eksperimen</h1>
                                 <p class="text-sm">Lakukan eksperimen dasar untuk memahami Fisika.</p>
@@ -112,8 +115,7 @@
                                 <!-- Slide 1 -->
                                 <div class="swiper-slide">
                                     <div class="flex justify-center">
-                                        <div
-                                            class="bg-green-500 border-t border-r border-green-600 border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm">
+                                        <div class="bg-green-500 border-t border-r border-green-600 border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm">
                                             <div class="absolute bg-green-500 p-1 rounded-tl-sm rounded-br-md ">
                                                 <p class="text-sm">Bab 1</p>
                                             </div>
@@ -179,7 +181,6 @@
 
             </div>
         </div>
-
         <!-- chart -->
         <div class="flex flex-col lg:flex-row justify-center  gap-10 lg:gap-52 mt-20 p-4">
             <!-- Progres Pembelajaran -->
@@ -212,6 +213,7 @@
                 </div>
             </div>
         </div>
+        <!-- container jelajahi topik -->
         <div class="p-4">
             <!-- Jelajahi Topik -->
             <div class="flex flex-col items-center mt-32 mb-10 px-4" id="jelajahi">
@@ -268,64 +270,8 @@
 
     </main>
     <?php include("../shared/footer.php"); ?>
-    <script>
-        const swiper = new Swiper(".swiper", {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            spaceBetween: 20,   // 🔹 kasih jarak antar slide (px)
-        });
-
-
-        const ctx = document.getElementById('nilaiChart');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Ujian 1', 'Ujian 2', 'Ujian 3', 'Ujian 4', 'Ujian 5'],
-                datasets: [{
-                    label: 'Nilai',
-                    data: [70, 80, 85, 90, 88],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.6)',   // merah
-                        'rgba(54, 162, 235, 0.6)',   // biru
-                        'rgba(255, 206, 86, 0.6)',   // kuning
-                        'rgba(75, 192, 192, 0.6)',   // hijau toska
-                        'rgba(153, 102, 255, 0.6)'   // ungu
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 206, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(153, 102, 255)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-
-            options: {
-                responsive: true,   // ❌ nonaktifkan resize otomatis
-                maintainAspectRatio: false, // biar height/width ikuti canvas
-                plugins: {
-                    legend: { display: true }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }
-            }
-        });
-    </script>
-
+    <script src="../script/berandaChart.js"></script>
+    <script src="../script/berandaSlideShow.js"></script>
 </body>
 
 </html>

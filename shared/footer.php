@@ -10,9 +10,9 @@
     </div>
 
     <!-- Sosial Media -->
-    <div class="flex flex-col">
+    <div class="flex flex-col z-10">
       <h4 class="text-base font-semibold">Ikuti kami di sosial media</h4>
-      <div class="flex gap-4 mt-3">
+      <div class="flex justify-center items-center gap-4 mt-3">
         <a href="" class="text-2xl text-blue-500 hover:text-blue-700 transition-all duration-200 ease-in-out scale-95 hover:scale-120"><i class="bi bi-facebook"></i></a>
         <a href="" class="text-2xl bg-gradient-to-r from-[#FEDA75] via-[#FA7E1E] via-[#D62976] to-[#962FBF] bg-clip-text text-transparent  transition-all duration-200 ease-in-out scale-95 hover:scale-120"><i class="bi bi-instagram"></i></a>
         <a href="" class="text-2xl text-blue-400  hover:text-blue-500 transition-all duration-200 ease-in-out scale-95 hover:scale-120"><i class="bi bi-telegram"></i></a>

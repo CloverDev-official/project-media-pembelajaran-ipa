@@ -37,7 +37,7 @@
                   hover:after:left-0 hover:after:w-full 
                   active:after:left-0 active:after:w-full 
                   focus:outline-none capitalize">
-                    games
+                    gim
                 </a>
             </li>
 
@@ -105,7 +105,7 @@
                     </li>
                     <li><a href="../view/settings.php" class="flex gap-1 px-3 py-2 hover:bg-gray-100 rounded "> <img
                                 src="../img/gear-fill.svg" alt="" class="animate-spin"> Pengaturan</a></li>
-                    <li><a href="../logout.php" class="block px-3 py-2 text-red-600 hover:bg-red-50 rounded"><i
+                    <li><a href="../view/index.php" class="block px-3 py-2 text-red-600 hover:bg-red-50 rounded"><i
                                 class="bi bi-box-arrow-right"></i> Logout</a></li>
                 </ul>
             </div>
@@ -114,104 +114,21 @@
 
     <!-- Dropdown Mobile Menu -->
     <ul id="mobile-menu" class="hidden flex-col gap-5 p-5 bg-gray-200 md:hidden">
-        <a href="../view/beranda.php" class="text-lg font-semibold">
-            <li>Beranda</li>
+        <a href="../view/beranda.php" class="text-lg font-semibold capitalize">
+            <li>beranda</li>
         </a>
-        <a href="../view/materi.php" class="text-lg font-semibold">
-            <li>Materi</li>
+        <a href="../view/materi.php" class="text-lg font-semibold capitalize">
+            <li>materi</li>
         </a>
-        <a href="../view/gim.php" class="text-lg font-semibold">
-            <li>Gim</li>
+        <a href="../view/gim.php" class="text-lg font-semibold capitalize">
+            <li>gim</li>
         </a>
-        <a href="../view/beranda.php#jelajahi" class="text-lg font-semibold">
-            <li>Jelajahi</li>
+        <a href="../view/beranda.php#jelajahi" class="text-lg font-semibold capitalize">
+            <li>jelajahi</li>
         </a>
-        <a href="../view/kuis.php" class="text-lg font-semibold">
+        <a href="../view/kuis.php" class="text-lg font-semibold capitalize">
             <li>Kuis</li>
         </a>
     </ul>
 </header>
-
-<script>
-    const header = document.getElementById('site-header');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const userBtn = document.getElementById('user-btn');
-    const userBtnMobile = document.getElementById('user-btn-mobile');
-    const userPopup = document.getElementById('user-popup');
-    const userPopupMobile = document.getElementById('user-popup-mobile');
-
-    let lastScroll = 0;
-    let menuOpen = false;
-
-    // Toggle menu mobile
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        menuOpen = !menuOpen;
-    });
-
-    // Scroll behavior
-    window.addEventListener('scroll', () => {
-        if (menuOpen) return;
-
-        let currentScroll = window.scrollY;
-
-        if (currentScroll <= 0) {
-            header.style.transform = 'translateY(0)';
-        } else if (currentScroll > lastScroll) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-
-        lastScroll = currentScroll;
-    });
-
-    // Toggle user popup
-    userBtn.addEventListener('click', () => {
-        if (userPopup.classList.contains('hidden')) {
-            userPopup.classList.remove('hidden');
-            setTimeout(() => {
-                userPopup.classList.add('scale-100', 'opacity-100');
-                userPopup.classList.remove('scale-95', 'opacity-0');
-            }, 10);
-        } else {
-            userPopup.classList.add('scale-95', 'opacity-0');
-            userPopup.classList.remove('scale-100', 'opacity-100');
-            setTimeout(() => userPopup.classList.add('hidden'), 200);
-        }
-    });
-
-    // Toggle user popup mobile
-    userBtnMobile.addEventListener('click', () => {
-        if (userPopupMobile.classList.contains('hidden')) {
-            userPopupMobile.classList.remove('hidden');
-            setTimeout(() => {
-                userPopupMobile.classList.add('scale-100', 'opacity-100');
-                userPopupMobile.classList.remove('scale-95', 'opacity-0');
-            }, 10);
-        } else {
-            userPopupMobile.classList.add('scale-95', 'opacity-0');
-            userPopupMobile.classList.remove('scale-100', 'opacity-100');
-            setTimeout(() => userPopupMobile.classList.add('hidden'), 200);
-        }
-    });
-
-    // Klik luar popup → tutup mobile
-    document.addEventListener('click', (e) => {
-        if (!userBtnMobile.contains(e.target) && !userPopupMobile.contains(e.target)) {
-            userPopupMobile.classList.add('hidden');
-            userPopupMobile.classList.remove('scale-100', 'opacity-100');
-            userPopupMobile.classList.add('scale-95', 'opacity-0');
-        }
-    });
-
-    // Klik luar popup → tutup
-    document.addEventListener('click', (e) => {
-        if (!userBtn.contains(e.target) && !userPopup.contains(e.target)) {
-            userPopup.classList.add('hidden');
-            userPopup.classList.remove('scale-100', 'opacity-100');
-            userPopup.classList.add('scale-95', 'opacity-0');
-        }
-    });
-</script>
+<script src="../script/header.js"></script>

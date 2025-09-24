@@ -1,4 +1,4 @@
-<div class="mt-5 ">
+<div id="latihan" class="mt-5 ">
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
     <div class="flex bg-green-500 p-3 sm:p-4 rounded-t-lg text-white w-full">
@@ -48,10 +48,10 @@
         <i class="bi bi-exclamation-triangle-fill"></i> Peringatan
       </h2>
       <p class="text-gray-700 mb-4 text-sm sm:text-base">
-        Harap jawab semua soal terlebih dahulu sebelum submit!
+        Harap jawab semua soal terlebih dahulu sebelum mengirim!
       </p>
       <button onclick="closeModal()"
-        class="px-6 py-2 border-l-[4px] border-b-[4px] border-green-600 bg-green-500 text-white rounded-lg transition-all  active:border-0 hover:scale-105">
+        class="px-6 py-2 rounded-xl border bg-linear-to-t from-green-600 to-green-500 border-b-4 border-green-700 text-white font-semibold text-shadow-2xs shadow-sm transition-all duration-150 hover:scale-110 active:scale-95 active:shadow-inner">
         OK
       </button>
     </div>

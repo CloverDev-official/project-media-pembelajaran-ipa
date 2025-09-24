@@ -1,4 +1,4 @@
-<script>
+
   const sidebar = document.getElementById("sidebar");
   const content = document.getElementById("content");
   const overlay = document.getElementById("overlay");
@@ -44,4 +44,4 @@
   }
 }
 
-</script>
+

@@ -22,14 +22,14 @@
                 </a>
             </li>
             <li class="transition-all rounded-lg  hover:bg-green-700 relative">
-                <a href="../panelGuru/dataSiswa.php" class="bg-green-700 pl-3 py-1  rounded-lg relative">
+                <a href="../panelGuru/dataSiswa.php" class="pl-3 py-1">
                     <i class="bi bi-mortarboard-fill"></i>
                     <span class="menu-text">siswa</span>
                     <span class="tooltip">siswa</span>
                 </a>
             </li>
             <li class="transition-all rounded-lg  hover:bg-green-700 relative">
-                <a href="../panelGuru/rekapNilai.php" class="pl-3 py-1">
+                <a href="../paneGuru/rekapNilai.php" class="bg-green-700 pl-3 py-1  rounded-lg relative">
                     <i class="bi bi-folder-fill"></i>
                     <span class="menu-text">rekap nilai</span>
                     <span class="tooltip">rekap nilai</span>
@@ -55,14 +55,14 @@
         </a>
         </li>
         <!-- data siswa -->
-        <li class="px-3 py-1 rounded-lg bg-green-600">
+        <li class="px-3 py-1 rounded-lg hover:bg-green-600">
         <a href="../panelGuru/dataSiswa.php" class="flex flex-col items-center text-white">
             <i class="bi bi-mortarboard"></i>
             <span class="text-xs capitalize">data siswa</span>
         </a>
         </li>
         <!-- rekap nilai -->
-        <li class="px-3 py-1 rounded-lg hover:bg-green-600">
+        <li class="px-3 py-1 rounded-lg bg-green-600">
         <a href="../panelGuru/rekapNilai.php" class="flex flex-col items-center text-white">
             <i class="bi bi-folder"></i>
             <span class="text-xs capitalize">rekap nilai</span>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPAVERSE | BAB 1</title>
     <?php include("../shared/link.php"); ?>
+    <script src="../script/sidebar.js"></script>
 </head>
 <style>
     ::-webkit-scrollbar {
@@ -127,6 +128,7 @@
 
                     
                     <!-- latihan -->
+                    <div class="latihan"></div>
                     <?php include("../exercise/bab1_latihan.php"); ?>
                 </div>
                 
@@ -137,9 +139,7 @@
         </div>
     </main>
     <?php include("../shared/footer.php"); ?>
-    <?php include("../script/vidInteraktif.php"); ?>
-    <?php include("../script/sidebar.php"); ?>
-    <?php include("../script/latihan.php"); ?>
+    <script src="../script/latihan.js"></script>
 </body>
 
 </html>

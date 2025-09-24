@@ -25,7 +25,7 @@
                 Hewan</a>
             <a href="#4" class="hover:bg-green-100 p-2 rounded">C. Pertumbuhan dan Perkembangan
                 Tumbuhan</a>
-            <a href="#5" class="hover:bg-green-100 p-2 rounded">Latihan</a>
+            <a href="../view/bab1.php#latihan" class="hover:bg-green-100 p-2 rounded">Latihan</a>
         </div>
     </div>
 </div>

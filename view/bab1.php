@@ -8,7 +8,11 @@
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/vidInteraktif.css">
     <script src="../script/sidebar.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <style>
+            ::-webkit-scrollbar {
+        display: none;
+    }
+    </style>
 </head>
 
 <body class="relative">
@@ -87,57 +91,56 @@
 
                     <!-- Container Video -->
                     <div class="flex justify-center items-center my-10">
-                    <div id="video-container" class="relative w-full max-w-[640px]">
-                        
-                        <!-- Responsive wrapper untuk player -->
-                        <div class="relative pb-[56.25%] h-0"> <!-- 16:9 ratio -->
-                        <!-- Player -->
-                        <div id="player" class="w-full max-w-2xl aspect-video bg-black"></div>
-                        </div>
-
-                        <!-- Overlay Soal -->
-                        <div id="soal"
-                        class="hidden absolute inset-0 bg-[rgba(0,0,0,0.8)] z-10 flex flex-col items-center justify-center text-center p-6">
-                        <p id="pertanyaan" class="text-xl font-semibold text-white mb-6"></p>
-                        <div id="opsi" class="flex flex-col gap-3 w-full max-w-sm"></div>
+                        <div id="video-container" class="relative w-full max-w-[640px]">
+                            <!-- Player langsung iframe -->
+                            <iframe id="player"
+                                class="w-full max-w-2xl aspect-video bg-black"
+                                src="https://www.youtube.com/embed/888HyVkGw4U?enablejsapi=1&rel=0&modestbranding=1&controls=0&disablekb=1&playsinline=1"
+                                frameborder="0"
+                                allow="autoplay; encrypted-media"
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
+
+                    <!-- Modal Soal Layar Penuh -->
+                    <div id="soal-modal" class="hidden fixed inset-0 bg-black bg-opacity-30 z-40 flex items-center justify-center p-4">
+                        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 relative">
+                            <h3 class="text-2xl font-bold mb-6 text-center" id="pertanyaan"></h3>
+                            <div id="opsi" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                            <div id="feedback" class="mt-6 text-center font-semibold hidden"></div>
+                        </div>
                     </div>
 
                     <!-- Progress bar preview -->
-                    <div class="w-full max-w-[640px] mx-auto mt-3 relative">
-                    <div id="progress-container" class="w-full bg-gray-700 h-3 rounded-lg cursor-pointer relative">
-                        <div id="watched-bar" class="absolute top-0 left-0 h-3 rounded-lg"
-                        style="background:rgba(59,130,246,0.45); width:0%"></div>
-                        <div id="progress-bar" class="absolute top-0 left-0 h-3 rounded-lg"
-                        style="background:rgb(59,130,246); width:0%"></div>
-                        <div id="progress-tooltip"
-                        class="absolute -top-8 text-sm bg-black text-white px-2 py-1 rounded opacity-0 pointer-events-none transition-opacity duration-150">0:00</div>
-                    </div>
+                    <div id="progress-container-wrapper" class="w-full max-w-[640px] mx-auto mt-3 relative">
+                        <div id="progress-container" class="w-full bg-gray-700 h-3 rounded-lg cursor-pointer relative">
+                            <div id="watched-bar" class="absolute top-0 left-0 h-3 rounded-lg"
+                                style="background:rgba(59,130,246,0.45); width:0%"></div>
+                            <div id="progress-bar" class="absolute top-0 left-0 h-3 rounded-lg"
+                                style="background:rgb(59,130,246); width:0%"></div>
+                            <div id="progress-tooltip"
+                                class="absolute -top-8 text-sm bg-black text-white px-2 py-1 rounded opacity-0 pointer-events-none transition-opacity duration-150">
+                                0:00
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Custom controls -->
-                    <div class="flex justify-center gap-4 mt-4">
-                    <!-- btnPlay -->
-                    <button id="btnPlay"
-                        class="border bg-gradient-to-t from-green-600 to-green-500 border-b-4 border-green-700 py-1 px-3 rounded-xl shadow text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0">
-                        ▶ Play
-                    </button>
-
-                    <!-- btnPause -->
-                    <button id="btnPause"
-                        class="border bg-gradient-to-t from-red-600 to-red-500 border-b-4 border-red-700 py-1 px-3 rounded-xl shadow text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0">
-                        ⏸ Pause
-                    </button>
-
-                    <!-- btnRestart -->
-                    <button id="btnRestart"
-                        class="border bg-gradient-to-t from-yellow-600 to-yellow-500 border-b-4 border-yellow-700 py-1 px-3 rounded-xl shadow text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0">
-                        🔄 Ulang
-                    </button>
+                    <div id="control-buttons" class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mt-2 sm:mt-3 md:mt-4 p-2 sm:p-3 md:p-4">
+                        <button id="btnPlay"
+                            class="border bg-gradient-to-t from-green-600 to-green-500 border-b-4 border-green-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
+                            ▶ Play
+                        </button>
+                        <button id="btnPause"
+                            class="border bg-gradient-to-t from-red-600 to-red-500 border-b-4 border-red-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
+                            ⏸ Pause
+                        </button>
+                        <button id="btnRestart"
+                            class="border bg-gradient-to-t from-yellow-600 to-yellow-500 border-b-4 border-yellow-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50">
+                            🔄 Ulang
+                        </button>
                     </div>
-
-
 
                     <!-- Sub Bab -->
                     <h2 class="text-xl font-semibold mt-10" id="subBabPertama">A. Pertumbuhan dan Perkembangan pada Manusia</h2>
@@ -179,7 +182,6 @@
 
     <?php include("../shared/footer.php"); ?>
     <script src="../script/latihan.js" defer></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="../script/vidInteraktif.js" defer></script>
 </body>
 

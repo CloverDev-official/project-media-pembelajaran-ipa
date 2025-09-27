@@ -6,6 +6,7 @@
     <title>IPAVERSE | Dasboard Guru</title>
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/sidebarGuru.css">
+    <link rel="stylesheet" href="../shared/tema.css">
 </head>
 
 <body class="relative bg-gray-50">
@@ -15,21 +16,14 @@
         <!-- Konten -->
         <div id="content" class="flex-1 transition-all duration-300 p-5">            
             <!-- header -->
-            <header class="">
+            <header>
                 <nav class="flex justify-between gap-5">
                     <!-- teks selamat datang -->
                     <div class="flex flex-col text-start ">
                         <h1 class="text-lg md:text-3xl font-bold capitalize">selamat datang, admin</h1>
                         <h1 class="text-md md:text-lg font-normal text-gray-400">september 13, sabtu</h1>
                     </div>
-                    <div class="flex  gap-5">
-                        <!-- btn notifikasi -->
-                        <button class="text-xl flex mt-[2px]">
-                            <i class="bi bi-bell"></i>
-                        </button>
-                        <!-- btn keluar akun -->
-                        <img src="../img/beruang.jpg" class="w-8 h-8 rounded-full hover:brightness-75 transition-colors duration-150" alt="">
-                    </div>
+                    <?php include("../shared/headerGuru.php") ?>
                 </nav>
             </header>
             <!-- isi konten -->
@@ -37,7 +31,7 @@
                 <!-- container profil guru -->
                 <div class="flex flex-col md:flex-row gap-5 mt-5">
                     <div class="w-12/12 lg:w-8/12">
-                        <div class="bg-green-500 p-4 py-6 rounded-md">
+                        <div class="bg-main p-4 py-6 rounded-md">
                             <h1 class="font-bold text-4xl text-center text-white capitalize">ini panel guru</h1>
                         </div>
                     </div>
@@ -54,7 +48,7 @@
                                     <h1 class="font-normal text-sm text-gray-400 uppercase">nip : 12345678910</h1>
                                     <h1 class="font-normal text-sm text-gray-400 uppercase">smpn11 bjm</h1>
                                 </div>
-                                <div class="bg-green-500 text-md  rounded-lg capitalize font-semibold text-center">guru</div>
+                                <div class="bg-main text-md text-white rounded-lg capitalize font-semibold text-center">guru</div>
                             </div>
                         </div>
                     </div>
@@ -92,7 +86,7 @@
                                                 <!-- container Progress bar -->
                                                 <div class="w-full bg-gray-300 rounded-full h-2">
                                                     <!-- Progress Bar -->
-                                                    <div class="bg-green-500 h-2 rounded-full text-center text-xs font-bold text-white" style="width: 75%;"></div>
+                                                    <div class="bg-main h-2 rounded-full text-center text-xs font-bold text-white" style="width: 75%;"></div>
                                                 </div>
                                                 <p class="ml-1 text-xs text-gray-600 font-normal capitalize">persentase : 75%</p>
                                             </div>
@@ -114,7 +108,7 @@
                                                 <!-- container Progress bar -->
                                                 <div class="w-full bg-gray-300 rounded-full h-2">
                                                     <!-- Progress Bar -->
-                                                    <div class="bg-green-500 h-2 rounded-full text-center text-xs font-bold text-white" style="width: 88.8%;"></div>
+                                                    <div class="bg-main h-2 rounded-full text-center text-xs font-bold text-white" style="width: 88.8%;"></div>
                                                 </div>
                                                 <p class="ml-1 text-xs text-gray-600 font-normal capitalize">persentase : 88%</p>
                                             </div>
@@ -137,7 +131,7 @@
                                 </h1>
                                 <!-- button -->
                                 <a href="../panelGuru/dataSiswa.php">
-                                    <button class="p-2 rounded-lg text-sm border bg-green-300 font-normal capitalize text-green-900 transition-all duration-150 hover:scale-105 active:scale-95">
+                                    <button class="border-l-4 border-b-4 border-main-dark  px-4 py-2 bg-main rounded-lg text-white text-shadow-md font-semibold text-sm transition-all duration-100 shadow-md capitalize hover:scale-105 active:scale-95">
                                         lihat semua
                                     </button>
                                 </a>
@@ -151,7 +145,7 @@
                                         <table class="table-auto  w-full">
                                             <!-- table head -->
                                             <thead>
-                                                <tr class="bg-green-300 text-center">
+                                                <tr class="bg-main-light text-center">
                                                     <th class="border-r border-black px-4 py-2  capitalize">no</th>
                                                     <th class="border-r border-black px-4 py-2  capitalize">nama siswa</th>
                                                     <th class=" px-4 py-2  capitalize">kelas</th>
@@ -185,7 +179,7 @@
                                         <table class="table-auto  w-full">
                                             <!-- table head -->
                                             <thead>
-                                                <tr class="bg-green-300 text-center">
+                                                <tr class="bg-main-light text-center">
                                                     <th class="border-r border-black px-4 py-2 capitalize">no</th>
                                                     <th class="border-r border-black px-4 py-2 capitalize">nama siswa</th>
                                                     <th class=" px-4 py-2 capitalize">kelas</th>
@@ -223,13 +217,13 @@
                                 </h1>
                                 <div class="flex justify-between gap-5">
                                     <a href="">
-                                        <button class="p-2 text-sm rounded-lg border bg-green-800 font-normal capitalize text-white transition-all duration-150 hover:scale-105 active:scale-95">
+                                        <button class="border-l-4 border-b-4 border-green-700 px-4 py-2 bg-green-600 hover:scale-105 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize text-sm active:scale-95">
                                             <i class="fa-solid fa-file-excel"></i> excel
                                         </button>
                                     </a>
                                     <a href="../panelGuru/rekapNilai.php">
-                                        <button class="p-2 text-sm rounded-lg border bg-green-300 font-normal capitalize text-green-900 transition-all duration-150 hover:scale-105 active:scale-95">lihat
-                                            semua
+                                        <button class="border-l-4 border-b-4 border-main-dark  px-4 py-2 bg-main rounded-lg text-white text-shadow-md font-semibold text-sm transition-all duration-100 shadow-md capitalize hover:scale-105 active:scale-95">
+                                            lihat semua
                                         </button>
                                     </a>
                                 </div>
@@ -240,7 +234,7 @@
                                 <div class="overflow-x-auto">
                                     <table class="table-fixed lg:w-full">
                                         <thead>
-                                            <tr class="bg-green-300 text-center">
+                                            <tr class="bg-main-light text-center">
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">no.</th>
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">nama siswa</th>
                                                 <th class="border-r border-black px-4 py-2 font-normal  capitalize">bab 1</th>
@@ -289,6 +283,8 @@
             <?php include("../shared/footer.php"); ?>
         </div>
     </main>
+    <!-- js header -->
+    <script src="../script/headerGuru.js"></script>
     <!-- js sidebar guru -->
     <script src="../script/sidebarGuru.js"></script>
     <!-- js chart dasboard guru  -->

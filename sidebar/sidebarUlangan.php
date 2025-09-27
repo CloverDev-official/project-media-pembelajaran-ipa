@@ -11,6 +11,7 @@
                 </div>
 
                 <ul class="mt-3 flex flex-col gap-5 text-white text-xl font-semibold capitalize">
+                    <!-- dasboard -->
                     <li>
                         <a href="../panelGuru/index.php" class="bg-hover-dark pl-3 py-3 rounded-lg relative">
                             <i class="bi bi-speedometer2"></i>
@@ -18,20 +19,23 @@
                             <span class="tooltip">dasboard</span>
                         </a>
                     </li>
-                    <li class="transition-all rounded-lg  bg-main-dark relative">
+                    <!-- data siswa -->
+                    <li class="transition-all rounded-lg  bg-hover-dark relative">
                         <a href="../panelGuru/dataSiswa.php" class="pl-3 py-3">
                             <i class="bi bi-mortarboard-fill"></i>
                             <span class="menu-text">data siswa</span>
                             <span class="tooltip">data siswa</span>
                         </a>
                     </li>
-                    <li class="transition-all rounded-lg  bg-hover-dark relative">
+                    <!-- rekap nilai -->
+                    <li class="transition-all rounded-lg bg-hover-dark relative">
                         <a href="../panelGuru/rekapNilai.php" class="pl-3 py-3">
                             <i class="bi bi-folder-fill"></i>
                             <span class="menu-text">rekap nilai</span>
                             <span class="tooltip">rekap nilai</span>
                         </a>
                     </li>
+                    <!-- tambah materi -->
                     <li class="transition-all rounded-lg  bg-hover-dark relative">
                         <a href="../panelGuru/tambahMateri.php" class="pl-3 py-3">
                             <i class="fa-solid fa-file-circle-plus"></i>
@@ -39,7 +43,8 @@
                             <span class="tooltip">materi</span>
                         </a>
                     </li>
-                    <li class="transition-all rounded-lg  bg-hover-dark relative">
+                    <!-- ulangan -->
+                    <li class="transition-all rounded-lg  bg-main-dark relative">
                         <a href="../panelGuru/ulangan.php" class="pl-3 py-3">
                             <i class="fa-solid fa-file-pen"></i>
                             <span class="menu-text">ulangan</span>
@@ -64,14 +69,14 @@
                 </a>
                 </li>
                 <!-- data siswa -->
-                <li class="px-3 py-1 rounded-lg bg-main-dark">
+                <li class="px-3 py-1 rounded-lg ">
                 <a href="../panelGuru/dataSiswa.php" class="flex flex-col items-center text-white">
                     <i class="bi bi-mortarboard"></i>
                     <span class="text-xs capitalize">data siswa</span>
                 </a>
                 </li>
                 <!-- rekap nilai -->
-                <li class="px-3 py-1 rounded-lg ">
+                <li class="px-3 py-1 rounded-lg">
                     <a href="../panelGuru/rekapNilai.php" class="flex flex-col items-center text-white">
                         <i class="bi bi-folder"></i>
                         <span class="text-xs capitalize">rekap nilai</span>
@@ -85,7 +90,7 @@
                     </a>
                 </li>
                 <!-- ulangan -->
-                <li class="px-3 py-1 rounded-lg ">
+                <li class="px-3 py-1 rounded-lg bg-main-dark">
                     <a href="../panelGuru/rekapNilai.php" class="flex flex-col items-center text-white">
                         <i class="bi bi-pencil-square"></i>
                         <span class="text-xs capitalize">ulangan</span>

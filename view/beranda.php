@@ -174,7 +174,7 @@
 
                 <a href="materi.php" class="flex justify-center items-center p-5 mt-5">
                     <button
-                        class="border bg-linear-to-t from-green-600 to-green-500 border-b-8 border-green-700 p-2 rounded-3xl shadow-lg text-2xl text-white px-6 md:px-10 font-bold text-shadow-md transition-all duration-150 hover:scale-110 active:  active:border-b-0 active:shadow-inner">
+                        class="border bg-linear-to-t from-green-600 to-green-500 border-b-8 border-green-700 p-2 rounded-3xl shadow-lg text-2xl text-white px-6 md:px-10 font-bold text-shadow-md transition-all duration-150 hover:scale-110 active:scale-95 active:shadow-inner">
                         Selengkapnya
                     </button>
                 </a>
@@ -264,10 +264,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
     </main>
     <?php include("../shared/footer.php"); ?>
     <script src="../script/berandaChart.js"></script>

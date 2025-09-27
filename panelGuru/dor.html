@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Blog Post</title>
+  <!-- Load TinyMCE -->
+  <script src="https://cdn.tiny.cloud/1/84lq08bowtkcmci93jz75he2dvvcj84nnyr6b4tiyh9sxwij/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+  <h2>edo and syahid nda bantai buhan nyw adu kita brok guwe sherlock holmes</h2>
+
+  <!-- Input Title -->
+  <label for="title">Title</label><br>
+  <input type="text" id="title" name="title" style="width: 500px; padding: 8px; margin-bottom: 20px;"><br><br>
+
+  <!-- Input Message (Rich Text Editor) -->
+  <label for="message">Message</label><br>
+  <textarea id="message"></textarea>
+
+  <script>
+    tinymce.init({
+      selector: '#message',
+      plugins: 'lists link image table code help wordcount',
+      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image table | code help',
+      height: 400
+    });
+  </script>
+</body>
+</html>

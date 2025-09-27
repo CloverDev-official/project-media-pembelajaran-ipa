@@ -12,7 +12,7 @@
     <!-- Sidebar -->
     <div id="sidebar"
         class="fixed  top-44 right-0 h-[25rem] w-64 rounded-lg bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-20 ">
-        <div class="bg-green-500 p-3 px-5 flex justify-between items-center rounded-tl-lg">
+        <div class="bg-main p-3 px-5 flex justify-between items-center rounded-tl-lg">
             <h1 class="text-white font-bold">Side Bar</h1>
             <button onclick="toggleSidebar()" class="text-white text-xl"><i class="bi bi-arrow-right-circle"></i></button>
         </div>

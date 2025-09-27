@@ -5,6 +5,7 @@ let totalAnswered = 0; // Tambahkan variabel ini
 let isSoalActive = false; // Tambahkan variabel untuk melacak apakah ada soal aktif
 let soalTimeReached = false; // Tambahkan variabel untuk melacak apakah waktu soal tercapai
 let videoOverlay = null; // Tambahkan variabel untuk overlay video
+let videoStarted = false;
 
 const container = document.getElementById('progress-container');
 const bar = document.getElementById('progress-bar');
@@ -16,12 +17,12 @@ const btnRestart = document.getElementById('btnRestart');
 
 /* --- Soal --- */
 let daftarSoal = [
-  { waktu: 5, pertanyaan: "1. Apa yang dimaksud dengan pertumbuhan pada makhluk hidup?", opsi: [
+  { waktu: 400, pertanyaan: "1. Apa yang dimaksud dengan pertumbuhan pada makhluk hidup?", opsi: [
     { teks:"Bertambahnya ukuran dan volume sel", benar:true },
     { teks:"Perubahan bentuk menuju kedewasaan", benar:false },
     { teks:"Perubahan perilaku sosial", benar:false }
   ]},
-  { waktu: 10, pertanyaan: "2.Organisme yang mengalami metamorfosis sempurna adalah?", opsi: [
+  { waktu: 500, pertanyaan: "2.Organisme yang mengalami metamorfosis sempurna adalah?", opsi: [
     { teks:"Kucing", benar:false },
     { teks:"Kupu-kupu", benar:true },
     { teks:"Ikan", benar:false }
@@ -138,10 +139,10 @@ function showFinalScore() {
       <p class="text-xl text-center mb-6">Skor kamu: <span class="font-bold text-blue-600">${skor}</span> dari ${daftarSoal.length}</p>
       <div class="flex justify-center gap-4">
         <button id="restart-score" class="border bg-gradient-to-t from-green-600 to-green-500 border-b-4 border-green-700 py-2 px-6 rounded-xl shadow text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 control-button video-control-btn">
-          🔄 Main Lagi
+          Main Lagi
         </button>
         <button id="close-score" class="border bg-gradient-to-t from-gray-600 to-gray-500 border-b-4 border-gray-700 py-2 px-6 rounded-xl shadow text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 control-button video-control-btn">
-          ✅ Selesai
+          Selesai
         </button>
       </div>
     </div>
@@ -305,8 +306,23 @@ function mainUpdateLoop(){
 
   if (now > maxWatched) maxWatched = now;
 
-  watchedBar.style.width = Math.min(100, (maxWatched / dur) * 100) + "%";
-  if (!dragging) bar.style.width = Math.min(100, (now / dur) * 100) + "%";
+ // progress bar
+  if (!dragging) {
+    if (videoStarted) {
+      bar.style.width = `calc(10px + ${(now / dur) * 100}%)`;
+    } else {
+      bar.style.width = "0px";
+    }
+  }
+
+  // watched bar
+  if (videoStarted) {
+    watchedBar.style.width = `calc(10px + ${(maxWatched / dur) * 100}%)`;
+  } else {
+    watchedBar.style.width = "0px";
+  }
+
+
 
   if (soalIndex < daftarSoal.length && Math.floor(now) >= daftarSoal[soalIndex].waktu) {
     soalTimeReached = true; // Tandai bahwa waktu soal tercapai
@@ -456,7 +472,7 @@ function setupDoubleTapPrevention() {
     videoOverlay = document.createElement('div');
     videoOverlay.style.position = 'absolute';
     videoOverlay.style.top = '0';
-    videoOverlay.style.left = '0';
+    videoOverlay.style.left = '2px';
     videoOverlay.style.width = '100%';
     videoOverlay.style.height = '100%';
     videoOverlay.style.zIndex = '999'; // Z-index untuk video overlay
@@ -547,13 +563,15 @@ function setupDoubleTapPrevention() {
 function enableButtons(){
   console.log("🔧 Membuat tombol kontrol video yang responsif...");
   
-  // Fungsi untuk play
-  const playHandler = () => {
-    console.log("▶️ Tombol Play ditekan");
-    if (player && player.playVideo) {
-      player.playVideo();
-    }
-  };
+const playHandler = () => {
+  console.log("▶️ Tombol Play ditekan");
+  if (player && player.playVideo) {
+    player.playVideo();
+    videoStarted = true; // tandai video sudah mulai
+  }
+};
+
+
   
   // Fungsi untuk pause
   const pauseHandler = () => {

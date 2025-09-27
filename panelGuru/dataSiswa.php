@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPAVERSE |Data Siswa</title>
+    <title>IPAVERSE | Data Siswa</title>
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/sidebarGuru.css">
+    <link rel="stylesheet" href="../shared/tema.css">
 </head>
 <body class="bg-gray-50">
     <main class="min-h-screen">
@@ -21,48 +22,121 @@
                         <h1 class="text-lg md:text-3xl font-bold capitalize">data siswa</h1>
                         <h1 class="text-md md:text-lg font-normal text-gray-400">september 13, sabtu</h1>
                     </div>
-                    <div class="flex  gap-5">
-                        <!-- btn notifikasi -->
-                        <button class="text-xl flex mt-[2px]">
-                            <i class="bi bi-bell"></i>
-                        </button>
-                        <!-- btn keluar akun -->
-                        <img src="../img/beruang.jpg" class="w-8 h-8 rounded-full hover:brightness-75 transition-colors duration-150" alt="">
-                    </div>
+                    <?php include("../shared/headerGuru.php") ?>
                 </nav>
             </header>
             <!-- wrapper table siswa -->
             <div class="min-h-screen">
                 <div class=" bg-white border border-gray-300 p-4 rounded-md shadow-lg mt-5">
                     <!-- header table siswa-->
-                    <div class="flex justify-between items-center my-4 px-2">
-                        <h1 class=" font-semibold text-lg">Kelas 9A</h1>
+                    <div class="flex justify-between gap-1 items-center md:items-start my-4 px-2">
+                        <h1 class=" font-semibold text-lg md:text-xl">Kelas 9A</h1>
                         <!-- button CRUD -->
-                        <div class="flex gap-2 md:gap-4">
-                            <a href="">
-                                <button class="p-[4px] px-[8px] md:px-2 md:p-2 rounded-lg border bg-green-500 font-semibold text-xs md:text-sm capitalize text-white transition-all duration-150 hover:scale-105 active:scale-95 hover:bg-green-600">
-                                    <i class="bi bi-plus-circle-fill"></i>
-                                    tambah
-                                </button>
-                            </a>
-                            <a href="">
-                                <button class="p-[4px] px-[8px] md:px-2 md:p-2 rounded-lg border bg-red-500 font-semibold text-xs md:text-sm capitalize text-white transition-all duration-150 hover:scale-105 active:scale-95 hover:bg-red-600">
-                                    <i class="bi bi-trash-fill"></i>
-                                    hapus
-                                </button>
-                            </a>
-                            <a href="">
-                                <button class="p-[4px] px-[8px] md:px-2 md:p-2 rounded-lg border bg-yellow-500 font-semibold text-xs md:text-sm capitalize text-white transition-all duration-150 hover:scale-105 active:scale-95 hover:bg-yellow-600">
-                                    <i class="bi bi-pen-fill"></i> 
-                                    edit
-                                </button>
-                            </a>
+                        <div class="flex gap-2 md:gap-4 mb-4 mt-4 md:mt-0">
+                            <!-- btn tambah -->
+                            <button id="btn-tambah" class="text-sm border-l-4 border-b-4 border-green-500  active:border-0  px-4 py-2 bg-green-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
+                                tambah
+                            </button>
+                            <!-- btn hapus -->
+                            <button id="btn-hapus" class="text-sm border-l-4 border-b-4 border-red-500  active:border-0  px-4 py-2 bg-red-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
+                                hapus
+                            </button>
+                            <!-- btn edit -->
+                            <button id="btn-edit" class="text-sm border-l-4 border-b-4 border-yellow-500  active:border-0  px-4 py-2 bg-yellow-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
+                                edit 
+                            </button>
                         </div>
                     </div>
+                    <!-- Modal Tambah -->
+                    <div id="modalTambah" class="fixed inset-0  hidden items-center justify-center z-50">
+                        <!-- Overlay -->
+                        <div id="overlayTambah" class="absolute inset-0 bg-black/50"></div>
+                        <!-- Konten Modal -->
+                        <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-80 md:w-96">
+                            <div class="flex flex-col mb-4 text-center">
+                                <h2 class="text-xl font-semibold capitalize">tambah siswa</h2>
+                                <p class="font-normal text-gray-400 text-sm capitalize">tambahkan siswa baru disini</p>
+                            </div>
+                            
+                            <form id="formTambah" class="flex flex-col gap-4">
+                                <input type="text" id="nama" name="nama" required 
+                                    placeholder="Nama siswa"
+                                    class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                                <input type="text" id="absen" name="absen" required 
+                                    placeholder="Nomor Absen Siswa"
+                                    class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                                
+                                <div class="flex justify-between gap-2 mt-4">
+                                    <button type="button" id="btnCloseTambah" 
+                                            class="px-4 py-2 bg-red-500 text-white rounded-lg transition-all duration-150 hover:bg-red-600 hover:scale-105 active:scale-95">Batal</button>
+                                    <button type="submit" 
+                                            class="px-4 py-2 bg-green-500 text-white rounded-lg transition-all duration-150 hover:bg-green-600 hover:scale-105 active:scale-95">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Modal hapus -->
+                    <div id="modalHapus" class="fixed inset-0  hidden items-center justify-center z-50">
+                        <!-- Overlay -->
+                        <div id="overlayHapus" class="absolute inset-0 bg-black/50"></div>
+                        <!-- Konten Modal -->
+                        <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-80 md:w-96">
+                            <div class="flex flex-col mb-4 text-center">
+                                <h2 class="text-xl font-semibold capitalize">Hapus siswa</h2>
+                                <p class="font-normal text-gray-400 text-sm capitalize">hapus data siswa disini</p>
+                            </div>
+                            
+                            <form id="formHapus" class="flex flex-col gap-4">
+                                <input type="text" id="nama" name="nama" required 
+                                    placeholder="Nama siswa"
+                                    class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                                <input type="text" id="absen" name="absen" required 
+                                    placeholder="Nomor Absen Siswa"
+                                    class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                                
+                                <div class="flex justify-between gap-2 mt-4">
+                                    <button type="button" id="btnCloseHapus" 
+                                            class="px-4 py-2 bg-red-500 text-white rounded-lg transition-all duration-150 hover:bg-red-600 hover:scale-105 active:scale-95">Batal</button>
+                                    <button type="submit" 
+                                            class="px-4 py-2 bg-green-500 text-white rounded-lg transition-all duration-150 hover:bg-green-600 hover:scale-105 active:scale-95">hapus</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Modal Edit -->
+                    <div id="modalEdit" class="fixed inset-0  hidden items-center justify-center z-50">
+                        <!-- Overlay -->
+                        <div id="overlayEdit" class="absolute inset-0 bg-black/50"></div>
+                        <!-- Konten Modal -->
+                        <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-80 md:w-96">
+                            <div class="flex flex-col mb-4 text-center">
+                                <h2 class="text-xl font-semibold capitalize">Edit siswa</h2>
+                                <p class="font-normal text-gray-400 text-sm capitalize">edit data siswa disini</p>
+                            </div>
+                            
+                            <form id="formEdit" class="flex flex-col gap-4">
+                                <input type="text" id="nama" name="nama" required 
+                                    placeholder="Nama siswa"
+                                    class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                                <input type="text" id="absen" name="absen" required 
+                                    placeholder="Nomor Absen Siswa"
+                                    class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                                
+                                <div class="flex justify-between gap-2 mt-4">
+                                    <button type="button" id="btnCloseEdit" 
+                                            class="px-4 py-2 bg-red-500 text-white rounded-lg transition-all duration-150 hover:bg-red-600 hover:scale-105 active:scale-95">Batal</button>
+                                    <button type="submit" 
+                                            class="px-4 py-2 bg-green-500 text-white rounded-lg transition-all duration-150 hover:bg-green-600 hover:scale-105 active:scale-95">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+
                     <div class="rounded-lg border overflow-hidden shadow-lg">
                         <table class="table-auto  w-full">
                             <thead>
-                                <tr class="bg-green-300 text-center">
+                                <tr class="bg-main-light text-center">
                                     <th class="border-r border-black px-4 py-2  capitalize">no</th>
                                     <th class="border-r border-black px-4 py-2  capitalize">nama siswa
                                     </th>
@@ -94,8 +168,12 @@
             <?php include("../shared/footer.php") ?>
          </div>
     </main>
+    <!-- js header -->
+    <script src="../script/headerGuru.js"></script>
     <!-- sidebar JS -->
     <script src="../script/sidebarGuru.js"></script>
+    <!--  -->
+    <script src="../script/modalCRUD.js"></script>
 
 </body>
 </html>

@@ -8,7 +8,7 @@
     if (window.innerWidth >= 768) {
       // Desktop → sidebar default terbuka penuh
       sidebar.classList.remove("-translate-x-full");
-      content.classList.add("md:ml-[16.6667%]");
+      content.classList.add("md:ml-20");
       openSidebarBtn.classList.add("hidden");
     } else {
       // Mobile → sidebar default tertutup
@@ -43,5 +43,3 @@
     }
   }
 }
-
-

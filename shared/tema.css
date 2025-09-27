@@ -1,0 +1,82 @@
+/* === Default: Hijau === */
+body[data-theme="default"] {
+  --bg-main: #00c850;   /* bg-green-500 */
+  --bg-main-light: #7af1a7; /* bg-green-300 */
+  --bg-main-dark: #15803d;  /* bg-green-700 */
+  --bg-card: #ffffff;
+  --bg-subtle: #EAFFEB; /* abu terang */
+  --text-main: #111827;
+  --text-subtle: #6b7280;
+  --border-color: #00c850;
+}
+
+/* === Pink === */
+body[data-theme="pink"] {
+  --bg-main: #C562AF  ;   /* pink base*/
+  --bg-main-light: #DB8DD0; /* pink light */
+  --bg-main-dark: #B33791 ;  /* pink dark */
+  --bg-card: #ffffff;
+  --bg-subtle: #fff0f6;
+  --text-main: #831843;
+  --text-subtle: #9d174d;
+  --border-color: #fbcfe8;
+}
+
+/* === Biru === */
+body[data-theme="blue"] {
+  --bg-main: #3b82f6;   /* biru 500 */
+  --bg-main-light: #93c5fd; /* biru 300 */
+  --bg-main-dark: #1e3a8a;
+  --bg-card: #ffffff;
+  --bg-subtle: #eff6ff;
+  --text-main: #1e3a8a;
+  --text-subtle: #1e40af;
+  --border-color: #bfdbfe;
+}
+
+/* === Utility pakai variabel === */
+.bg-main {
+  background-color: var(--bg-main) !important;
+}
+
+.bg-main-subtile {
+  background-color: var(--bg-main-subtile) !important;
+}
+
+.bg-main-light {
+  background-color: var(--bg-main-light) !important;
+}
+
+.bg-main-dark {
+  background-color: var(--bg-main-dark) !important;
+}
+
+.bg-card {
+  background-color: var(--bg-card) !important;
+}
+
+.bg-subtle {
+  background-color: var(--bg-subtle) !important;
+}
+
+.text-main {
+  color: var(--text-main) !important;
+}
+.text-subtle {
+  color: var(--text-subtle) !important;
+}
+
+.border-main {
+  border-color: var(--bg-main) !important;
+}
+
+.border-main-dark {
+  border-color: var(--bg-main-dark) !important;
+}
+.border-subtle {
+  border-color: var(--border-color) !important;
+}
+
+.bg-hover-dark:hover {
+    background-color: var(--bg-main-dark) !important;
+}

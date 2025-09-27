@@ -114,11 +114,9 @@
 
                     <!-- Progress bar preview -->
                     <div id="progress-container-wrapper" class="w-full max-w-[640px] mx-auto mt-3 relative">
-                        <div id="progress-container" class="w-full bg-gray-700 h-3 rounded-lg cursor-pointer relative">
-                            <div id="watched-bar" class="absolute top-0 left-0 h-3 rounded-lg"
-                                style="background:rgba(59,130,246,0.45); width:0%"></div>
-                            <div id="progress-bar" class="absolute top-0 left-0 h-3 rounded-lg"
-                                style="background:rgb(59,130,246); width:0%"></div>
+                        <div id="progress-container" class="w-full bg-gray-200  h-3 rounded-lg cursor-pointer relative">
+                            <div id="watched-bar" class=" absolute top-0 left-[1px] h-3 rounded-lg bg-blue-500"></div>
+                            <div id="progress-bar" class=" absolute top-0 left-[1px] h-3 rounded-lg bg-blue-500"></div>
                             <div id="progress-tooltip"
                                 class="absolute -top-8 text-sm bg-black text-white px-2 py-1 rounded opacity-0 pointer-events-none transition-opacity duration-150">
                                 0:00
@@ -130,15 +128,15 @@
                     <div id="control-buttons" class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mt-2 sm:mt-3 md:mt-4 p-2 sm:p-3 md:p-4">
                         <button id="btnPlay"
                             class="border bg-gradient-to-t from-green-600 to-green-500 border-b-4 border-green-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
-                            ▶ Play
+                            <i class="bi bi-play-circle"></i> Play
                         </button>
                         <button id="btnPause"
                             class="border bg-gradient-to-t from-red-600 to-red-500 border-b-4 border-red-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
-                            ⏸ Pause
+                            <i class="bi bi-pause-circle"></i> Pause
                         </button>
                         <button id="btnRestart"
                             class="border bg-gradient-to-t from-yellow-600 to-yellow-500 border-b-4 border-yellow-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50">
-                            🔄 Ulang
+                            <i class="bi bi-skip-backward-circle-fill"></i> Ulang
                         </button>
                     </div>
 

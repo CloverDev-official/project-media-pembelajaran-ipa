@@ -6,6 +6,7 @@
     <title>IPAVERSE |Rekap Nilai</title>
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/sidebarGuru.css">
+    <link rel="stylesheet" href="../shared/tema.css">
 </head>
 <body class="bg-gray-50">
     <main class="min-h-screen">
@@ -22,14 +23,7 @@
                         <h1 class="text-lg md:text-3xl font-bold capitalize">rekap nilai</h1>
                         <h1 class="text-md md:text-lg font-normal text-gray-400">september 13, sabtu</h1>
                     </div>
-                    <div class="flex  gap-5">
-                        <!-- btn notifikasi -->
-                        <button class="text-xl flex mt-[2px]">
-                            <i class="bi bi-bell"></i>
-                        </button>
-                        <!-- btn keluar akun -->
-                        <img src="../img/beruang.jpg" class="w-8 h-8 rounded-full hover:brightness-75 transition-colors duration-150" alt="">
-                    </div>
+                    <?php include("../shared/headerGuru.php") ?>
                 </nav>
             </header>
             <!-- wrapper tabel rekap nilai siswa -->
@@ -39,7 +33,7 @@
                     <div class="flex justify-between px-2 my-4">
                         <h1 class=" font-semibold text-lg uppercase">Kelas 9a</h1>
                         <a href="">
-                            <button class="p-2 rounded-lg border text-sm bg-green-800 font-normal capitalize text-white transition-all duration-150 hover:scale-105 active:scale-95">
+                            <button class="border-l-4 border-b-4 border-green-700 px-4 py-2 bg-green-600 hover:scale-105 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize text-sm active:scale-95">
                                 <i class="fa-solid fa-file-excel"></i> excel
                             </button>
                         </a>
@@ -51,7 +45,7 @@
                             <!-- tabel rekap nilai -->
                             <table class="table-auto lg:w-full min-w-max">
                                 <thead>
-                                    <tr class="bg-green-300 text-center">
+                                    <tr class="bg-main-light text-center">
                                     <th class="border-r border-black px-4 py-2 font-normal capitalize">no.</th>
                                     <th class="border-r border-black px-4 py-2 font-normal capitalize">nama siswa</th>
                                     <th class="border-r border-black px-4 py-2 font-normal capitalize">bab 1</th>
@@ -118,7 +112,7 @@
                     <div class="flex justify-between px-2 my-4  ">
                         <h1 class="font-semibold text-lg uppercase">Kelas 9b</h1>
                         <a href="">
-                            <button class="p-2 rounded-lg text-sm border bg-green-800 font-normal capitalize text-white transition-all duration-150 hover:scale-105 active:scale-95">
+                            <button class="border-l-4 border-b-4 border-green-700 px-4 py-2 bg-green-600 hover:scale-105 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize text-sm active:scale-95">
                                 <i class="fa-solid fa-file-excel"></i> excel
                             </button>
                         </a>
@@ -131,7 +125,7 @@
                             <table class="table-auto lg:w-full min-w-max">
                                 <!-- table head -->
                                 <thead>
-                                    <tr class="bg-green-300 text-center">
+                                    <tr class="bg-main-light text-center">
                                     <th class="border-r border-black px-4 py-2 font-normal capitalize">no.</th>
                                     <th class="border-r border-black px-4 py-2 font-normal capitalize">nama siswa</th>
                                     <th class="border-r border-black px-4 py-2 font-normal capitalize">bab 1</th>
@@ -199,7 +193,9 @@
             <?php include("../shared/footer.php")  ?>
          </div>
     </main>
-    <!-- javascript -->
+    <!-- js header -->
+    <script src="../script/headerGuru.js"></script>
+    <!-- js sidebar -->
     <script src="../script/sidebarGuru.js"></script>
 
 </body>

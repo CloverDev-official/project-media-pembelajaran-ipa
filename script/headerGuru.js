@@ -81,48 +81,7 @@ tabs.forEach(tab => {
   });
 });
 
-// === Modal Tema ===
-const modalTema = document.getElementById("modalTema");
-const btnTema = document.querySelector("#popupProfil button"); // tombol Tema di popup profil
-const closeTema = document.getElementById("closeTema");
 
-// buka modal tema
-btnTema?.addEventListener("click", () => {
-  modalTema.classList.remove("opacity-0", "pointer-events-none");
-});
-
-// tutup modal tema
-closeTema?.addEventListener("click", () => {
-  modalTema.classList.add("opacity-0", "pointer-events-none");
-});
-
-// klik luar modal = tutup
-modalTema?.addEventListener("click", (e) => {
-  if (e.target === modalTema) {
-    modalTema.classList.add("opacity-0", "pointer-events-none");
-  }
-});
-
-// === Ganti Tema ===
-const btnTemaDefault = document.getElementById("btnTemaDefault");
-const btnTemaPink = document.getElementById("btnTemaPink");
-const btnTemaBlue = document.getElementById("btnTemaBlue");
-
-function setTheme(theme) {
-  document.body.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-}
-
-// event click
-btnTemaDefault?.addEventListener("click", () => setTheme("default"));
-btnTemaPink?.addEventListener("click", () => setTheme("pink"));
-btnTemaBlue?.addEventListener("click", () => setTheme("blue"));
-
-// load tema dari localStorage saat reload
-window.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme") || "default";
-  setTheme(savedTheme);
-});
 
 
 

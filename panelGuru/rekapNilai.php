@@ -195,6 +195,8 @@
     </main>
     <!-- js header -->
     <script src="../script/headerGuru.js"></script>
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>    
     <!-- js sidebar -->
     <script src="../script/sidebarGuru.js"></script>
 

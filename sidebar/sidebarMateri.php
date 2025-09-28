@@ -84,14 +84,14 @@
                 </li>
                 <!-- tambah materi -->
                 <li class="px-3 py-1 rounded-lg bg-main-dark">
-                    <a href="../panelGuru/rekapNilai.php" class="flex flex-col items-center text-white">
+                    <a href="../panelGuru/tambahMateri.php" class="flex flex-col items-center text-white">
                         <i class="bi bi-file-plus"></i>
                         <span class="text-xs capitalize">materi</span>
                     </a>
                 </li>
                 <!-- ulangan -->
                 <li class="px-3 py-1 rounded-lg ">
-                    <a href="../panelGuru/rekapNilai.php" class="flex flex-col items-center text-white">
+                    <a href="../panelGuru/ulangan.php" class="flex flex-col items-center text-white">
                         <i class="bi bi-pencil-square"></i>
                         <span class="text-xs capitalize">ulangan</span>
                     </a>

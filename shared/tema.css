@@ -2,12 +2,13 @@
 body[data-theme="default"] {
   --bg-main: #00c850;   /* bg-green-500 */
   --bg-main-light: #7af1a7; /* bg-green-300 */
-  --bg-main-dark: #15803d;  /* bg-green-700 */
+  --bg-main-dark: #15803d;   /* bg-green-700 */
+  --bg-main-medium: #00c850;  /* #16a34a; bg-green-600 */
   --bg-card: #ffffff;
   --bg-subtle: #EAFFEB; /* abu terang */
-  --text-main: #111827;
   --text-subtle: #6b7280;
   --border-color: #00c850;
+  --border-dark: #16a34a;
 }
 
 /* === Pink === */
@@ -15,11 +16,12 @@ body[data-theme="pink"] {
   --bg-main: #C562AF  ;   /* pink base*/
   --bg-main-light: #DB8DD0; /* pink light */
   --bg-main-dark: #B33791 ;  /* pink dark */
+  --bg-main-medium: #B33791;
   --bg-card: #ffffff;
   --bg-subtle: #fff0f6;
-  --text-main: #831843;
   --text-subtle: #9d174d;
   --border-color: #fbcfe8;
+  --border-dark: #B33791;
 }
 
 /* === Biru === */
@@ -27,11 +29,12 @@ body[data-theme="blue"] {
   --bg-main: #3b82f6;   /* biru 500 */
   --bg-main-light: #93c5fd; /* biru 300 */
   --bg-main-dark: #1e3a8a;
+  --bg-main-medium: #2563eb;
   --bg-card: #ffffff;
   --bg-subtle: #eff6ff;
-  --text-main: #1e3a8a;
   --text-subtle: #1e40af;
-  --border-color: #bfdbfe;
+  --border-color: #010202;
+  --border-dark: #2563eb;
 }
 
 /* === Utility pakai variabel === */
@@ -39,12 +42,13 @@ body[data-theme="blue"] {
   background-color: var(--bg-main) !important;
 }
 
-.bg-main-subtile {
-  background-color: var(--bg-main-subtile) !important;
-}
 
 .bg-main-light {
   background-color: var(--bg-main-light) !important;
+}
+
+.bg-main-medium {
+  background-color: var(--bg-main-medium) !important;
 }
 
 .bg-main-dark {
@@ -60,10 +64,18 @@ body[data-theme="blue"] {
 }
 
 .text-main {
-  color: var(--text-main) !important;
+  color: var(--bg-main) !important;
+}
+
+.text-main-medium {
+  color: var(--bg-main-medium) !important ;
 }
 .text-subtle {
   color: var(--text-subtle) !important;
+}
+
+.text-hover-dark:hover {
+  color:  var(--bg-main-dark) !important;
 }
 
 .border-main {
@@ -71,7 +83,7 @@ body[data-theme="blue"] {
 }
 
 .border-main-dark {
-  border-color: var(--bg-main-dark) !important;
+  border-color: var(--border-dark) !important;
 }
 .border-subtle {
   border-color: var(--border-color) !important;
@@ -79,4 +91,12 @@ body[data-theme="blue"] {
 
 .bg-hover-dark:hover {
     background-color: var(--bg-main-dark) !important;
+}
+
+.bg-hover-main:hover {
+    background-color: var(--bg-main) !important;
+}
+
+.bg-after-dark::after {
+  background-color: var(--bg-main-dark) !important;
 }

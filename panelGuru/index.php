@@ -285,6 +285,8 @@
     </main>
     <!-- js header -->
     <script src="../script/headerGuru.js"></script>
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>    
     <!-- js sidebar guru -->
     <script src="../script/sidebarGuru.js"></script>
     <!-- js chart dasboard guru  -->

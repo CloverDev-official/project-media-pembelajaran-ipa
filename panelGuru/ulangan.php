@@ -60,7 +60,9 @@
         </div>
     </main>
     <!-- js header guru -->
-     <script src="../script/headerGuru.js"></script>
+    <script src="../script/headerGuru.js"></script>
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>
      <!-- js sidebar guru -->
     <script src="../script/sidebarGuru.js"></script>
 </body>

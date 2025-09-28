@@ -8,14 +8,9 @@
     <?php include("../shared/link.php"); ?>
     <link rel="stylesheet" href="../shared/vidInteraktif.css">
     <script src="../script/sidebar.js"></script>
-    <style>
-            ::-webkit-scrollbar {
-        display: none;
-    }
-    </style>
 </head>
 
-<body class="relative">
+<body class="bg-subtle relative">
     <?php include("../shared/header.php"); ?>
 
     <main class="min-h-screen">
@@ -177,9 +172,15 @@
             </div>
         </div>
     </main>
-
+    <!-- footer -->
     <?php include("../shared/footer.php"); ?>
+    <!-- header js -->
+    <script src="../script/header.js"></script>
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>    
+    <!-- latihan js -->
     <script src="../script/latihan.js" defer></script>
+    <!-- video interaktif js -->
     <script src="../script/vidInteraktif.js" defer></script>
 </body>
 

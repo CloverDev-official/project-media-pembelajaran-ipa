@@ -28,7 +28,7 @@
             <div class="flex flex-col gap-5 mt-4">
                 <div class="flex justify-end">
                     <!-- btn tambah -->
-                    <button class="border-l-4 border-b-4 border-green-500 hover:border-green-600 active:border-0  px-4 py-2 bg-green-400 hover:bg-green-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
+                    <button id="btn-tambah" class="border-l-4 border-b-4 border-green-500 hover:border-green-600 active:border-0  px-4 py-2 bg-green-400 hover:bg-green-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
                         tambah
                     </button>  
                 </div>
@@ -55,13 +55,19 @@
                         </div>
                     </div>
                 <?php endfor; ?>
+                <!-- modal tambah -->
+                <?php include("../modalPopUp/modalTambahMateri.php") ?>
             </div>
             <?php include("../shared/footer.php") ?>
         </div>
     </main>
     <!-- js header guru -->
      <script src="../script/headerGuru.js"></script>
-     <!-- js sidebar guru -->
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>     
+    <!-- js sidebar guru -->
     <script src="../script/sidebarGuru.js"></script>
+    <!-- CRUD js -->
+     <script src="../script/modalCRUD.js"></script>
 </body>
 </html>

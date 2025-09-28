@@ -7,45 +7,23 @@
     <?php include("../shared/link.php"); ?>
 </head>
 
-<style>
-    @layer utilities {
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-    }
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-</style>
-
-<body>
+<body class="bg-subtle">
     <?php include("../shared/header.php"); ?>
     <main class="min-h-screen">
         <!-- hero section -->
-        <div
-            class="bg-[url(../img/section-mobile.png)] lg:bg-[url(../img/section.png)]  bg-cover bg-center bg-no-repeat ">
-            <div class="flex justify-center items-center h-[89vh] ">
-                <div class="text-center m-5">
-                    <a href="materi.php" class="flex justify-center items-center p-5 mt-60">
-                        <button
-                            class="border bg-linear-to-t from-green-600 to-green-500 border-b-8 border-green-700 p-3 rounded-3xl shadow-lg text-2xl md:text-3xl text-white px-16  font-bold text-shadow-md transition-all duration-150 hover:scale-110 active:  active:border-b-0 active:shadow-inner">
+        <div class="bg-main-dark">
+            <div class="flex justify-between items-center h-[89vh] ">
+                <div class="mx-10 ">
+                    <h1 class="capitalize text-white font-bold text-shadow-sm text-5xl">selamat datang di</h1>
+                    <h1 class="uppercase text-white font-bold text-shadow-sm text-6xl">ipaverse</h1>
+                    <a href="materi.php" class="flex justify-start items-center mt-8">
+                        <button class="px-5 py-3 rounded-3xl font-semibold text-main text-xl bg-subtle transition-all duration-150 hover:scale-105 active:scale-95">
                             Mulai Belajar
                         </button>
                     </a>
-
+                </div>
+                <div class="hidden md:flex justify-center w-md">
+                    <img src="../img/beruang.jpg" alt="foto" class="p-10 rounded-full  m-10">
                 </div>
             </div>
         </div>
@@ -56,8 +34,8 @@
             <div class="flex flex-col items-center mt-32 px-4">
                 <!-- judul section -->
                 <div class="text-center mb-10 ">
-                    <div class="text-5xl animate-float"><i class="fa fa-book text-green-600 "></i></div>
-                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-green-600">Materi Pembelajaran</h1>
+                    <div class="text-5xl animate-float"><i class="fa fa-book text-main-medium "></i></div>
+                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-main-medium">Materi Pembelajaran</h1>
                     <p class="text-md text-gray-700 mt-5">Pilih dari topik dibawah:</p>
                 </div>
                 <!-- Container preview materi -->
@@ -65,9 +43,9 @@
                     <!-- Desktop mode (flex) -->
                     <div class="hidden md:flex flex-wrap justify-center gap-6 mb-5">
                         <!-- bab 1 -->
-                        <div class="bg-green-500 border-t border-r border-green-600 hover:translate-x-[-13.5px] hover:bg-green-600 text-white hover:text-gray-200 transition-all border-l-[6px] border-b-[6px] hover:border-l hover:border-b hover:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                        <div class="bg-main border-t border-r border-main-dark active:translate-x-[-13.5px] active:bg-green-600 text-white active:text-gray-200 hover:translate-y-[-1rem] transition-all border-l-[6px] border-b-[6px] active:border-l active:border-b active:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
                             <!-- nomer bab -->
-                            <div class="absolute  bg-green-500 p-1 rounded-tl-md rounded-br-md text-shadow-2xs ">
+                            <div class="absolute  bg-main p-1 rounded-tl-md rounded-br-md text-shadow-2xs ">
                                 <p class="text-sm">Bab 1</p>
                             </div>
                             <!-- img card materi -->
@@ -79,9 +57,9 @@
                             </div>
                         </div>
                         <!-- bab 2 -->
-                        <div class="border-t border-r hover:border-l hover:border-b hover:scale-95 border-green-600 text-white hover:text-gray-200 hover:translate-x-[-13.5px] bg-green-500 hover:bg-green-600 transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                        <div class="border-t border-r active:border-l active:border-b active:scale-95 border-main-dark text-white active:text-gray-200 active:translate-x-[-13.5px] hover:translate-y-[-1rem] bg-main active:bg-green-600 transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
                             <!-- nomer bab -->
-                            <div class="absolute  bg-green-500 p-1 rounded-tl-md rounded-br-md">
+                            <div class="absolute  bg-main p-1 rounded-tl-md rounded-br-md">
                                 <p class="text-sm">Bab 2</p>
                             </div>
                             <!-- img card materi -->
@@ -93,9 +71,9 @@
                             </div>
                         </div>
                         <!-- bab 3 -->
-                        <div class="border-t border-r border-green-600 hover:border-l hover:border-b hover:scale-95 hover:translate-x-[-13.5px] hover:bg-green-600 bg-green-500 text-white hover:text-gray-200 shadow-2xs transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-bl-xl  rounded-tr-3xl rounded-b-lg w-72 relative">
+                        <div class="border-t border-r border-main-dark active:border-l active:border-b active:scale-95 active:translate-x-[-13.5px] hover:translate-y-[-1rem] active:bg-green-600 bg-main text-white active:text-gray-200 shadow-2xs transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-bl-xl  rounded-tr-3xl rounded-b-lg w-72 relative">
                             <!-- nomer bab -->
-                            <div class="absolute bg-green-500 p-1 rounded-tl-md rounded-br-md">
+                            <div class="absolute bg-main p-1 rounded-tl-md rounded-br-md">
                                 <p class="text-sm">Bab 3</p>
                             </div>
                             <!-- img card materi -->
@@ -115,8 +93,8 @@
                                 <!-- Slide 1 -->
                                 <div class="swiper-slide">
                                     <div class="flex justify-center">
-                                        <div class="bg-green-500 border-t border-r border-green-600 border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm">
-                                            <div class="absolute bg-green-500 p-1 rounded-tl-sm rounded-br-md ">
+                                        <div class="bg-main border-t border-r border-main-dark border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px]">
+                                            <div class="absolute bg-main p-1 rounded-tl-sm rounded-br-md ">
                                                 <p class="text-sm">Bab 1</p>
                                             </div>
                                             <div class="bg-gray-200 h-64 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
@@ -133,8 +111,8 @@
                                 <div class="swiper-slide ">
                                     <div class="flex justify-center">
                                         <div
-                                            class="bg-green-500 border-t border-r border-green-600 border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm">
-                                            <div class="absolute bg-green-500 p-1 rounded-tl-sm rounded-br-md">
+                                            class="bg-main border-t border-r border-main-dark border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px]">
+                                            <div class="absolute bg-main p-1 rounded-tl-sm rounded-br-md">
                                                 <p class="text-sm">Bab 2</p>
                                             </div>
                                             <div class="bg-gray-200 h-64 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
@@ -152,8 +130,8 @@
                                     <div class="flex justify-center">
 
                                         <div
-                                            class="bg-green-500 border-t border-r border-green-600 border-l-8 border-b-8 rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm">
-                                            <div class="absolute bg-green-500 p-1 rounded-tl-sm rounded-br-md">
+                                            class="bg-main border-t border-r border-main-dark border-l-8 border-b-8 rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px]">
+                                            <div class="absolute bg-main p-1 rounded-tl-sm rounded-br-md">
                                                 <p class="text-sm">Bab 3</p>
                                             </div>
                                             <div class="bg-gray-200 h-64 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
@@ -174,7 +152,7 @@
 
                 <a href="materi.php" class="flex justify-center items-center p-5 mt-5">
                     <button
-                        class="border bg-linear-to-t from-green-600 to-green-500 border-b-8 border-green-700 p-2 rounded-3xl shadow-lg text-2xl text-white px-6 md:px-10 font-bold text-shadow-md transition-all duration-150 hover:scale-110 active:scale-95 active:shadow-inner">
+                        class="border bg-main border-b-4 border-l-4 border-main-dark p-2 rounded-2xl shadow-lg text-2xl text-white px-6 md:px-10 font-bold text-shadow-sm transition-all duration-150 hover:scale-[1.05] active:scale-95 active:shadow-inner">
                         Selengkapnya
                     </button>
                 </a>
@@ -182,11 +160,11 @@
             </div>
         </div>
         <!-- chart -->
-        <div class="flex flex-col lg:flex-row justify-center  gap-10 lg:gap-52 mt-20 p-4">
+        <div class="bg-main flex flex-col lg:flex-row justify-center  gap-10 lg:gap-52 mt-20 p-4 lg:py-8">
             <!-- Progres Pembelajaran -->
             <div class="flex justify-center ">
                 <div class="w-full max-w-md ">
-                    <h1 class="font-bold text-2xl lg:text-3xl">Progres Pembelajaran </h1>
+                    <h1 class="font-bold text-2xl lg:text-3xl text-white text-shadow-2xsl">Progres Pembelajaran </h1>
                     <p class="mt-4">Pantau Terus Pencapaian Kamu!</p>
                     <div class="flex flex-col sm:flex-row gap-5 mt-10">
                         <div class="bg-white border border-l-4 border-b-4  rounded-md p-4 border-gray-300 flex-1">
@@ -203,9 +181,8 @@
             <!-- Nilai seiring waktu -->
             <div class="flex justify-center">
                 <div class=" w-full max-w-md">
-                    <h1 class="font-bold text-2xl lg:text-3xl">Nilai Seiring Waktu <i class="bi bi-bar-chart-fill"></i>
-                    </h1>
-                    <p class="mt-4">Pantau perkembangan nilai kamu setiap ujian!</p>
+                    <h1 class="font-bold text-2xl lg:text-3xl text-white text-shadow-2xs">Nilai Seiring Waktu <i class="bi bi-bar-chart-fill"></i></h1>
+                    <p class="mt-2">Pantau perkembangan nilai kamu setiap ujian!</p>
                     <div class="bg-white mt-10 border border-l-4 border-b-4 border-gray-300 rounded-md p-4">
                         <!-- atur ukuran manual -->
                         <canvas id="nilaiChart" width="100" height="150"></canvas>
@@ -219,45 +196,42 @@
             <div class="flex flex-col items-center mt-32 mb-10 px-4" id="jelajahi">
                 <div class="text-center mb-10">
                     <div class="text-5xl"><i class="bi bi-search text-shadow-2xs text-shadow-gray-500"></i></div>
-                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 text-shadow-2xs text-green-600 text-shadow-green-900">Jelajahi Topik</h1>
+                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 text-shadow-2xs text-main-medium text-shadow-green-900">Jelajahi Topik</h1>
                     <p class="text-sm text-gray-700 mt-5">Pilih subjek untuk dipelajari lebih dalam.</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-6">
                     <!-- topik 1 -->
-                    <div
-                        class="border-b-4 border-l-4 transition-all hover:scale-95 hover:border-[1px] hover:translate-x-[-13.5px] hover:bg-gray-100 flex flex-col sm:flex-row gap-5 border border-green-600 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
+                    <div class="bg-white border-b-4 border-l-4 transition-all hover:bg-gray-100 active:bg-gray-100 active:scale-95 active:translate-x-[-13.5px] active:border-[1px]  flex flex-col sm:flex-row gap-5 border border-main-dark p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
-                            <h1 class="font-bold text-xl text-green-600 text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
+                            <h1 class="font-bold text-xl text-main-medium text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
                             <p class="text-sm text-gray-700">Understanding the world around us</p>
                             <div class="wrap-anywhere">
-                                <p class="text-md font-semibold text-green-600">From motion to energy transformations...</p>
+                                <p class="text-md font-semibold text-main-medium">From motion to energy transformations...</p>
                             </div>
 
                         </div>
                     </div>
                     <!-- topik 2 -->
-                    <div
-                        class="border-b-4 hover:border-[1px] border-l-4 transition-all hover:scale-95 hover:translate-x-[-13.5px] hover:bg-gray-100 flex flex-col sm:flex-row gap-5 border border-green-600 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
+                    <div class="bg-white border-b-4  border-l-4 transition-all  hover:bg-gray-100 active:bg-gray-100 active:scale-95 active:translate-x-[-13.5px] active:border-[1px]  flex flex-col sm:flex-row gap-5 border border-main-dark p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
-                            <h1 class="font-bold text-xl text-green-600 text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
+                            <h1 class="font-bold text-xl text-main-medium text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
                             <p class="text-sm text-gray-700">Understanding the world around us</p>
                             <div class="wrap-anywhere">
-                                <p class="text-md font-semibold text-green-600">From motion to energy transformations...</p>
+                                <p class="text-md font-semibold text-main-medium">From motion to energy transformations...</p>
                             </div>
 
                         </div>
                     </div>
                     <!-- topik 3 -->
-                    <div
-                        class="border-b-4 border-l-4 transition-all hover:border-[1px] hover:scale-95 hover:translate-x-[-13.5px]  flex flex-col sm:flex-row gap-5 border border-green-600 p-5 md:w-[25rem] w-[18rem]  rounded-md ">
+                    <div class="bg-white border-b-4 border-l-4 transition-all   hover:bg-gray-100 active:bg-gray-100 active:scale-95 active:translate-x-[-13.5px] active:border-[1px] flex flex-col sm:flex-row gap-5 border border-main-dark p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
-                            <h1 class="font-bold text-xl text-green-600 text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
+                            <h1 class="font-bold text-xl text-main-medium text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
                             <p class="text-sm text-gray-700">Understanding the world around us</p>
                             <div class="wrap-anywhere">
-                                <p class="text-md font-semibold text-green-600">From motion to energy transformations...</p>
+                                <p class="text-md font-semibold text-main-medium">From motion to energy transformations...</p>
                             </div>
 
                         </div>
@@ -266,8 +240,15 @@
             </div>
         </div>
     </main>
+    <!-- footer -->
     <?php include("../shared/footer.php"); ?>
+    <!-- header js -->
+    <script src="../script/header.js"></script>
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>    
+    <!-- chart js -->
     <script src="../script/berandaChart.js"></script>
+    <!-- slideshow js -->
     <script src="../script/berandaSlideShow.js"></script>
 </body>
 

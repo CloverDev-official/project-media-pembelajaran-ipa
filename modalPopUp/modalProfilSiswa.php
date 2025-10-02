@@ -8,7 +8,7 @@
             </a>
         </li>
         <li>
-            <button id="btnTema" class="hover:bg-gray-100 active:bg-gray-100 py-2 px-2 w-full rounded-lg text-start"><i class="bi bi-palette-fill"></i> Tema</button>
+            <button id="openTema" class="hover:bg-gray-100 active:bg-gray-100 py-2 px-2 w-full rounded-lg text-start"><i class="bi bi-palette-fill"></i> Tema</button>
         </li>
         <li>
             <a href="../view/index.php" class="block px-3 py-2 text-red-600 hover:bg-red-50 rounded active:bg-red-50">

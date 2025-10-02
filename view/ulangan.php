@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi</title>
+    <title>IPAVERSE | Ulangan</title>
     <?php include("../shared/link.php"); ?>
 </head>
-
-<body class="bg-subtle text-gray-800">
+<body class="bg-subtle">
     <!-- navbar -->
     <?php include("../shared/header.php"); ?>
 
@@ -21,7 +19,7 @@
                     <div class=" border-gray-300 shadow-sm rounded-2xl bg-white p-4 w-72 h-auto ">
                         <div class="text-center">
                             <div class="bg-gray-100 p-3 w-full h-52 rounded-lg flex justify-center items-center">
-                                <img src="../img/coverBukuPaketIPA.jpg" alt="Cover" class="object-contain h-full">
+                                <img src="" alt="Cover" class="object-contain h-full">
                             </div>
                             <div class="mt-4">
                                 <h1 class="font-bold text-2xl text-main-medium text-shadow-2xs">IPA Kelas 9</h1>
@@ -35,9 +33,9 @@
 
                 <!-- Daftar Bab -->
                 <div class="flex flex-col gap-5 w-full">
-                    <h1 class="font-bold text-xl mb-2 text-white text-shadow-xs  bg-main p-2 pl-5 border-b-2 border-l-2 border-main-dark rounded-full w-[10rem]">
+                    <h1 class="font-bold text-xl mb-2 text-white text-shadow-xs  bg-main p-2 pl-5 border-b-2 border-l-2 border-main-dark rounded-full w-[13rem] capitalize">
                         <i class="fa fa-book"></i>
-                        Pilih Bab
+                        pilih ulangan
                     </h1>
 
                     <!-- Template bab -->
@@ -56,7 +54,7 @@
 
                             <div class="flex items-center gap-8 mt-3 md:mt-0">
                                 <div class="text-center">
-                                    <h1 class="text-sm text-gray-600">Latihan</h1>
+                                    <h1 class="text-sm text-gray-600 capitalize">ulangan</h1>
                                     <p class="text-main-medium font-bold">100%</p>
                                 </div>
                                 <a href="bab<?= $i ?>.php">
@@ -81,5 +79,4 @@
     <!-- tema js -->
     <script src="../script/tema.js"></script>    
 </body>
-
 </html>

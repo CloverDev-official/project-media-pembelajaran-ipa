@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../shared/sidebarGuru.css">
     <link rel="stylesheet" href="../shared/tema.css">
 </head>
-<body class="relative bg-gray-50">
+<body class="relative bg-subtle">
     <main class="min-h-screen">
         <!-- sidebar -->
         <?php include("../sidebar/sidebarUlangan.php") ?>
@@ -33,7 +33,7 @@
                     </button>  
                 </div>
                 <?php for ($i = 1; $i <= 7; $i++): ?>                        
-                    <div class="bg-subtle border-1  border-main shadow-md p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-5 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:w-full">
+                    <div class="bg-white border-1  border-main shadow-md p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-5 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:w-full">
                         <!-- judul -->
                         <div class="flex items-center gap-5 w-full md:w-auto">
                             <div class="bg-main rounded-lg w-14 h-14 flex items-center justify-center">

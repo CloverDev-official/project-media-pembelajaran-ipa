@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor Materi</title>
+
+  <!-- TinyMCE -->
+  <script src="https://cdn.tiny.cloud/1/84lq08bowtkcmci93jz75he2dvvcj84nnyr6b4tiyh9sxwij/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- CSS agar tabel & warna dari Word ikut -->
+<link rel="stylesheet" href="https://unpkg.com/docx-preview@0.4.1/dist/docx-preview.css">
+
+<!-- JS utama -->
+<script src="https://unpkg.com/docx-preview@0.4.1/dist/docx-preview.js"></script>
+
+
+  <!-- pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.worker.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+  <h2>Editor Materi</h2>
+
+  <!-- Tombol Import -->
+  <button type="button" id="importWord">Import Word</button>
+  <input type="file" id="uploadWord" accept=".docx" style="display:none">
+
+  <button type="button" id="importPDF">Import PDF</button>
+  <input type="file" id="uploadPDF" accept=".pdf" style="display:none">
+
+  <!-- Editor -->
+  <textarea id="teks"></textarea>
+
+  <script>
+  // ================= BASE URL =================
+  const baseUrl = `${window.location.origin}/${window.location.pathname.split("/")[1]}`;
+
+  // ================= TinyMCE =================
+  tinymce.init({
+    selector: '#teks',
+    plugins: [
+      "advlist", "anchor", "autolink", "charmap", "code",
+      "fullscreen", "help", "image", "insertdatetime", "link", "lists",
+      "media", "preview", "searchreplace", "table", "visualblocks", "wordcount"
+    ],
+    toolbar: 'undo redo | bold italic underline forecolor backcolor | alignleft aligncenter alignright | bullist numlist | link image media table | code preview help',
+    height: 500,
+
+    /* Upload gambar */
+    images_upload_url: `${baseUrl}/php/upload.php`,
+    file_picker_types: 'image',
+
+    file_picker_callback: (cb, value, meta) => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+
+        const maxSize = 5 * 1024 * 1024;
+        if (file.size > maxSize) {
+          alert("Ukuran file maksimal 5MB!");
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+          const res = await fetch(`${baseUrl}/php/upload.php`, { method: 'POST', body: formData });
+          const data = await res.json();
+          if (data?.location) {
+            cb(data.location, { title: file.name });
+          } else {
+            alert("Upload gagal: " + (data.error || "Tidak diketahui"));
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Upload gagal: " + err.message);
+        }
+      };
+      input.click();
+    },
+
+    images_upload_handler: async (blobInfo, success, failure) => {
+      const file = blobInfo.blob();
+      const maxSize = 5 * 1024 * 1024;
+      if (file.size > maxSize) {
+        failure("Ukuran file terlalu besar (maksimal 5MB).");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const res = await fetch(`${baseUrl}/php/upload.php`, { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data?.location) {
+          success(data.location);
+        } else {
+          failure("Upload gagal: " + (data.error || "Tidak diketahui"));
+        }
+      } catch (err) {
+        console.error(err);
+        failure("Upload gagal: " + err.message);
+      }
+    }
+  });
+
+  // ================= Wait for TinyMCE Ready =================
+  async function waitForEditor() {
+    return new Promise(resolve => {
+      const check = () => {
+        const ed = tinymce.get('teks');
+        if (ed) return resolve(ed);
+        setTimeout(check, 100);
+      };
+      check();
+    });
+  }
+
+  (async function(){
+    const editor = await waitForEditor();
+
+ // Tombol Import Word
+const btnImportWord = document.getElementById("importWord");
+const inputWord = document.getElementById("uploadWord");
+
+btnImportWord.addEventListener("click", () => inputWord.click());
+
+inputWord.addEventListener("change", function () {
+  const file = this.files?.[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = async (evt) => {
+    const arrayBuffer = evt.target.result;
+
+    // pastikan DocxPreview tersedia
+    if (typeof window.DocxPreview !== "function") {
+      alert("DocxPreview tidak tersedia, periksa script include.");
+      return;
+    }
+
+    // render Word ke container
+    const container = document.createElement("div");
+    const dp = new window.DocxPreview({
+      inWrapper: false, // biar langsung isinya aja
+      useBase64URL: false,
+      ignoreWidth: false,
+      ignoreHeight: false,
+      breakPages: false
+    });
+
+    try {
+      await dp.renderAsync(arrayBuffer, container);
+      tinymce.get("teks").setContent(container.innerHTML);
+    } catch (err) {
+      console.error("Gagal render Word:", err);
+      alert("Gagal import Word. Cek console untuk detail.");
+    }
+  };
+
+  reader.readAsArrayBuffer(file);
+});
+
+
+    /* ===== Import PDF ===== */
+    const btnImportPDF = document.getElementById('importPDF');
+    const inputPDF = document.getElementById('uploadPDF');
+
+    btnImportPDF.addEventListener('click', () => inputPDF.click());
+    inputPDF.addEventListener('change', async function () {
+      const file = this.files?.[0];
+      if (!file) return;
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        let html = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const textContent = await page.getTextContent();
+          const text = textContent.items.map(item => item.str).join(' ');
+          html += `<p>${text}</p>`;
+        }
+        editor.setContent(editor.getContent() + html);
+      } catch (err) {
+        console.error(err);
+        alert("Gagal import PDF.");
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>

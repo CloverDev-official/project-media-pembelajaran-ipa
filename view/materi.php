@@ -8,139 +8,78 @@
     <?php include("../shared/link.php"); ?>
 </head>
 
-<body>
+<body class="bg-subtle text-gray-800">
+    <!-- navbar -->
     <?php include("../shared/header.php"); ?>
+
     <main class="min-h-screen">
-        <div class="p-4">
-            <div class="flex justify-center flex-col lg:flex-row gap-10 mt-10">
+        <div class="p-6 md:p-10">
+            <div class="flex flex-col lg:flex-row gap-10 mt-10">
+
+                <!-- Kartu Mata Pelajaran -->
                 <div class="flex justify-center">
-                    <div class="flex justify-center shadow-lg rounded-lg bg-gray-200 p-2 w-60 h-80">
-                        <div class="text-start">
-                            <div class=" bg-gray-50 p-2 w-52 h-56 rounded-lg mt-2">
-                                <img src="" alt="">
+                    <div class=" border-gray-300 shadow-sm rounded-2xl bg-white p-4 w-72 h-auto ">
+                        <div class="text-center">
+                            <div class="bg-gray-100 p-3 w-full h-52 rounded-lg flex justify-center items-center">
+                                <img src="../img/coverBukuPaketIPA.jpg" alt="Cover" class="object-contain h-full">
                             </div>
-                            <div class="mt-2">
-                                <h1 class="font-bold text-xl">Fisika Dasar</h1>
-                                <p class="text-xs">Deskripsi</p>
+                            <div class="mt-4">
+                                <h1 class="font-bold text-2xl text-main-medium text-shadow-2xs">IPA Kelas 9</h1>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    Pelajari konsep dasar fisika dengan materi interaktif.
+                                </p>
                             </div>
-                        </div>         
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <h1 class="font-bold text-lg mb-3" >Pilih Bab</h1>
-                    <!-- bab 1 -->
-                    <div class="bg-green-100 p-2 px-3 border border-green-500 rounded-lg flex flex-row  justify-between align-items-center gap-5 md:gap-10  md:w-[50rem]">
-                        <div class="flex justify-center items-center gap-5">
-                            <div class="hidden md:visible bg-gray-400 rounded-md w-14 h-14">
-                                <img src="" alt="">
+
+                <!-- Daftar Bab -->
+                <div class="flex flex-col gap-5 w-full">
+                    <h1 class="font-bold text-xl mb-2 text-white text-shadow-xs  bg-main p-2 pl-5 border-b-2 border-l-2 border-main-dark rounded-full w-[10rem]">
+                        <i class="fa fa-book"></i>
+                        Pilih Bab
+                    </h1>
+
+                    <!-- Template bab -->
+                    <?php for ($i = 1; $i <= 7; $i++): ?>
+                        
+                        <div class="bg-white border-1  border-main shadow-md p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-5 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:w-full">
+                            <a href="bab<?= $i ?>.php">
+
+                            <div class="flex items-center gap-5 w-full md:w-auto">
+                                <div class="bg-main-dark rounded-lg w-14 h-14 flex items-center justify-center">
+                                    <span class="text-white font-bold text-2xl text-shadow-lg"><i
+                                            class="fa fa-book"></i></span>
+                                </div>
+                                <h1 class="font-semibold text-lg">Bab <?= $i ?>: Pertumbuhan dan Perkembangan</h1>
                             </div>
-                            <h1 class="font-semibold">Bab 1: lorem ipsum</h1>
+
+                            <div class="flex items-center gap-8 mt-3 md:mt-0">
+                                <div class="text-center">
+                                    <h1 class="text-sm text-gray-600">Latihan</h1>
+                                    <p class="text-main-medium font-bold">100%</p>
+                                </div>
+                                <a href="bab<?= $i ?>.php">
+                                    <button
+                                        class="border-l-4 border-b-4 border-main-dark hover:border-green-600 active:border-0  px-4 py-2 bg-main hover:bg-green-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md">
+                                        Mulai
+                                    </button>
+                                </a>
+                            </div>
+                            </a>
                         </div>
-                        <div class="flex justify-center gap-5">
-                            <div class="text-sm">
-                                <h1 >Latihan</h1>
-                                <p class="text-green-700 font-semibold">100%</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <a href="" ><button class="p-1 w-20 bg-blue-500 rounded-md text-white font-semibold">Mulai</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- bab 2 -->
-                    <div class="bg-green-100 p-2 px-3 border border-green-500 rounded-lg flex flex-row  justify-between align-items-center gap-5 md:gap-10  md:w-[50rem]">
-                        <div class="flex justify-center items-center gap-5">
-                            <div class="hidden md:visible bg-gray-400 rounded-md w-14 h-14">
-                                <img src="" alt="">
-                            </div>
-                            <h1 class="font-semibold">Bab 2: lorem ipsum</h1>
-                        </div>
-                        <div class="flex justify-center gap-5">
-                            <div class="text-sm">
-                                <h1 >Latihan</h1>
-                                <p class="text-green-700 font-semibold">100%</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <a href="" ><button class="p-1 w-20 bg-blue-500 rounded-md text-white font-semibold">Mulai</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- bab 3 -->
-                    <div class="bg-green-100 p-2 px-3 border border-green-500 rounded-lg flex flex-row  justify-between align-items-center gap-5 md:gap-10  md:w-[50rem]">
-                        <div class="flex justify-center items-center gap-5">
-                            <div class="hidden md:visible bg-gray-400 rounded-md w-14 h-14">
-                                <img src="" alt="">
-                            </div>
-                            <h1 class="font-semibold">Bab 3: lorem ipsum</h1>
-                        </div>
-                        <div class="flex justify-center gap-5">
-                            <div class="text-sm">
-                                <h1 >Latihan</h1>
-                                <p class="text-green-700 font-semibold">100%</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <a href="" ><button class="p-1 w-20 bg-blue-500 rounded-md text-white font-semibold">Mulai</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- bab 4 -->
-                    <div class="bg-green-100 p-2 px-3 border border-green-500 rounded-lg flex flex-row  justify-between align-items-center gap-5 md:gap-10  md:w-[50rem]">
-                        <div class="flex justify-center items-center gap-5">
-                            <div class="hidden md:visible bg-gray-400 rounded-md w-14 h-14">
-                                <img src="" alt="">
-                            </div>
-                            <h1 class="font-semibold">Bab 4: lorem ipsum</h1>
-                        </div>
-                        <div class="flex justify-center gap-5">
-                            <div class="text-sm">
-                                <h1 >Latihan</h1>
-                                <p class="text-green-700 font-semibold">100%</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <a href="" ><button class="p-1 w-20 bg-blue-500 rounded-md text-white font-semibold">Mulai</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- bab 5 -->
-                    <div class="bg-green-100 p-2 px-3 border border-green-500 rounded-lg flex flex-row  justify-between align-items-center gap-5 md:gap-10  md:w-[50rem]">
-                        <div class="flex justify-center items-center gap-5">
-                            <div class="hidden md:visible bg-gray-400 rounded-md w-14 h-14">
-                                <img src="" alt="">
-                            </div>
-                            <h1 class="font-semibold">Bab 5: lorem ipsum</h1>
-                        </div>
-                        <div class="flex justify-center gap-5">
-                            <div class="text-sm">
-                                <h1 >Latihan</h1>
-                                <p class="text-green-700 font-semibold">100%</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <a href="" ><button class="p-1 w-20 bg-blue-500 rounded-md text-white font-semibold">Mulai</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- bab 6 -->
-                    <div class="bg-green-100 p-2 px-3 border border-green-500 rounded-lg flex flex-row  justify-between align-items-center gap-5 md:gap-10  md:w-[50rem]">
-                        <div class="flex justify-center items-center gap-5">
-                            <div class="hidden md:visible bg-gray-400 rounded-md w-14 h-14">
-                                <img src="" alt="">
-                            </div>
-                            <h1 class="font-semibold">Bab 6: lorem ipsum</h1>
-                        </div>
-                        <div class="flex justify-center gap-5">
-                            <div class="text-sm">
-                                <h1 >Latihan</h1>
-                                <p class="text-green-700 font-semibold">100%</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <a href="" ><button class="p-1 w-20 bg-blue-500 rounded-md text-white font-semibold">Mulai</button></a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endfor; ?>
+
                 </div>
             </div>
         </div>
     </main>
+    <!-- footer -->
     <?php include("../shared/footer.php"); ?>
+    <!-- header js -->
+    <script src="../script/header.js"></script>
+    <!-- tema js -->
+    <script src="../script/tema.js"></script>    
 </body>
 
 </html>

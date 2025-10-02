@@ -1,117 +1,118 @@
-/* === Default: Hijau === */
+/* === Custom Tema (Color Picker) === */
+#picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#picker:hover {
+  transform: scale(1.1);
+  border-color: #22c55e;
+}
+#picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+#picker::-webkit-color-swatch,
+#picker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+#palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* === Preset Themes === */
+
+/* Default Hijau */
 body[data-theme="default"] {
-  --bg-main: #00c850;   /* bg-green-500 */
-  --bg-main-light: #7af1a7; /* bg-green-300 */
-  --bg-main-dark: #15803d;   /* bg-green-700 */
-  --bg-main-medium: #00c850;  /* #16a34a; bg-green-600 */
+  --bg-main: #00c850;
+  --bg-main-light: #7af1a7;
+  --bg-main-subtle: #F0FDF4;
+  --bg-main-dark: #15803d;
   --bg-card: #ffffff;
-  --bg-subtle: #eafef1; /* abu terang */
   --text-subtle: #6b7280;
   --border-color: #00c850;
-  --border-dark: #16a34a;
+  --border-main-dark:  #15803D;
 }
 
-/* === Pink === */
+/* Pink */
 body[data-theme="pink"] {
-  --bg-main: #C562AF  ;   /* pink base*/
-  --bg-main-light: #DB8DD0; /* pink light */
-  --bg-main-dark: #B33791 ;  /* pink dark */
-  --bg-main-medium: #B33791;
+  --bg-main: #C562AF;
+  --bg-main-light: #DB8DD0;
+  --bg-main-subtle: #FDF2F8;
+  --bg-main-dark: #B33791;
   --bg-card: #ffffff;
-  --bg-subtle: #fff0f6;
   --text-subtle: #9d174d;
   --border-color: #fbcfe8;
-  --border-dark: #B33791;
+  --border-main-dark: #B33791;
 }
 
-/* === Biru === */
+/* Biru */
 body[data-theme="blue"] {
-  --bg-main: #3b82f6;   /* biru 500 */
-  --bg-main-light: #93c5fd; /* biru 300 */
+  --bg-main: #3b82f6;
+  --bg-main-light: #93c5fd;
+  --bg-main-subtle: #EFF6FF;
   --bg-main-dark: #1e3a8a;
-  --bg-main-medium: #2563eb;
   --bg-card: #ffffff;
-  --bg-subtle: #eff6ff;
   --text-subtle: #1e40af;
   --border-color: #010202;
-  --border-dark: #2563eb;
+  --border-main-dark: #1D4ED8;
 }
 
-/* === Utility pakai variabel === */
-.bg-main {
+/* === Utility Class untuk Preset === */
+body[data-theme="default"] .bg-main,
+body[data-theme="pink"] .bg-main,
+body[data-theme="blue"] .bg-main {
   background-color: var(--bg-main) !important;
 }
 
-
-.bg-main-light {
-  background-color: var(--bg-main-light) !important;
+/* Preset subtle */
+body[data-theme="default"] .bg-subtle,
+body[data-theme="pink"] .bg-subtle,
+body[data-theme="blue"] .bg-subtle {
+  background-color: var(--bg-main-subtle) !important;
 }
-
-.bg-main-medium {
-  background-color: var(--bg-main-medium) !important;
-}
-
-.bg-main-dark {
+/* Preset dark */
+body[data-theme="default"] .bg-main-dark,
+body[data-theme="pink"] .bg-main-dark,
+body[data-theme="blue"] .bg-main-dark {
   background-color: var(--bg-main-dark) !important;
 }
 
-.bg-card {
-  background-color: var(--bg-card) !important;
-}
-
-.bg-subtle {
-  background-color: var(--bg-subtle) !important;
-}
-
-.text-main {
+body[data-theme="default"] .text-main,
+body[data-theme="pink"] .text-main,
+body[data-theme="blue"] .text-main {
   color: var(--bg-main) !important;
 }
-
-.text-main-medium {
-  color: var(--bg-main-medium) !important ;
-}
-.text-subtle {
-  color: var(--text-subtle) !important;
-}
-
-.text-hover-dark:hover {
-  color:  var(--bg-main-dark) !important;
-}
-
-.border-main {
-  border-color: var(--bg-main) !important;
-}
-
-.border-main-dark {
-  border-color: var(--border-dark) !important;
-}
-
-.border-hover-dark:hover {
-  border-color: var(--border-dark) !important;
-}
-
-
-.border-subtle {
+body[data-theme="default"] .border-main,
+body[data-theme="pink"] .border-main,
+body[data-theme="blue"] .border-main {
   border-color: var(--border-color) !important;
 }
 
-.bg-hover-dark:hover {
-    background-color: var(--bg-main-dark) !important;
+body[data-theme="default"] .border-main-dark,
+body[data-theme="pink"] .border-main-dark,
+body[data-theme="blue"] .border-main-dark {
+  border-color: var(--border-main-dark) !important;
 }
 
-.bg-hover-main:hover {
-    background-color: var(--bg-main) !important;
-}
+/* === Custom Theme (via Picker) === */
+body[data-theme="custom"] .bg-main { background-color: var(--primary-500) !important; }
+body[data-theme="custom"] .bg-main-light { background-color: var(--primary-300) !important; }
+body[data-theme="custom"] .bg-main-dark { background-color: var(--primary-700) !important; }
+body[data-theme="custom"] .bg-subtle { background-color: var(--primary-50) !important;}
+body[data-theme="custom"] .text-main { color: var(--primary-500) !important; }
+body[data-theme="custom"] .text-main-light { color: var(--primary-300) !important; }
+body[data-theme="custom"] .text-main-dark { color: var(--primary-700) !important; }
 
-.bg-after-dark::after {
-  background-color: var(--bg-main-dark) !important;
-}
-
-.ring-main:focus {
-  --tw-ring-color: var(--bg-main) !important;
-
-}
-
-.bg-active-dark:active {
-  background-color: var(--bg-main-dark) !important;
-}
+body[data-theme="custom"] .border-main { border-color: var(--primary-500) !important; }
+body[data-theme="custom"] .border-main-dark { border-color: var(--primary-700) !important; }

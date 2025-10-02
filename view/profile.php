@@ -8,17 +8,18 @@
     <?php include("../shared/link.php"); ?>
 </head>
 
-<body class="bg-subtle">
-    <main class="min-hscreen">
+<body>
+    <?php include("../shared/header.php"); ?>
+    <main class="min-hscreen bg-subtle">
 
         <div class="p-4 mx-0 md:mx-16">
-            <!-- btn kembali -->
+            <!-- btn kembali
             <button onclick="window.history.back()"
                 class="p-2 mb-10 mt-5 rounded-xl border bg-linear-to-t from-green-600 to-green-500 border-b-4 border-green-700 text-white font-semibold text-shadow-2xs shadow-sm transition-all duration-150 hover:scale-110 active:scale-95 active:shadow-inner"><i
-                    class="bi bi-arrow-left"></i> Kembali</button>
+                    class="bi bi-arrow-left"></i> Kembali</button> -->
             <!-- profil siswa -->
-            <div class="bg-white min-h-[50vh]  rounded-xl shadow-md p-5 mb-10">
-                <div class="flex justify-start items-center gap-5 p-5">
+            <div class="bg-white min-h-[50vh]  rounded-xl shadow-md p-5 mb-10 mt-10">
+                <div class="rounded-xl flex justify-start items-center gap-5 p-5">
                     <div class="bg-gray-200 flex justify-center p-1  rounded-xl">
                         <img src="../img/person-fill.svg" alt="" class="w-[2rem] h-[2rem] rounded-xl">
                     </div>
@@ -98,6 +99,8 @@
     </main>
     <!-- footer -->
     <?php include("../shared/footer.php"); ?>
+    <!-- header js -->
+    <script src="../script/header.js"></script>
     <!-- tema js -->
     <script src="../script/tema.js"></script>    
     <!-- chart js -->

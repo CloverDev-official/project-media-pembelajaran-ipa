@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../shared/tema.css">
 </head>
 
-<body class="relative bg-subtle">
+<body class="relative bg-subtle" >
     <main class="min-h-screen ">
         <!-- Sidebar -->
         <?php include("../sidebar/sidebarGuru.php") ?>
@@ -31,7 +31,7 @@
                 <!-- container profil guru -->
                 <div class="flex flex-col md:flex-row gap-5 mt-5">
                     <div class="w-12/12 lg:w-8/12">
-                        <div class="bg-main p-4 py-6 rounded-md">
+                        <div class="bg-main  p-4 py-6 rounded-md">
                             <h1 class="font-bold text-4xl text-center text-white capitalize">ini panel guru</h1>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
     <!-- js header -->
     <script src="../script/headerGuru.js"></script>
     <!-- tema js -->
-    <script src="../script/tema.js"></script>    
+    <script src="../script/tema.js"></script>  
     <!-- js sidebar guru -->
     <script src="../script/sidebarGuru.js"></script>
     <!-- js chart dasboard guru  -->

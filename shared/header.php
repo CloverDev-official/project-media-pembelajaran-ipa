@@ -1,7 +1,7 @@
-<header id="site-header" class="bg-white sticky top-0 shadow-md transition-transform duration-300 z-50">
+<header id="site-header" class="bg-gray-50 sticky top-0 shadow-md transition-transform duration-300 z-50">
     <nav class="flex justify-between items-center p-5">
         <!-- Logo -->
-        <img src="../img/logo.svg" class="w-[6rem]" alt="Logo">
+        <h1 class="text-4xl text-blue-500 text-shadow-2xs font-extrabold uppercase">ipa<span class="text-yellow-400">verse</span></h1>
         <!-- Menu Desktop -->
         <ul class="hidden md:flex gap-10 items-center">
             <!-- beranda -->

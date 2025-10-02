@@ -7,23 +7,24 @@
     <?php include("../shared/link.php"); ?>
 </head>
 
-<body class="bg-subtle">
+<body>
     <?php include("../shared/header.php"); ?>
-    <main class="min-h-screen">
+    <main class="min-h-screen bg-subtle">
         <!-- hero section -->
-        <div class="bg-main-dark">
-            <div class="flex justify-between items-center h-[89vh] ">
+        <div class="bg-main-dark relative">
+            <div class="bg-main w-[50rem] h-[89vh] p-10 rounded-l-[50%] absolute top-0 right-0 z-0 inset-shadow-[0px_0px_6px_rgba(0,0,0,0.4)]"></div>
+            <div class="flex justify-between items-center h-[89vh] relative z-10">
                 <div class="mx-10 ">
-                    <h1 class="capitalize text-white font-bold text-shadow-sm text-5xl">selamat datang di</h1>
-                    <h1 class="uppercase text-white font-bold text-shadow-sm text-6xl">ipaverse</h1>
+                    <h1 class="capitalize text-white font-bold text-shadow-sm text-3xl mb-2">Pelajari dunia Ilmu Pengetahuan Alam</h1>
+                    <h1 class="text-6xl text-blue-500 text-shadow-2xs font-extrabold uppercase">ipa<span class="text-yellow-400">verse</span></h1>
                     <a href="materi.php" class="flex justify-start items-center mt-8">
-                        <button class="px-5 py-3 rounded-3xl font-semibold text-main text-xl bg-subtle transition-all duration-150 hover:scale-105 active:scale-95">
+                        <button class="px-5 py-3 rounded-3xl font-semibold text-white text-xl bg-main transition-all duration-150 hover:scale-105 active:scale-95">
                             Mulai Belajar
                         </button>
                     </a>
                 </div>
                 <div class="hidden md:flex justify-center w-md">
-                    <img src="../img/beruang.jpg" alt="foto" class="p-10 rounded-full  m-10">
+                    <img src="../img/maskot-ipa.png" alt="foto">
                 </div>
             </div>
         </div>
@@ -34,8 +35,8 @@
             <div class="flex flex-col items-center mt-32 px-4">
                 <!-- judul section -->
                 <div class="text-center mb-10 ">
-                    <div class="text-5xl animate-float"><i class="fa fa-book text-main-medium "></i></div>
-                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-main-medium">Materi Pembelajaran</h1>
+                    <div class="text-5xl animate-float"><i class="fa fa-book text-main"></i></div>
+                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-main">Materi Pembelajaran</h1>
                     <p class="text-md text-gray-700 mt-5">Pilih dari topik dibawah:</p>
                 </div>
                 <!-- Container preview materi -->
@@ -195,8 +196,8 @@
             <!-- Jelajahi Topik -->
             <div class="flex flex-col items-center mt-32 mb-10 px-4" id="jelajahi">
                 <div class="text-center mb-10">
-                    <div class="text-5xl"><i class="bi bi-search text-shadow-2xs text-shadow-gray-500"></i></div>
-                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 text-shadow-2xs text-main-medium text-shadow-green-900">Jelajahi Topik</h1>
+                    <div class="text-5xl"><i class="bi bi-search text-shadow-2xs text-shadow-gray-500 text-main"></i></div>
+                    <h1 class="font-bold text-3xl sm:text-4xl mt-2 text-shadow-2xs text-main text-shadow-green-900">Jelajahi Topik</h1>
                     <p class="text-sm text-gray-700 mt-5">Pilih subjek untuk dipelajari lebih dalam.</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-6">
@@ -204,10 +205,10 @@
                     <div class="bg-white border-b-4 border-l-4 transition-all hover:bg-gray-100 active:bg-gray-100 active:scale-95 active:translate-x-[-13.5px] active:border-[1px]  flex flex-col sm:flex-row gap-5 border border-main-dark p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
-                            <h1 class="font-bold text-xl text-main-medium text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
+                            <h1 class="font-bold text-xl text-main text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
                             <p class="text-sm text-gray-700">Understanding the world around us</p>
                             <div class="wrap-anywhere">
-                                <p class="text-md font-semibold text-main-medium">From motion to energy transformations...</p>
+                                <p class="text-md font-semibold text-main">From motion to energy transformations...</p>
                             </div>
 
                         </div>
@@ -216,10 +217,10 @@
                     <div class="bg-white border-b-4  border-l-4 transition-all  hover:bg-gray-100 active:bg-gray-100 active:scale-95 active:translate-x-[-13.5px] active:border-[1px]  flex flex-col sm:flex-row gap-5 border border-main-dark p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
-                            <h1 class="font-bold text-xl text-main-medium text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
+                            <h1 class="font-bold text-xl text-main text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
                             <p class="text-sm text-gray-700">Understanding the world around us</p>
                             <div class="wrap-anywhere">
-                                <p class="text-md font-semibold text-main-medium">From motion to energy transformations...</p>
+                                <p class="text-md font-semibold text-main">From motion to energy transformations...</p>
                             </div>
 
                         </div>
@@ -228,10 +229,10 @@
                     <div class="bg-white border-b-4 border-l-4 transition-all   hover:bg-gray-100 active:bg-gray-100 active:scale-95 active:translate-x-[-13.5px] active:border-[1px] flex flex-col sm:flex-row gap-5 border border-main-dark p-5 md:w-[25rem] w-[18rem]  rounded-md ">
                         <div class="w-20 h-20 bg-gray-500"></div>
                         <div>
-                            <h1 class="font-bold text-xl text-main-medium text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
+                            <h1 class="font-bold text-xl text-main text-shadow-2xs text-shadow-green-700">Physics Basics</h1>
                             <p class="text-sm text-gray-700">Understanding the world around us</p>
                             <div class="wrap-anywhere">
-                                <p class="text-md font-semibold text-main-medium">From motion to energy transformations...</p>
+                                <p class="text-md font-semibold text-main">From motion to energy transformations...</p>
                             </div>
 
                         </div>

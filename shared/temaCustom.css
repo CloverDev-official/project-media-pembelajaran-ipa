@@ -1,0 +1,48 @@
+/* === Custom Tema === */
+
+#picker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  #picker:hover {
+    transform: scale(1.1);
+    border-color: #22c55e;
+  }
+  #picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  #picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+  #picker::-moz-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+
+  #palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+/* Custom theme utilities */
+.bg-main { background-color: var(--primary-500) !important; }
+.bg-main-light { background-color: var(--primary-300) !important; }
+.bg-main-dark { background-color: var(--primary-700) !important; }
+
+.text-main { color: var(--primary-500) !important; }
+.text-main-light { color: var(--primary-300) !important; }
+.text-main-dark { color: var(--primary-700) !important; }
+
+.border-main { border-color: var(--primary-500) !important; }
+.border-main-dark { border-color: var(--primary-700) !important; }
+in-dark { border-color: var(--primary-700) !important; }

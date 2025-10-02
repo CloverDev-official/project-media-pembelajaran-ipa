@@ -1,63 +1,78 @@
-// === Modal Tema ===
-const modalTema = document.getElementById("modalTema");
-const temaButtons = [document.getElementById("btnTema"), document.getElementById("btnTemaMobile")];
-const closeTema = document.getElementById("closeTema");
+document.addEventListener("DOMContentLoaded", () => {
+  const popupTema = document.getElementById("popupTema");
+  const btnOpenTema = document.getElementById("openTema");
+  const btnOpenTemaMobile = document.getElementById("openTemaMobile");
+  const btnCloseTema = document.getElementById("closeTema");
 
-// buka modal
-temaButtons.forEach(btn => {
-  btn?.addEventListener("click", () => {
-    modalTema.classList.remove("hidden");
-  });
-});
+  // Tombol tema
+  const btnTemaDefault = document.getElementById("btnTemaDefault");
+  const btnTemaPink = document.getElementById("btnTemaPink");
+  const btnTemaBlue = document.getElementById("btnTemaBlue");
+  const themeButtons = [btnTemaDefault, btnTemaPink, btnTemaBlue];
 
-// tutup modal
-closeTema?.addEventListener("click", () => {
-  modalTema.classList.add("hidden");
-});
+  function openPopup() {
+    popupTema.classList.remove("opacity-0", "pointer-events-none");
+    popupTema.classList.add("opacity-100", "scale-100", "pointer-events-auto");
+  } 
 
-// klik luar modal
-modalTema?.addEventListener("click", (e) => {
-  if (e.target === modalTema) {
-    modalTema.classList.add("hidden");
+  function closePopup() {
+    popupTema.classList.add("opacity-0", "pointer-events-none");
+    popupTema.classList.remove("opacity-100", "scale-100", "pointer-events-auto");
   }
-});
 
+  function togglePopup() {
+    if (popupTema.classList.contains("opacity-0")) {
+      openPopup();
+    } else {
+      closePopup();
+    }
+  }
 
-// === Ganti Tema ===
-const btnTemaDefault = document.getElementById("btnTemaDefault");
-const btnTemaPink = document.getElementById("btnTemaPink");
-const btnTemaBlue = document.getElementById("btnTemaBlue");
-const themeButtons = [btnTemaDefault, btnTemaPink, btnTemaBlue];
-
-function setTheme(theme, activeBtn = null) {
-  document.body.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-
-  // reset semua tombol
-  themeButtons.forEach(btn => {
-    btn?.classList.remove("bg-subtle");
+  // Klik tombol buka
+  btnOpenTema?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    togglePopup();
   });
 
-  // kasih style merah ke tombol yang dipilih
-  if (activeBtn) {
-    activeBtn.classList.add("bg-subtle");
+  // Klik tombol buka
+  btnOpenTemaMobile?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    togglePopup();
+  });
+
+  
+
+  // Klik tombol close
+  btnCloseTema?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closePopup();
+  });
+
+  // Klik di luar modal (overlay)
+  popupTema.addEventListener("click", (e) => {
+    if (e.target === popupTema) { // hanya klik overlay, bukan isi modal
+      closePopup();
+    }
+  });
+
+  // === Theme change ===
+  function setTheme(theme, activeBtn = null) {
+    document.body.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+
+    themeButtons.forEach(btn => btn?.classList.remove("bg-subtle"));
+
+    if (activeBtn) activeBtn.classList.add("bg-subtle");
   }
-}
 
-// event click
-btnTemaDefault?.addEventListener("click", () => setTheme("default", btnTemaDefault));
-btnTemaPink?.addEventListener("click", () => setTheme("pink", btnTemaPink));
-btnTemaBlue?.addEventListener("click", () => setTheme("blue", btnTemaBlue));
+  btnTemaDefault?.addEventListener("click", () => setTheme("default", btnTemaDefault));
+  btnTemaPink?.addEventListener("click", () => setTheme("pink", btnTemaPink));
+  btnTemaBlue?.addEventListener("click", () => setTheme("blue", btnTemaBlue));
 
-// load tema dari localStorage saat reload
-window.addEventListener("DOMContentLoaded", () => {
+  // Load tema dari localStorage
   const savedTheme = localStorage.getItem("theme") || "default";
-
-  // tentukan tombol yang sesuai
-  let activeBtn = null;
-  if (savedTheme === "default") activeBtn = btnTemaDefault;
+  let activeBtn = btnTemaDefault;
   if (savedTheme === "pink") activeBtn = btnTemaPink;
   if (savedTheme === "blue") activeBtn = btnTemaBlue;
-
   setTheme(savedTheme, activeBtn);
 });

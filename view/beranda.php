@@ -43,7 +43,7 @@
                     <!-- Desktop mode (flex) -->
                     <div class="hidden md:flex flex-wrap justify-center gap-6 mb-5">
                         <!-- bab 1 -->
-                        <div class="bg-main border-t border-r border-main-dark active:translate-x-[-13.5px] active:bg-green-600 text-white active:text-gray-200 hover:translate-y-[-1rem] transition-all border-l-[6px] border-b-[6px] active:border-l active:border-b active:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                        <div class="bg-main border-t border-r border-main-dark active:translate-x-[-13.5px] active:bg-green-600 text-white active:text-gray-200 hover:scale-[1.02] transition-all border-l-[6px] border-b-[6px] active:border-l active:border-b active:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
                             <!-- nomer bab -->
                             <div class="absolute  bg-main p-1 rounded-tl-md rounded-br-md text-shadow-2xs ">
                                 <p class="text-sm">Bab 1</p>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <!-- bab 2 -->
-                        <div class="border-t border-r active:border-l active:border-b active:scale-95 border-main-dark text-white active:text-gray-200 active:translate-x-[-13.5px] hover:translate-y-[-1rem] bg-main active:bg-green-600 transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
+                        <div class="border-t border-r active:border-l active:border-b active:scale-95 border-main-dark text-white active:text-gray-200 active:translate-x-[-13.5px]  hover:scale-[1.02] bg-main active:bg-green-600 transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-b-lg w-72 relative">
                             <!-- nomer bab -->
                             <div class="absolute  bg-main p-1 rounded-tl-md rounded-br-md">
                                 <p class="text-sm">Bab 2</p>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <!-- bab 3 -->
-                        <div class="border-t border-r border-main-dark active:border-l active:border-b active:scale-95 active:translate-x-[-13.5px] hover:translate-y-[-1rem] active:bg-green-600 bg-main text-white active:text-gray-200 shadow-2xs transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-bl-xl  rounded-tr-3xl rounded-b-lg w-72 relative">
+                        <div class="border-t border-r border-main-dark active:border-l active:border-b active:scale-95 active:translate-x-[-13.5px]  hover:scale-[1.02] active:bg-green-600 bg-main text-white active:text-gray-200 shadow-2xs transition-all border-l-[6px] border-b-[6px] rounded-tl-xl rounded-bl-xl  rounded-tr-3xl rounded-b-lg w-72 relative">
                             <!-- nomer bab -->
                             <div class="absolute bg-main p-1 rounded-tl-md rounded-br-md">
                                 <p class="text-sm">Bab 3</p>
@@ -93,7 +93,7 @@
                                 <!-- Slide 1 -->
                                 <div class="swiper-slide">
                                     <div class="flex justify-center">
-                                        <div class="bg-main border-t border-r border-main-dark border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px]">
+                                        <div class="bg-main border-t border-r border-main-dark border-l-[6px] border-b-[6px] rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-white text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px] active:translate">
                                             <div class="absolute bg-main p-1 rounded-tl-sm rounded-br-md ">
                                                 <p class="text-sm">Bab 1</p>
                                             </div>

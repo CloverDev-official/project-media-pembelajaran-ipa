@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../shared/sidebarGuru.css">
     <link rel="stylesheet" href="../shared/tema.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-subtle">
     <main class="min-h-screen">
         <!-- sidebar -->
         <?php include("../sidebar/sidebarRekapNilai.php") ?>

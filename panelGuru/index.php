@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../shared/tema.css">
 </head>
 
-<body class="relative bg-gray-50">
+<body class="relative bg-subtle">
     <main class="min-h-screen ">
         <!-- Sidebar -->
         <?php include("../sidebar/sidebarGuru.php") ?>

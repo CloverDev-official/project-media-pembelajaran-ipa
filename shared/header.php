@@ -54,7 +54,7 @@
             </li>
             <!-- ulangan -->
             <li>
-                <a href="../view/kuis.php" class="relative font-semibold text-hover-dark 
+                <a href="../view/ulangan.php" class="relative font-semibold text-hover-dark 
                 after:content-[''] after:absolute after:left-1/2 after:bottom-0 
                 after:h-[2px] after:w-0 bg-after-dark 
                 after:transition-all after:duration-300 
@@ -88,25 +88,35 @@
     </nav>
        
         <!-- Dropdown Mobile Menu -->
-        <ul id="mobile-menu" class="hidden flex-col gap-5 p-5 bg-gray-200 md:hidden">
-            <a href="../view/beranda.php" class="text-lg font-semibold capitalize">
-                <li>beranda</li>
-            </a>
-            <a href="../view/materi.php" class="text-lg font-semibold capitalize">
-                <li>materi</li>
-            </a>
-            <a href="../view/gim.php" class="text-lg font-semibold capitalize">
-                <li>gim</li>
-            </a>
-            <a href="../view/beranda.php#jelajahi" class="text-lg font-semibold capitalize">
-                <li>jelajahi</li>
-            </a>
-            <a href="../view/kuis.php" class="text-lg font-semibold capitalize">
-                <li>Kuis</li>
-            </a>
+        <ul id="mobile-menu" class="hidden flex gap-5 p-5 bg-main text-white md:hidden">
+            <li class="capitalize transition-all duration-150 active:scale-75 bg-active-dark p-2 px-1 rounded-md">
+                <a href="../view/beranda.php">
+                    beranda
+                </a>
+            </li>
+            <li class="capitalize transition-all duration-150 active:scale-75 bg-active-dark p-2 px-1 rounded-md">
+                <a href="../view/materi.php">
+                    materi
+                </a>
+            </li>
+            <li class="capitalize transition-all duration-150 active:scale-75 bg-active-dark p-2 px-1 rounded-md">
+                <a href="../view/beranda.php#jelajahi">
+                    jelajahi
+                </a>
+            </li>
+            <li class="capitalize transition-all duration-150 active:scale-75 bg-active-dark p-2 px-1 rounded-md">
+                <a href="../view/gim.php">
+                    gim
+                </a>
+            </li>
+            <li class="capitalize transition-all duration-150 active:scale-75 bg-active-dark p-2 px-1 rounded-md">
+                <a href="../view/ulangan.php">
+                    ulangan
+                </a>
+            </li>
+            
         </ul>
 
-        
 </header>
 <!-- modal tema -->
 <?php include("../modalPopUp/modalTema.php") ?>

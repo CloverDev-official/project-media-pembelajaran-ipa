@@ -12,12 +12,12 @@
     <!-- navbar -->
     <?php include("../shared/header.php"); ?>
 
-    <main class="min-h-screen">
+    <main class="min-h-screen bg-subtle">
         <div class="p-6 md:p-10">
             <div class="flex flex-col lg:flex-row gap-10 mt-10">
 
                 <!-- Kartu Mata Pelajaran -->
-                <div class="flex justify-center">
+                <div class="flex justify-center ">
                     <div class=" border-gray-300 shadow-sm rounded-2xl bg-white p-4 w-72 h-auto ">
                         <div class="text-center">
                             <div class="bg-gray-100 p-3 w-full h-52 rounded-lg flex justify-center items-center">

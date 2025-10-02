@@ -1,200 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editor Materi</title>
-
-  <!-- TinyMCE -->
-  <script src="https://cdn.tiny.cloud/1/84lq08bowtkcmci93jz75he2dvvcj84nnyr6b4tiyh9sxwij/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
-<!-- CSS agar tabel & warna dari Word ikut -->
-<link rel="stylesheet" href="https://unpkg.com/docx-preview@0.4.1/dist/docx-preview.css">
-
-<!-- JS utama -->
-<script src="https://unpkg.com/docx-preview@0.4.1/dist/docx-preview.js"></script>
-
-
-  <!-- pdf.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.worker.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Tema Profesional</title>
+<link rel="stylesheet" href="../shared/tema.css">
+<link rel="stylesheet" href="../shared/temaCustom.css">
+<style>
+  body { font-family: sans-serif; }
+  /* tombol buka modal */
+  #openTema, #openTemaMobile {
+    padding: 0.5rem 1rem; background-color: var(--bg-main); color: #fff; border-radius: 0.5rem; cursor: pointer;
+  }
+</style>
 </head>
-<body class="bg-gray-100">
+<body>
 
-  <h2>Editor Materi</h2>
+<h1 class="text-main font-bold p-4">Demo Tema Profesional</h1>
 
-  <!-- Tombol Import -->
-  <button type="button" id="importWord">Import Word</button>
-  <input type="file" id="uploadWord" accept=".docx" style="display:none">
+<button id="openTema">Buka Modal Tema</button>
 
-  <button type="button" id="importPDF">Import PDF</button>
-  <input type="file" id="uploadPDF" accept=".pdf" style="display:none">
+<!-- Popup Tema -->
+<div id="popupTema" class="fixed inset-0 bg-black/40 flex items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-200 z-50">
+    <div id="modalTema" class="bg-white shadow-lg rounded-xl w-80 h-72 md:w-96 pb-10">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-400">
+            <h2 class="text-lg font-semibold capitalize">Menu Tema</h2>
+            <button id="closeTema" class="text-gray-500 hover:text-black hover:scale-105 active:scale-95">✕</button>
+        </div>
 
-  <!-- Editor -->
-  <textarea id="teks"></textarea>
+        <!-- Tabs Filter -->
+        <div class="flex gap-2 px-4 py-2 border-b border-gray-400 text-sm">
+            <button data-filter="tema" class="tabTema px-3 py-1 rounded-full bg-main text-white font-medium capitalize">Preset</button>
+            <button data-filter="customTema" class="tabTema px-3 py-1 rounded-full bg-hover-light font-medium capitalize">Custom</button>
+        </div>
 
-  <script>
-  // ================= BASE URL =================
-  const baseUrl = `${window.location.origin}/${window.location.pathname.split("/")[1]}`;
+        <!-- List Tema Preset -->
+        <div class="tema-item cursor-pointer" data-group="tema">
+            <div class="flex flex-col">
+                <button id="btnTemaDefault" class="px-4 py-3 flex items-center gap-3 hover:bg-green-50 border-b border-gray-100 text-green-600">
+                    <div class="w-6 h-6 rounded-full bg-green-500"></div>
+                    <span class="font-medium">Hijau</span>
+                </button>
+                <button id="btnTemaPink" class="px-4 py-3 flex items-center gap-3 hover:bg-pink-50 border-b border-gray-100 text-pink-600">
+                    <div class="w-6 h-6 rounded-full bg-pink-500"></div>
+                    <span class="font-medium">Pink</span>
+                </button>
+                <button id="btnTemaBlue" class="px-4 py-3 flex items-center gap-3 hover:bg-blue-50 border-b border-gray-100 text-blue-600">
+                    <div class="w-6 h-6 rounded-full bg-blue-500"></div>
+                    <span class="font-medium">Biru</span>
+                </button>
+            </div>
+        </div>
 
-  // ================= TinyMCE =================
-  tinymce.init({
-    selector: '#teks',
-    plugins: [
-      "advlist", "anchor", "autolink", "charmap", "code",
-      "fullscreen", "help", "image", "insertdatetime", "link", "lists",
-      "media", "preview", "searchreplace", "table", "visualblocks", "wordcount"
-    ],
-    toolbar: 'undo redo | bold italic underline forecolor backcolor | alignleft aligncenter alignright | bullist numlist | link image media table | code preview help',
-    height: 500,
+        <!-- Custom Tema -->
+        <div class="tema-item cursor-pointer hidden" data-group="customTema">
+            <div class="flex flex-col">
+                <div class="px-4 py-3 flex items-center gap-3 hover:bg-gray-100 border-b border-gray-100">
+                    <input type="color" id="picker" value="#22C55E" class="w-12 h-12 rounded-full border border-gray-300 cursor-pointer">
+                    <span class="font-medium">Pilih warna tema</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    /* Upload gambar */
-    images_upload_url: `${baseUrl}/php/upload.php`,
-    file_picker_types: 'image',
+<script src="../script/tema.js"></script>
+<script src="../script/colorPicker.js"></script>
+<script>
+/* ===================
+  Modal Open/Close & Tabs Filter
+=================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const popupTema = document.getElementById("popupTema");
+  const btnOpenTema = document.getElementById("openTema");
+  const btnCloseTema = document.getElementById("closeTema");
+  const tabs = document.querySelectorAll(".tabTema");
+  const temaItems = document.querySelectorAll(".tema-item");
 
-    file_picker_callback: (cb, value, meta) => {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.onchange = async () => {
-        const file = input.files?.[0];
-        if (!file) return;
+  function openPopup() {
+    popupTema.classList.remove("opacity-0", "pointer-events-none");
+    popupTema.classList.add("opacity-100", "scale-100", "pointer-events-auto");
+  } 
 
-        const maxSize = 5 * 1024 * 1024;
-        if (file.size > maxSize) {
-          alert("Ukuran file maksimal 5MB!");
-          return;
-        }
-
-        const formData = new FormData();
-        formData.append('file', file);
-
-        try {
-          const res = await fetch(`${baseUrl}/php/upload.php`, { method: 'POST', body: formData });
-          const data = await res.json();
-          if (data?.location) {
-            cb(data.location, { title: file.name });
-          } else {
-            alert("Upload gagal: " + (data.error || "Tidak diketahui"));
-          }
-        } catch (err) {
-          console.error(err);
-          alert("Upload gagal: " + err.message);
-        }
-      };
-      input.click();
-    },
-
-    images_upload_handler: async (blobInfo, success, failure) => {
-      const file = blobInfo.blob();
-      const maxSize = 5 * 1024 * 1024;
-      if (file.size > maxSize) {
-        failure("Ukuran file terlalu besar (maksimal 5MB).");
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const res = await fetch(`${baseUrl}/php/upload.php`, { method: 'POST', body: formData });
-        const data = await res.json();
-        if (data?.location) {
-          success(data.location);
-        } else {
-          failure("Upload gagal: " + (data.error || "Tidak diketahui"));
-        }
-      } catch (err) {
-        console.error(err);
-        failure("Upload gagal: " + err.message);
-      }
-    }
-  });
-
-  // ================= Wait for TinyMCE Ready =================
-  async function waitForEditor() {
-    return new Promise(resolve => {
-      const check = () => {
-        const ed = tinymce.get('teks');
-        if (ed) return resolve(ed);
-        setTimeout(check, 100);
-      };
-      check();
-    });
+  function closePopup() {
+    popupTema.classList.add("opacity-0", "pointer-events-none");
+    popupTema.classList.remove("opacity-100", "scale-100", "pointer-events-auto");
   }
 
-  (async function(){
-    const editor = await waitForEditor();
+  btnOpenTema?.addEventListener("click", openPopup);
+  btnCloseTema?.addEventListener("click", closePopup);
+  popupTema.addEventListener("click", e=>{
+    if(e.target === popupTema) closePopup();
+  });
 
- // Tombol Import Word
-const btnImportWord = document.getElementById("importWord");
-const inputWord = document.getElementById("uploadWord");
-
-btnImportWord.addEventListener("click", () => inputWord.click());
-
-inputWord.addEventListener("change", function () {
-  const file = this.files?.[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = async (evt) => {
-    const arrayBuffer = evt.target.result;
-
-    // pastikan DocxPreview tersedia
-    if (typeof window.DocxPreview !== "function") {
-      alert("DocxPreview tidak tersedia, periksa script include.");
-      return;
-    }
-
-    // render Word ke container
-    const container = document.createElement("div");
-    const dp = new window.DocxPreview({
-      inWrapper: false, // biar langsung isinya aja
-      useBase64URL: false,
-      ignoreWidth: false,
-      ignoreHeight: false,
-      breakPages: false
+  // Tabs filter
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('bg-main','text-white'));
+      tab.classList.add('bg-main','text-white');
+      const filter = tab.dataset.filter;
+      temaItems.forEach(item => {
+        if(filter===item.dataset.group) item.classList.remove('hidden');
+        else item.classList.add('hidden');
+      });
     });
-
-    try {
-      await dp.renderAsync(arrayBuffer, container);
-      tinymce.get("teks").setContent(container.innerHTML);
-    } catch (err) {
-      console.error("Gagal render Word:", err);
-      alert("Gagal import Word. Cek console untuk detail.");
-    }
-  };
-
-  reader.readAsArrayBuffer(file);
+  });
 });
-
-
-    /* ===== Import PDF ===== */
-    const btnImportPDF = document.getElementById('importPDF');
-    const inputPDF = document.getElementById('uploadPDF');
-
-    btnImportPDF.addEventListener('click', () => inputPDF.click());
-    inputPDF.addEventListener('change', async function () {
-      const file = this.files?.[0];
-      if (!file) return;
-      try {
-        const arrayBuffer = await file.arrayBuffer();
-        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-        let html = '';
-        for (let i = 1; i <= pdf.numPages; i++) {
-          const page = await pdf.getPage(i);
-          const textContent = await page.getTextContent();
-          const text = textContent.items.map(item => item.str).join(' ');
-          html += `<p>${text}</p>`;
-        }
-        editor.setContent(editor.getContent() + html);
-      } catch (err) {
-        console.error(err);
-        alert("Gagal import PDF.");
-      }
-    });
-  })();
-  </script>
-
+</script>
 </body>
 </html>

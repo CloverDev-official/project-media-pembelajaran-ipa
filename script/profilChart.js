@@ -1,65 +1,108 @@
 const swiper = new Swiper(".swiper", {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            spaceBetween: 20,   // 🔹 kasih jarak antar slide (px)
-        });
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    spaceBetween: 20,   // 🔹 kasih jarak antar slide (px)
+});
 
+// === Fungsi ambil warna dari CSS variable ===
+function ambilWarna(variable) {
+    return getComputedStyle(document.body).getPropertyValue(variable).trim();
+}
 
-        const ctx = document.getElementById('nilaiChart');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Bab 1', 'Bab 2', 'Bab 3', 'Bab 4', 'Bab 5', 'Bab 6', 'Bab 7'],
-                datasets: [{
-                    label: 'Nilai',
-                    data: [75, 80, 85, 90, 88, 90, 100],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.6)',   // merah
-                        'rgba(54, 162, 235, 0.6)',   // biru
-                        'rgba(255, 206, 86, 0.6)',   // kuning
-                        'rgba(75, 192, 192, 0.6)',   // hijau toska
-                        'rgba(153, 102, 255, 0.6)',  // ungu
-                        'rgba(255, 159, 64, 0.6)',   // oranye
-                        'rgba(46, 204, 113, 0.6)',   // hijau
-                        'rgba(255, 20, 147, 0.6)',   // pink
-                        'rgba(128, 128, 128, 0.6)',  // abu-abu
-                        'rgba(139, 69, 19, 0.6)'     // coklat
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',   // merah
-                        'rgb(54, 162, 235)',   // biru
-                        'rgb(255, 206, 86)',   // kuning
-                        'rgb(75, 192, 192)',   // hijau toska
-                        'rgb(153, 102, 255)',  // ungu
-                        'rgb(255, 159, 64)',   // oranye
-                        'rgb(46, 204, 113)',   // hijau
-                        'rgb(255, 20, 147)',   // pink
-                        'rgb(128, 128, 128)',  // abu-abu
-                        'rgb(139, 69, 19)'     // coklat
-                    ],
-                    borderWidth: 1
-                }]
-            },
-
-            options: {
-                responsive: true,   // ❌ nonaktifkan resize otomatis
-                maintainAspectRatio: false, // biar height/width ikuti canvas
-                plugins: {
-                    legend: { display: true }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }
+// === Chart Instance ===
+const ctx = document.getElementById('nilaiChart');
+const nilaiChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Bab 1', 'Bab 2', 'Bab 3', 'Bab 4', 'Bab 5', 'Bab 6', 'Bab 7'],
+        datasets: [{
+            label: 'Nilai',
+            data: [75, 80, 85, 90, 88, 90, 100],
+            backgroundColor: Array(7).fill(ambilWarna('--bg-main')),
+            borderColor: Array(7).fill(ambilWarna('--bg-main-dark')),
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: true }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100
             }
-        });
+        }
+    }
+});
+
+// === Fungsi update warna chart ===
+function updateChartColors() {
+    const bgMain = ambilWarna('--bg-main');
+    const bgMainDark = ambilWarna('--bg-main-dark');
+
+    nilaiChart.data.datasets[0].backgroundColor = Array(7).fill(bgMain);
+    nilaiChart.data.datasets[0].borderColor = Array(7).fill(bgMainDark);
+    nilaiChart.update();
+}
+
+// === Observer: Update saat data-theme berubah ===
+const observer = new MutationObserver(updateChartColors);
+observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+});
+
+// === Event: Update saat color picker diubah ===
+const picker = document.getElementById('picker');
+picker.addEventListener('input', (e) => {
+    const warna = e.target.value;
+
+    // set variabel CSS untuk tema custom
+    document.documentElement.style.setProperty('--primary-500', warna);
+    document.documentElement.style.setProperty('--primary-700', warna);
+
+    // sinkronkan ke chart
+    document.documentElement.style.setProperty('--bg-main', warna);
+    document.documentElement.style.setProperty('--bg-main-dark', warna);
+
+    // set tema ke custom
+    document.body.setAttribute('data-theme', 'custom');
+
+    // simpan ke localStorage
+    localStorage.setItem('customColor', warna);
+    localStorage.setItem('theme', 'custom');
+
+    updateChartColors();
+});
+
+// === Restore saat refresh ===
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const savedColor = localStorage.getItem('customColor');
+
+    if (savedTheme === 'custom' && savedColor) {
+        // apply warna kembali
+        document.documentElement.style.setProperty('--primary-500', savedColor);
+        document.documentElement.style.setProperty('--primary-700', savedColor);
+        document.documentElement.style.setProperty('--bg-main', savedColor);
+        document.documentElement.style.setProperty('--bg-main-dark', savedColor);
+
+        // update picker value
+        picker.value = savedColor;
+
+        // set tema body
+        document.body.setAttribute('data-theme', 'custom');
+
+        updateChartColors();
+    }
+});

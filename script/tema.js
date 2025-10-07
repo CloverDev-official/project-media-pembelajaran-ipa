@@ -191,10 +191,10 @@ tabsTema.forEach(tab => {
     // aktifkan tab
     tabsTema.forEach(t => {
       t.classList.remove("bg-main", "text-white");
-      t.classList.add("bg-hover-light");
+      t.classList.add("bg-hover-subtle");
     });
     tab.classList.add("bg-main", "text-white");
-    tab.classList.remove("bg-hover-light");
+    tab.classList.remove("bg-hover-subtle");
 
     // tampilkan item sesuai tab
     temaItems.forEach(item => {

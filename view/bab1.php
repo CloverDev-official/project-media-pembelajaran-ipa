@@ -10,16 +10,20 @@
     <script src="../script/sidebar.js"></script>
 </head>
 
-<body class="bg-subtle relative">
+<body class="relative">
     <?php include("../shared/header.php"); ?>
 
-    <main class="min-h-screen">
+    <main class="min-h-screen bg-subtle">
         <!-- Hero Section -->
-        <div class="bg-[url(../img/section.png)] bg-no-repeat bg-cover hero">
-            <div class="flex items-center h-[90vh]">
-                <div class="p-10 text-white">
-                    <h1 class="font-bold text-5xl md:text-7xl">BAB 1</h1>
-                    <p class="font-bold text-3xl md:text-4xl">Pertumbuhan dan perkembangan</p>
+        <div class="bg-main-dark relative hero">
+            <div class="bg-main w-[50rem] h-[89vh] p-10 rounded-l-[50%] absolute top-0 right-0 z-0 inset-shadow-[0px_0px_6px_rgba(0,0,0,0.4)]"></div>
+            <div class="flex justify-between items-center h-[89vh] relative z-10">
+                <div class="mx-10 ">
+                    <h1 class="capitalize text-white font-bold text-shadow-sm text-6xl mb-2">bab 1</h1>                    
+                    <h1 class="capitalize text-white font-bold text-shadow-sm text-4xl mb-2">pertumbuhan dan perkembangan</h1>                    
+                </div>
+                <div class="hidden md:flex justify-center w-md">
+                    <img src="../img/maskot-ipa.png" alt="foto">
                 </div>
             </div>
         </div>
@@ -63,7 +67,7 @@
 
                     <!-- Card Kata Kunci -->
                     <div class="flex flex-col md:flex-row justify-start gap-10 mt-7">
-                        <div class="bg-green-200 border-l-4 border-b-4 border-green-500 p-2 rounded-md w-full md:w-1/2">
+                        <div class="bg-main-light border-l-4 border-b-4 border-main p-2 rounded-md w-full md:w-1/2">
                             <h2 class="text-lg font-semibold"><i class="fa fa-key text-yellow-300"></i> Kata Kunci Pertumbuhan:</h2>
                             <ul class="list-disc ml-5 mt-3">
                                 <li>Bertambah tinggi</li>
@@ -73,7 +77,7 @@
                             </ul>
                         </div>
 
-                        <div class="bg-green-200 border-l-4 border-b-4 border-green-500 p-2 rounded-md w-full md:w-1/2">
+                        <div class="bg-main-light border-l-4 border-b-4 border-main p-2 rounded-md w-full md:w-1/2">
                             <h2 class="text-lg font-semibold"><i class="fa fa-key text-yellow-300"></i> Kata Kunci Perkembangan:</h2>
                             <ul class="list-disc ml-5 mt-3">
                                 <li>Suara berubah</li>
@@ -86,10 +90,10 @@
 
                     <!-- Container Video -->
                     <div class="flex justify-center items-center my-10">
-                        <div id="video-container" class="relative w-full max-w-[640px]">
+                        <div id="video-container" class="relative w-full ">
                             <!-- Player langsung iframe -->
                             <iframe id="player"
-                                class="w-full max-w-2xl aspect-video bg-black"
+                                class="w-full rounded-3xl  border-2 border-main aspect-video"
                                 src="https://www.youtube.com/embed/888HyVkGw4U?enablejsapi=1&rel=0&modestbranding=1&controls=0&disablekb=1&playsinline=1"
                                 frameborder="0"
                                 allow="autoplay; encrypted-media"
@@ -99,7 +103,7 @@
                     </div>
 
                     <!-- Modal Soal Layar Penuh -->
-                    <div id="soal-modal" class="hidden fixed inset-0 bg-black bg-opacity-30 z-40 flex items-center justify-center p-4">
+                    <div id="soal-modal" class="hidden fixed inset-0 bg-black/50 bg-opacity-30 z-40 flex items-center justify-center p-4">
                         <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 relative">
                             <h3 class="text-2xl font-bold mb-6 text-center" id="pertanyaan"></h3>
                             <div id="opsi" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
@@ -110,8 +114,8 @@
                     <!-- Progress bar preview -->
                     <div id="progress-container-wrapper" class="w-full max-w-[640px] mx-auto mt-3 relative">
                         <div id="progress-container" class="w-full bg-gray-200  h-3 rounded-lg cursor-pointer relative">
-                            <div id="watched-bar" class=" absolute top-0 left-[1px] h-3 rounded-lg bg-blue-500"></div>
-                            <div id="progress-bar" class=" absolute top-0 left-[1px] h-3 rounded-lg bg-blue-500"></div>
+                            <div id="watched-bar" class=" absolute top-0 left-[1px] h-3 rounded-lg bg-main"></div>
+                            <div id="progress-bar" class=" absolute top-0 left-[1px] h-3 rounded-lg bg-main"></div>
                             <div id="progress-tooltip"
                                 class="absolute -top-8 text-sm bg-black text-white px-2 py-1 rounded opacity-0 pointer-events-none transition-opacity duration-150">
                                 0:00
@@ -122,15 +126,15 @@
                     <!-- Custom controls -->
                     <div id="control-buttons" class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mt-2 sm:mt-3 md:mt-4 p-2 sm:p-3 md:p-4">
                         <button id="btnPlay"
-                            class="border bg-gradient-to-t from-green-600 to-green-500 border-b-4 border-green-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
+                            class="bg-green-500 border-green-600 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 border-l-4 border-b-4 px-6 py-2 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md hover:scale-105 active:scale-95">
                             <i class="bi bi-play-circle"></i> Play
                         </button>
                         <button id="btnPause"
-                            class="border bg-gradient-to-t from-red-600 to-red-500 border-b-4 border-red-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
+                            class="bg-red-500 border-red-600 touch-manipulation focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 border-l-4 border-b-4 px-6 py-2 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md hover:scale-105 active:scale-95">
                             <i class="bi bi-pause-circle"></i> Pause
                         </button>
                         <button id="btnRestart"
-                            class="border bg-gradient-to-t from-yellow-600 to-yellow-500 border-b-4 border-yellow-700 py-1 px-3 sm:px-4 md:px-5 rounded-xl shadow text-sm sm:text-base md:text-lg text-white font-bold transition-transform duration-150 hover:scale-105 active:border-b-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50">
+                            class="bg-yellow-500 border-yellow-600 touch-manipulation focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 border-l-4 border-b-4 px-6 py-2 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md hover:scale-105 active:scale-95">
                             <i class="bi bi-skip-backward-circle-fill"></i> Ulang
                         </button>
                     </div>

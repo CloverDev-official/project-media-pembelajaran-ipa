@@ -8,68 +8,76 @@
     <link rel="stylesheet" href="../shared/sidebarGuru.css">
     <link rel="stylesheet" href="../shared/tema.css">
 </head>
-<body class="relative bg-subtle">
-    <main class="min-h-screen">
+<body class="relative">
+    <div class="min-h-screen bg-subtle">
         <!-- sidebar -->
         <?php include("../sidebar/sidebarMateri.php") ?>
-        <!-- konten -->
-        <div id="content" class="flex-1 transition-all duration-300 p-5">
-            <!-- header -->
-            <header>
-                <nav class="flex justify-between gap-5">
-                    <div class="flex flex-col text-start">
-                        <h1 class="text-lg md:text-3xl font-bold capitalize">Materi</h1>
-                        <h1 class="text-md md:text-lg font-normal text-gray-400">september 13, sabtu</h1>                        
+        <!-- container -->
+        <div id="content" class="flex-1 transition-all duration-300">
+            <!-- wrapper -->
+            <div class="p-5">
+                <!-- header -->
+                <header>
+                    <nav class="flex justify-between gap-5">
+                        <div class="flex flex-col text-start">
+                            <h1 class="text-lg md:text-3xl font-bold capitalize">Materi</h1>
+                            <h1 class="text-md md:text-lg font-normal text-gray-400">september 13, sabtu</h1>                        
+                        </div>
+                        <?php include("../shared/headerGuru.php") ?>
+                    </nav>
+                </header>
+
+                <!--  konten -->
+                <main class="flex flex-col gap-5 mt-4">
+                    <div class="flex justify-end">
+                        <!-- btn tambah -->
+                        <button id="btn-tambah" class="border-l-4 border-b-4 border-green-500 hover:border-green-600 active:scale-95  px-4 py-2 bg-green-400 hover:bg-green-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
+                            tambah
+                        </button>  
                     </div>
-                    <?php include("../shared/headerGuru.php") ?>
-                </nav>
-            </header>
-            <!-- isi konten -->
-            <div class="flex flex-col gap-5 mt-4">
-                <div class="flex justify-end">
-                    <!-- btn tambah -->
-                    <button id="btn-tambah" class="border-l-4 border-b-4 border-green-500 hover:border-green-600 active:border-0  px-4 py-2 bg-green-400 hover:bg-green-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-                        tambah
-                    </button>  
-                </div>
-                <?php for ($i = 1; $i <= 7; $i++): ?>                        
-                    <div class="bg-white border-1  border-main shadow-md p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-5 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:w-full">
-                        <!-- judul -->
-                        <div class="flex items-center gap-5 w-full md:w-auto">
-                            <div class="bg-main rounded-lg w-14 h-14 flex items-center justify-center">
-                                <span class="text-white font-bold text-2xl text-shadow-lg"><i
-                                        class="fa fa-book"></i></span>
+                    <?php for ($i = 1; $i <= 7; $i++): ?>                        
+                        <div class="bg-white border-1  border-main shadow-md p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-5 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:w-full">
+                            <!-- judul -->
+                            <div class="flex items-center gap-5 w-full md:w-auto">
+                                <div class="bg-main rounded-lg w-14 h-14 flex items-center justify-center">
+                                    <span class="text-white font-bold text-2xl text-shadow-lg"><i
+                                            class="fa fa-book"></i></span>
+                                </div>
+                                <h1 class="font-semibold text-lg">Bab <?= $i ?>: Pertumbuhan dan Perkembangan</h1>
                             </div>
-                            <h1 class="font-semibold text-lg">Bab <?= $i ?>: Pertumbuhan dan Perkembangan</h1>
+                            <!-- btn edit & hapus -->
+                            <div class="flex items-center gap-5 mt-3 md:mt-0">
+                                <!-- edit -->
+                                <a href="../panelGuru/editMateri.php">
+                                    <button class="border-l-4 border-b-4 border-yellow-500 hover:border-yellow-600 active:border-0  px-4 py-2 bg-yellow-400 hover:bg-yellow-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
+                                        edit
+                                    </button>
+                                </a>
+                                <!-- hapus -->
+                                <button class="btn-hapus border-l-4 border-b-4 border-red-500 hover:border-red-600 active:border-0  px-4 py-2 bg-red-400 hover:bg-red-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
+                                    hapus
+                                </button>  
+                            </div>
                         </div>
-                        <!-- btn edit & hapus -->
-                        <div class="flex items-center gap-5 mt-3 md:mt-0">
-                            <!-- edit -->
-                            <a href="../panelGuru/editMateri.php">
-                                <button class="border-l-4 border-b-4 border-yellow-500 hover:border-yellow-600 active:border-0  px-4 py-2 bg-yellow-400 hover:bg-yellow-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-                                    edit
-                                </button>
-                            </a>
-                            <!-- hapus -->
-                            <button class="border-l-4 border-b-4 border-red-500 hover:border-red-600 active:border-0  px-4 py-2 bg-red-400 hover:bg-red-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-                                hapus
-                            </button>  
-                        </div>
-                    </div>
-                <?php endfor; ?>
-                <!-- modal tambah -->
-                <?php include("../modalPopUp/modalTambahMateri.php") ?>
+                    <?php endfor; ?>
+                </main>
             </div>
-            <?php include("../shared/footer.php") ?>
+            <?php 
+                include("../shared/footer.php");
+                include("../modalPopUp/modalTambahMateri.php");
+                include("../modalPopUp/modalHapusMateri.php");
+            ?>
         </div>
-    </main>
+    </div>
     <!-- js header guru -->
-     <script src="../script/headerGuru.js"></script>
+     <script src="../script/notif.js"></script>
     <!-- tema js -->
     <script src="../script/tema.js"></script>     
     <!-- js sidebar guru -->
     <script src="../script/sidebarGuru.js"></script>
     <!-- CRUD js -->
-     <script src="../script/modalCRUD.js"></script>
+    <script src="../script/hapus.js"></script>
+    <script src="../script/tambah.js"></script>
+
 </body>
 </html>

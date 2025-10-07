@@ -9,8 +9,8 @@
 
         <!-- Tabs Filter -->
         <div class="flex gap-2 px-4 py-2 border-b border-gray-400 text-sm">
-            <button data-filter="tema" class="tabTema px-3 py-1 rounded-full bg-main text-white font-medium capitalize">Tema</button>
-            <button data-filter="customTema" class="tabTema px-3 py-1 rounded-full bg-hover-light font-medium capitalize">Custom Tema</button>
+            <button data-filter="tema" class="tabTema px-3 py-1 rounded-full bg-main   text-white font-medium capitalize">Tema</button>
+            <button data-filter="customTema" class="tabTema px-3 py-1 rounded-full bg-hover-subtle font-medium capitalize">Custom Tema</button>
         </div>
 
         <!-- List Tema Preset -->

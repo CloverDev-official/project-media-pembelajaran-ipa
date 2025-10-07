@@ -1,7 +1,7 @@
 <div id="latihan" class="mt-5 ">
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="flex bg-green-500 p-3 sm:p-4 rounded-t-lg text-white w-full">
+    <div class="flex bg-main p-3 sm:p-4 rounded-t-lg text-white w-full">
       <p class="font-bold text-lg sm:text-xl"><i class="fa-solid fa-pen-to-square"></i> Latihan</p>
     </div>
 
@@ -10,7 +10,7 @@
       <!-- Start Section -->
       <div class="py-5 text-center" id="startSection">
         <button id="startBtn"
-          class="w-auto md:w-xs px-2 py-3 text-xl rounded-xl bg-linear-to-t from-green-600 to-green-500 border-b-4 border-green-700 text-white font-semibold text-shadow-2xs shadow-sm transition-all duration-150 hover:scale-110 active:scale-95 active:shadow-inner">
+          class="w-auto md:w-xs px-2 py-3 text-xl rounded-xl bg-main border-main-dark border border-l-4 border-b-4 text-white font-semibold text-shadow-2xs shadow-sm transition-all duration-150 hover:scale-[01.02] active:scale-95 active:shadow-inner">
           Mulai Latihan
         </button>
       </div>

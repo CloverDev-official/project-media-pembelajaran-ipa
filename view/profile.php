@@ -90,7 +90,7 @@
                     <div class=" w-full max-w-screen">
                         <div class="bg-white mt-10 border  border-gray-300 rounded-md p-4">
                             <!-- atur ukuran manual -->
-                            <canvas id="nilaiChart" width="100" height="150"></canvas>
+                            <canvas id="nilaiChart" width="100" height="350"></canvas>
                         </div>
                     </div>
                 </div>

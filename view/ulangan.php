@@ -21,7 +21,7 @@
                 <?php for($i = 1; $i <= 7; $i++): ?>
                     <!-- game card 1 -->
                     <div class="flex justify-center items-center">
-                        <div class="bg-white p-2  rounded-lg min-w-[15rem] shadow">
+                        <div class="bg-white border border-l-4 border-b-4 border-gray-300 p-2 rounded-lg min-w-[15rem] shadow">
                             <!-- container gambar game` -->
                             <div class="flex justify-center">
                                 <!-- gambar game -->
@@ -33,7 +33,7 @@
                                 <p class="font-normal text-xs capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, eos?</p>
                             </div>
                             <!-- btn baca -->
-                            <a href="">
+                            <a href="../ulangan/ulanganBab<?= $i ?>.php" class="flex flex-col items-center">
                                 <button class="mt-2 py-1 font-semibold text-sm w-full rounded-lg transition-all duration-150 bg-main bg-hover-dark active:scale-95 text-white capitalize">
                                     mainkan
                                 </button>

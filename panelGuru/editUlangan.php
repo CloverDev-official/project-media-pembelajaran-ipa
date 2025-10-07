@@ -27,7 +27,47 @@
                         <?php include("../shared/headerGuru.php") ?>
                     </nav>
                 </header>
+                <!-- konten -->
+                <main class="mt-5 mb-20">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <div id="formPengaturan">
+                            <!-- waktu Pengerjaan -->
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Waktu Pengerjaan:</label>
+                                <div class="flex gap-2">
+                                    <input type="number" id="jam" min="0" placeholder="Jam" class="w-1/3 border p-2 rounded-lg">
+                                    <input type="number" id="menit" min="0" max="59" placeholder="Menit" class="w-1/3 border p-2 rounded-lg">
+                                    <input type="number" id="detik" min="0" max="59" placeholder="Detik" class="w-1/3 border p-2 rounded-lg">
+                                </div>
+                            </div>
+                            <!-- jumlah soal -->
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Jumlah Soal (maks. 100):</label>
+                                <input type="number" id="jumlahSoal" min="1" max="100" placeholder="contoh: 10" class="w-full border p-2 rounded-lg">
+                            </div>
+                            <!-- tombol selanjutnya -->
+                            <button id="btnSelanjutnya" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                                Selanjutnya
+                            </button>
+                        </div>
+    
+                        <!-- FORM SOAL ULANGAN (DINAMIS) -->
+                        <form id="formSoal" class="hidden">
+                            <div id="containerSoal"></div>
+    
+                            <div class="flex justify-between mt-5">
+                                <button type="button" id="btnKembali" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                                    Kembali
+                                </button>
+                                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                    Simpan Semua Soal
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
             </div>
+            <?php include("../shared/footer.php") ?>
         </div>
     </div>
     <!-- js notif -->
@@ -36,5 +76,7 @@
     <script src="../script/sidebarGuru.js"></script>
     <!-- js tema -->
     <script src="../script/tema.js"></script>
+    <!-- js form edit ulangan -->
+    <script src="../script/editUlangan.js"></script>
 </body>
 </html>

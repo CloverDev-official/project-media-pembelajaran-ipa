@@ -13,8 +13,9 @@
 <body>
     <!-- sidebar -->
     <?php include("../sidebar/sidebarEditMateri.php") ?>
-    <main class="min-h-screen bg-subtle">
-        <!-- konten -->
+    <!-- container -->
+    <div class="min-h-screen bg-subtle">
+        <!-- wrapper -->
         <div id="content" class="flex-1 transition-all duration-300 p-5">
             <!-- header -->
             <header>
@@ -26,8 +27,8 @@
                     <?php include("../shared/headerGuru.php") ?>
                 </nav>
             </header>
-            <!-- isi konten -->
-            <div class="mt-5">
+            <!-- konten -->
+            <main class="mt-5">
                 <!-- hero section -->
                 <div class="h-[50vh] bg-main flex justify-between items-center">
                     <div class="flex flex-col capitalize text-white m-5">
@@ -74,7 +75,7 @@
                     </button>
 
                 </form>
-            </div>
+            </main>
             <!-- footer -->
             <?php
                 include("../shared/footer.php");
@@ -82,7 +83,7 @@
                 include("../modalPopUp/modalTambahPertanyaan.php");
             ?>
         </div>
-    </main>
+    </div>
     <!-- tinyMCE -->
     <script src="../script/tinyMCE.js"></script>
     <!-- mammoth js -->

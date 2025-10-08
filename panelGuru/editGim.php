@@ -38,6 +38,7 @@
                                 <label class="capitalize font-bold text-main text-lg">soal game :</label>
                                 <input type="text" class="border rounded-md p-2" placeholder="ketik soal untuk game di sini" required>
                             </div>
+                            <!-- komponen -->
                             <div class="flex flex-col gap-2">
                                 <label class="capitalize font-bold text-main text-lg">komponen 1 :</label>
                                 <div class="flex flex-col gap-2">
@@ -81,17 +82,6 @@
                                     <label class="capitalize font-semibold">pilihan berupa gambar (opsional)</label>
                                     <input type="file" class="border rounded-md p-2">
                                 </div>
-                            </div>
-                           
-                            <div class="flex flex-col gap-2">
-                                <label class="capitalize font-bold">jawaban yang benar :</label>
-                                <select name="" id="" class="border rounded-md p-2">
-                                    <option>jawaban yang benar</option>
-                                    <option value="1" class="capitalize">pilihan 1</option>
-                                    <option value="2" class="capitalize">pilihan 2</option>
-                                    <option value="3" class="capitalize">pilihan 3</option>
-                                    <option value="4" class="capitalize">pilihan 4</option>
-                                </select>
                             </div>
                             <!-- btn submit -->
                             <input type="submit" class="capitalize rounded-md px-3 py-2 shadow text-white bg-green-600 transition-all duration-150 hover:bg-green-700" value="simpan">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IPAVERSE | BAB 1</title>
     <?php include("../shared/link.php"); ?>
-    <link rel="stylesheet" href="../shared/vidInteraktif.css">
+    <link rel="stylesheet" href="../shared/videoInteraktif.css">
     <script src="../script/sidebar.js"></script>
 </head>
 
@@ -180,12 +180,16 @@
     <?php include("../shared/footer.php"); ?>
     <!-- header js -->
     <script src="../script/header.js"></script>
+
     <!-- tema js -->
-    <script src="../script/tema.js"></script>    
-    <!-- latihan js -->
-    <script src="../script/latihan.js" defer></script>
+    <script src="../script/tema.js"></script>
+
     <!-- video interaktif js -->
     <script src="../script/vidInteraktif.js" defer></script>
+
+    <!-- latihan js -->
+    <script src="../script/latihan.js" type="module" defer></script>
+
 </body>
 
 </html>

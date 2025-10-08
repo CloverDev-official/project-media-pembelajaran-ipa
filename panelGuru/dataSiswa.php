@@ -40,42 +40,54 @@
                                 <button id="btn-tambah" class="text-sm border-l-4 border-b-4 border-green-500  active:border-0  px-4 py-2 bg-green-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
                                     tambah
                                 </button>
-                                <!-- btn hapus -->
-                                <button id="btn-hapus" class="text-sm border-l-4 border-b-4 border-red-500  active:border-0  px-4 py-2 bg-red-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
-                                    hapus
-                                </button>
-                                <!-- btn edit -->
-                                <button id="btn-edit" class="text-sm border-l-4 border-b-4 border-yellow-500  active:border-0  px-4 py-2 bg-yellow-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
-                                    edit 
-                                </button>
+                               
                             </div>
                         </div>
                         <!-- tabel siswa -->
-                        <div class="rounded-lg border overflow-hidden shadow-lg">
-                            <table class="table-auto  w-full">
+                        <div class="rounded-lg border overflow-hidden overflow-x-scroll shadow-lg">
+                            <table class="table-auto w-full">
                                 <thead>
                                     <tr class="bg-main-light text-center">
                                         <th class="border-r border-black px-4 py-2  capitalize">no</th>
-                                        <th class="border-r border-black px-4 py-2  capitalize">nama siswa
-                                        </th>
-                                        <th class=" px-4 py-2  capitalize">kelas</th>
+                                        <th class="border-r border-black px-4 py-2  capitalize">nama siswa</th>
+                                        <th class="border-r border-black px-4 py-2  capitalize">kelas</th>
+                                        <th class=" px-4 py-2  capitalize">opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
                                     <tr class="bg-white hover:bg-gray-200">
                                         <td class="border-t border-r px-4 py-2">1</td>
                                         <td class="border-t border-r px-4 py-2 capitalize">ghaizan</td>
-                                        <td class="border-t  px-4 py-2 uppercase">9a</td>
+                                        <td class="border-t border-r  px-4 py-2 uppercase">9a</td>
+                                        <td class="border-t  px-4 flex justify-center gap-4 py-2 uppercase">
+                                             <!-- btn edit -->
+                                            <button class="btn-edit text-sm px-4 py-2 bg-yellow-400  rounded-lg text-white  font-semibold transition-all duration-150 shadow capitalize hover:scale-105 active:scale-95">edit </button>
+                                            <!-- hapus -->
+                                            <button class="btn-hapus text-sm px-4 py-2 bg-red-500  rounded-lg text-white  font-semibold transition-all duration-150 shadow capitalize hover:scale-105 active:scale-95">hapus</button>
+                                        </td>
+                                        
                                     </tr>
                                     <tr class="bg-white hover:bg-gray-200">
                                         <td class="border-t border-r px-4 py-2">2</td>
                                         <td class="border-t border-r px-4 py-2 capitalize">ghaizan</td>
-                                        <td class="border-t  px-4 py-2 uppercase">9a</td>
+                                        <td class="border-t border-r  px-4 py-2 uppercase">9a</td>
+                                        <td class="border-t  px-4 flex justify-center gap-4 py-2 uppercase">
+                                             <!-- btn edit -->
+                                            <button class="btn-edit text-sm px-4 py-2 bg-yellow-400  rounded-lg text-white  font-semibold transition-all duration-150 shadow capitalize hover:scale-105 active:scale-95">edit </button>
+                                            <!-- hapus -->
+                                            <button class="btn-hapus text-sm px-4 py-2 bg-red-500  rounded-lg text-white  font-semibold transition-all duration-150 shadow capitalize hover:scale-105 active:scale-95">hapus</button>
+                                        </td>
                                     </tr>
                                     <tr class="bg-white hover:bg-gray-200">
                                         <td class="border-t border-r px-4 py-2">3</td>
                                         <td class="border-t border-r px-4 py-2 capitalize">ghaizan</td>
-                                        <td class="border-t  px-4 py-2 uppercase">9a</td>
+                                        <td class="border-t border-r  px-4 py-2 uppercase">9a</td>
+                                        <td class="border-t  px-4 flex justify-center gap-4 py-2 uppercase">
+                                             <!-- btn edit -->
+                                            <button class="btn-edit text-sm px-4 py-2 bg-yellow-400  rounded-lg text-white  font-semibold transition-all duration-150 shadow capitalize hover:scale-105 active:scale-95">edit </button>
+                                            <!-- hapus -->
+                                            <button class="btn-hapus text-sm px-4 py-2 bg-red-500  rounded-lg text-white  font-semibold transition-all duration-150 shadow capitalize hover:scale-105 active:scale-95">hapus</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -103,7 +115,7 @@
     <script src="../script/sidebarGuru.js"></script>
     <!--  js CRUD -->
     <script src="../script/tambah.js"></script>
-    <script src="../script/hapusSiswa.js"></script>
+    <script src="../script/hapus.js"></script>
     <script src="../script/edit.js"></script>
 
 </body>

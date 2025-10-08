@@ -59,7 +59,7 @@
                                         </div>
 
                                         <!-- tombol -->
-                                        <a href="#">
+                                        <a href="editGim.php">
                                             <button class="mt-2 py-1 font-semibold text-sm w-full rounded-lg transition-all duration-150 bg-yellow-400 hover:bg-yellow-500 active:scale-95 text-white capitalize">
                                                 edit
                                             </button>

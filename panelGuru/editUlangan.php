@@ -45,6 +45,28 @@
                                 <label class="block font-semibold mb-1">Jumlah Soal (maks. 100):</label>
                                 <input type="number" id="jumlahSoal" min="1" max="100" placeholder="contoh: 10" class="w-full border p-2 rounded-lg">
                             </div>
+                            <!-- kelas -->
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Kelas</label>
+                                <select name="" id="" class="w-full border p-2 rounded-lg" required>
+                                    <option  class="capitalize">kelas</option>
+                                    <option value="9a" class="capitalize">9a</option>
+                                    <option value="9b" class="capitalize">9b</option>
+                                </select>
+                            </div>
+                            <!-- waktu dibuka-->
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Waktu Dibuka:</label>
+                                <input type="datetime-local" id="waktuDibuka" class="w-full border p-2 rounded-lg" required >
+                            </div>
+                            <!-- waktu ditutup -->
+                            <div class="mb-4">
+                                <label class="block font-semibold mb-1">Waktu Ditutup:</label>
+                                <input type="datetime-local" id="waktuDitutup" class="w-full border p-2 rounded-lg" required >
+                            </div>
+                            <div>
+                            
+                            </div>
                             <!-- tombol selanjutnya -->
                             <button id="btnSelanjutnya" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
                                 Selanjutnya

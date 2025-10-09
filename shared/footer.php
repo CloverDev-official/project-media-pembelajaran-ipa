@@ -3,7 +3,7 @@
   <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-5 mb-8 gap-8">
     <!-- Logo + deskripsi -->
     <div class="flex flex-col md:max-w-xl">
-      <img src="../img/logo.svg" alt="Logo" class="w-48 h-20 mb-3">
+      <h1 class="text-6xl text-blue-500 text-shadow-2xs font-extrabold uppercase mb-5">ipa<span class="text-yellow-400">verse</span></h1>
       <p class="text-sm md:text-base">
         Website ini adalah platform edukasi interaktif yang menyajikan materi Fisika, Biologi, dan Kimia dasar dengan tampilan menarik, dilengkapi animasi, video, kuis, dan rangkuman visual, sehingga memudahkan siswa memahami konsep IPA secara menyenangkan dan efektif.
       </p>

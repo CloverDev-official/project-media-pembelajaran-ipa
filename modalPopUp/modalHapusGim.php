@@ -6,7 +6,7 @@
     <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-80 md:w-96">
         <div class="flex flex-col mb-4 text-start">
             <h2 class="text-xl font-semibold capitalize">peringatan</h2>
-            <p class="font-normal text-gray-400 text-sm capitalize">apakah anda yakin ingin menghapus data siswa ini?</p>
+            <p class="font-normal text-gray-400 text-sm capitalize">apakah anda yakin ingin menghapus gim ini?</p>
         </div>
         
         <form id="formHapus" class="flex flex-col gap-4">

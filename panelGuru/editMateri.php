@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="../shared/tema.css">
 </head>
 
-<body class="bg-subtle">
+<body>
     <!-- sidebar -->
     <?php include("../sidebar/sidebarEditMateri.php") ?>
-    <main class="min-h-screen">
-        <!-- konten -->
+    <!-- container -->
+    <div class="min-h-screen bg-subtle">
+        <!-- wrapper -->
         <div id="content" class="flex-1 transition-all duration-300 p-5">
             <!-- header -->
             <header>
@@ -26,8 +27,8 @@
                     <?php include("../shared/headerGuru.php") ?>
                 </nav>
             </header>
-            <!-- isi konten -->
-            <div class="mt-5">
+            <!-- konten -->
+            <main class="mt-5">
                 <!-- hero section -->
                 <div class="h-[50vh] bg-main flex justify-between items-center">
                     <div class="flex flex-col capitalize text-white m-5">
@@ -54,7 +55,6 @@
                         <i class="bi bi-file-earmark-play-fill"></i>
                         vid interaktif
                     </button>
-                    <?php include("../modalPopUp/modalImportVid.php") ?>
                     <!-- Preview Video -->
                     <div id="preview" class="mt-4 hidden relative w-full">
                         <!-- Tombol Hapus -->
@@ -63,6 +63,9 @@
                             &times;
                         </button>
                         <video controls class="w-full rounded-lg shadow z-0"></video>
+                        <div class="flex justify-center">
+                            <button type="button" id="openPopupBtn" class="mt-5 mb-2 border-l-4 border-b-4 border-blue-600 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">tambah pertanyaan</button>
+                        </div>
                     </div>
                     
                     <!-- btn simpan -->
@@ -72,19 +75,25 @@
                     </button>
 
                 </form>
-            </div>
+            </main>
             <!-- footer -->
-            <?php include("../shared/footer.php") ?>
+            <?php
+                include("../shared/footer.php");
+                include("../modalPopUp/modalImportVid.php");    
+                include("../modalPopUp/modalTambahPertanyaan.php");
+            ?>
         </div>
-    </main>
+    </div>
     <!-- tinyMCE -->
     <script src="../script/tinyMCE.js"></script>
     <!-- mammoth js -->
     <script src="../script/mammoth.js"></script>
     <!-- import vid interakitf -->
     <script src="../script/importVid.js"></script>
+    <!-- tambah pertanyaan -->
+    <script src="../script/tambahPertanyaan.js"></script>
     <!-- header -->
-    <script src="../script/headerGuru.js"></script>
+    <script src="../script/notif.js"></script>
     <!-- js sidebar -->
     <script src="../script/sidebarGuru.js"></script>
     <!-- js tema -->

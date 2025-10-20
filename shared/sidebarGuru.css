@@ -50,12 +50,12 @@
 }
 
 /* Sesuaikan logo saat collapsed */
-#sidebar img {
-    transition: width 0.25s ease;
+#sidebar .logo {
+    transition: font-size 0.25s ease;
 }
 
-#sidebar.sidebar-collapsed img {
-    width: 2rem;
+#sidebar.sidebar-collapsed h1 {
+    font-size: 8px;
 }
 
 /* Tooltip default: mati (tidak ada) */

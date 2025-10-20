@@ -1,33 +1,25 @@
-const ctx = document.getElementById('nilaiChart');
+// === Fungsi ambil warna dari CSS variable ===
+function ambilWarna(variable) {
+    return getComputedStyle(document.body).getPropertyValue(variable).trim();
+}
 
-new Chart(ctx, {
+// === Chart Instance ===
+const ctx = document.getElementById('nilaiChart');
+const nilaiChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Ujian 1', 'Ujian 2', 'Ujian 3', 'Ujian 4', 'Ujian 5'],
+        labels: ['Bab 1', 'Bab 2', 'Bab 3', 'Bab 4', 'Bab 5', 'Bab 6', 'Bab 7'],
         datasets: [{
             label: 'Nilai',
-            data: [70, 80, 85, 90, 88],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',   // merah
-                'rgba(54, 162, 235, 0.6)',   // biru
-                'rgba(255, 206, 86, 0.6)',   // kuning
-                'rgba(75, 192, 192, 0.6)',   // hijau toska
-                'rgba(153, 102, 255, 0.6)'   // ungu
-            ],
-            borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 206, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(153, 102, 255)'
-            ],
+            data: [75, 80, 85, 90, 88, 90, 100],
+            backgroundColor: Array(7).fill(ambilWarna('--bg-main')),
+            borderColor: Array(7).fill(ambilWarna('--bg-main-dark')),
             borderWidth: 1
         }]
     },
-
     options: {
-        responsive: true,   // ❌ nonaktifkan resize otomatis
-        maintainAspectRatio: false, // biar height/width ikuti canvas
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: { display: true }
         },
@@ -37,5 +29,67 @@ new Chart(ctx, {
                 max: 100
             }
         }
+    }
+});
+
+// === Fungsi update warna chart ===
+function updateChartColors() {
+    const bgMain = ambilWarna('--bg-main');
+    const bgMainDark = ambilWarna('--bg-main-dark');
+
+    nilaiChart.data.datasets[0].backgroundColor = Array(7).fill(bgMain);
+    nilaiChart.data.datasets[0].borderColor = Array(7).fill(bgMainDark);
+    nilaiChart.update();
+}
+
+// === Observer: Update saat data-theme berubah ===
+const observer = new MutationObserver(updateChartColors);
+observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+});
+
+// === Event: Update saat color picker diubah ===
+const picker = document.getElementById('picker');
+picker.addEventListener('input', (e) => {
+    const warna = e.target.value;
+
+    // set variabel CSS untuk tema custom
+    document.documentElement.style.setProperty('--primary-500', warna);
+    document.documentElement.style.setProperty('--primary-700', warna);
+
+    // sinkronkan ke chart
+    document.documentElement.style.setProperty('--bg-main', warna);
+    document.documentElement.style.setProperty('--bg-main-dark', warna);
+
+    // set tema ke custom
+    document.body.setAttribute('data-theme', 'custom');
+
+    // simpan ke localStorage
+    localStorage.setItem('customColor', warna);
+    localStorage.setItem('theme', 'custom');
+
+    updateChartColors();
+});
+
+// === Restore saat refresh ===
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const savedColor = localStorage.getItem('customColor');
+
+    if (savedTheme === 'custom' && savedColor) {
+        // apply warna kembali
+        document.documentElement.style.setProperty('--primary-500', savedColor);
+        document.documentElement.style.setProperty('--primary-700', savedColor);
+        document.documentElement.style.setProperty('--bg-main', savedColor);
+        document.documentElement.style.setProperty('--bg-main-dark', savedColor);
+
+        // update picker value
+        picker.value = savedColor;
+
+        // set tema body
+        document.body.setAttribute('data-theme', 'custom');
+
+        updateChartColors();
     }
 });

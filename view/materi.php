@@ -24,7 +24,7 @@
                                 <img src="../img/coverBukuPaketIPA.jpg" alt="Cover" class="object-contain h-full">
                             </div>
                             <div class="mt-4">
-                                <h1 class="font-bold text-2xl text-main-medium text-shadow-2xs">IPA Kelas 9</h1>
+                                <h1 class="font-bold text-2xl text-main text-shadow-2xs">IPA Kelas 9</h1>
                                 <p class="text-sm text-gray-600 mt-1">
                                     Pelajari konsep dasar fisika dengan materi interaktif.
                                 </p>
@@ -57,11 +57,11 @@
                             <div class="flex items-center gap-8 mt-3 md:mt-0">
                                 <div class="text-center">
                                     <h1 class="text-sm text-gray-600">Latihan</h1>
-                                    <p class="text-main-medium font-bold">100%</p>
+                                    <p class="text-main font-bold">100%</p>
                                 </div>
                                 <a href="bab<?= $i ?>.php">
                                     <button
-                                        class="border-l-4 border-b-4 border-main-dark hover:border-green-600 active:border-0  px-4 py-2 bg-main hover:bg-green-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md">
+                                        class="border-l-4 border-b-4 border-main-dark  active:border-0  px-4 py-2 bg-main rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md">
                                         Mulai
                                     </button>
                                 </a>

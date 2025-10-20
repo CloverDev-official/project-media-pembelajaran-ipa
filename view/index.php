@@ -15,7 +15,39 @@
     <title>Login</title>
     <?php include("../shared/link.php"); ?>
 </head>
+<style>
+/* animasi keluar (fade + naik) */
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+}
 
+/* animasi masuk (fade + naik dari bawah) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fade-out-up {
+  animation: fadeOutUp 0.4s ease forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease forwards;
+}
+</style>
 <body class="bg-gray-200">
     <main class="min-h-screen flex justify-center items-center p-4">
         <!-- container form login murid -->
@@ -91,28 +123,54 @@
 
     </main>
 
-    <script>
-        function showForm(type) {
-            const murid = document.getElementById("form-murid");
-            const guru = document.getElementById("form-guru");
+   <script>
+function showForm(type) {
+  const murid = document.getElementById("form-murid");
+  const guru = document.getElementById("form-guru");
 
-            if (type === "guru") {
-                murid.classList.add("opacity-0", "scale-90");
-                setTimeout(() => {
-                    murid.classList.add("hidden");
-                    guru.classList.remove("hidden");
-                    setTimeout(() => guru.classList.remove("opacity-0", "scale-90"), 10);
-                }, 300);
-            } else {
-                guru.classList.add("opacity-0", "scale-90");
-                setTimeout(() => {
-                    guru.classList.add("hidden");
-                    murid.classList.remove("hidden");
-                    setTimeout(() => murid.classList.remove("opacity-0", "scale-90"), 10);
-                }, 300);
-            }
-        }
-    </script>
+  if (type === "guru") {
+    // animasi keluar form murid
+    murid.classList.add("fade-out-up");
+
+    // setelah animasi keluar selesai
+    setTimeout(() => {
+      murid.classList.add("hidden");
+      murid.classList.remove("fade-out-up");
+
+      // tampilkan form guru
+      guru.classList.remove("hidden");
+      guru.classList.add("fade-in-up");
+
+      // pastikan tetap visible setelah animasi masuk
+      setTimeout(() => {
+        guru.style.opacity = "1";
+        guru.style.transform = "translateY(0) scale(1)";
+        guru.classList.remove("fade-in-up");
+      }, 400);
+    }, 400);
+
+  } else {
+    // animasi keluar form guru
+    guru.classList.add("fade-out-up");
+
+    setTimeout(() => {
+      guru.classList.add("hidden");
+      guru.classList.remove("fade-out-up");
+
+      // tampilkan form murid
+      murid.classList.remove("hidden");
+      murid.classList.add("fade-in-up");
+
+      // pastikan tetap visible setelah animasi masuk
+      setTimeout(() => {
+        murid.style.opacity = "1";
+        murid.style.transform = "translateY(0) scale(1)";
+        murid.classList.remove("fade-in-up");
+      }, 400);
+    }, 400);
+  }
+}
+</script>
 </body>
 
 </html

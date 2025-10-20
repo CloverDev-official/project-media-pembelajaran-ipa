@@ -1,6 +1,6 @@
 <!-- Popup Tema -->
 <div id="popupTema" class="fixed inset-0 bg-black/40 flex items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-200 z-50">
-    <div id="modalTema" class="bg-white shadow-lg rounded-xl w-80 h-72 md:w-96 pb-10">
+    <div id="modalTema" class="bg-white shadow-lg rounded-xl w-80 h-72 md:w-96 pb-10 ">
         <!-- Header -->
         <div class="flex items-center justify-between px-4 py-3 border-b border-gray-400">
             <h2 class="text-lg font-semibold capitalize">Menu Tema</h2>
@@ -9,8 +9,8 @@
 
         <!-- Tabs Filter -->
         <div class="flex gap-2 px-4 py-2 border-b border-gray-400 text-sm">
-            <button data-filter="tema" class="tabTema px-3 py-1 rounded-full bg-main text-white font-medium capitalize">Tema</button>
-            <button data-filter="customTema" class="tabTema px-3 py-1 rounded-full bg-hover-light font-medium capitalize">Custom Tema</button>
+            <button data-filter="tema" class="tabTema px-3 py-1 rounded-full bg-main   text-white font-medium capitalize">Tema</button>
+            <button data-filter="customTema" class="tabTema px-3 py-1 rounded-full bg-hover-subtle font-medium capitalize">Custom Tema</button>
         </div>
 
         <!-- List Tema Preset -->

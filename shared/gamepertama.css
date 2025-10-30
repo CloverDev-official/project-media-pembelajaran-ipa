@@ -1,0 +1,428 @@
+/* --- Gaya Khusus untuk Game Pencocokan (gamepertama.php) --- */
+/* Semua gaya di bawah ini diawali dengan .game-pertama-container untuk menghindari konflik */
+
+.game-pertama-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Gradient latar belakang halaman */
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin: 0;
+  padding: 20px 0; /* Beri sedikit padding atas/bawah untuk konten game */
+  min-height: calc(100vh - 120px); /* Sesuaikan dengan tinggi header jika diperlukan */
+  /* Gaya untuk mencegah bounce scroll di iOS */
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  /* Pastikan elemen ini berada di atas overlay popup jika ada */
+  position: relative;
+  z-index: 10; /* Kurangi jika popup mengalami masalah z-index */
+}
+
+.game-pertama-container .container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 20px auto; /* Jarak dari atas container */
+  padding: 30px;
+  /* Warna latar belakang card utama */
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* Animasi muncul */
+  animation: fadeIn 0.5s ease-out;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.game-pertama-container h1 {
+  /* Warna judul yang cerah */
+  color: #252525;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  /* Gaya teks sedikit tebal */
+  font-weight: 600;
+}
+
+.game-pertama-container .instruction {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #7f8c8d; /* Warna teks instruksi */
+  font-size: 1.1rem;
+  /* Border bawah dekoratif */
+  border-bottom: 2px dashed #bdc3c7;
+  padding-bottom: 10px;
+}
+
+.game-pertama-container .matching-area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.game-pertama-container .terms-container, .game-pertama-container .definitions-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  /* Border dan radius untuk area kolom */
+  border: 2px solid #ecf0f1;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f8f9fa; /* Warna latar belakang area kolom */
+}
+
+.game-pertama-container .terms-container h3, .game-pertama-container .definitions-container h3 {
+  /* Warna judul kolom */
+  color: #3498db;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+  /* Border bawah untuk judul kolom */
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+/* Kelas untuk warna latar belakang acak - Diperbarui untuk warna yang sangat berbeda */
+.game-pertama-container .term-item.bg-accent-1 { background-color: #ff6b6b; color: #ffffff; } /* Merah Terang */
+.game-pertama-container .term-item.bg-accent-2 { background-color: #4ecdc4; color: #ffffff; } /* Turquoise */
+.game-pertama-container .term-item.bg-accent-3 { background-color: #45b7d1; color: #ffffff; } /* Biru Langit */
+.game-pertama-container .term-item.bg-accent-4 { background-color: #96ceb4; color: #ffffff; } /* Hijau Muda */
+.game-pertama-container .term-item.bg-accent-5 { background-color: #feca57; color: #ffffff; } /* Kuning Cerah */
+.game-pertama-container .term-item.bg-accent-6 { background-color: #ff9ff3; color: #ffffff; } /* Pink Cerah */
+.game-pertama-container .term-item.bg-accent-7 { background-color: #54a0ff; color: #ffffff; } /* Biru Elektrik */
+.game-pertama-container .term-item.bg-accent-8 { background-color: #a55eea; color: #ffffff; } /* Ungu Terang */
+.game-pertama-container .term-item.bg-accent-9 { background-color: #ff9f43; color: #ffffff; } /* Jingga Cerah */
+.game-pertama-container .term-item.bg-accent-10 { background-color: #5f27cd; color: #ffffff; } /* Ungu Gelap */
+
+.game-pertama-container .term-item {
+  padding: 18px 10px;
+  margin: 8px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: grab; /* Ganti cursor menjadi grab karena pakai drag */
+  transition: all 0.2s ease, transform 0.1s;
+  text-align: center;
+  user-select: none;
+  position: relative;
+  font-weight: 650; /* Teks sedikit lebih tebal */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Bayangan halus */
+  /* Efek bayangan saat dihover */
+  transition: box-shadow 0.2s ease;
+}
+
+.game-pertama-container .term-item:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.game-pertama-container .term-item:active {
+  cursor: grabbing; /* Ganti cursor saat dipegang */
+  transform: scale(0.96); /* Sedikit diperkecil saat dipegang */
+}
+
+.game-pertama-container .term-item.dragging {
+  opacity: 0.7;
+  z-index: 1000;
+  /* Efek bayangan saat di-drag */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.game-pertama-container .term-item.matched, .game-pertama-container .definition-item.matched, .game-pertama-container .drop-zone.matched {
+  cursor: default;
+  pointer-events: none; /* Nonaktifkan interaksi setelah cek jawaban */
+  /* Efek saat dicocokkan */
+  transform: scale(0.98);
+  transition: all 0.3s ease;
+}
+
+.game-pertama-container .term-item.matched.correct, .game-pertama-container .definition-item.matched.correct, .game-pertama-container .drop-zone.matched.correct {
+  background-color: #58d68d; /* Hijau lebih terang untuk benar */
+  border-color: #27ae60;
+  color: white;
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.2);
+}
+
+.game-pertama-container .term-item.matched.incorrect, .game-pertama-container .definition-item.matched.incorrect, .game-pertama-container .drop-zone.matched.incorrect {
+  background-color: #ff7675; /* Merah lebih terang untuk salah */
+  border-color: #e74c3c;
+  color: white;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2);
+}
+
+/* Container untuk membungkus definisi dan drop-zone */
+.game-pertama-container .definition-wrapper {
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    background-color: #eaf2f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.game-pertama-container .definition-wrapper:hover {
+    background-color: #d5dbdb;
+}
+
+/* Definition Item (Hanya berisi teks definisi) */
+.game-pertama-container .definition-item {
+  padding: 15px;
+  margin: 0;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  background-color: #eaf2f8;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.game-pertama-container .definition-item .def-text {
+    width: 100%;
+    padding: 8px 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #252525;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.2s ease;
+    position: relative;
+    word-break: break-word;
+    line-height: 1.3;
+}
+
+/* Drop Zone (Dibungkus di dalam definition-wrapper) */
+.game-pertama-container .drop-zone {
+    min-height: 60px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+    position: relative;
+    width: 100%;
+}
+
+.game-pertama-container .drop-zone.has-item {
+    border-style: solid;
+    border-color: #27ae60;
+    background-color: #e8f5e9;
+}
+
+.game-pertama-container .drop-zone.highlight {
+    border-style: solid;
+    border-color: #3498db;
+    background-color: #d6eaf8;
+    transform: scale(1.02);
+}
+
+.game-pertama-container .drop-zone .term-item {
+    width: 90%;
+    max-width: 100%;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    margin: 0;
+    font-weight: 650;
+    padding: 10px 15px;
+}
+
+.game-pertama-container .drop-zone .term-item:active {
+    cursor: grabbing;
+}
+
+.game-pertama-container .matched-term, .game-pertama-container .matched-definition {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 8px 0;
+  word-break: break-word;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.game-pertama-container .matched-term.correct, .game-pertama-container .matched-definition.correct {
+  background-color: #d4edda; /* Latar belakang item benar */
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.game-pertama-container .matched-term.incorrect, .game-pertama-container .matched-definition.incorrect {
+  background-color: #f8d7da; /* Latar belakang item salah */
+  color: #721c24;
+  border-color: #f5c6cb;
+  text-decoration: line-through;
+}
+
+.game-pertama-container .status-message {
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.game-pertama-container .status-success {
+  background-color: #d4edda; /* Warna latar belakang sukses */
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.game-pertama-container .status-fail {
+  background-color: #f8d7da; /* Warna latar belakang gagal */
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* --- Gaya Tombol Khusus Game (dengan ID untuk spesifik) --- */
+.game-pertama-container #check-btn, .game-pertama-container #reset-btn {
+  padding: 12px 25px;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Radius lebih besar */
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 8px 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2); /* Default biru untuk tombol umum */
+}
+
+.game-pertama-container #check-btn:hover, .game-pertama-container #reset-btn:hover {
+  transform: translateY(-2px); /* Efek angkat saat hover */
+  box-shadow: 0 6px 8px rgba(52, 152, 219, 0.3);
+}
+
+.game-pertama-container #check-btn:active, .game-pertama-container #reset-btn:active {
+    transform: translateY(0); /* Kembali ke posisi normal saat ditekan */
+}
+
+.game-pertama-container #reset-btn {
+  background-color: #e74c3c; /* Warna merah untuk reset */
+  box-shadow: 0 4px 6px rgba(231, 76, 60, 0.2);
+}
+
+.game-pertama-container #reset-btn:hover {
+  background-color: #c0392b; /* Warna merah lebih gelap saat hover */
+  box-shadow: 0 6px 8px rgba(231, 76, 60, 0.3);
+}
+
+.game-pertama-container #check-btn {
+  background-color: #2ecc71; /* Warna hijau untuk cek */
+  box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+}
+
+.game-pertama-container #check-btn:hover {
+  background-color: #27ae60; /* Warna hijau lebih gelap saat hover */
+  box-shadow: 0 6px 8px rgba(46, 204, 113, 0.3);
+}
+
+/* --- Gaya Popup Khusus Game --- */
+.game-pertama-container .popup-overlay {
+    display: none; /* Awalnya disembunyikan */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* Latar belakang gelap transparan */
+    z-index: 2000; /* Pastikan popup paaling atas */
+    animation: fadeInOverlay 0.3s ease-out; /* Animasi muncul overlay */
+}
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.game-pertama-container .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Awalnya diperkecil */
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 80%;
+    width: 350px;
+    animation: popUp 0.3s 0.1s ease-out forwards; /* Animasi muncul konten */
+}
+
+@keyframes popUp {
+    from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.game-pertama-container .popup-content h3 {
+    color: #252525;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.game-pertama-container .popup-content p {
+    margin-bottom: 20px;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.game-pertama-container .popup-content button {
+    margin: 5px 10px; /* Tambahkan sedikit jarak horizontal */
+    padding: 10px 20px; /* Sesuaikan padding tombol */
+    font-size: 1rem; /* Sesuaikan ukuran font */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2); /* Default biru */
+}
+
+.game-pertama-container .popup-content button:hover {
+  background-color: #2980b9; /* Warna biru lebih gelap saat hover */
+  transform: translateY(-2px); /* Efek angkat saat hover */
+  box-shadow: 0 6px 8px rgba(52, 152, 219, 0.3);
+}
+
+.game-pertama-container .popup-content button:active {
+    transform: translateY(0); /* Kembali ke posisi normal saat ditekan */
+}
+
+/* Tombol Tutup Popup */
+.game-pertama-container #popup-close-btn {
+  background-color: #95a5a6; /* Abu-abu netral */
+}
+
+.game-pertama-container #popup-close-btn:hover {
+  background-color: #7f8c8d; /* Abu-abu lebih gelap saat hover */
+}

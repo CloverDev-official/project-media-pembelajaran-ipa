@@ -1,0 +1,50 @@
+{
+    "materi": "Tekanan, Listrik, dan Pewarisan Sifat (Contoh)",
+    "pasangan": [
+        {
+            "id": "1",
+            "istilah": "Pertumbuhan",
+            "definisi": "Proses penambahan ukuran tubuh makhluk hidup secara kuantitatif yang dapat diukur."
+        },
+        {
+            "id": "2",
+            "istilah": "Perkembangan",
+            "definisi": "Proses perubahan menuju tingkat kedewasaan makhluk hidup secara kualitatif."
+        },
+        {
+            "id": "3",
+            "istilah": "Metamorfosis Sempurna",
+            "definisi": "Perubahan bentuk tubuh hewan dari larva menjadi dewasa melalui tahap pupa."
+        },
+        {
+            "id": "4",
+            "istilah": "Imbibisi",
+            "definisi": "Proses masuknya air ke dalam biji."
+        },
+        {
+            "id": "5",
+            "istilah": "Katakin",
+            "definisi": "Lapisan pelindung yang tumbuh dari biji tumbuhan."
+        },
+        {
+            "id": "6",
+            "istilah": "Hukum Pascal",
+            "definisi": "Tekanan yang diberikan pada zat cair dalam ruang tertutup akan diteruskan ke segala arah dengan besar yang sama."
+        },
+        {
+            "id": "7",
+            "istilah": "Gaya Apung",
+            "definisi": "Gaya yang dialami benda yang dicelupkan ke dalam zat cair, arahnya ke atas."
+        },
+        {
+            "id": "8",
+            "istilah": "Listrik Statis",
+            "definisi": "Peristiwa berpindahnya muatan listrik pada benda yang menyebabkan benda tersebut bermuatan."
+        },
+        {
+            "id": "9",
+            "istilah": "Genotip",
+            "definisi": "Susunan genetik suatu organisme, contohnya MM, Mm, atau mm."
+        }
+    ]
+}

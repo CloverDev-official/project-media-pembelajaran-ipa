@@ -1,0 +1,168 @@
+/* --- Gaya Khusus untuk Admin Panel Game Pencocokan (gamepertama.php) --- */
+/* Semua gaya di bawah ini diawali dengan .admin-panel untuk menghindari konflik */
+
+.admin-panel {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+.admin-panel .container {
+  max-width: 1200px;
+  width: 95%; /* Lebih fleksibel */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box; /* Tambahkan box-sizing */
+}
+
+.admin-panel h1, .admin-panel h2 {
+    color: #333;
+}
+
+/* --- Gaya Responsif untuk Tabel --- */
+/* Kontainer untuk tabel dengan scroll horizontal jika perlu */
+.admin-panel .table-container {
+    overflow-x: auto; /* Izinkan scroll horizontal */
+    margin-bottom: 20px;
+    width: 100%; /* Pastikan kontainer penuh lebar */
+}
+.admin-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0px; /* Hapus margin bawah, pindah ke .table-container */
+    table-layout: auto; /* Biarkan tabel menyesuaikan */
+}
+.admin-panel th, .admin-panel td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    /* Hindari lebar tetap yang bisa memecah layout */
+    white-space: normal; /* Izinkan teks patah-patah */
+    word-wrap: break-word; /* Pecah kata panjang jika perlu */
+}
+.admin-panel th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    /* Tambahkan white-space: nowrap untuk header agar tidak terlalu tinggi */
+    white-space: nowrap;
+}
+.admin-panel tr:nth-child(even){background-color: #f9f9f9;}
+.admin-panel tr:hover {background-color: #f5f5f5;}
+.admin-panel input[type="text"], .admin-panel textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box; /* Pastikan padding dihitung dalam lebar */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.admin-panel textarea {
+    resize: vertical; /* Biarkan pengguna mengubah tinggi saja */
+}
+.admin-panel button {
+    padding: 8px 16px;
+    margin: 5px 2px; /* Margin horizontal kecil */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    display: inline-block; /* Agar margin horizontal bekerja */
+}
+.admin-panel #save-btn { background-color: #4CAF50; color: white; }
+.admin-panel #save-btn:hover { background-color: #45a049; }
+.admin-panel #edit-btn { background-color: #008CBA; color: white; }
+.admin-panel #edit-btn:hover { background-color: #007B9A; }
+.admin-panel #delete-btn { background-color: #f44336; color: white; }
+.admin-panel #delete-btn:hover { background-color: #d32f2f; }
+.admin-panel #cancel-edit-btn, .admin-panel #refresh-btn { background-color: #9E9E9E; color: white; }
+.admin-panel #cancel-edit-btn:hover, .admin-panel #refresh-btn:hover { background-color: #757575; }
+.admin-panel .form-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+.admin-panel .hidden {
+    display: none;
+}
+.admin-panel .message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+.admin-panel .message.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+.admin-panel .message.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+.admin-panel .loading {
+    color: #337ab7;
+    text-align: center;
+    font-style: italic;
+}
+
+/* --- Responsif untuk Layar Kecil --- */
+@media screen and (max-width: 768px) {
+    .admin-panel .container {
+        width: 98%; /* Hampir penuh di layar kecil */
+        padding: 15px;
+    }
+    /* Teknik: Jadikan tabel block dan gunakan data-label untuk sel */
+    .admin-panel .table-container {
+        font-size: 0.85rem; /* Kecilkan font sedikit */
+    }
+    .admin-panel table, .admin-panel thead, .admin-panel tbody, .admin-panel th, .admin-panel td, .admin-panel tr {
+        display: block;
+        width: 100%;
+    }
+    .admin-panel thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .admin-panel tr { border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; }
+    .admin-panel td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 40%; /* Ruang untuk label */
+        text-align: left;
+        white-space: normal; /* Izinkan teks patah-patah di sel */
+    }
+    .admin-panel td:before {
+        /* Gunakan data-label dari HTML untuk membuat label */
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 6px;
+        width: 35%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+    /* Tombol penuh lebar di mobile */
+    .admin-panel button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    /* Sesuaikan padding input di mobile */
+    .admin-panel input[type="text"], .admin-panel textarea {
+        margin-top: 5px;
+    }
+}

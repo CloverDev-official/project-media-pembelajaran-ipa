@@ -39,35 +39,64 @@
                 <form action="#" method="post" class="mt-5">
                     <!-- Sub Bab -->
                     <h1 class="font-bold capitalize">sub bab :</h1>
-                    <input type="text" name="subBab" id="subBab" class="bg-white shadow w-full border border-main rounded-md p-2 mt-2 mb-5 focus:outline-none focus:ring-1 ring-main" placeholder="contoh : 1.Pengertian Pertumbuhan dan Perkembangan">
+                    <input type="text" name="subBab" id="subBab"
+                        class="bg-white shadow w-full border border-main rounded-md p-2 mt-2 mb-5 focus:outline-none focus:ring-1 ring-main"
+                        placeholder="contoh : 1.Pengertian Pertumbuhan dan Perkembangan">
                     <h1 class="font-bold capitalize mb-2">teks :</h1>
                     <!-- Tombol Import Word -->
-                    <button type="button" id="importWord" 
-                        class="mt-5 mb-2 border-l-4 border-b-4 border-blue-600 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">  
+                    <button type="button" id="importWord"
+                        class="mt-5 mb-2 border-l-4 border-b-4 border-blue-600 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
                         <i class="bi bi-file-earmark-word-fill"></i>
                         Word
                     </button>
                     <input type="file" id="uploadWord" accept=".docx" style="display:none">
                     <!-- teks -->
-                    <textarea name="teks" id="teks" cols="30" rows="10" class="bg-white shadow w-full border border-main rounded-md p-2 mt-2 mb-5 focus:outline-none focus:ring-1 ring-main" placeholder="Masukkan teks materi disini..."></textarea>
+                    <textarea name="teks" id="teks" cols="30" rows="10"
+                        class="bg-white shadow w-full border border-main rounded-md p-2 mt-2 mb-5 focus:outline-none focus:ring-1 ring-main"
+                        placeholder="Masukkan teks materi disini..."></textarea>
                     <!-- vid interakitf -->
-                    <button type="button" id="importVid"  class="mt-5 mb-2 mr-4 border-l-4 border-b-4 border-red-600 px-4 py-2 bg-red-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">  
+                    <button type="button" id="importVid"
+                        class="mt-5 mb-2 mr-4 border-l-4 border-b-4 border-red-600 px-4 py-2 bg-red-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
                         <i class="bi bi-file-earmark-play-fill"></i>
                         vid interaktif
                     </button>
                     <!-- Preview Video -->
                     <div id="preview" class="mt-4 hidden relative w-full">
                         <!-- Tombol Hapus -->
-                        <button type="button" id="removeVideo" 
-                                class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-red-600 z-10">
+                        <button type="button" id="removeVideo"
+                            class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-red-600 z-10">
                             &times;
                         </button>
                         <video controls class="w-full rounded-lg shadow z-0"></video>
                         <div class="flex justify-center">
-                            <button type="button" id="openPopupBtn" class="mt-5 mb-2 border-l-4 border-b-4 border-blue-600 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">tambah pertanyaan</button>
+                            <button type="button" id="openPopupBtn"
+                                class="mt-5 mb-2 border-l-4 border-b-4 border-blue-600 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">tambah
+                                pertanyaan</button>
                         </div>
                     </div>
-                    
+                    <div class="flex justify-center lg:mb-14 mt-14 lg:mt-0 z-40 ">
+                        <div class="z-40 w-[20rem] md:w-[50rem] mx-auto">
+                            <!-- Header -->
+                            <div
+                                class="z-20 flex justify-center bg-main p-3 sm:p-4 rounded-t-2xl text-white w-full">
+                                <p class="z-20 font-bold text-center text-lg sm:text-xl">
+                                    <i class="fa-solid fa-pen-to-square"></i> Latihan
+                                </p>
+                            </div>
+                            <!-- Card -->
+                            <div class="relative bg-white rounded-b-xl shadow-md p-4 sm:p-6">
+                                <div class="py-5 flex justify-center">
+                                    <a href="../panelGuru/editLatihan.php">
+                                        <button type="button"
+                                            class="flex gap-2 items-center justify-center w-auto md:w-xs px-2 py-3 rounded-xl text-white border border-main-dark border-l-4 border-b-4 bg-main shadow-sm text-xl transition-all duration-150 hover:scale-105 active:scale-95 active:shadow-inner">
+                                            <iconify-icon icon="bx:edit" class="text-2xl"></iconify-icon>
+                                            edit latihan
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- btn simpan -->
                     <button type="submit"
                         class="mt-5 border-l-4 border-b-4 border-main-dark px-4 py-2 bg-main hover:scale-[01.1] active:scale-95  rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
@@ -78,9 +107,9 @@
             </main>
             <!-- footer -->
             <?php
-                include("../shared/footer.php");
-                include("../modalPopUp/modalImportVid.php");    
-                include("../modalPopUp/modalTambahPertanyaan.php");
+            include("../shared/footer.php");
+            include("../modalPopUp/modalImportVid.php");
+            include("../modalPopUp/modalTambahPertanyaan.php");
             ?>
         </div>
     </div>

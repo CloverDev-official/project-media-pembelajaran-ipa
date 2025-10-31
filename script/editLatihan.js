@@ -10,8 +10,8 @@ btnSelanjutnya.addEventListener("click", () => {
   const menit = document.getElementById("menit").value || 0;
   const detik = document.getElementById("detik").value || 0;
 
-  if (!jumlah || jumlah < 1 || jumlah > 100) {
-    alert("Jumlah soal harus antara 1 sampai 100!");
+  if (!jumlah || jumlah < 1 || jumlah > 25) {
+    alert("Jumlah soal harus antara 1 sampai 25!");
     return;
   }
 
@@ -31,7 +31,6 @@ btnSelanjutnya.addEventListener("click", () => {
 
         <!-- Pertanyaan -->
         <textarea name="soal${i}" placeholder="Tulis pertanyaan..." class="w-full border p-2 rounded-lg mb-3"></textarea>
-
 
         <!-- Pilihan Jawaban -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">

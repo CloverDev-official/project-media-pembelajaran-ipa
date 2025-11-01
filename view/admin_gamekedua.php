@@ -95,5 +95,7 @@
     </main>
     <?php include '../shared/footer.php'; ?>
     <script src="../script/admin_gamekedua.js"></script>
+    <script src="../script/tema.js"></script>
+    <script src="../script/header.js"></script>
 </body>
 </html>

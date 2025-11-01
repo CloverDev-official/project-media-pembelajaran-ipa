@@ -66,5 +66,7 @@
     <script type="application/json" id="jsonDataPath">{"jsonPath": "../data/gamekedua_data.json"}</script>
 
     <script src="../script/gamekedua.js"></script>
+    <script src="../script/tema.js"></script>
+    <script src="../script/header.js"></script>
 </body>
 </html>

@@ -1,82 +1,208 @@
 {
-  "sequences": [
-    {
-      "id": "metamorfosis_katak",
-      "title": "Metamorfosis Katak",
-      "description": "Urutkan tahapan metamorfosis katak dari telur hingga dewasa.",
-      "items": [
-        { "id": "1", "text": "Telur (di air)" },
-        { "id": "2", "text": "Embrio (dalam telur)" },
-        { "id": "3", "text": "Kecebong (menggunakan insang, berenang)" },
-        { "id": "4", "text": "Tumbuh kaki belakang" },
-        { "id": "5", "text": "Tumbuh kaki depan" },
-        { "id": "6", "text": "Ekor semakin pendek" },
-        { "id": "7", "text": "Katak muda" }
-      ],
-      "correctOrder": ["1", "2", "3", "4", "5", "6", "7"]
-    },
-    {
-      "id": "metamorfosis_sempurna_serangga",
-      "title": "Metamorfosis Sempurna pada Serangga",
-      "description": "Urutkan tahapan metamorfosis sempurna pada serangga seperti kupu-kupu atau lalat.",
-      "items": [
-        { "id": "1", "text": "Telur" },
-        { "id": "2", "text": "Larva (aktif makan)" },
-        { "id": "3", "text": "Pupa (diam, berubah bentuk)" },
-        { "id": "4", "text": "Dewasa (imago, bisa terbang)" }
-      ],
-      "correctOrder": ["1", "2", "3", "4"]
-    },
-    {
-      "id": "metamorfosis_tidak_sempurna_serangga",
-      "title": "Metamorfosis Tidak Sempurna pada Serangga",
-      "description": "Urutkan tahapan metamorfosis tidak sempurna pada serangga seperti belalang atau kecoa.",
-      "items": [
-        { "id": "1", "text": "Telur" },
-        { "id": "2", "text": "Nimfa (mirip dewasa tapi lebih kecil, belum bersayap)" },
-        { "id": "3", "text": "Dewasa (bersayap, bisa berkembang biak)" }
-      ],
-      "correctOrder": ["1", "2", "3"]
-    },
-    {
-      "id": "metamorfosis_lobster_udang",
-      "title": "Metamorfosis Lobster/Udang",
-      "description": "Urutkan tahapan awal kehidupan lobster atau udang (Crustacea).",
-      "items": [
-        { "id": "1", "text": "Telur (dibawa oleh induk betina)" },
-        { "id": "2", "text": "Nauplius (larva renang tahap awal)" },
-        { "id": "3", "text": "Larva Zoea (berenang, bentuk berbeda)" },
-        { "id": "4", "text": "Larva Megalopa (mirip kecil dengan dewasa)" },
-        { "id": "5", "text": "Dewasa (hidup di dasar, bentuk akhir)" }
-      ],
-      "correctOrder": ["1", "2", "3", "4", "5"]
-    },
-    {
-      "id": "perkembangan_embrio_mamalia",
-      "title": "Perkembangan Embrio pada Mamalia",
-      "description": "Urutkan tahapan awal perkembangan embrio pada hewan melahirkan (mamalia).",
-      "items": [
-        { "id": "1", "text": "Fertilisasi (bertemunya sperma dan sel telur)" },
-        { "id": "2", "text": "Zigot (sel tunggal hasil fertilisasi)" },
-        { "id": "3", "text": "Blastula (bola sel-sel)" },
-        { "id": "4", "text": "Gastrula (struktur berlapis tiga)" },
-        { "id": "5", "text": "Neurula (pembentukan sistem saraf)" },
-        { "id": "6", "text": "Embrio (organ-organ mulai terbentuk)" }
-      ],
-      "correctOrder": ["1", "2", "3", "4", "5", "6"]
-    },
-    {
-      "id": "pertumbuhan_dari_biji",
-      "title": "Pertumbuhan Tumbuhan dari Biji",
-      "description": "Urutkan tahapan awal pertumbuhan tumbuhan dari biji.",
-      "items": [
-        { "id": "1", "text": "Imbibisi (penyerapan air oleh biji)" },
-        { "id": "2", "text": "Aktivasi enzim dan metabolisme dalam biji" },
-        { "id": "3", "text": "Perkecambahan (tumbuh akar lembaga)" },
-        { "id": "4", "text": "Tumbuh batang dan daun lembaga" },
-        { "id": "5", "text": "Tumbuhan kecil (fotosintesis mandiri dimulai)" }
-      ],
-      "correctOrder": ["1", "2", "3", "4", "5"]
-    }
-  ]
+    "sequences": [
+        {
+            "id": "metamorfosis_katak",
+            "title": "Metamorfosis Katak",
+            "description": "Urutkan tahapan metamorfosis katak dari telur hingga dewasa.",
+            "items": [
+                {
+                    "id": "1",
+                    "text": "Telur (di air)"
+                },
+                {
+                    "id": "2",
+                    "text": "Embrio (dalam telur)"
+                },
+                {
+                    "id": "3",
+                    "text": "Kecebong (menggunakan insang, berenang)"
+                },
+                {
+                    "id": "4",
+                    "text": "Tumbuh kaki belakang"
+                },
+                {
+                    "id": "5",
+                    "text": "Tumbuh kaki depan"
+                },
+                {
+                    "id": "6",
+                    "text": "Ekor semakin pendek"
+                },
+                {
+                    "id": "7",
+                    "text": "Katak muda"
+                }
+            ],
+            "correctOrder": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7"
+            ]
+        },
+        {
+            "id": "metamorfosis_sempurna_serangga",
+            "title": "Metamorfosis Sempurna pada Serangga",
+            "description": "Urutkan tahapan metamorfosis sempurna pada serangga seperti kupu-kupu atau lalat.",
+            "items": [
+                {
+                    "id": "1",
+                    "text": "Telur"
+                },
+                {
+                    "id": "2",
+                    "text": "Larva (aktif makan)"
+                },
+                {
+                    "id": "3",
+                    "text": "Pupa (diam, berubah bentuk)"
+                },
+                {
+                    "id": "4",
+                    "text": "Dewasa (imago, bisa terbang)"
+                }
+            ],
+            "correctOrder": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ]
+        },
+        {
+            "id": "metamorfosis_tidak_sempurna_serangga",
+            "title": "Metamorfosis Tidak Sempurna pada Serangga",
+            "description": "Urutkan tahapan metamorfosis tidak sempurna pada serangga seperti belalang atau kecoa.",
+            "items": [
+                {
+                    "id": "1",
+                    "text": "Telur"
+                },
+                {
+                    "id": "2",
+                    "text": "Nimfa (mirip dewasa tapi lebih kecil, belum bersayap)"
+                },
+                {
+                    "id": "3",
+                    "text": "Dewasa (bersayap, bisa berkembang biak)"
+                }
+            ],
+            "correctOrder": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "id": "metamorfosis_lobster_udang",
+            "title": "Metamorfosis Lobster\/Udang",
+            "description": "Urutkan tahapan awal kehidupan lobster atau udang (Crustacea).",
+            "items": [
+                {
+                    "id": "1",
+                    "text": "Telur (dibawa oleh induk betina)"
+                },
+                {
+                    "id": "2",
+                    "text": "Nauplius (larva renang tahap awal)"
+                },
+                {
+                    "id": "3",
+                    "text": "Larva Zoea (berenang, bentuk berbeda)"
+                },
+                {
+                    "id": "4",
+                    "text": "Larva Megalopa (mirip kecil dengan dewasa)"
+                },
+                {
+                    "id": "5",
+                    "text": "Dewasa (hidup di dasar, bentuk akhir)"
+                }
+            ],
+            "correctOrder": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ]
+        },
+        {
+            "id": "perkembangan_embrio_mamalia",
+            "title": "Perkembangan Embrio pada Mamalia",
+            "description": "Urutkan tahapan awal perkembangan embrio pada hewan melahirkan (mamalia).",
+            "items": [
+                {
+                    "id": "1",
+                    "text": "Fertilisasi (bertemunya sperma dan sel telur)"
+                },
+                {
+                    "id": "2",
+                    "text": "Zigot (sel tunggal hasil fertilisasi)"
+                },
+                {
+                    "id": "3",
+                    "text": "Blastula (bola sel-sel)"
+                },
+                {
+                    "id": "4",
+                    "text": "Gastrula (struktur berlapis tiga)"
+                },
+                {
+                    "id": "5",
+                    "text": "Neurula (pembentukan sistem saraf)"
+                },
+                {
+                    "id": "6",
+                    "text": "Embrio (organ-organ mulai terbentuk)"
+                }
+            ],
+            "correctOrder": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+            ]
+        },
+        {
+            "id": "pertumbuhan_dari_biji",
+            "title": "Pertumbuhan Tumbuhan dari Biji",
+            "description": "Urutkan tahapan awal pertumbuhan tumbuhan dari biji.",
+            "items": [
+                {
+                    "id": "1",
+                    "text": "Imbibisi (penyerapan air oleh biji)"
+                },
+                {
+                    "id": "2",
+                    "text": "Aktivasi enzim dan metabolisme dalam biji"
+                },
+                {
+                    "id": "3",
+                    "text": "Perkecambahan (tumbuh akar lembaga)"
+                },
+                {
+                    "id": "4",
+                    "text": "Tumbuh batang dan daun lembaga"
+                },
+                {
+                    "id": "5",
+                    "text": "Tumbuhan kecil (fotosintesis mandiri dimulai)"
+                }
+            ],
+            "correctOrder": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ]
+        }
+    ]
 }

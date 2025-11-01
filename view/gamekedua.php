@@ -21,7 +21,7 @@
         <!-- Area untuk menampilkan deskripsi dan puzzle -->
         <div id="gameArea" class="hidden w-full max-w-4xl mx-auto">
             <div id="sequenceInfo" class="bg-white p-4 rounded-lg shadow-md mb-4">
-                <h2 id="sequenceTitle" class="text-2xl font-bold mb-2 text-blue-700"></h2>
+                <h2 id="sequenceTitle" class="text-2xl font-bold mb-2 text-main"></h2>
                 <p id="sequenceDescription" class="text-gray-700 mb-4"></p>
             </div>
 

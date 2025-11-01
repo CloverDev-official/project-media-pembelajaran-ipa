@@ -120,26 +120,60 @@ function displaySequences(sequences) {
     listContainer.innerHTML = ''; // Kosongkan kontainer
 
     sequences.forEach(seq => {
-        const seqDiv = document.createElement('div');
-        seqDiv.className = 'border border-gray-200 rounded-lg p-4';
+        // Buat elemen card utama untuk urutan
+        const seqCard = document.createElement('div');
+        seqCard.className = 'border border-gray-200 rounded-lg p-4 mb-4'; // Tambahkan margin bottom
 
-        // Buat elemen untuk judul dan deskripsi
-        const titleDiv = document.createElement('div');
-        titleDiv.className = 'flex justify-between items-start mb-2';
-        titleDiv.innerHTML = `
-            <div>
-                <h3 class="text-lg font-semibold text-gray-800">${seq.title}</h3>
-                <p class="text-sm text-gray-600">${seq.description}</p>
-                <p class="text-xs text-gray-500 mt-1">ID: ${seq.id}</p>
-            </div>
-            <div class="flex space-x-2">
-                <button onclick="editSequence('${seq.id}')" class="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded-md text-sm transition duration-200">Edit</button>
-                <button onclick="deleteSequence('${seq.id}')" class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md text-sm transition duration-200">Hapus</button>
-            </div>
-        `;
-        seqDiv.appendChild(titleDiv);
+        // Buat kontainer flex untuk header (judul & tombol)
+        // Gunakan flex-wrap untuk memastikan tombol turun ke baris baru jika perlu
+        // Gunakan items-start agar item tidak diregangkan
+        const headerContainer = document.createElement('div');
+        headerContainer.className = 'flex flex-wrap items-start justify-between gap-2 mb-3'; // Tambahkan gap untuk jarak
 
-        // Buat elemen untuk daftar item
+        // Buat div untuk teks (judul, deskripsi, ID)
+        const textDiv = document.createElement('div');
+        textDiv.className = 'flex-grow min-w-[200px]'; // Izinkan tumbuh, tetapi batasi lebar min untuk tombol
+
+        const title = document.createElement('h3');
+        title.className = 'text-lg font-semibold text-gray-800 truncate'; // Gunakan truncate untuk teks panjang
+        title.title = seq.title; // Tooltip berisi teks penuh
+        title.textContent = seq.title;
+
+        const description = document.createElement('p');
+        description.className = 'text-sm text-gray-600 truncate'; // Gunakan truncate untuk teks panjang
+        description.title = seq.description; // Tooltip berisi teks penuh
+        description.textContent = seq.description;
+
+        const idText = document.createElement('p');
+        idText.className = 'text-xs text-gray-500 mt-1';
+        idText.textContent = `ID: ${seq.id}`;
+
+        textDiv.appendChild(title);
+        textDiv.appendChild(description);
+        textDiv.appendChild(idText);
+
+        // Buat div untuk tombol
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'flex flex-shrink-0 gap-2'; // Mencegah tombol menyusut dan menambahkan jarak
+
+        const editButton = document.createElement('button');
+        editButton.className = 'bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded-md text-sm transition duration-200 whitespace-nowrap';
+        editButton.textContent = 'Edit';
+        editButton.onclick = () => editSequence(seq.id); // Tambahkan event listener
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md text-sm transition duration-200 whitespace-nowrap';
+        deleteButton.textContent = 'Hapus';
+        deleteButton.onclick = () => deleteSequence(seq.id); // Tambahkan event listener
+
+        buttonsDiv.appendChild(editButton);
+        buttonsDiv.appendChild(deleteButton);
+
+        // Gabungkan header
+        headerContainer.appendChild(textDiv);
+        headerContainer.appendChild(buttonsDiv);
+
+        // Buat elemen untuk daftar item (seperti sebelumnya)
         const itemsDiv = document.createElement('div');
         itemsDiv.className = 'mt-4';
         itemsDiv.innerHTML = '<h4 class="font-medium text-gray-700 mb-2">Item:</h4>';
@@ -151,9 +185,12 @@ function displaySequences(sequences) {
             itemList.appendChild(li);
         });
         itemsDiv.appendChild(itemList);
-        seqDiv.appendChild(itemsDiv);
 
-        listContainer.appendChild(seqDiv);
+        // Gabungkan semua ke dalam card
+        seqCard.appendChild(headerContainer);
+        seqCard.appendChild(itemsDiv);
+
+        listContainer.appendChild(seqCard);
     });
 }
 

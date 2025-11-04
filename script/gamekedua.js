@@ -4,13 +4,6 @@ let currentSequence = null;
 let draggedItem = null;
 let dropSlots = [];
 
-// Daftar warna Tailwind CSS yang akan digunakan untuk item
-const bgColors = [
-    'bg-red-100', 'bg-blue-100', 'bg-green-100', 'bg-yellow-100', 'bg-purple-100',
-    'bg-pink-100', 'bg-indigo-100', 'bg-teal-100', 'bg-orange-100', 'bg-cyan-100',
-    'bg-lime-100', 'bg-emerald-100', 'bg-violet-100', 'bg-fuchsia-100', 'bg-rose-100'
-];
-
 // Konfigurasi autoscroll
 const SCROLL_THRESHOLD = 50; // Jarak dari tepi layar dalam pixel untuk memicu scroll
 const SCROLL_SPEED = 12;      // Kecepatan scroll dalam pixel
@@ -26,18 +19,17 @@ function shuffleArray(array) {
     return array;
 }
 
-// Fungsi untuk mendapatkan array warna acak unik sebanyak jumlah item
-function getRandomColors(count) {
-    if (count > bgColors.length) {
+// Fungsi untuk mendapatkan array warna acak unik sebanyak jumlah item dari array warna yang diberikan
+function getRandomColors(count, colorArray) {
+    if (count > colorArray.length) {
         console.warn("Jumlah item melebihi jumlah warna yang tersedia. Beberapa warna mungkin akan digunakan ulang.");
-        // Jika jumlah item lebih dari warna, kita duplikasi dan acak warna
         let extendedColors = [];
         while (extendedColors.length < count) {
-            extendedColors = extendedColors.concat(bgColors);
+            extendedColors = extendedColors.concat(colorArray);
         }
         return shuffleArray(extendedColors).slice(0, count);
     }
-    const shuffledColors = [...bgColors]; // Salin array
+    const shuffledColors = [...colorArray]; // Salin array
     shuffleArray(shuffledColors);
     return shuffledColors.slice(0, count);
 }
@@ -69,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadSequenceList() {
     if (!gameData) return;
     const select = document.getElementById('sequenceSelect');
-    select.innerHTML = '<option value="">-- Pilih Urutan --</option>';
+    select.innerHTML = '<option value="">-- Pilih Studi Kasus --</option>';
     gameData.sequences.forEach(seq => {
         const option = document.createElement('option');
         option.value = seq.id;
@@ -115,7 +107,13 @@ function displaySequence(sequence) {
     const shuffledItems = [...sequence.items].sort(() => Math.random() - 0.5);
 
     // Ambil warna acak unik untuk setiap item
-    const itemColors = getRandomColors(shuffledItems.length);
+    // Gunakan warna Tailwind yang lebih cerah dan berbeda
+    const bgColors = [
+        'bg-red-200 text-red-800', 'bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-yellow-200 text-yellow-800', 'bg-purple-200 text-purple-800',
+        'bg-pink-200 text-pink-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800', 'bg-orange-200 text-orange-800', 'bg-cyan-200 text-cyan-800',
+        'bg-lime-200 text-lime-800', 'bg-emerald-200 text-emerald-800', 'bg-violet-200 text-violet-800', 'bg-fuchsia-200 text-fuchsia-800', 'bg-rose-200 text-rose-800'
+    ];
+    const itemColors = getRandomColors(shuffledItems.length, bgColors);
 
     // Buat slot untuk drop dengan nomor urut
     dropSlots = [];
@@ -123,39 +121,36 @@ function displaySequence(sequence) {
         const slot = document.createElement('div');
         // Tambahkan elemen untuk nomor urut di dalam slot
         const slotNumber = document.createElement('div');
-        slotNumber.className = 'absolute top-0 left-0 m-1 text-xs font-bold bg-gray-200 rounded-full w-5 h-5 flex items-center justify-center';
+        slotNumber.className = 'absolute top-0 left-0 m-1 text-xs font-bold bg-gray-200 rounded-full w-6 h-6 flex items-center justify-center';
         slotNumber.textContent = index + 1;
 
-        slot.className = 'bg-white border-2 border-gray-300 rounded-lg p-3 w-full text-center min-h-[60px] flex items-center justify-center cursor-pointer hover:border-blue-500 transition-colors relative'; // Tambahkan 'relative' untuk posisi nomor
+        slot.className = 'bg-white border-2 border-gray-300 rounded-xl p-4 w-full text-center min-h-[80px] flex items-center justify-center cursor-pointer hover:border-blue-500 transition-all duration-200 relative shadow-sm'; // Gunakan rounded-xl dan padding lebih besar
         slot.id = `drop-slot-${index}`;
         slot.setAttribute('data-index', index);
-        slot.setAttribute('data-occupied', 'false'); // Pastikan di-set false saat dibuat
+        slot.setAttribute('data-occupied', 'false');
         slot.setAttribute('data-correct-id', '');
-        slot.appendChild(slotNumber); // Tambahkan nomor ke dalam slot
+        slot.appendChild(slotNumber);
 
         dropContainer.appendChild(slot);
         dropSlots.push(slot);
     });
 
-    // --- PERUBAHAN: Buat item menggunakan Flexbox untuk teks di tengah ---
     // Buat item untuk drag dengan warna acak
     shuffledItems.forEach((item, index) => {
         const itemElement = document.createElement('div');
-        // Gunakan flexbox untuk menengahkan teks secara horizontal dan vertikal
-        itemElement.className = `border-2 border-gray-300 rounded-lg p-3 cursor-move select-none max-h-20 mx-auto shadow-sm hover:shadow-md transition-shadow ${itemColors[index]} flex items-center justify-center`;
+        // Gunakan flexbox dan kelas Tailwind yang diperbarui
+        itemElement.className = `border-2 border-gray-300 rounded-xl p-4 cursor-move select-none shadow-md hover:shadow-lg transition-all duration-200 ${itemColors[index]} flex items-center justify-center max-h-[150px] max-w-[200px]`; // Tambahkan max-w-[200px] agar tidak terlalu lebar
         itemElement.id = `item-${item.id}`;
         itemElement.setAttribute('draggable', 'true');
 
-        // Buat elemen teks di dalamnya
         const textElement = document.createElement('span');
         textElement.textContent = item.text;
-        textElement.className = 'text-center break-words'; // Agar teks bisa wrap jika panjang
+        textElement.className = 'text-center font-medium break-words';
         itemElement.appendChild(textElement);
 
         itemElement.addEventListener('dragstart', dragStart);
         itemContainer.appendChild(itemElement);
     });
-    // --- AKHIR PERUBAHAN ---
 
     // Tambahkan event listener untuk drop
     dropSlots.forEach(slot => {
@@ -165,7 +160,6 @@ function displaySequence(sequence) {
         slot.addEventListener('drop', drop);
     });
 
-    // Tambahkan event listener global untuk dragend
     document.addEventListener('dragend', dragEnd);
 }
 
@@ -174,12 +168,12 @@ function dragStart(e) {
     e.dataTransfer.setData('text/plain', draggedItem.id);
     // Tambahkan efek visual saat drag start
     draggedItem.classList.add('opacity-70', 'scale-105');
-    // Hapus max-h-20 saat mulai di-drag (jika sebelumnya berada di slot)
-    draggedItem.classList.remove('max-h-20');
-    // Tambahkan max-h-20 kembali jika item berasal dari container (tidak dari slot)
-    // Kita asumsikan item yang di-drag dari container tidak memiliki min-h-[60px] atau bg-white
-    if (!draggedItem.classList.contains('min-h-[60px]')) { // Indikator kasar bahwa item berasal dari container
-        draggedItem.classList.add('max-h-20');
+    // Hapus max-w-[200px] saat mulai di-drag (jika sebelumnya berada di slot)
+    draggedItem.classList.remove('max-w-[200px]');
+    // Tambahkan max-w-[200px] kembali jika item berasal dari container (tidak dari slot)
+    // Kita asumsikan item yang di-drag dari container tidak memiliki min-h-[80px] atau bg-white
+    if (!draggedItem.classList.contains('min-h-\\[80px\\]')) { // Indikator kasar bahwa item berasal dari container
+        draggedItem.classList.add('max-w-[200px]');
     }
     setTimeout(() => {
         draggedItem.classList.add('opacity-50');
@@ -254,9 +248,9 @@ function drop(e) {
             const itemId = existingItem.id.replace('item-', '');
             const originalItemElement = document.getElementById(`item-${itemId}`);
             if (originalItemElement) {
-                // Kembalikan max-h-20 ke item yang dikeluarkan
-                originalItemElement.classList.remove('min-h-[60px]'); // Hapus min-h dari slot
-                originalItemElement.classList.add('max-h-20'); // Tambahkan max-h untuk container
+                // Kembalikan max-w-[200px] ke item yang dikeluarkan
+                originalItemElement.classList.remove('min-h-\\[80px\\]'); // Hapus min-h dari slot
+                originalItemElement.classList.add('max-w-[200px]'); // Tambahkan max-w untuk container
                 e.target.removeChild(existingItem); // Hapus dari slot
                 document.getElementById('itemContainer').appendChild(originalItemElement); // Tambahkan ke container
             }
@@ -264,17 +258,17 @@ function drop(e) {
 
         // Pindahkan item yang di-drag ke slot
         e.target.appendChild(draggedItem);
-        // Hapus max-h-20 dan tambahkan min-h-[60px] saat masuk ke slot
-        draggedItem.classList.remove('max-h-20');
-        draggedItem.classList.add('min-h-[60px]');
+        // Hapus max-w-[200px] dan tambahkan min-h-[80px] saat masuk ke slot
+        draggedItem.classList.remove('max-w-[200px]');
+        draggedItem.classList.add('min-h-\\[80px\\]');
         e.target.setAttribute('data-occupied', 'true');
         e.target.setAttribute('data-correct-id', draggedItem.id.replace('item-', '')); // Simpan ID item yang ditempatkan
     } else {
         // Jika slot terisi, kembalikan item yang di-drag ke container item
         document.getElementById('itemContainer').appendChild(draggedItem);
-        // Kembalikan max-h-20 jika item kembali ke container tanpa masuk slot
-        draggedItem.classList.remove('min-h-[60px]'); // Hapus min-h jika sebelumnya ditambahkan karena dragStart dari slot
-        draggedItem.classList.add('max-h-20'); // Pastikan max-h ada di container
+        // Kembalikan max-w-[200px] jika item kembali ke container tanpa masuk slot
+        draggedItem.classList.remove('min-h-\\[80px\\]'); // Hapus min-h jika sebelumnya ditambahkan karena dragStart dari slot
+        draggedItem.classList.add('max-w-[200px]'); // Pastikan max-w ada di container
     }
 }
 
@@ -284,27 +278,27 @@ function dragEnd() {
 
     if (draggedItem) {
         draggedItem.classList.remove('opacity-50', 'scale-105');
-        // Pastikan max-h-20 aktif jika item kembali ke container tanpa drop ke slot
+        // Pastikan max-w-[200px] aktif jika item kembali ke container tanpa drop ke slot
         // Kita cek apakah item saat ini berada di drop container
         const dropContainer = document.getElementById('dropContainer');
         if (dropContainer.contains(draggedItem)) {
             // Jika berada di drop container, biarkan seperti itu (sudah ditangani oleh drop)
-            // Tapi pastikan min-h-[60px] aktif jika berada di slot
+            // Tapi pastikan min-h-[80px] aktif jika berada di slot
             if (draggedItem.parentElement.classList.contains('bg-white')) { // Indikator bahwa berada di slot
-                 // Sudah ditangani oleh drop, biarkan min-h-[60px] aktif
-                 draggedItem.classList.remove('max-h-20');
-                 draggedItem.classList.add('min-h-[60px]');
+                 // Sudah ditangani oleh drop, biarkan min-h-[80px] aktif
+                 draggedItem.classList.remove('max-w-[200px]');
+                 draggedItem.classList.add('min-h-\\[80px\\]');
             } else {
                  // Jika ternyata tidak berada di slot yang valid, kembalikan ke container
                  // Ini adalah kasus edge jika drop gagal total
                  document.getElementById('itemContainer').appendChild(draggedItem);
-                 draggedItem.classList.remove('min-h-[60px]');
-                 draggedItem.classList.add('max-h-20');
+                 draggedItem.classList.remove('min-h-\\[80px\\]');
+                 draggedItem.classList.add('max-w-[200px]');
             }
         } else {
-            // Jika tidak berada di drop container, pastikan max-h-20 aktif
-            draggedItem.classList.remove('min-h-[60px]');
-            draggedItem.classList.add('max-h-20');
+            // Jika tidak berada di drop container, pastikan max-w-[200px] aktif
+            draggedItem.classList.remove('min-h-\\[80px\\]');
+            draggedItem.classList.add('max-w-[200px]');
         }
         draggedItem = null;
     }

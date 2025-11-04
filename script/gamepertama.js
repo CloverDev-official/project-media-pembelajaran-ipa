@@ -8,16 +8,14 @@ let matchedPairs = [];
 
 let isDragging = false;
 let scrollInterval = null;
-let lastMouseY = 0; // Untuk menyimpan posisi Y mouse terakhir
+let lastMouseY = 0;
 
 // --- Fungsi-Fungsi Utama ---
 
 async function loadData() {
     try {
         const response = await fetch('../php/getgamepertama.php');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         gameData = await response.json();
         console.log("Data game pencocokan berhasil dimuat:", gameData);
 
@@ -30,7 +28,6 @@ async function loadData() {
 
             renderGame();
         } else {
-            console.error("Struktur data tidak valid.");
             document.getElementById('error-message').textContent = "Data game tidak valid.";
         }
     } catch (error) {
@@ -43,14 +40,30 @@ function renderGame() {
     const termsContainer = document.getElementById('terms-container');
     const definitionsContainer = document.getElementById('definitions-container');
 
-    termsContainer.innerHTML = '<h3>Istilah</h3>';
-    definitionsContainer.innerHTML = '<h3>Definisi</h3>';
+    // Kosongkan kontainer
+    termsContainer.innerHTML = '';
+    definitionsContainer.innerHTML = '';
 
+    // Render Istilah
     shuffledTerms.forEach(item => {
         const termDiv = document.createElement('div');
-        termDiv.className = 'term-item';
-        const randomColorClass = `bg-accent-${Math.floor(Math.random() * 10) + 1}`;
-        termDiv.classList.add(randomColorClass);
+        // Palet warna cerah dan berbeda
+        const colorClasses = [
+            'bg-blue-400 text-white',
+            'bg-green-400 text-white',
+            'bg-yellow-400 text-white',
+            'bg-red-400 text-white',
+            'bg-purple-400 text-white',
+            'bg-pink-400 text-white',
+            'bg-teal-400 text-white',
+            'bg-indigo-400 text-white',
+            'bg-orange-400 text-white',
+            'bg-cyan-400 text-white'
+        ];
+        const randomColorClass = colorClasses[Math.floor(Math.random() * colorClasses.length)];
+        
+        // Hapus min-h dan max-h, biarkan tinggi menyesuaikan teks
+        termDiv.className = `p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-grab ${randomColorClass} text-center font-medium shadow-sm transition-all duration-200`;
         termDiv.textContent = item.istilah;
         termDiv.dataset.id = item.id;
         termDiv.draggable = true;
@@ -59,24 +72,18 @@ function renderGame() {
         termsContainer.appendChild(termDiv);
     });
 
+    // Render Definisi + Drop Zone
     shuffledDefinitions.forEach(item => {
-        const wrapperDiv = document.createElement('div');
-        wrapperDiv.className = 'definition-wrapper';
+        const defWrapper = document.createElement('div');
+        defWrapper.className = 'bg-gray-50 rounded-lg p-4 border border-gray-200';
 
-        const defDiv = document.createElement('div');
-        defDiv.className = 'definition-item';
-        defDiv.dataset.id = item.id;
-        defDiv.dataset.expectedTermId = item.id;
+        const defText = document.createElement('div');
+        defText.className = 'p-3 bg-white rounded-md text-gray-700 text-center leading-relaxed mb-3';
+        defText.textContent = item.definisi;
 
-        const defTextDiv = document.createElement('div');
-        defTextDiv.className = 'def-text';
-        defTextDiv.textContent = item.definisi;
-        defDiv.appendChild(defTextDiv);
-
-        wrapperDiv.appendChild(defDiv);
-
+        // Drop Zone: Gunakan flex-row dan align-items center untuk menjaga tinggi tetap kecil
         const dropZone = document.createElement('div');
-        dropZone.className = 'drop-zone';
+        dropZone.className = 'border-2 border-dashed border-gray-300 rounded-lg bg-white flex items-center justify-center text-gray-400 text-sm italic transition-colors duration-200 h-16'; // Gunakan h-16 (4rem) untuk tinggi tetap
         dropZone.dataset.expectedTermId = item.id;
 
         dropZone.addEventListener('dragover', handleDragOver);
@@ -84,77 +91,82 @@ function renderGame() {
         dropZone.addEventListener('dragleave', handleDragLeave);
         dropZone.addEventListener('drop', handleDrop);
 
-        wrapperDiv.appendChild(dropZone);
-
-        definitionsContainer.appendChild(wrapperDiv);
+        defWrapper.appendChild(defText);
+        defWrapper.appendChild(dropZone);
+        definitionsContainer.appendChild(defWrapper);
     });
 
     matchedPairs = [];
-    updateMatchedDisplay();
     clearStatusMessage();
 }
 
 function handleDragStart(e) {
     const draggedTerm = e.target;
-    if (draggedTerm.classList.contains('matched')) {
-        e.preventDefault();
-        return;
-    }
+    if (draggedTerm.classList.contains('cursor-default')) return; // Jika sudah dicocokkan
 
     e.dataTransfer.setData('text/plain', draggedTerm.dataset.id);
     e.dataTransfer.setData('text/type', 'term');
 
-    draggedTerm.classList.add('dragging');
-
+    // Efek saat drag start
+    draggedTerm.classList.add('opacity-70', 'scale-95', 'shadow-lg', 'z-10');
     startAutoScroll(e.clientY);
 }
 
 function handleDragEnd(e) {
     const draggedTerm = e.target;
-    draggedTerm.classList.remove('dragging');
+    draggedTerm.classList.remove('opacity-70', 'scale-95', 'shadow-lg', 'z-10');
     stopAutoScroll();
 }
 
 function handleDragOver(e) {
     e.preventDefault();
-    lastMouseY = e.clientY; // Update posisi mouse
+    lastMouseY = e.clientY;
 }
 
 function handleDragEnter(e) {
     e.preventDefault();
     const target = e.currentTarget;
-    if (target.classList.contains('drop-zone') && !target.classList.contains('matched')) {
-        target.classList.add('highlight');
+    if (target.classList.contains('border-dashed') && !target.classList.contains('pointer-events-none')) {
+        target.classList.replace('border-gray-300', 'border-blue-500');
+        target.classList.replace('bg-white', 'bg-blue-50');
+        target.classList.add('scale-105');
     }
 }
 
 function handleDragLeave(e) {
     if (!e.currentTarget.contains(e.relatedTarget)) {
-        e.currentTarget.classList.remove('highlight');
+        const target = e.currentTarget;
+        target.classList.replace('border-blue-500', 'border-gray-300');
+        target.classList.replace('bg-blue-50', 'bg-white');
+        target.classList.remove('scale-105');
     }
 }
 
 function handleDrop(e) {
     e.preventDefault();
     const dropTarget = e.currentTarget;
-    dropTarget.classList.remove('highlight');
+    dropTarget.classList.replace('border-blue-500', 'border-gray-300');
+    dropTarget.classList.replace('bg-blue-50', 'bg-white');
+    dropTarget.classList.remove('scale-105');
 
     const draggedTermId = e.dataTransfer.getData('text/plain');
     if (!draggedTermId) return;
 
-    const termCardToMove = document.querySelector(`.term-item[data-id="${draggedTermId}"]`);
-    if (!termCardToMove) {
-        console.error(`Term card dengan ID ${draggedTermId} tidak ditemukan.`);
-        return;
-    }
+    const termCardToMove = document.querySelector(`[data-id="${draggedTermId}"]`);
+    if (!termCardToMove) return;
 
-    const existingItemInTarget = dropTarget.querySelector('.term-item');
+    const existingItemInTarget = dropTarget.querySelector('.p-4.cursor-default');
 
     if (!existingItemInTarget) {
+        // Tidak ada item, langsung masukkan
         dropTarget.appendChild(termCardToMove);
-        dropTarget.classList.add('has-item');
-        termCardToMove.draggable = false;
+        dropTarget.classList.replace('border-dashed', 'border-solid');
+        dropTarget.classList.replace('border-gray-300', 'border-green-500');
+        dropTarget.classList.replace('bg-white', 'bg-green-50');
+        termCardToMove.classList.remove('cursor-grab');
+        termCardToMove.classList.add('cursor-default', 'pointer-events-none', 'my-2'); // <-- Tambahkan my-2
     } else {
+        // Ada item, tukar
         const termToSwap = existingItemInTarget;
 
         const currentParent = termCardToMove.parentElement;
@@ -165,16 +177,21 @@ function handleDrop(e) {
         dropTarget.removeChild(termToSwap);
 
         dropTarget.appendChild(termCardToMove);
-        termCardToMove.draggable = false;
+        termCardToMove.classList.remove('cursor-grab');
+        termCardToMove.classList.add('cursor-default', 'pointer-events-none', 'my-2'); // <-- Tambahkan my-2
 
-        if (currentParent && currentParent.classList.contains('definition-wrapper')) {
-            const sourcePlaceholder = currentParent.querySelector('.drop-zone');
+        if (currentParent && currentParent.classList.contains('bg-gray-50')) {
+            const sourcePlaceholder = currentParent.querySelector('.border-dashed');
             sourcePlaceholder.appendChild(termToSwap);
-            sourcePlaceholder.classList.add('has-item');
-            termToSwap.draggable = true;
+            sourcePlaceholder.classList.replace('border-solid', 'border-dashed');
+            sourcePlaceholder.classList.replace('border-green-500', 'border-gray-300');
+            sourcePlaceholder.classList.replace('bg-green-50', 'bg-white');
+            termToSwap.classList.remove('cursor-default', 'pointer-events-none');
+            termToSwap.classList.add('cursor-grab', 'my-2'); // <-- Tambahkan my-2
         } else {
             document.getElementById('terms-container').appendChild(termToSwap);
-            termToSwap.draggable = true;
+            termToSwap.classList.remove('cursor-default', 'pointer-events-none');
+            termToSwap.classList.add('cursor-grab', 'my-2'); // <-- Tambahkan my-2
         }
     }
 
@@ -182,31 +199,31 @@ function handleDrop(e) {
 }
 
 function checkAnswers() {
-    const allDropZones = document.querySelectorAll('.drop-zone');
-    const dropZonesWithoutTerm = Array.from(allDropZones).filter(zone => !zone.classList.contains('has-item'));
+    const allDropZones = document.querySelectorAll('.border-dashed, .border-solid');
+    const emptyDropZones = Array.from(allDropZones).filter(zone => zone.children.length === 0);
 
-    if (dropZonesWithoutTerm.length > 0) {
-        document.getElementById('popup-message').textContent = `Harap masukkan istilah ke semua kotak definisi sebelum mengecek jawaban. Masih ada ${dropZonesWithoutTerm.length} kotak yang kosong.`;
-        document.getElementById('popup-title');
-        document.getElementById('popup-overlay').style.display = 'block';
+    if (emptyDropZones.length > 0) {
+        document.getElementById('popup-message').textContent = `Masih ada ${emptyDropZones.length} kotak definisi yang kosong. Harap isi semua sebelum mengecek jawaban.`;
+        document.getElementById('popup-title').textContent = "⚠️ Peringatan";
+        document.getElementById('popup-overlay').classList.remove('hidden');
         return;
     }
 
     clearStatusMessage();
 
-    document.querySelectorAll('.term-item, .definition-item, .drop-zone').forEach(item => {
-        item.classList.remove('matched', 'correct', 'incorrect');
+    // Hapus semua kelas status sebelumnya
+    document.querySelectorAll('.p-4.cursor-grab, .p-4.cursor-default, .border-dashed, .border-solid').forEach(item => {
+        item.classList.remove('bg-green-300', 'border-green-500', 'text-white', 'bg-red-300', 'border-red-500', 'cursor-default', 'pointer-events-none');
     });
 
     matchedPairs = [];
 
-    document.querySelectorAll('.drop-zone.has-item').forEach(dropZoneElement => {
-        const attemptedTermItem = dropZoneElement.querySelector('.term-item');
+    allDropZones.forEach(dropZoneElement => {
+        const attemptedTermItem = dropZoneElement.querySelector('.p-4');
         const expectedTermId = parseInt(dropZoneElement.dataset.expectedTermId);
         if (attemptedTermItem) {
             const attemptedTermId = parseInt(attemptedTermItem.dataset.id);
-
-            matchedPairs.push({ expectedTermId: expectedTermId, attemptedTermId: attemptedTermId });
+            matchedPairs.push({ expectedTermId, attemptedTermId });
         }
     });
 
@@ -214,17 +231,30 @@ function checkAnswers() {
     matchedPairs.forEach(pair => {
         const isCorrect = pair.expectedTermId === pair.attemptedTermId;
 
-        const dropZoneElement = document.querySelector(`.drop-zone[data-expected-term-id="${pair.expectedTermId}"]`);
-        const termElement = document.querySelector(`.term-item[data-id="${pair.attemptedTermId}"]`);
+        const dropZoneElement = document.querySelector(`.border-dashed[data-expected-term-id="${pair.expectedTermId}"], .border-solid[data-expected-term-id="${pair.expectedTermId}"]`);
+        const termElement = document.querySelector(`[data-id="${pair.attemptedTermId}"]`);
 
         if (isCorrect) {
             correctCount++;
-            if (dropZoneElement) dropZoneElement.classList.add('matched', 'correct');
-            if (termElement) termElement.classList.add('matched', 'correct');
+            if (dropZoneElement) {
+                dropZoneElement.classList.add('bg-green-300', 'border-green-500');
+            }
+            if (termElement) {
+                termElement.classList.add('bg-green-300', 'border-green-500', 'text-white');
+            }
         } else {
-            if (dropZoneElement) dropZoneElement.classList.add('matched', 'incorrect');
-            if (termElement) termElement.classList.add('matched', 'incorrect');
+            if (dropZoneElement) {
+                dropZoneElement.classList.add('bg-red-300', 'border-red-500');
+            }
+            if (termElement) {
+                termElement.classList.add('bg-red-300', 'border-red-500', 'text-white');
+            }
         }
+    });
+
+    // Nonaktifkan interaksi setelah cek
+    document.querySelectorAll('.p-4.cursor-grab, .p-4.cursor-default, .border-dashed, .border-solid').forEach(item => {
+        item.classList.add('cursor-default', 'pointer-events-none');
     });
 
     const totalTerms = terms.length;
@@ -232,64 +262,55 @@ function checkAnswers() {
     let statusClass = '';
 
     if (correctCount === totalTerms) {
-        message = `Selamat! Kamu berhasil mencocokkan semua pasangan dengan benar.`;
-        statusClass = 'status-success';
+        message = `🎉 Selamat! Kamu berhasil mencocokkan semua pasangan dengan benar.`;
+        statusClass = 'bg-green-100 text-green-800 border border-green-200';
         document.getElementById('popup-message').textContent = message;
-        document.getElementById('popup-title').textContent = "Selamat!";
-        document.getElementById('popup-overlay').style.display = 'block';
+        document.getElementById('popup-title').textContent = "🎉 Selamat!";
+        document.getElementById('popup-overlay').classList.remove('hidden');
     } else {
-        message = `Kamu berhasil mencocokkan ${correctCount} dari ${totalTerms} pasangan.`;
-        statusClass = 'status-fail';
+        message = `📝 Kamu berhasil mencocokkan ${correctCount} dari ${totalTerms} pasangan.`;
+        statusClass = 'bg-red-100 text-red-800 border border-red-200';
         const statusDiv = document.getElementById('status-message');
         statusDiv.textContent = message;
-        statusDiv.className = `status-message ${statusClass}`;
+        statusDiv.className = `p-4 rounded-lg shadow-md font-semibold text-center ${statusClass}`;
     }
-}
-
-function updateMatchedDisplay() {
-    document.getElementById('matched-list').innerHTML = '';
 }
 
 function clearStatusMessage() {
     document.getElementById('status-message').textContent = '';
-    document.getElementById('status-message').className = 'status-message';
+    document.getElementById('status-message').className = 'p-4 rounded-lg shadow-md font-semibold text-center hidden';
 }
 
 function resetGame() {
     renderGame();
     clearStatusMessage();
-    document.getElementById('popup-overlay').style.display = 'none';
+    document.getElementById('popup-overlay').classList.add('hidden');
 }
 
-// --- Fungsi Autoscroll untuk Mobile & Desktop ---
+// --- Autoscroll ---
 
 function startAutoScroll(mouseY) {
-    // Autoscroll aktif di semua perangkat
-    // if (window.innerWidth >= 768) return; // Hapus baris ini
-
     isDragging = true;
-    lastMouseY = mouseY; // Simpan posisi awal mouse
+    lastMouseY = mouseY;
 
     scrollInterval = setInterval(() => {
-        if (!isDragging) return; // Hentikan jika tidak sedang drag
+        if (!isDragging) return;
 
-        const currentMouseY = lastMouseY; // Gunakan posisi mouse terakhir yang di-update oleh handleDragOver
+        const currentMouseY = lastMouseY;
         const viewportHeight = window.innerHeight;
-        const scrollThreshold = 50; // Jarak dari tepi viewport untuk memicu scroll
+        const scrollThreshold = 50;
 
         let scrollDirection = 0;
         if (currentMouseY < scrollThreshold) {
-            scrollDirection = -1; // Scroll ke atas
+            scrollDirection = -1;
         } else if (currentMouseY > viewportHeight - scrollThreshold) {
-            scrollDirection = 1; // Scroll ke bawah
+            scrollDirection = 1;
         }
 
         if (scrollDirection !== 0) {
-            // Gulir dengan kecepatan 15px dan interval cepat (10ms) di semua perangkat
             window.scrollBy(0, scrollDirection * 15);
         }
-        // Jika mouse tidak di dekat tepi, tidak scroll
-    }, 10); // Periksa setiap 10ms
+    }, 10);
 }
 
 function stopAutoScroll() {
@@ -301,26 +322,25 @@ function stopAutoScroll() {
 }
 
 // --- Inisialisasi ---
+
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
 
     document.getElementById('reset-btn').addEventListener('click', resetGame);
     document.getElementById('check-btn').addEventListener('click', checkAnswers);
 
-    document.getElementById('popup-close-btn').addEventListener('click', function() {
-        document.getElementById('popup-overlay').style.display = 'none';
+    document.getElementById('popup-close-btn').addEventListener('click', () => {
+        document.getElementById('popup-overlay').classList.add('hidden');
     });
 
-    document.getElementById('popup-overlay').addEventListener('click', function(e) {
-        if (e.target === this) {
-            this.style.display = 'none';
+    document.getElementById('popup-overlay').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) {
+            e.currentTarget.classList.add('hidden');
         }
     });
 
-    // Update posisi mouse untuk autoscroll saat dragover
+    // Update posisi mouse untuk autoscroll
     document.addEventListener('dragover', (e) => {
-        if (isDragging) {
-            lastMouseY = e.clientY; // Simpan posisi mouse terbaru saat drag
-        }
+        if (isDragging) lastMouseY = e.clientY;
     });
 });

@@ -1,0 +1,144 @@
+{
+    "sequences": [
+        {
+            "id": "studi_kasus_fotosintesis",
+            "title": "Proses Fotosintesis pada Tumbuhan",
+            "description": "Memahami tahapan dan faktor yang mempengaruhi fotosintesis.",
+            "case_study": "Di sebuah kebun, Andi menanam dua jenis tanaman: Tanaman A diletakkan di tempat terbuka dengan sinar matahari penuh, sedangkan Tanaman B diletakkan di dalam rumah dengan cahaya redup dari lampu pijar. Setelah beberapa minggu, Andi mengamati bahwa Tanaman A tumbuh lebih tinggi dan daunnya lebih hijau dibandingkan Tanaman B yang tampak pucat dan kurus.",
+            "questions": [
+                {
+                    "id": "1",
+                    "question": "Apa variabel bebas dalam studi kasus ini?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Jenis tanaman yang ditanam",
+                            "consequence": "Jika kamu mengganti jenis tanamannya, kamu hanya mengganti objek penelitian, bukan faktor yang kamu manipulasi untuk melihat efeknya."
+                        },
+                        {
+                            "id": "B",
+                            "text": "Pertumbuhan tinggi tanaman",
+                            "consequence": "Pertumbuhan tinggi adalah hasil pengamatan. Ini adalah variabel terikat, bukan sesuatu yang kamu ubah secara langsung."
+                        },
+                        {
+                            "id": "C",
+                            "text": "Intensitas cahaya yang diterima",
+                            "consequence": "Benar! Ini adalah faktor yang sengaja diubah (disengaja dimanipulasi) untuk melihat pengaruhnya."
+                        },
+                        {
+                            "id": "D",
+                            "text": "Jumlah air yang diberikan",
+                            "consequence": "Dalam studi kasus ini, diasumsikan jumlah air untuk kedua tanaman sama. Faktor yang berbeda adalah cahaya, bukan air."
+                        }
+                    ],
+                    "correct_answer": "D"
+                }
+            ]
+        },
+        {
+            "id": "studi_kasus_penghijauan",
+            "title": "Penghijauan dan Pemanasan Global",
+            "description": "Memahami dampak penghijauan terhadap mitigasi pemanasan global.",
+            "case_study": "Sebuah kota besar mengalami peningkatan suhu rata-rata tahunan dan polusi udara. Pemerintah kota kemudian meluncurkan program penghijauan massal dengan menanam ribuan pohon di seluruh wilayah kota.",
+            "questions": [
+                {
+                    "id": "1",
+                    "question": "Apa konsekuensi dari tidak melakukan penghijauan di kota besar yang padat?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Suhu kota menjadi lebih tinggi (Urban Heat Island)",
+                            "consequence": "Benar! Kurangnya vegetasi dan banyaknya permukaan beton\/asphalt menyebabkan panas menumpuk, membuat kota lebih hangat."
+                        },
+                        {
+                            "id": "B",
+                            "text": "Kualitas udara menjadi lebih baik",
+                            "consequence": "Ini salah. Tanpa pohon yang menyaring polusi, kualitas udara akan menjadi lebih buruk."
+                        },
+                        {
+                            "id": "C",
+                            "text": "Lebih banyak ruang untuk bangunan",
+                            "consequence": "Ini adalah dampak spasial, bukan konsekuensi langsung terhadap pemanasan global atau kualitas udara."
+                        },
+                        {
+                            "id": "D",
+                            "text": "Hewan liar akan lebih banyak",
+                            "consequence": "Kota padat biasanya mengurangi habitat alami hewan, membuatnya lebih sedikit, bukan lebih banyak."
+                        }
+                    ],
+                    "correct_answer": "A"
+                }
+            ]
+        },
+        {
+            "id": "studi_kasus_bioteknologi",
+            "title": "Bioteknologi dalam Kehidupan Sehari-hari",
+            "description": "Mengenal contoh dan dampak dari pemanfaatan bioteknologi.",
+            "case_study": "Seorang ibu ingin membuat tempe dari kacang kedelai. Ia mencuci kacang kedelainya, merebusnya, dan menumbuknya hingga halus. Ia kemudian menambahkan ragi tape ke dalam campuran tersebut dan memasukkannya ke dalam wadah tertutup rapat. Setelah beberapa hari, ia membuka wadah tersebut dan menemukan bahwa campuran tersebut berbau busuk dan tidak membentuk tempe.",
+            "questions": [
+                {
+                    "id": "1",
+                    "question": "Apa yang salah dalam proses pembuatan tempe oleh ibu tersebut?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Mencuci dan merebus kacang kedelai",
+                            "consequence": "Ini adalah langkah awal yang penting untuk membersihkan dan menyiapkan kacang. Ini bukan penyebab kegagalan."
+                        },
+                        {
+                            "id": "B",
+                            "text": "Menumbuk kacang kedelai hingga halus",
+                            "consequence": "Jika kacang terlalu halus, tekstur tempe bisa berubah, tetapi bukan ini yang menyebabkan bau busuk. Bau busuk menunjukkan pembusukan."
+                        },
+                        {
+                            "id": "C",
+                            "text": "Menggunakan ragi tape",
+                            "consequence": "Benar! Ragi tape digunakan untuk fermentasi tape singkong, bukan untuk tempe. Mikroorganisme yang tepat untuk tempe adalah Rhizopus oligosporus. Menggunakan ragi yang salah menyebabkan proses fermentasi gagal dan terjadi pembusukan."
+                        },
+                        {
+                            "id": "D",
+                            "text": "Memasukkan campuran ke dalam wadah tertutup rapat",
+                            "consequence": "Wadah tertutup membantu menjaga kelembapan, tetapi bukan penyebab utama pembusukan jika mikroorganisme yang benar tidak digunakan."
+                        }
+                    ],
+                    "correct_answer": "C"
+                }
+            ]
+        },
+        {
+            "id": "studi_kasus_tes",
+            "title": "Kisah Cinta Kais",
+            "description": "Bantu Kais dengan kisah cintanya yang unik!",
+            "case_study": "Pada jam 7 malam, Jesika mengajak kais untuk berkencan di favehotel, namun Kais berhalangan karena dia ditugaskan untuk memuaskan temannya Ridi Hirsi yang sedang bersedih karena ia dan pacarnya Inggi sedang ada masalah.",
+            "questions": [
+                {
+                    "id": "1",
+                    "question": "Menurut studi kasus diatas apa yang harus dilakukan Kais?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Berkencan dengan Jesika",
+                            "consequence": "HAPPY ENDING: Jesika dan Kais mulai dekat dan mereka berpacaran."
+                        },
+                        {
+                            "id": "B",
+                            "text": "Memuaskan Ridi Hirsi",
+                            "consequence": "GAY ENDING: Setelah Kais memuaskan Ridi Hirsi, mereka berdua ternyata jatuh cinta dan memutuskan untuk punya huubungan terlarang."
+                        },
+                        {
+                            "id": "C",
+                            "text": "Menolak ajakan Jesika dan berkencan dengan Inggi",
+                            "consequence": "PLOT TWIST ENDING: Dengan adanya masalah Inggi dan Ridi Hirsi, Kais memanfaatkan masalah mereka dan meyakinkan Inggi untuk berkencan dengannya dan Kais meyakinkan Inggi dengannya akan lebih Seru daripada dengan Ridi Hirsi."
+                        },
+                        {
+                            "id": "D",
+                            "text": "Bermain Mobile Legends",
+                            "consequence": "ALFAREZ ENDING: Kais lebih mementingkan Mobile Legends daripada Jesika, ternyata Alfarez sudah menunggu momen tersebut dan dia mengajak Jesika untuk berkencan dengannya. Alhasil, Jesika dan Alfarez pun mulai dekat dan dalam waktu dekat mereka akan menikah."
+                        }
+                    ],
+                    "correct_answer": "A"
+                }
+            ]
+        }
+    ]
+}

@@ -47,23 +47,15 @@ function renderGame() {
     // Render Istilah
     shuffledTerms.forEach(item => {
         const termDiv = document.createElement('div');
-        // Palet warna cerah dan berbeda
+        // Palet warna cerah dan berbeda - Gunakan warna Tailwind 200 untuk latar dan 800 untuk teks
         const colorClasses = [
-            'bg-blue-400 text-white',
-            'bg-green-400 text-white',
-            'bg-yellow-400 text-white',
-            'bg-red-400 text-white',
-            'bg-purple-400 text-white',
-            'bg-pink-400 text-white',
-            'bg-teal-400 text-white',
-            'bg-indigo-400 text-white',
-            'bg-orange-400 text-white',
-            'bg-cyan-400 text-white'
+            'bg-red-200 text-red-800', 'bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-yellow-200 text-yellow-800', 'bg-purple-200 text-purple-800',
+            'bg-pink-200 text-pink-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800', 'bg-orange-200 text-orange-800', 'bg-cyan-200 text-cyan-800'
         ];
         const randomColorClass = colorClasses[Math.floor(Math.random() * colorClasses.length)];
         
-        // Hapus min-h dan max-h, biarkan tinggi menyesuaikan teks
-        termDiv.className = `p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-grab ${randomColorClass} text-center font-medium shadow-sm transition-all duration-200`;
+        // Gunakan kelas Tailwind yang lebih modern
+        termDiv.className = `p-4 border-2 border-dashed border-gray-300 rounded-xl cursor-grab ${randomColorClass} text-center font-medium shadow-md hover:shadow-lg transition-all duration-200`;
         termDiv.textContent = item.istilah;
         termDiv.dataset.id = item.id;
         termDiv.draggable = true;
@@ -75,15 +67,15 @@ function renderGame() {
     // Render Definisi + Drop Zone
     shuffledDefinitions.forEach(item => {
         const defWrapper = document.createElement('div');
-        defWrapper.className = 'bg-gray-50 rounded-lg p-4 border border-gray-200';
+        defWrapper.className = 'bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm';
 
         const defText = document.createElement('div');
-        defText.className = 'p-3 bg-white rounded-md text-gray-700 text-center leading-relaxed mb-3';
+        defText.className = 'p-4 bg-white rounded-lg text-gray-700 text-center leading-relaxed mb-4 font-medium';
         defText.textContent = item.definisi;
 
-        // Drop Zone: Gunakan flex-row dan align-items center untuk menjaga tinggi tetap kecil
+        // Drop Zone: Gunakan kelas Tailwind yang lebih modern dan tetapkan tinggi tetap
         const dropZone = document.createElement('div');
-        dropZone.className = 'border-2 border-dashed border-gray-300 rounded-lg bg-white flex items-center justify-center text-gray-400 text-sm italic transition-colors duration-200 h-16'; // Gunakan h-16 (4rem) untuk tinggi tetap
+        dropZone.className = 'border-2 border-dashed border-gray-300 rounded-xl bg-white flex items-center justify-center text-gray-400 text-sm italic transition-colors duration-200 h-16';
         dropZone.dataset.expectedTermId = item.id;
 
         dropZone.addEventListener('dragover', handleDragOver);
@@ -107,14 +99,14 @@ function handleDragStart(e) {
     e.dataTransfer.setData('text/plain', draggedTerm.dataset.id);
     e.dataTransfer.setData('text/type', 'term');
 
-    // Efek saat drag start
-    draggedTerm.classList.add('opacity-70', 'scale-95', 'shadow-lg', 'z-10');
+    // Efek saat drag start - Gunakan kelas Tailwind
+    draggedTerm.classList.add('opacity-70', 'scale-95', 'shadow-xl', 'z-[1000]');
     startAutoScroll(e.clientY);
 }
 
 function handleDragEnd(e) {
     const draggedTerm = e.target;
-    draggedTerm.classList.remove('opacity-70', 'scale-95', 'shadow-lg', 'z-10');
+    draggedTerm.classList.remove('opacity-70', 'scale-95', 'shadow-xl', 'z-[1000]');
     stopAutoScroll();
 }
 

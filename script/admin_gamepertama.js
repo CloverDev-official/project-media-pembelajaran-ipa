@@ -73,22 +73,25 @@ function renderTable() {
 
     if (itemsData.length === 0) {
         const row = document.createElement('tr');
-        row.innerHTML = '<td colspan="4" style="text-align:center;">Tidak ada data.</td>';
+        row.innerHTML = '<td colspan="4" class="border border-gray-300 px-3 py-2 text-center">Tidak ada data.</td>';
         tbody.appendChild(row);
         return;
     }
 
     itemsData.forEach(item => {
         const row = document.createElement('tr');
-        // Untuk responsif di mobile
+        // Tambahkan kelas Tailwind untuk gaya baris
+        row.className = "border-b border-gray-200 hover:bg-gray-50";
+
         const idDisplay = String(item.id || 'N/A');
+
         row.innerHTML = `
-            <td data-label="ID">${idDisplay.substring(0, 8)}...</td>
-            <td data-label="Istilah">${item.istilah || ''}</td>
-            <td data-label="Definisi">${item.definisi || ''}</td>
-            <td data-label="Aksi" style="text-align:center;">
-                <button onclick='window.editItem("${idDisplay}")' id='edit-btn'>Edit</button>
-                <button onclick='window.deleteItem("${idDisplay}")' id='delete-btn'>Hapus</button>
+            <td class="border border-gray-300 px-3 py-2 break-words">${idDisplay.substring(0, 8)}...</td>
+            <td class="border border-gray-300 px-3 py-2 break-words">${item.istilah || ''}</td>
+            <td class="border border-gray-300 px-3 py-2 break-words">${item.definisi || ''}</td>
+            <td class="border border-gray-300 px-3 py-2 text-center">
+                <button onclick='window.editItem("${idDisplay}")' class="bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-md text-sm transition w-30 duration-200 mb-1">Edit</button>
+                <button onclick='window.deleteItem("${idDisplay}")' class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded-md text-sm transition w-30 duration-200 mb-1">Hapus</button>
             </td>
         `;
         tbody.appendChild(row);

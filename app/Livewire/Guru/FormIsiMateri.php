@@ -4,6 +4,8 @@ namespace App\Livewire\Guru;
 
 use App\Helpers\ToastMagic;
 use App\Models\Bab;
+use App\Models\InteractiveVideo;
+use App\Models\IsiBab; // Add this import
 use Livewire\Component;
 
 class FormIsiMateri extends Component
@@ -14,13 +16,20 @@ class FormIsiMateri extends Component
     public $subBab;
     public $teksBab;
     public $editorId = 'teksBab';
-    public $listeners = [
-        'saveMateri' => 'updatedBab',
+    public $selectedVideos = [];
+    public $showVideoModal = false;
+
+    protected $listeners = [
+        'openVideoModal' => 'openVideoModal',
+        'closeVideoModal' => 'closeVideoModal',
     ];
 
-    public function mount()
+    public function mount($babId)
     {
-        $bab = Bab::with('isiBab')->find($this->babId);
+        $this->babId = $babId;
+        $bab = Bab::with(['isiBab' => function($query) {
+            $query->with('interactiveVideos'); // Eager load videos
+        }])->find($this->babId);
 
         if (!$bab) {
             abort(404, 'Bab tidak ditemukan');
@@ -28,34 +37,76 @@ class FormIsiMateri extends Component
 
         $this->judulBab = $bab->judul_bab;
 
-        $isiBab = $bab->isiBab;
-        $this->isiBab = $isiBab;
-        $this->subBab = $isiBab->sub_bab;
-        $this->teksBab = ['main' => $isiBab->isi_materi ?? ''];
-    }
-
-    public function updatedBab()
-    {
-        if ($this->isiBab) {
-            $this->isiBab->update([
-                'judul_sub_bab' => $this->subBab,
-                'isi_materi' => $this->teksBab['main'],
-            ]);
-
-            $this->reset(['subBab', 'teksBab']);
-
-            ToastMagic::success('Materi berhasil disimpan', useSessionFlash: true);
+        // Check if isiBab exists before accessing its properties
+        if ($bab->isiBab) {
+            $this->isiBab = $bab->isiBab;
+            $this->subBab = $bab->isiBab->judul_sub_bab ?? '';
+            $this->teksBab = ['main' => $bab->isiBab->isi_materi ?? ''];
+            
+            // Safely get selected videos
+            $this->selectedVideos = $bab->isiBab->interactiveVideos ? 
+                $bab->isiBab->interactiveVideos->pluck('id')->toArray() : [];
+        } else {
+            // Initialize empty values if no isiBab exists
+            $this->isiBab = null;
+            $this->subBab = '';
+            $this->teksBab = ['main' => ''];
+            $this->selectedVideos = [];
         }
     }
 
     public function save()
     {
-        $this->updatedBab();
+        // If isiBab doesn't exist, create it first
+        if (!$this->isiBab) {
+            $this->isiBab = IsiBab::create([
+                'bab_id' => $this->babId,
+                'judul_sub_bab' => $this->subBab,
+                'isi_materi' => $this->teksBab['main'],
+            ]);
+        } else {
+            // Update existing isiBab
+            $this->isiBab->update([
+                'judul_sub_bab' => $this->subBab,
+                'isi_materi' => $this->teksBab['main'],
+            ]);
+        }
+
+        // Sync videos (will work even if isiBab was just created)
+        $this->isiBab->interactiveVideos()->sync($this->selectedVideos);
+
+        $this->reset(['subBab', 'teksBab', 'selectedVideos']);
+
+        ToastMagic::success('Materi berhasil disimpan', useSessionFlash: true);
+
         $this->redirectRoute('guru.materi', navigate: true);
+    }
+
+    public function openVideoModal()
+    {
+        $this->showVideoModal = true;
+    }
+
+    public function closeVideoModal()
+    {
+        $this->showVideoModal = false;
+    }
+
+    public function toggleVideo($videoId)
+    {
+        if (in_array($videoId, $this->selectedVideos)) {
+            $this->selectedVideos = array_diff($this->selectedVideos, [$videoId]);
+        } else {
+            $this->selectedVideos[] = $videoId;
+        }
+        $this->selectedVideos = array_values($this->selectedVideos);
     }
 
     public function render()
     {
-        return view('livewire.guru.form-isi-materi')->layout('components.layouts.app-guru');
+        $allInteractiveVideos = InteractiveVideo::all();
+        return view('livewire.guru.form-isi-materi', [
+            'allInteractiveVideos' => $allInteractiveVideos
+        ])->layout('components.layouts.app-guru');
     }
 }

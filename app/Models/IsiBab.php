@@ -15,4 +15,9 @@ class IsiBab extends Model
     {
         return $this->belongsTo(Bab::class, 'bab_id', 'id');
     }
+
+    public function interactiveVideos()
+    {
+        return $this->belongsToMany(InteractiveVideo::class, 'materis', 'materi_id', 'interactive_video_id');
+    }
 }

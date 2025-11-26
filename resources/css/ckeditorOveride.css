@@ -1,0 +1,270 @@
+.materi-bab,
+.ck-content {
+    background-color: #ffffff;
+    color: #1e293b;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    line-height: 1.9;
+    font-size: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow-wrap: break-word;
+}
+
+/* ====== HEADING ====== */
+.materi-bab h1,
+.ck-content h1 {
+    color: #059669;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    border-left: 6px solid #10b981;
+    padding-left: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.materi-bab h2,
+.ck-content h2 {
+    color: #0d9488;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #14b8a6;
+    padding-bottom: 0.5rem;
+}
+
+.materi-bab h3,
+.ck-content h3 {
+    color: #16a34a;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    padding-left: 0.5rem;
+    border-left: 4px solid #22c55e;
+}
+
+
+.materi-bab h4,
+.ck-content h4 {
+    color: #16a34a;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 1.1rem;
+    margin-bottom: .4rem;
+}
+
+/* ====== TEKS ====== */
+.materi-bab p,
+.ck-content p {
+    color: #334155;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.materi-bab strong,
+.ck-content strong {
+    font-weight: 700;
+}
+
+.materi-bab em,
+.ck-content em {
+    color: #0d9488;
+    font-style: italic;
+}
+
+/* ====== LIST ====== */
+.materi-bab ul,
+.ck-content ul,
+.materi-bab ol,
+.ck-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.materi-bab li,
+.ck-content li {
+    margin-bottom: 0.6rem;
+    color: #334155;
+}
+
+/* ====== BLOCKQUOTE ====== */
+.materi-bab blockquote,
+.ck-content blockquote {
+    background: #f0fdf4;
+    border-left: 5px solid #10b981;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #059669;
+    font-style: italic;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* ====== GAMBAR ====== */
+.materi-bab img,
+.ck-content img {
+    display: block;
+    max-width: 95%;
+    height: auto;
+    margin: 1.5rem auto;
+    border-radius: 0.75rem;
+    border: 3px solid #10b981;
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.15);
+}
+
+/* ====== CARD / KOTAK INFORMASI ====== */
+.materi-bab .card,
+.ck-content .card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    border: 2px solid #10b981;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.08);
+}
+
+.materi-bab .card h2,
+.ck-content .card h2 {
+    color: #059669;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+}
+
+/* ====== TABLE ====== */
+.materi-bab table,
+.ck-content table {
+    width: 95%;
+    margin: 1.5rem auto;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #f9fafb;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.materi-bab th,
+.ck-content th {
+    background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+    color: white;
+    font-weight: 700;
+    padding: 1rem 0.75rem;
+    text-align: left;
+}
+
+.materi-bab td,
+.ck-content td {
+    border: 1px solid #d1fae5;
+    padding: 0.8rem;
+}
+
+.materi-bab tr:nth-child(even),
+.ck-content tr:nth-child(even) {
+    background-color: #f0fdf4;
+}
+
+.materi-bab tr:hover,
+.ck-content tr:hover {
+    background-color: #d1fae5;
+    transition: background-color 0.2s ease;
+}
+
+/* ====== IFRAME (VIDEO YOUTUBE) ====== */
+.materi-bab iframe,
+.ck-content iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.75rem;
+    border: 3px solid #10b981;
+    margin: 1.5rem auto;
+    display: block;
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.15);
+}
+
+/* ====== CODE BLOCK ====== */
+.materi-bab code,
+.ck-content code {
+    background: #ecfdf5;
+    color: #059669;
+    font-family: 'Courier New', monospace;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border-left: 2px solid #10b981;
+}
+
+/* ====== PEMISAH ====== */
+.materi-bab hr,
+.ck-content hr {
+    border: none;
+    border-top: 2px solid #10b981;
+    margin: 2rem 0;
+}
+
+/* ====== FIGURE DAN CAPTION ====== */
+.materi-bab figure,
+.ck-content figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.materi-bab figcaption,
+.ck-content figcaption {
+    font-size: 0.9rem;
+    color: #059669;
+    margin-top: 0.75rem;
+    font-weight: 500;
+}
+
+/* ====== SOAL / HIGHLIGHT ====== */
+.materi-bab .soal,
+.ck-content .soal {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left: 6px solid #059669;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.1);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    .materi-bab,
+    .ck-content {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+
+    .materi-bab h1,
+    .ck-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .materi-bab h2,
+    .ck-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .materi-bab h3,
+    .ck-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .materi-bab h3,
+    .ck-content h3 {
+        font-size: 1rem;
+    }
+
+    .materi-bab table,
+    .ck-content table {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .materi-bab img,
+    .ck-content img {
+        max-width: 100%;
+    }
+}

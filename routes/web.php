@@ -1,0 +1,53 @@
+<?php
+use App\Livewire\Auth\LoginGuru;
+use App\Livewire\Auth\LoginMurid;
+use App\Livewire\Beranda;
+use App\Livewire\DaftarUlangan;
+use App\Livewire\Gim;
+use App\Livewire\Guru\Dashboard;
+use App\Livewire\Guru\DataMurid;
+use App\Livewire\Guru\FormIsiLatihan;
+use App\Livewire\Guru\FormIsiMateri;
+use App\Livewire\Guru\FormIsiUlangan;
+use App\Livewire\Guru\Gim as GuruGim;
+use App\Livewire\IsiMateri;
+use App\Livewire\Guru\Materi as GuruMateri;
+use App\Livewire\Guru\RekapNilai;
+use App\Livewire\Guru\Ulangan as GuruUlangan;
+use App\Livewire\Materi;
+use App\Livewire\Profil;
+use App\Livewire\Ulangan;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('auth.murid')->group(function () {
+    Route::get('/', Beranda::class)->name('beranda');
+    Route::get('/materi', Materi::class)->name('materi');
+    Route::get('/gim', Gim::class)->name('gim');
+    Route::get('/profil', Profil::class)->name('profil');
+    Route::get('/daftar-ulangan', DaftarUlangan::class)->name('daftar-ulangan');
+    Route::get('/ulangan/{ulanganId}', Ulangan::class)->name('ulangan');
+    Route::get('/bab/{babId}', IsiMateri::class)->name('isi.materi');
+});
+
+Route::middleware('auth.guru')
+    ->prefix('guru')
+    ->name('guru.')
+    ->group(function () {
+        Route::get('/dashboard', Dashboard::class)->name('dashboard');
+        Route::get('/data-murid', DataMurid::class)->name('data-murid');
+        Route::get('/rekap-nilai', RekapNilai::class)->name('rekap-nilai');
+        Route::get('/materi', GuruMateri::class)->name('materi');
+        Route::get('/ulangan', GuruUlangan::class)->name('ulangan');
+        Route::get('/gim', GuruGim::class)->name('gim');
+        Route::get('/ulangan/{babId}', IsiMateri::class)->name('isi.ulangan');
+        Route::get('/form/bab/{babId}', FormIsiMateri::class)->name('form-isi-materi');
+        Route::get('/form/ulangan/{ulanganId}', FormIsiUlangan::class)->name('form-isi-ulangan');
+        Route::get('/form/latihan/{latihanId}', FormIsiLatihan::class)->name('form-isi-latihan');
+    });
+
+route::middleware('tamu')
+    ->name('auth.')
+    ->group(function () {
+        Route::get('/login-guru', LoginGuru::class)->name('login-guru');
+        Route::get('/login-murid', LoginMurid::class)->name('login-murid');
+    });

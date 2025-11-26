@@ -1,0 +1,1 @@
+zip -r hasil-media-apasih.zip . -x "vendor/*" "node_modules/*" "frankenphp"

@@ -1,0 +1,210 @@
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        #player iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: 0;
+        }
+
+        /* Progress bar */
+        #progress-container {
+            cursor: pointer;
+            margin: 15px 0;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+        }
+
+        /* Tambahkan di file CSS Anda */
+        .mobile-device .mobile-friendly {
+            transform: translateZ(0);
+            /* Force GPU acceleration */
+            will-change: transform;
+        }
+
+        /* Modal Soal */
+        /* Modal Soal */
+        #soal-modal {
+            backdrop-filter: blur(2px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        #soal-modal .bg-white {
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            z-index: 50;
+        }
+
+        #soal-modal .bg-white::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #soal-modal .bg-white::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        #soal-modal .bg-white::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        #soal-modal .bg-white::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Tombol opsi jawaban */
+        #opsi button {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        #opsi button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Feedback jawaban */
+        #feedback.correct {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+        }
+
+        #feedback.incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Kontrol Video */
+        #control-buttons {
+            position: relative;
+            z-index: 100;
+        }
+
+        #control-buttons button {
+            position: relative;
+            z-index: 100;
+        }
+
+        /* Pastikan video container tidak menutup tombol */
+        .mobile-device #video-container {
+            margin-bottom: 60px;
+            /* Ruang untuk tombol */
+        }
+
+        /* Perbaiki overlay soal untuk mobile */
+        .mobile-device #soal {
+            max-height: 80vh;
+            /* Hindari overlay menutup tombol */
+            overflow-y: auto;
+        }
+
+        #watched-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #4caf50;
+            opacity: 0.3;
+            border-radius: 5px;
+            width: 0%;
+        }
+
+        #progress-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            font-size: 12px;
+            padding: 3px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            pointer-events: none;
+            display: none;
+            transform: translateY(-100%);
+        }
+
+        /* Tombol */
+        .btn {
+            border: 0;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.15s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        #btnPlay {
+            background: linear-gradient(to top, #16a34a, #22c55e);
+        }
+
+        #btnPause {
+            background: linear-gradient(to top, #dc2626, #ef4444);
+        }
+
+        #btnRestart {
+            background: linear-gradient(to top, #ca8a04, #eab308);
+        }
+
+        /* Overlay soal */
+        #soal {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        #opsi button {
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }

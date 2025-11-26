@@ -21,8 +21,7 @@
                 <!-- template bab -->
                 @foreach ($daftarUlangan as $ulangan)
                     <div class="flex justify-center items-center">
-                        <div
-                            class="bg-white p-2 rounded-lg w-36 shadow">
+                        <div class="bg-white p-2 rounded-lg w-36 shadow">
                             <!-- container gambar ulangan` -->
                             <div class="flex justify-center">
                                 <!-- gambar ulangan -->
@@ -31,9 +30,11 @@
                             </div>
                             <!-- judul dan deskripsi ulangan -->
                             <div class="mb-3 py-2">
-                                <h2 class="font-bold text-blue-500 text-sm capitalize">{{ $ulangan->judul }}
+                                <h2 class="font-bold text-blue-500 text-sm capitalize">
+                                    {{ $ulangan->judul }}
                                 </h2>
-                                <p class="font-normal text-xs capitalize">{{ $ulangan->deskripsi }}</p>
+                                <p class="font-normal text-xs capitalize">{{ $ulangan->deskripsi }}
+                                </p>
                             </div>
                             <!-- btn baca -->
                             <a wire:navigate href="{{ route('ulangan', $ulangan->id) }}"
@@ -76,11 +77,14 @@
                             </div>
 
                             <div class="mb-3 py-2">
-                                <h2 class="font-bold text-blue-500 text-lg capitalize">{{ $ulangan->judul }}</h2>
-                                <p class="font-normal text-xs capitalize">{{ $ulangan->deskripsi }}</p>
+                                <h2 class="font-bold text-blue-500 text-lg capitalize">
+                                    {{ $ulangan->judul }}</h2>
+                                <p class="font-normal text-xs capitalize">{{ $ulangan->deskripsi }}
+                                </p>
                             </div>
 
-                            <a wire:navigate href="{{ route('ulangan', $ulangan->id) }}" class="flex flex-col items-center">
+                            <a wire:navigate href="{{ route('ulangan', $ulangan->id) }}"
+                                class="flex flex-col items-center">
                                 <button
                                     class="mt-2 py-1 text-sm w-full rounded-lg transition-all duration-150 bg-yellow-300 hover:bg-yellow-500 active:scale-95 capitalize">
                                     mulai ulangan

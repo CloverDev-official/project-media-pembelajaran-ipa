@@ -18,6 +18,8 @@ use App\Livewire\Materi;
 use App\Livewire\Profil;
 use App\Livewire\Ulangan;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Guru\InteractiveVideoManager;
+use App\Livewire\Guru\InteractiveQuestionManager;
 
 Route::middleware('auth.murid')->group(function () {
     Route::get('/', Beranda::class)->name('beranda');
@@ -43,6 +45,8 @@ Route::middleware('auth.guru')
         Route::get('/form/bab/{babId}', FormIsiMateri::class)->name('form-isi-materi');
         Route::get('/form/ulangan/{ulanganId}', FormIsiUlangan::class)->name('form-isi-ulangan');
         Route::get('/form/latihan/{latihanId}', FormIsiLatihan::class)->name('form-isi-latihan');
+                Route::get('/interactive-video', InteractiveVideoManager::class)->name('interactive-video');
+        Route::get('/interactive-question/{video}', InteractiveQuestionManager::class)->name('interactive-question-manager');
     });
 
 route::middleware('tamu')

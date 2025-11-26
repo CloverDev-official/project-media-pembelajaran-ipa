@@ -38,6 +38,18 @@
                 {!! $bab->isiBab->isi_materi !!}
             </div>
 
+            <!-- Video Interaktif -->
+            @if($bab->isiBab && $bab->isiBab->interactiveVideos->count() > 0)
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Video Interaktif</h2>
+                    <div class="space-y-6">
+                        @foreach($bab->isiBab->interactiveVideos as $video)
+                            <livewire:interactive-video-player :video-id="$video->id" :key="'video-'.$video->id" />
+                        @endforeach
+                    </div>
+                </div>
+            @endif <!-- Added missing endif -->
+
             <div id="latihan" class="mb-15">
                 @if (!$mulai)
                     <div class="max-w-7xl mx-auto">
@@ -226,7 +238,6 @@
                     </div>
                 @endif
             </div>
-
         </div>
     </div>
 

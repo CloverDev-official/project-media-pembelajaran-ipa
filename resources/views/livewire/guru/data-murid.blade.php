@@ -31,7 +31,7 @@
                     <button wire:click="$dispatch('openTambahMurid', { id: '{{ $kelas->id }}' })"
                         id="btn-tambah"
                         class="text-sm border-l-4 border-b-4 border-green-500  active:border-0  px-4 py-2 bg-green-400  rounded-lg text-white text-shadow-md font-semibold transition-all duration-150 shadow-md capitalize hover:scale-105 active:scale-95">
-                        tambah
+                        tambah murid
                     </button>
 
                 </div>

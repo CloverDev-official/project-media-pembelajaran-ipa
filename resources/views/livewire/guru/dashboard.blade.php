@@ -18,7 +18,7 @@
 
                 <!-- data profil  guru -->
                 <div class="flex flex-col gap-2">
-                    <div>
+                    <div class="w-[10rem] md:w-full">
                         <h1 class="font-bold text-lg capitalize">{{ $infoGuru->nama }}</h1>
                         <h1 class="font-normal text-sm text-gray-400 uppercase">
                             Email : {{ $infoGuru->email }}

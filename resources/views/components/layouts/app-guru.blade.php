@@ -27,8 +27,8 @@
     collapsed: @json(session('sidebarCollapsed', true))
 }" x-init="window.addEventListener('sidebar-toggled', event => {
     collapsed = event.detail.collapsed;
-})" data-theme="default" class="relative">
-    <main class="min-h-screen bg-subtle flex transition-all duration-300"
+})" class="relative">
+    <main class="min-h-screen bg-blue-50 flex transition-all duration-300"
         :class="collapsed ? 'md:ml-16' : 'md:ml-[16.6667%]'">
 
         <livewire:components.guru.sidebar />

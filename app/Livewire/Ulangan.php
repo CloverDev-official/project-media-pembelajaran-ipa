@@ -40,9 +40,9 @@ class Ulangan extends Component
             ->where('murid_id', auth('murid')->id())
             ->exists();
 
-        if ($sudahDikerjakan) {
-            abort(403, 'Anda sudah mengerjakan ulangan ini.');
-        }
+        // if ($sudahDikerjakan) {
+        //     abort(403, 'Anda sudah mengerjakan ulangan ini.');
+        // }
 
         $this->daftarSoal = IsiUlangan::where('ulangan_id', $this->ulanganId)
             ->inRandomOrder()

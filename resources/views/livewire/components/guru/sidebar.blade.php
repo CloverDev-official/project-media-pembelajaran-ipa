@@ -56,6 +56,14 @@
                     <span class="tooltip">ulangan</span>
                 </x-guru.nav-link>
             </li>
+            <!-- interactive video -->
+            <li class="transition-all rounded-lg relative">
+                <x-guru.nav-link href="{{ route('guru.interactive-video') }}" :active="$currentRoute === 'guru.interactive-video'">
+                    <iconify-icon icon="carbon:video" class="text-2xl"></iconify-icon>
+                    <span class="menu-text">video interaktif</span>
+                    <span class="tooltip">video interaktif</span>
+                </x-guru.nav-link>
+            </li>
             <!-- game -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.gim') }}" :active="$currentRoute === 'guru.gim'">
@@ -66,4 +74,8 @@
             </li>
         </ul>
     </div>
+<<<<<<< HEAD
 </aside>
+=======
+</aside>
+>>>>>>> f49a7ac0fc341d01d8966b0f776929b221700546

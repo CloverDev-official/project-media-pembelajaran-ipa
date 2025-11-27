@@ -7,6 +7,7 @@ npm run dev &
 echo "starting php artisan serve..."
 php artisan serve
 
+
 # Start FrankenPHP with polling
 echo "Starting FrankenPHP with polling..."
 php artisan octane:start --server=frankenphp --poll &

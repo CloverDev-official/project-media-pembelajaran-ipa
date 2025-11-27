@@ -1,4 +1,4 @@
-<section class="mt-10 flex flex-col justify-center md:justify-start min-h-screen">
+<section class="flex flex-col gap-5 mt-10 min-h-screen">
     <livewire:components.guru.modal.modal-tambah-ulangan lazy />
     <livewire:components.guru.modal.modal-hapus-ulangan lazy />
     <livewire:components.guru.modal.modal-edit-ulangan lazy />
@@ -8,7 +8,7 @@
         <!-- btn tambah -->
         <button wire:click="$dispatch('openTambahUlangan')" id="btn-tambah"
             class="border-l-4 border-b-4 border-green-500 hover:border-green-600 active:scale-95  px-4 py-2 bg-green-400 hover:bg-blue-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-            tambah
+            tambah ulangan
         </button>
     </div>
     <div class="mt-4 flex justify-start">

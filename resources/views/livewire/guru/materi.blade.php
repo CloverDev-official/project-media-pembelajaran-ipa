@@ -1,13 +1,14 @@
-<section class="flex flex-col gap-5 mt-4 min-h-screen">
+<section class="flex flex-col gap-5 mt-10 min-h-screen">
     <livewire:components.guru.modal.modal-tambah-materi lazy />
     <livewire:components.guru.modal.modal-edit-materi lazy />
     <livewire:components.guru.modal.modal-hapus-materi lazy />
 
-    <div class="flex justify-end">
+    <!-- wrapper tambah -->
+    <div class="flex justify-start mb-5">
         <!-- btn tambah -->
         <button wire:click="$dispatch('openTambahMateri')" id="btn-tambah"
-            class="border-l-4 border-b-4 border-green-500 hover:border-green-600 active:scale-95  px-4 py-2 bg-green-400 hover:bg-blue-500 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-            tambah
+            class="px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+            tambah materi
         </button>
     </div>
     @foreach ($daftarBab as $bab)

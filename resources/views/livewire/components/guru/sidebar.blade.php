@@ -26,7 +26,7 @@
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.data-murid') }}" :active="$currentRoute === 'guru.data-murid'">
                     <iconify-icon icon="hugeicons:student" class="text-2xl"></iconify-icon>
-                    <span class="menu-text">data siswa</span>
+                    <span class="menu-text">data murid</span>
                     <span class="tooltip">data murid</span>
                 </x-guru.nav-link>
             </li>
@@ -65,11 +65,5 @@
                 </x-guru.nav-link>
             </li>
         </ul>
-    </div>
-    <!-- Bagian bawah -->
-    <div class="bg-white p-1 rounded-md mt-5">
-        <h1
-            class="text-center text-3xl text-blue-500 text-shadow-2xs font-extrabold uppercase logo ">
-            ipa<span class="text-yellow-400">verse</span></h1>
     </div>
 </aside>

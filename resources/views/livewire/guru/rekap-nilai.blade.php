@@ -7,32 +7,33 @@
                     {{ $kelas->nama_kelas ?? $kelas->nama }}</h1>
                 <a wire:click.prevent="exportKelas({{ $kelas->id }})" href="#">
                     <button
-                        class="border-l-4 border-b-4 border-green-700 px-4 py-2 bg-green-600 hover:scale-105 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize text-sm active:scale-95">
-                        <i class="fa-solid fa-file-excel"></i> excel
+                        class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                        <i class="fa-solid fa-file-excel"></i>
+                        export excel
                     </button>
                 </a>
 
             </div>
 
             <!-- container tabel rekap nilai siswa  -->
-            <div class="rounded-lg border overflow-hidden shadow-lg">
+            <div class="rounded-lg border border-black overflow-hidden shadow-lg">
                 <!-- wrapper scroll horizontal -->
                 <div class="overflow-x-auto">
                     <!-- tabel rekap nilai -->
                     <table class="table-auto lg:w-full min-w-max text-center">
                         <thead>
-                            <tr class="bg-blue-500-light">
-                                <th class="border-r border-black px-4 py-2 font-normal capitalize">
+                            <tr class="bg-yellow-300">
+                                <th class="border-r border-black px-4 py-2 font-medium capitalize">
                                     no.
                                 </th>
-                                <th class="border-r border-black px-4 py-2 font-normal capitalize">
+                                <th class="border-r border-black px-4 py-2 font-medium capitalize">
                                     nama siswa
                                 </th>
 
                                 {{-- Judul Latihan (dinamis) --}}
                                 @foreach ($daftarLatihan as $latihan)
                                     <th
-                                        class="border-r border-black px-4 py-2 font-normal capitalize">
+                                        class="border-r border-black px-4 py-2 font-medium capitalize">
                                         {{ $latihan->bab->judul_bab }} (latihan)
                                     </th>
                                 @endforeach
@@ -61,10 +62,10 @@
                                     $jumlahMapel = 0;
                                 @endphp
                                 <tr class="bg-white hover:bg-gray-200">
-                                    <td class="border-t border-r px-4 py-2">
+                                    <td class="border-t border-r border-black px-4 py-2">
                                         {{ $index + 1 }}
                                     </td>
-                                    <td class="border-t border-r px-4 py-2 capitalize">
+                                    <td class="border-t border-r border-black px-4 py-2 capitalize">
                                         {{ $murid->nama }}
                                     </td>
 
@@ -82,7 +83,7 @@
                                                 $jumlahMapel++;
                                             }
                                         @endphp
-                                        <td class="border-t border-r px-4 py-2">
+                                        <td class="border-t border-r border-black px-4 py-2">
                                             {{ $nilaiLatihanAngka ?? '-' }}
                                         </td>
                                     @endforeach
@@ -101,17 +102,17 @@
                                                 $jumlahMapel++;
                                             }
                                         @endphp
-                                        <td class="border-t border-r px-4 py-2">
+                                        <td class="border-t border-black border-r px-4 py-2">
                                             {{ $nilaiUlanganAngka ?? '-' }}
                                         </td>
                                     @endforeach
 
                                     {{-- Total & rata-rata --}}
-                                    <td class="border-t border-r px-4 py-2">
+                                    <td class="border-t border-black border-r px-4 py-2">
                                         {{ $jumlahMapel ? $total : '-' }}
                                     </td>
 
-                                    <td class="border-t px-4 py-2">
+                                    <td class="border-t border-black px-4 py-2">
                                         {{ $jumlahMapel ? round($total / $jumlahMapel) : '-' }}
                                     </td>
                                 </tr>

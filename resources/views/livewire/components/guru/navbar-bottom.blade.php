@@ -10,7 +10,7 @@
                     class="text-2xl"></iconify-icon>
             </x-guru.nav-link-bottom>
         </li>
-        <!-- data siswa -->
+        <!-- data murid -->
         <li>
             <x-guru.nav-link-bottom href="{{ route('guru.data-murid') }}" :active="request()->routeIs('guru.data-murid')"
                 :label="'data murid'">

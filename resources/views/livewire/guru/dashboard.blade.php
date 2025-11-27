@@ -5,7 +5,7 @@
         <div class="w-12/12 lg:w-8/12">
             <div class="bg-blue-500 p-4 py-6 rounded-md">
                 <h1 class="text-center text-4xl text-white text-shadow-2xs font-extrabold uppercase">
-                    dasboard guru
+                    dashboard guru
                 </h1>
             </div>
         </div>
@@ -17,9 +17,10 @@
                     class="border rounded-2xl w-[10rem] md:w-[6rem]">
 
                 <!-- data profil  guru -->
-                <div class="flex flex-col gap-2">
-                    <div class="w-[10rem] md:w-full">
-                        <h1 class="font-bold text-lg capitalize">{{ $infoGuru->nama }}</h1>
+                <div class="flex flex-col gap-2 overflow-x-auto">
+                    <div class="w-[8rem] md:w-full">
+                        <h1 class="font-bold text-lg capitalize">{{ $infoGuru->nama }}
+                        </h1>
                         <h1 class="font-normal text-sm text-gray-400 uppercase">
                             Email : {{ $infoGuru->email }}
                         </h1>
@@ -101,7 +102,7 @@
                     </h1>
                     <a wire:navigate href="data-murid">
                         <button
-                            class="border-l-4 border-b-4 border-main-dark px-4 py-2 bg-blue-500 rounded-lg text-white text-shadow-md font-semibold text-sm transition-all duration-100 shadow-md capitalize hover:scale-105 active:scale-95">
+                            class="px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                             lihat semua
                         </button>
                     </a>
@@ -109,35 +110,40 @@
 
                 <div class="grid lg:grid-cols-2 gap-4">
                     @foreach ($kelasTerpilih as $kelas)
-                        <div class="bg-gray-100 p-4 rounded-md">
+                        <div class="bg-gray-50 border border-gray-300 p-4 rounded-md">
                             <h1 class="my-4 font-semibold text-lg">
                                 Kelas {{ strtoupper($kelas->nama_kelas) }}
                             </h1>
-                            <div class="rounded-lg border overflow-hidden shadow-lg">
+                            <div class="rounded-lg border border-black overflow-hidden shadow-lg">
                                 <table class="table-auto w-full">
                                     <thead>
-                                        <tr class="bg-blue-500-light text-center">
-                                            <th class="border-r border-black px-4 py-2 capitalize">
+                                        <tr class="bg-yellow-300 text-center">
+                                            <th
+                                                class="border-r border-black px-4 py-2 font-medium capitalize">
                                                 no
                                             </th>
-                                            <th class="border-r border-black px-4 py-2 capitalize">
+                                            <th
+                                                class="border-r border-black px-4 py-2 font-medium capitalize">
                                                 nama murid
                                             </th>
-                                            <th class="px-4 py-2 capitalize">
+                                            <th class="px-4 py-2 font-medium capitalize">
                                                 kelas
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-center">
                                         @foreach ($kelas->murid as $murid)
-                                            <tr class="bg-white hover:bg-gray-200">
-                                                <td class="border-t border-r px-4 py-2">
+                                            <tr class="bg-white">
+                                                <td
+                                                    class="border-t border-r border-black px-4 py-2">
                                                     {{ $murid->absen }}
                                                 </td>
-                                                <td class="border-t border-r px-4 py-2 capitalize">
+                                                <td
+                                                    class="border-t border-r border-black px-4 py-2 capitalize">
                                                     {{ $murid->nama }}
                                                 </td>
-                                                <td class="border-t px-4 py-2 uppercase">
+                                                <td
+                                                    class="border-t border-black px-4 py-2 uppercase">
                                                     {{ $murid->kelas->nama_kelas }}
                                                 </td>
                                             </tr>
@@ -161,7 +167,7 @@
                     <div class="flex justify-between gap-5">
                         <a wire:navigate href="rekap-nilai">
                             <button
-                                class="border-l-4 border-b-4 border-main-dark px-4 py-2 bg-blue-500 rounded-lg text-white text-shadow-md font-semibold text-sm transition-all duration-100 shadow-md capitalize hover:scale-105 active:scale-95">
+                                class="px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                                 lihat semua
                             </button>
                         </a>
@@ -171,24 +177,24 @@
                 @if ($ringkasanNilai)
                     @php $kelas = $ringkasanNilai; @endphp
 
-                    <div class="bg-white p-4 mt-5 rounded-md shadow-md">
+                    <div>
                         <div class="flex justify-between px-2 my-4">
                             <h1 class="font-semibold text-lg uppercase">
                                 Kelas {{ $kelas->nama_kelas ?? $kelas->nama }}
                             </h1>
                         </div>
 
-                        <div class="rounded-lg border overflow-hidden shadow-lg">
+                        <div class="rounded-lg border border-black overflow-hidden shadow-lg">
                             <div class="overflow-x-auto">
                                 <table class="table-auto lg:w-full min-w-max text-center">
                                     <thead>
-                                        <tr class="bg-blue-500-light">
+                                        <tr class="bg-yellow-300">
                                             <th
-                                                class="border-r border-black px-4 py-2 font-normal capitalize">
+                                                class="border-r border-black px-4 py-2 font-medium capitalize">
                                                 no.
                                             </th>
                                             <th
-                                                class="border-r border-black px-4 py-2 font-normal capitalize">
+                                                class="border-r border-black px-4 py-2 font-medium capitalize">
                                                 nama siswa
                                             </th>
 
@@ -223,11 +229,13 @@
                                                 $total = 0;
                                                 $jumlahMapel = 0;
                                             @endphp
-                                            <tr class="bg-white hover:bg-gray-200">
-                                                <td class="border-t border-r px-4 py-2">
+                                            <tr class="bg-white">
+                                                <td
+                                                    class="border-t border-r border-black px-4 py-2">
                                                     {{ $index + 1 }}
                                                 </td>
-                                                <td class="border-t border-r px-4 py-2 capitalize">
+                                                <td
+                                                    class="border-t border-r border-black px-4 py-2 capitalize">
                                                     {{ $murid->nama }}
                                                 </td>
 
@@ -246,7 +254,8 @@
                                                             $jumlahMapel++;
                                                         }
                                                     @endphp
-                                                    <td class="border-t border-r px-4 py-2">
+                                                    <td
+                                                        class="border-t border-r border-black px-4 py-2">
                                                         {{ $nilaiLatihanAngka ?? '-' }}
                                                     </td>
                                                 @endforeach
@@ -266,15 +275,17 @@
                                                             $jumlahMapel++;
                                                         }
                                                     @endphp
-                                                    <td class="border-t border-r px-4 py-2">
+                                                    <td
+                                                        class="border-t border-r border-black px-4 py-2">
                                                         {{ $nilaiUlanganAngka ?? '-' }}
                                                     </td>
                                                 @endforeach
 
-                                                <td class="border-t border-r px-4 py-2">
+                                                <td
+                                                    class="border-t border-r border-black px-4 py-2">
                                                     {{ $jumlahMapel ? $total : '-' }}
                                                 </td>
-                                                <td class="border-t px-4 py-2">
+                                                <td class="border-t border-black px-4 py-2">
                                                     {{ $jumlahMapel ? round($total / $jumlahMapel) : '-' }}
                                                 </td>
                                             </tr>

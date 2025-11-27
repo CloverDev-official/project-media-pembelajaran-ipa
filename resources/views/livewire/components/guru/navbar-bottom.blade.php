@@ -41,6 +41,13 @@
                     class="text-2xl"></iconify-icon>
             </x-guru.nav-link-bottom>
         </li>
+        <!-- interactive video -->
+        <li>
+            <x-guru.nav-link-bottom href="{{ route('guru.interactive-video') }}" :active="request()->routeIs('guru.interactive-video')"
+                :label="'video interaktif'">
+                <iconify-icon icon="carbon:video-player" class="text-2xl"></iconify-icon>
+            </x-guru.nav-link-bottom>
+        </li>
         <!-- game -->
         <li>
             <x-guru.nav-link-bottom href="{{ route('guru.gim') }}" :active="request()->routeIs('guru.gim')"

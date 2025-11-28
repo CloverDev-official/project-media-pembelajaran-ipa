@@ -2,6 +2,10 @@
 
 # Start FrankenPHP first (this handles Laravel requests)
 echo "Starting FrankenPHP with polling..."
+php artisan octane:start --server=frankenphp --poll  &
+
+# Start FrankenPHP first (this handles Laravel requests)
+echo "Starting FrankenPHP with polling..."
 <<<<<<< HEAD
 php artisan octane:start --server=frankenphp --poll --host=0.0.0.0 --port=8000 &
 =======

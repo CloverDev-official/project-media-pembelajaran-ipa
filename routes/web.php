@@ -47,6 +47,10 @@ Route::middleware('auth.guru')
         Route::get('/form/ulangan/{ulanganId}', FormIsiUlangan::class)->name('form-isi-ulangan');
         Route::get('/form/latihan/{latihanId}', FormIsiLatihan::class)->name('form-isi-latihan');
         Route::get('/interactive-video', InteractiveVideoManager::class)->name('interactive-video');
+        Route::get('/interactive-question/{video}', InteractiveQuestionManager::class)->name(
+            'interactive-question-manager',
+        );
+        Route::get('/interactive-video', InteractiveVideoManager::class)->name('interactive-video');
 <<<<<<< HEAD
         Route::get('/interactive-question/{video}', InteractiveQuestionManager::class)->name('interactive-question-manager');
 =======

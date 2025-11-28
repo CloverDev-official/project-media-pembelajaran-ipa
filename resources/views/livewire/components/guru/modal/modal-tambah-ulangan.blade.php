@@ -48,15 +48,15 @@
                         </div>
 
                         <!-- Preview Gambar -->
-                        {{-- @if ($gambar)
+                        @if ($gambar)
                             <div class="mt-3">
                                 <p class="text-sm text-gray-500 mb-1">Pratinjau Gambar:</p>
                                 <img src="{{ $gambar->temporaryUrl() }}"
                                     class="w-full max-h-60 object-contain rounded-lg border">
                             </div>
-                        @endif --}}
+                        @endif
 
-                        {{-- <p class="text-sm text-gray-500 mt-2">Format: JPG, PNG, atau GIF (maks. 5MB) --}}
+                        <p class="text-sm text-gray-500 mt-2">Format: JPG, PNG, atau GIF (maks. 5MB)
                         </p>
                     </div>
 

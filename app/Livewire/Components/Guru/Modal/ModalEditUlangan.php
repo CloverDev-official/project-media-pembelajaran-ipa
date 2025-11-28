@@ -134,17 +134,6 @@ class ModalEditUlangan extends Component
                 ->delete();
         }
 
-        if ($this->judul !== $this->ulangan->judul) {
-            $oldPath = 'gambar_ulangan/' . Str::slug($this->ulangan->judul, '_');
-            $newPath = 'gambar_ulangan/' . Str::slug($this->judul, '_');
-
-            $disk = Storage::disk('public');
-
-            if ($disk->exists($oldPath)) {
-                $disk->move($oldPath, $newPath);
-            }
-        }
-
         $gambarPath = $this->ulangan->gambar;
         if ($this->gambar instanceof TemporaryUploadedFile) {
             Storage::disk('public')->delete($this->ulangan->gambar);

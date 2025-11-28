@@ -8,7 +8,7 @@
         <div class="flex justify-start mb-5">
             <!-- btn tambah -->
             <button wire:click="$dispatch('openTambahUlangan')" id="btn-tambah"
-                class="px-3 py-3 bg-green-500 justify-center flex items-center gap-1 rounded-xl text-white font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                class="px-3 py-3 bg-green-500 justify-center flex items-center gap-1 rounded-xl text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                 <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
                 tambah ulangan
             </button>

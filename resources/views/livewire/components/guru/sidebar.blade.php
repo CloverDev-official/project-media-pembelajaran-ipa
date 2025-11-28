@@ -1,7 +1,7 @@
 <aside id="sidebar" wire:navigate.ignore
     class="
         {{ $sidebarCollapsed ? 'sidebar-collapsed md:w-2/12' : 'md:w-1/6' }}
-        fixed top-0 left-0 z-10 min-h-screen bg-blue-500 p-4 rounded-tr-3xl shadow-2xl
+        fixed top-0 left-0 z-10 min-h-screen bg-gradient-to-t from-[#489BF9] to-[#1565C0] p-4 rounded-tr-3xl shadow-2xl
         transform transition-transform duration-300 ease-in-out hidden md:flex flex-col justify-between
     ">
     <!-- Bagian atas (button + menu) -->

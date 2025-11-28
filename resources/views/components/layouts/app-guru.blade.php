@@ -15,7 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- iconify icon -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'IPAWN' }}</title>
     {!! ToastMagic::styles() !!}
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])

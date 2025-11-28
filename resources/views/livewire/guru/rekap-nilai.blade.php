@@ -61,7 +61,7 @@
                                     $total = 0;
                                     $jumlahMapel = 0;
                                 @endphp
-                                <tr class="bg-white hover:bg-gray-200">
+                                <tr class="bg-white">
                                     <td class="border-t border-r border-black px-4 py-2">
                                         {{ $index + 1 }}
                                     </td>

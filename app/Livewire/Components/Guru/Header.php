@@ -7,14 +7,14 @@ use Carbon\Carbon;
 
 class Header extends Component
 {
-    public $namaGuru;
+    // public $namaGuru;
     public $dateNow;
 
     public function mount()
     {
         Carbon::setLocale('id');
         $this->dateNow = Carbon::now()->translatedFormat('d F Y, l');
-        $this->namaGuru = auth('guru')->user()->nama;
+        // $this->namaGuru = auth('guru')->user()->nama;
     }
 
     public function render()

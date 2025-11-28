@@ -16,8 +16,8 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- iconify icon -->
-     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <title>{{ $title ?? 'IPAWN' }}</title>
     {{-- <link rel="stylesheet" href="{{ asset('css/tema.css') }}"> --}}
     <!-- Styles / Scripts -->
     {!! ToastMagic::styles() !!}

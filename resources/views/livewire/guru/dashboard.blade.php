@@ -4,9 +4,14 @@
     <div class="flex flex-col md:flex-row gap-5 mt-5">
         <div class="w-12/12 lg:w-8/12">
             <div class="bg-blue-500 p-4 py-6 rounded-md">
-                <h1 class="text-center text-4xl text-white text-shadow-2xs font-extrabold uppercase">
-                    dashboard guru
+                <h1
+                    class="text-start text-2xl md:text-3xl text-white text-shadow-2xs font-extrabold capitalize">
+                    selamat datang, {{ $infoGuru->nama }}
                 </h1>
+                <p class="text-white font-medium">Selamat datang kembali di dashboard Anda. Mari
+                    kelola kelas
+                    dengan efektif hari
+                    ini.</p>
             </div>
         </div>
         <!-- profil guru -->

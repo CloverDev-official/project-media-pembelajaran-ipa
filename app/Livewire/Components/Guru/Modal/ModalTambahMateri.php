@@ -7,12 +7,18 @@ use App\Models\Bab;
 use App\Models\IsiBab;
 use App\Models\Kelas;
 use App\Models\Latihan;
+use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class ModalTambahMateri extends Component
 {
+    use WithFileUploads;
+
     public $showModal = false;
     public $judul;
+    public $deskripsi;
+    public $gambar;
     public $kelasId;
     public $daftarKelas;
     protected $listeners = [
@@ -47,10 +53,14 @@ class ModalTambahMateri extends Component
         $validated = ValidateMagic::run(
             [
                 'judul' => 'required|string|max:255',
+                'deskripsi' => 'nullable|string',
+                'gambar' => 'nullable|image|max:5120',
             ],
             [
                 'judul.required' => 'Judul wajib diisi!',
                 'judul.max' => 'Judul tidak boleh lebih dari 255 karakter!',
+                'gambar.image' => 'File yang diunggah harus berupa gambar!',
+                'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 5MB!',
             ],
             'error',
         );
@@ -59,12 +69,25 @@ class ModalTambahMateri extends Component
             return;
         }
 
+        $gambarPath = null;
+        if ($this->gambar) {
+            $ext = $this->gambar->extension();
+            $judulFolder = Str::slug($this->judul, '_');
+            $gambarPath = $this->gambar->storeAs(
+                "gambar_materi/{$judulFolder}",
+                "sampul.{$ext}",
+                'public',
+            );
+        }
+
         $guruId = auth('guru')->id();
 
         $bab = Bab::create([
             'guru_id' => $guruId,
             'kelas_id' => $this->kelasId,
             'judul_bab' => $this->judul,
+            'deskripsi' => $this->deskripsi,
+            'gambar' => $gambarPath,
         ]);
 
         IsiBab::create([
@@ -77,7 +100,7 @@ class ModalTambahMateri extends Component
         ]);
 
         $this->close();
-        $this->reset(['judul']);
+        $this->reset(['judul', 'deskripsi', 'kelasId']);
         return redirect()->route('guru.form-isi-materi', $bab->id);
     }
 

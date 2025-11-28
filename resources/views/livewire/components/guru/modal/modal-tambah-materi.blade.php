@@ -12,10 +12,40 @@
 
         <form id="formTambah" class="flex flex-col gap-4" wire:submit.prevent="save">
             <div>
+                <label for="gambar" class="font-semibold text-lg capitalize">Gambar Soal
+                    (opsional)</label>
+                <input type="file" id="gambar" wire:model="gambar" accept="image/*"
+                    class="w-full mt-2 py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+                <!-- Status Upload -->
+                <div wire:loading wire:target="gambar"
+                    class="mt-2 text-blue-500 text-sm animate-pulse">
+                    Mengunggah gambar...
+                </div>
+
+                <!-- Preview Gambar -->
+                @if ($gambar)
+                    <div class="mt-3">
+                        <p class="text-sm text-gray-500 mb-1">Pratinjau Gambar:</p>
+                        <img src="{{ $gambar->temporaryUrl() }}"
+                            class="w-full max-h-60 object-contain rounded-lg border">
+                    </div>
+                @endif
+
+                <p class="text-sm text-gray-500 mt-2">Format: JPG, PNG, atau GIF (maks. 5MB)
+                </p>
+            </div>
+            <div>
                 <label for="judul" class="font-semibold text-lg capitalize">judul</label>
                 <input type="text" id="judul" wire:model.defer="judul" required
                     placeholder="Judul Materi"
                     class="w-full mt-2 py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+            </div>
+            <div>
+                <label for="deskripsi" class="font-semibold text-lg capitalize">Deskripsi</label>
+                <textarea id="deskripsi" wire:model.defer="deskripsi" rows="3"
+                    placeholder="Deskripsi (opsional)"
+                    class="w-full mt-2 py-3 px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
             </div>
             <select id="kelas" name="kelas" wire:model="kelasId"
                 class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">

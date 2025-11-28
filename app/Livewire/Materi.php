@@ -14,7 +14,7 @@ class Materi extends Component
 
     public function mount()
     {
-        $this->daftarMateri = Bab::select('id', 'judul_bab')->get();
+        $this->daftarMateri = Bab::all();
     }
 
     public function render()

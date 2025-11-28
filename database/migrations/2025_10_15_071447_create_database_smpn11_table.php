@@ -50,7 +50,9 @@ return new class extends Migration {
             $table->unsignedBigInteger('guru_id');
             $table->unsignedBigInteger('kelas_id');
             $table->string('judul_bab', 255);
+            $table->text('gambar')->nullable();
             $table->text('deskripsi')->nullable();
+
             $table->timestamps();
 
             $table
@@ -72,7 +74,6 @@ return new class extends Migration {
         Schema::create('isi_bab', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bab_id');
-            $table->string('judul_sub_bab', 255)->nullable();
             $table->mediumText('isi_materi')->nullable();
             $table->timestamps();
 

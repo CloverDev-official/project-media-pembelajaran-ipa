@@ -13,7 +13,6 @@ class FormIsiMateri extends Component
     public $babId;
     public $judulBab;
     public $isiBab;
-    public $subBab;
     public $teksBab;
     public $editorId = 'teksBab';
     public $selectedVideos = [];
@@ -40,7 +39,6 @@ class FormIsiMateri extends Component
         // Check if isiBab exists before accessing its properties
         if ($bab->isiBab) {
             $this->isiBab = $bab->isiBab;
-            $this->subBab = $bab->isiBab->judul_sub_bab ?? '';
             $this->teksBab = ['main' => $bab->isiBab->isi_materi ?? ''];
             
             // Safely get selected videos
@@ -49,7 +47,6 @@ class FormIsiMateri extends Component
         } else {
             // Initialize empty values if no isiBab exists
             $this->isiBab = null;
-            $this->subBab = '';
             $this->teksBab = ['main' => ''];
             $this->selectedVideos = [];
         }
@@ -61,13 +58,11 @@ class FormIsiMateri extends Component
         if (!$this->isiBab) {
             $this->isiBab = IsiBab::create([
                 'bab_id' => $this->babId,
-                'judul_sub_bab' => $this->subBab,
                 'isi_materi' => $this->teksBab['main'],
             ]);
         } else {
             // Update existing isiBab
             $this->isiBab->update([
-                'judul_sub_bab' => $this->subBab,
                 'isi_materi' => $this->teksBab['main'],
             ]);
         }
@@ -75,7 +70,7 @@ class FormIsiMateri extends Component
         // Sync videos (will work even if isiBab was just created)
         $this->isiBab->interactiveVideos()->sync($this->selectedVideos);
 
-        $this->reset(['subBab', 'teksBab', 'selectedVideos']);
+        $this->reset([ 'teksBab', 'selectedVideos']);
 
         ToastMagic::success('Materi berhasil disimpan', useSessionFlash: true);
 

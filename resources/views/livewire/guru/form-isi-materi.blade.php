@@ -8,11 +8,6 @@
         </div>
     </div>
     <form action="#" method="post" class="mt-5" wire:submit.prevent="save">
-        <!-- Sub Bab -->
-        <h1 class="font-bold capitalize">sub bab :</h1>
-        <input type="text" wire:model.defer="subBab" id="subBab"
-            class="bg-white shadow w-full border border-main rounded-md p-2 mt-2 mb-5 focus:outline-none focus:ring-1 ring-main"
-            placeholder="contoh : 1.Pengertian Pertumbuhan dan Perkembangan">
         <h1 class="font-bold capitalize mb-2">teks :</h1>
         <!-- Tombol Import Word -->
         <div>
@@ -53,8 +48,7 @@
             </div>
         </div>
         <!-- Tombol Pilih Video Interaktif (Hanya satu) -->
-        <button type="button" 
-            wire:click="openVideoModal"
+        <button type="button" wire:click="openVideoModal"
             class="mt-5 mb-2 mr-4 border-l-4 border-b-4 border-red-600 px-4 py-2 bg-red-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
             <i class="bi bi-file-earmark-play-fill"></i>
             Pilih Video Interaktif
@@ -75,8 +69,6 @@
             </div>
         </div>
 
-        
-
         <!-- btn simpan -->
         <button onclick="toastMagic.info('Sedang menyimpan data, mohon tunggu sebentar…');"
             type="submit"
@@ -84,57 +76,54 @@
             simpan
         </button>
 
-               <!-- Modal Pilih Video Interaktif -->
-    @if($showVideoModal)
-    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold">Pilih Video Interaktif</h3>
-                <button 
-                    wire:click="closeVideoModal"
-                    class="text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                @forelse($allInteractiveVideos as $video)
-                <div class="border border-gray-200 rounded-lg p-4 flex items-start">
-                    <input 
-                        type="checkbox" 
-                        id="video_{{ $video->id }}" 
-                        wire:click="toggleVideo({{ $video->id }})"
-                        {{ in_array($video->id, $selectedVideos) ? 'checked' : '' }}
-                        class="mt-1 mr-3"
-                    >
-                    <label for="video_{{ $video->id }}" class="flex-1">
-                        <h4 class="font-medium">{{ $video->title }}</h4>
-                        @if($video->description)
-                            <p class="text-sm text-gray-600 mt-1">{{ $video->description }}</p>
-                        @endif
-                    </label>
+        <!-- Modal Pilih Video Interaktif -->
+        @if ($showVideoModal)
+            <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold">Pilih Video Interaktif</h3>
+                        <button wire:click="closeVideoModal"
+                            class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        @forelse($allInteractiveVideos as $video)
+                            <div class="border border-gray-200 rounded-lg p-4 flex items-start">
+                                <input type="checkbox" id="video_{{ $video->id }}"
+                                    wire:click="toggleVideo({{ $video->id }})"
+                                    {{ in_array($video->id, $selectedVideos) ? 'checked' : '' }}
+                                    class="mt-1 mr-3">
+                                <label for="video_{{ $video->id }}" class="flex-1">
+                                    <h4 class="font-medium">{{ $video->title }}</h4>
+                                    @if ($video->description)
+                                        <p class="text-sm text-gray-600 mt-1">
+                                            {{ $video->description }}</p>
+                                    @endif
+                                </label>
+                            </div>
+                        @empty
+                            <div class="col-span-2 text-center py-4">
+                                <p class="text-gray-500">Belum ada video interaktif</p>
+                            </div>
+                        @endforelse
+                    </div>
+
+                    <div class="mt-4 flex justify-end">
+                        <button wire:click="closeVideoModal"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                            Tutup
+                        </button>
+                    </div>
                 </div>
-                @empty
-                <div class="col-span-2 text-center py-4">
-                    <p class="text-gray-500">Belum ada video interaktif</p>
-                </div>
-                @endforelse
             </div>
-            
-            <div class="mt-4 flex justify-end">
-                <button 
-                    wire:click="closeVideoModal"
-                    class="px-4 py-2 bg-blue-600 text-white rounded-lg">
-                    Tutup
-                </button>
-            </div>
-        </div>
-    </div>
-    @endif
+        @endif
 
     </form>
-
 
 </main>

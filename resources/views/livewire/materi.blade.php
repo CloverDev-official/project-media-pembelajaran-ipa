@@ -26,13 +26,15 @@
                             <!-- container gambar materi -->
                             <div class="flex justify-center">
                                 <!-- gambar materi -->
-                                <img src="https://placehold.co/400x200?text=Gambar\nMateri"
+                                <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMaterisadasd' }}"
                                     class="bg-gray-200 w-full h-32 rounded-lg border-0">
                             </div>
                             <!-- judul dan deskripsi materi -->
                             <div class="mb-3 py-2">
                                 <h2 class="font-bold text-blue-500 text-sm capitalize">
                                     {{ $materi->judul_bab }}</h2>
+                                <h3 class="font-bold text-blue-500 text-sm capitalize">
+                                    {{ $materi->deskripsi }}</h3>
                             </div>
                             <!-- btn baca -->
                             <a wire:navigate href="{{ route('isi.materi', $materi->id) }}">
@@ -67,8 +69,7 @@
         <div class="flex justify-start mx-20">
             <div class="absolute top-60">
                 <!-- Daftar Bab -->
-                <div
-                    class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
                     <!-- Template bab -->
                     @foreach ($daftarMateri as $materi)
                         <!-- card materi -->
@@ -77,13 +78,15 @@
                                 <!-- container gambar materi -->
                                 <div class="flex justify-center">
                                     <!-- gambar materi -->
-                                    <img src="https://placehold.co/700x600?text=Gambar\nMateri"
+                                    <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMaterisadasd' }}"
                                         class="bg-gray-200 w-full h-[12rem] rounded-lg border-0">
                                 </div>
                                 <!-- judul dan deskripsi materi -->
                                 <div class="mb-3 py-2">
                                     <h2 class="font-bold text-blue-500 capitalize">
                                         {{ $materi->judul_bab }}</h2>
+                                    <h3 class="font-bold text-blue-500 text-sm capitalize">
+                                        {{ $materi->deskripsi }}</h3>
                                 </div>
                                 <!-- btn baca -->
                                 <a wire:navigate href="{{ route('isi.materi', $materi->id) }}">

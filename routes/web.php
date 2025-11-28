@@ -32,6 +32,7 @@ Route::middleware('auth.murid')->group(function () {
 });
 
 Route::middleware('auth.guru')
+
     ->prefix('guru')
     ->name('guru.')
     ->group(function () {
@@ -45,8 +46,14 @@ Route::middleware('auth.guru')
         Route::get('/form/bab/{babId}', FormIsiMateri::class)->name('form-isi-materi');
         Route::get('/form/ulangan/{ulanganId}', FormIsiUlangan::class)->name('form-isi-ulangan');
         Route::get('/form/latihan/{latihanId}', FormIsiLatihan::class)->name('form-isi-latihan');
-                Route::get('/interactive-video', InteractiveVideoManager::class)->name('interactive-video');
+        Route::get('/interactive-video', InteractiveVideoManager::class)->name('interactive-video');
+<<<<<<< HEAD
         Route::get('/interactive-question/{video}', InteractiveQuestionManager::class)->name('interactive-question-manager');
+=======
+        Route::get('/interactive-question/{video}', InteractiveQuestionManager::class)->name(
+            'interactive-question-manager',
+        );
+>>>>>>> a875d1ee2675b08a3f0e4e18fe4816738cd217ee
     });
 
 route::middleware('tamu')

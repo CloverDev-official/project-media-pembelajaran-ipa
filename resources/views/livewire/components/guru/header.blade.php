@@ -4,7 +4,8 @@
         <!-- teks selamat datang -->
         <div class="flex flex-col text-start ">
             <h1 class="text-lg md:text-3xl font-bold capitalize">
-                Selamat Datang {{ $namaGuru }}</h1>
+                {{ ucwords(str_replace(['guru.', '-'], ['', ' '], Route::currentRouteName())) }}
+            </h1>
             <h1 class="text-md md:text-lg font-normal text-gray-400">
                 {{ $dateNow }}</h1>
         </div>

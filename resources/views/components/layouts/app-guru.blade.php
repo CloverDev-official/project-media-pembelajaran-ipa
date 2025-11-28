@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon -->
-    <link rel="icon" href="../img/paw-paw.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/paw-paw.png') }}" type="image/x-icon">
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -15,7 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- iconify icon -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'IPAWN' }}</title>
     {!! ToastMagic::styles() !!}
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,12 +28,12 @@
 }" x-init="window.addEventListener('sidebar-toggled', event => {
     collapsed = event.detail.collapsed;
 })" class="relative">
-    <main class="min-h-screen bg-blue-50 flex transition-all duration-300"
+    <main class="min-h-screen bg-blue-50 flex flex-col transition-all duration-300"
         :class="collapsed ? 'md:ml-16' : 'md:ml-[16.6667%]'">
 
         <livewire:components.guru.sidebar />
-        <div id="content" class="flex-3 transition-all duration-300">
-            <div class="p-5">
+        <div id="content" class="flex-3 transition-all duration-300 flex flex-col min-h-screen">
+            <div class="p-5 flex-grow">
                 <livewire:components.guru.header />
                 {{ $slot }}
             </div>

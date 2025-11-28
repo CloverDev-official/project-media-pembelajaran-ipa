@@ -1,16 +1,7 @@
-#!/bin/bash
 
 # Start FrankenPHP first (this handles Laravel requests)
 echo "Starting FrankenPHP with polling..."
 php artisan octane:start --server=frankenphp --poll  &
-
-# Start FrankenPHP first (this handles Laravel requests)
-echo "Starting FrankenPHP with polling..."
-<<<<<<< HEAD
-php artisan octane:start --server=frankenphp --poll --host=0.0.0.0 --port=8000 &
-=======
-php artisan octane:start --server=frankenphp --poll  &
->>>>>>> a875d1ee2675b08a3f0e4e18fe4816738cd217ee
 
 # Start Vite dev server in background
 echo "Starting Vite development server..."

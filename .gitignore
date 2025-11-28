@@ -22,7 +22,6 @@ yarn-error.log
 /.vscode
 /.zed
 install-php8.4.sh
-database-migrate.sh
 **/caddy
 frankenphp
 frankenphp-worker.php

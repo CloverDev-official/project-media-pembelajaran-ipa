@@ -2,11 +2,6 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 
-// const host =
-//     process.env.GITHUB_CODESPACES === 'true'
-//         ? `https://${process.env.CODESPACE_NAME}-5173.app.github.dev`
-//         : '127.0.0.1';
-
 const host = '127.0.0.1';
 
 export default defineConfig({
@@ -21,8 +16,7 @@ export default defineConfig({
         host: 'localhost',
         port: 5173,
         hmr: {
-            host: 'localhost',
-            port: 5173,
+            host,
             protocol: 'http',
         },
     },

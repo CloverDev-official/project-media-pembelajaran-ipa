@@ -1,6 +1,6 @@
-<div class="md:hidden fixed bottom-0 left-0 right-0 bg-blue-500 shadow-md z-20">
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-blue-500  shadow-md z-20">
     <ul
-        class="flex justify-center items-center p-2 space-x-4 overflow-x-auto flex-nowrap scrollbar-hide">
+        class="flex justify-start items-center p-2 h-16 space-x-4 mx-2 overflow-x-auto flex-nowrap scrollbar-hide">
 
         <!-- Dashboard -->
         <li>
@@ -37,14 +37,14 @@
         <li class="flex-shrink-0 px-3 py-1 rounded-lg">
             <x-guru.nav-link-bottom href="{{ route('guru.ulangan') }}" :active="request()->routeIs('guru.ulangan')"
                 :label="'ulangan'">
-                <iconify-icon icon="healthicons:i-exam-multiple-choice"
+                <iconify-icon icon="healthicons:i-exam-multiple-choice-outline"
                     class="text-2xl"></iconify-icon>
             </x-guru.nav-link-bottom>
         </li>
         <!-- interactive video -->
         <li>
-            <x-guru.nav-link-bottom href="{{ route('guru.interactive-video') }}" :active="request()->routeIs('guru.interactive-video')"
-                :label="'video interaktif'">
+            <x-guru.nav-link-bottom href="{{ route('guru.video-interaktif') }}" :active="request()->routeIs('guru.video-interaktif')"
+                :label="'vid interaktif'">
                 <iconify-icon icon="carbon:video-player" class="text-2xl"></iconify-icon>
             </x-guru.nav-link-bottom>
         </li>

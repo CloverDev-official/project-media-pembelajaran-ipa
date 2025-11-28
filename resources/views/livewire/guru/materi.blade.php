@@ -8,12 +8,12 @@
         <div class="flex justify-start mb-5">
             <!-- btn tambah -->
             <button wire:click="$dispatch('openTambahMateri')" id="btn-tambah"
-                class="px-3 py-3 bg-green-500 justify-center flex items-center gap-1 rounded-xl text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                class="px-3 py-3 bg-yellow-300 justify-center flex items-center gap-1 rounded-xl text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                 <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
                 tambah materi
             </button>
         </div>
-        <div class="flex gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 w-full">
             @foreach ($daftarBab as $bab)
                 <!-- card materi -->
                 <div class="flex justify-start items-center">
@@ -35,7 +35,7 @@
                             <a>
                                 <button
                                     wire:click="$dispatch('openEditMateri', { babId: '{{ $bab->id }}' })"
-                                    class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-yellow-400  rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                    class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300  rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                                     <iconify-icon icon="line-md:edit"
                                         class="text-sm"></iconify-icon>
                                     edit Materi
@@ -44,7 +44,7 @@
                             <!-- hapus -->
                             <button
                                 wire:click="$dispatch('openHapusMateri', { id: '{{ $bab->id }}' })"
-                                class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-red-500 rounded-lg text-white font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-red-400 rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                                 <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
                                 hapus materi
                             </button>

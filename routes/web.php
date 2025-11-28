@@ -46,9 +46,9 @@ Route::middleware('auth.guru')
         Route::get('/form/bab/{babId}', FormIsiMateri::class)->name('form-isi-materi');
         Route::get('/form/ulangan/{ulanganId}', FormIsiUlangan::class)->name('form-isi-ulangan');
         Route::get('/form/latihan/{latihanId}', FormIsiLatihan::class)->name('form-isi-latihan');
-        Route::get('/interactive-video', InteractiveVideoManager::class)->name('interactive-video');
+        Route::get('/interactive-video', InteractiveVideoManager::class)->name('video-interaktif');
         Route::get('/interactive-question/{video}', InteractiveQuestionManager::class)->name(
-            'interactive-question-manager',
+            'edit-pertanyaan-video-interaktif',
         );
     });
 

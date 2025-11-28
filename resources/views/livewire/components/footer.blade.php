@@ -2,10 +2,10 @@
     <!-- footer mobile -->
     <livewire:components.mobile.footer-mobile />
     <div class="hidden md:block">
-        <img src="../img/bg-footer.png" class="w-full" alt="">
+        <img src="{{ asset('img/bg-footer.png') }}" class="w-full" alt="">
         <div class="flex justify-center">
             <div class="absolute top-[-13.5rem] ">
-                <img src="../img/kucing-footer.png" alt="">
+                <img src="{{ asset('img/kucing-footer.png') }}" alt="">
             </div>
         </div>
         <div class="flex justify-center">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="absolute right-28 top-[12rem]">
-                <img src="../img/paw-paw.png" alt="" class="w-56 h-52 ">
+                <img src="{{asset('img/paw-paw.png')}}" alt="" class="w-56 h-52 ">
             </div>
             <div class="absolute left-16 bottom-2">
                 <p class="text-lg">

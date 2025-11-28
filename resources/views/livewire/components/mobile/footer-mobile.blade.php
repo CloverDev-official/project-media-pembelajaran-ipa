@@ -1,7 +1,7 @@
 <div class="md:hidden flex justify-center items-center relative">
-    <img src="../img/bg-footer-mobile.png" class="w-full" alt="">
+    <img src="{{asset('img/bg-footer-mobile.png')}}" class="w-full" alt="">
     <div class="absolute -top-14">
-        <img src="../img/kucing-footer.png" class="w-60" alt="">
+        <img src="{{asset('img/kucing-footer.png')}}" class="w-60" alt="">
     </div>
     <div class="absolute top-20">
         <div class="w-60">

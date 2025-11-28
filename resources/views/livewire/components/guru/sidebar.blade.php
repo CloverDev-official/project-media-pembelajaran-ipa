@@ -56,9 +56,9 @@
                     <span class="tooltip">ulangan</span>
                 </x-guru.nav-link>
             </li>
-            <!-- interactive video -->
+            <!-- video interaktif -->
             <li class="transition-all rounded-lg relative">
-                <x-guru.nav-link href="{{ route('guru.interactive-video') }}" :active="$currentRoute === 'guru.interactive-video'">
+                <x-guru.nav-link href="{{ route('guru.video-interaktif') }}" :active="$currentRoute === 'guru.video-interaktif'">
                     <iconify-icon icon="carbon:video" class="text-2xl"></iconify-icon>
                     <span class="menu-text">video interaktif</span>
                     <span class="tooltip">video interaktif</span>

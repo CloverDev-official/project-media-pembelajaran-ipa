@@ -8,7 +8,7 @@
         <div class="flex justify-start mb-5">
             <!-- btn tambah -->
             <button wire:click="$dispatch('openTambahUlangan')" id="btn-tambah"
-                class="px-3 py-3 bg-green-500 justify-center flex items-center gap-1 rounded-xl text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                class="px-3 py-3 bg-yellow-300 justify-center flex items-center gap-1 rounded-xl text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                 <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
                 tambah ulangan
             </button>
@@ -33,18 +33,24 @@
                             </div>
     
                             <!-- tombol -->
+                            <div class="flex flex-col items-center gap-2 mt-3 md:mt-0">
+                                <!-- btn edit -->
+                                <button
+                                    wire:click="$dispatch('openEditUlangan', { id: {{ $ulangan->id }} })"
+                                    class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300  rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                    <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
+                                    edit ulangan
+                                </button>
+                                
+                                <!-- btn hapus -->
+                                <button
+                                    wire:click="$dispatch('openHapusUlangan', { id: {{ $ulangan->id }} })"
+                                    class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-red-400 rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                    <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
+                                    hapus ulangan
+                                </button>
+                            </div>
     
-                            <button
-                                wire:click="$dispatch('openEditUlangan', { id: {{ $ulangan->id }} })"
-                                class="mt-2 py-1 font-semibold text-sm w-full rounded-lg transition-all duration-150 bg-yellow-400 hover:bg-yellow-500 active:scale-95 text-white capitalize">
-                                edit
-                            </button>
-    
-                            <button
-                                wire:click="$dispatch('openHapusUlangan', { id: {{ $ulangan->id }} })"
-                                class="btn-hapus mt-2 py-1 font-semibold text-sm w-full rounded-lg transition-all duration-150 bg-red-500 hover:bg-red-600 active:scale-95 text-white capitalize">
-                                hapus
-                            </button>
                         </div>
                     </div>
                 @endforeach

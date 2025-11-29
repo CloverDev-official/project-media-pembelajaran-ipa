@@ -11,6 +11,9 @@
                 <h1 class="text-sm text-center text-white font-bold text-shadow-2xs">
                     {{ $bab->judul_bab }}
                 </h1>
+                <h1 class="text-xs text-center text-white font-medium text-shadow-2xs">
+                    {{ $bab->deskripsi }}
+                </h1>
             </div>
         </div>
     </div>
@@ -21,6 +24,9 @@
         <div class="absolute left-20">
             <h1 class="text-6xl text-white font-bold text-shadow-2xs">
                 {{ $bab->judul_bab }}
+            </h1>
+            <h1 class="mt-5 text-4xl  text-white font-medium text-shadow-2xs">
+                {{ $bab->deskripsi }}
             </h1>
         </div>
         <div class="absolute right-20">
@@ -67,7 +73,7 @@
                             <div class="py-5 text-center" id="startSection">
 
                                 @if (!$latihanAda)
-                                    <p class="text-red-600 font-bold text-lg">
+                                    <p class="text-blue-600 font-bold text-lg">
                                         Maaf, latihan untuk bab ini belum tersedia.
                                     </p>
                                 @else

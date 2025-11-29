@@ -31,7 +31,7 @@
                             <h2 class="font-bold text-blue-500 text-sm capitalize">
                                 {{ $bab->judul_bab }}
                             </h2>
-                            <h3 class="font-bold text-blue-500 text-sm capitalize">
+                            <h3 class="font-normal text-xs capitalize">
                                 {{ $bab->deskripsi }}
                             </h3>
                         </div>
@@ -41,7 +41,8 @@
                             <a>
                                 <button
                                     wire:click="$dispatch('openEditMateri', { babId: '{{ $bab->id }}' })"
-                                    class="w-full justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300  rounded-lg text-black font-medium text-xs transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">                                    
+                                    class="w-full justify-center flex items-center gap-1 px-4 py-2 bg-red-400 rounded-lg text-black font-medium text-xs transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">                                    
+                                        <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
                                         edit Materi
                                 </button>
                             </a>
@@ -82,8 +83,7 @@
                                 <button
                                     wire:click="$dispatch('openEditMateri', { babId: '{{ $bab->id }}' })"
                                     class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300  rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
-                                    <iconify-icon icon="line-md:edit"
-                                        class="text-sm"></iconify-icon>
+                                    <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
                                     edit Materi
                                 </button>
                             </a>

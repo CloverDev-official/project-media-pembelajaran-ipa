@@ -24,7 +24,7 @@
         x-transition:leave="transition-transform duration-300 ease-in-out"
         x-transition:leave-start="translate-x"
         x-transition:leave-end="transform translate-x-full"
-        class="fixed top-0 right-0 h-full  w-64 rounded-tl-4xl bg-blue-500 text-white z-50 ">
+        class="fixed top-0 right-0 h-full  w-64 rounded-tl-4xl bg-gradient-to-t from-[#489BF9] to-[#1565C0] text-white z-50 ">
         <div class="p-6">
             <a href="{{ route('profil') }}" wire:navigate>
                 <div class="flex items-center gap-3 p-2 rounded-lg transition-all duration-100 hover:bg-blue-400 active:bg-blue-700 active:scale-95">

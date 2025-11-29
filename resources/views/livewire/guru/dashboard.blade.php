@@ -107,7 +107,7 @@
                     </h1>
                     <a wire:navigate href="data-murid">
                         <button
-                            class="px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                            class="px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-green-300 hover:scale-105 active:scale-95">
                             lihat semua
                         </button>
                     </a>

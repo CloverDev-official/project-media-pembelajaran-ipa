@@ -33,7 +33,7 @@
                             <div class="mb-3 py-2">
                                 <h2 class="font-bold text-blue-500 text-sm capitalize">
                                     {{ $materi->judul_bab }}</h2>
-                                <h3 class="font-bold text-blue-500 text-sm capitalize">
+                                <h3 class="font-normal text-xs capitalize">
                                     {{ $materi->deskripsi }}</h3>
                             </div>
                             <!-- btn baca -->

@@ -10,15 +10,14 @@
             <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
             <div
-                class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-md p-6 mb-6 border border-blue-100">
-                <h3 class="text-xl font-semibold mb-4 text-blue-800">Tambah Video Baru</h3>
+                class="bg-white rounded-lg shadow-sm p-6 mb-6 border border-blue-100">
                 <form wire:submit.prevent="saveVideo" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Judul
                                 Video</label>
                             <input type="text" wire:model="title"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                                class=" w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                                 placeholder="Masukkan judul video">
                             @error('title')
                                 <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
@@ -89,7 +88,7 @@
 
                     <div class="flex justify-end">
                         <button type="submit"
-                            class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                            class="px-6 py-3 bg-yellow-300 focus:outline-none focus:ring-2 transition-all duration-100 hover:bg-yellow-400 hover:scale-105 active:scale-95 rounded-xl shadow-sm disabled:cursor-not-allowed"
                             wire:loading.attr="disabled"
                             wire:target="saveVideo, videoFile, thumbnailFile">
                             <span wire:loading.remove wire:target="saveVideo"

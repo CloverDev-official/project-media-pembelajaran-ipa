@@ -7,7 +7,7 @@
                     {{ $kelas->nama_kelas ?? $kelas->nama }}</h1>
                 <a wire:click.prevent="exportKelas({{ $kelas->id }})" href="#">
                     <button
-                        class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                        class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-green-300 hover:scale-105 active:scale-95">
                         <i class="fa-solid fa-file-excel"></i>
                         export excel
                     </button>

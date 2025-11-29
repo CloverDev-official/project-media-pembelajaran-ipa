@@ -2,7 +2,7 @@
     <livewire:components.guru.modal.modal-form-latihan lazy />
     <livewire:components.guru.modal.modal-konfirmasi-save-materi lazy />
     <!-- hero section -->
-    <div class="h-[50vh] bg-blue-500 flex justify-between items-center">
+    <div class="h-[50vh] bg-[radial-gradient(circle,#489BF9_0%,#1565C0_100%)] flex justify-between items-center">
         <div class="flex flex-col capitalize text-white m-5">
             <h1 class="text-5xl font-bold text-shadow-2xs">{{ $judulBab }}</h1>
         </div>
@@ -14,9 +14,9 @@
             <input type="file" id="importWord" accept=".docx" hidden>
 
             <button wire:click="$dispatch('wordToHTML')" type="button"
-                class="mt-5 mb-2 border-l-4 border-b-4 border-blue-600 px-4 py-2 bg-blue-500 hover:scale-110 active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-                <i class="bi bi-file-earmark-word-fill"></i>
-                Word
+                class="mt-5 mb-2 flex items-center gap-1 px-3 py-3 bg-blue-200 rounded-xl text-blue-700 font-medium text-sm transition-all duration-100 shadow-sm hover:bg-blue-300 capitalize hover:scale-105 active:scale-95">
+                    <i class="bi bi-file-earmark-word-fill"></i>
+                    Word
             </button>
         </div>
 
@@ -49,9 +49,9 @@
         </div>
         <!-- Tombol Pilih Video Interaktif (Hanya satu) -->
         <button type="button" wire:click="openVideoModal"
-            class="mt-5 mb-2 mr-4 border-l-4 border-b-4 border-red-600 px-4 py-2 bg-red-500 hover:scale-[01.1] active:scale-95 rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-            <i class="bi bi-file-earmark-play-fill"></i>
-            Pilih Video Interaktif
+            class="mt-5 mb-2 mr-4 flex items-center gap-1 px-3 py-3 bg-red-200 rounded-xl text-red-700 font-medium text-sm transition-all duration-100 shadow-sm hover:bg-red-300 capitalize hover:scale-105 active:scale-95">
+                <i class="bi bi-file-earmark-play-fill"></i>
+                Pilih Video Interaktif
         </button>
 
         <!-- Preview Video -->

@@ -9,13 +9,13 @@
     <div class="flex justify-start mb-5 gap-3">
         <!-- btn tambah -->
         <button wire:click="$dispatch('openTambahKelas')" id="btn-tambah"
-            class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+            class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm hover:bg-green-300 capitalize hover:scale-105 active:scale-95">
             <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
             tambah kelas
         </button>
 
         <button wire:click="$dispatch('openHapusKelas')" id="btn-hapus"
-            class="flex items-center gap-1 px-3 py-3 bg-red-200 rounded-xl text-red-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+            class="flex items-center gap-1 px-3 py-3 bg-red-200 rounded-xl text-red-700 font-medium text-sm transition-all duration-100 shadow-sm hover:bg-red-300 capitalize hover:scale-105 active:scale-95">
             <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
             hapus kelas
         </button>
@@ -32,7 +32,7 @@
                     <!-- btn tambah -->
                     <button wire:click="$dispatch('openTambahMurid', { id: '{{ $kelas->id }}' })"
                         id="btn-tambah"
-                        class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                        class="flex items-center gap-1 px-3 py-3 bg-green-200 rounded-xl text-green-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-green-300 hover:scale-105 active:scale-95">
                         <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
                         tambah murid
                     </button>
@@ -72,7 +72,7 @@
                                     <!-- btn edit -->
                                     <button
                                         wire:click="$dispatch('openEditMurid', { muridId: {{ $murid->id }} } )"
-                                        class="flex items-center gap-1 px-4 py-2 bg-yellow-200 rounded-lg text-yellow-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                        class="flex items-center gap-1 px-4 py-2 bg-yellow-200 rounded-lg text-yellow-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-yellow-300 hover:scale-105 active:scale-95">
                                         <iconify-icon icon="line-md:edit"
                                             class="text-sm"></iconify-icon>
                                         edit
@@ -81,7 +81,7 @@
                                     <!-- hapus -->
                                     <button
                                         wire:click="$dispatch('openHapusMurid', { muridId: {{ $murid->id }}} )"
-                                        class="flex items-center gap-1 px-4 py-2 bg-red-200 rounded-lg text-red-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                        class="flex items-center gap-1 px-4 py-2 bg-red-200 rounded-lg text-red-700 font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-red-300 hover:scale-105 active:scale-95">
                                         <iconify-icon icon="line-md:trash"
                                             class="text-sm"></iconify-icon>
                                         hapus

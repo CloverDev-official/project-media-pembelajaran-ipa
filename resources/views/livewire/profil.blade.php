@@ -1,12 +1,22 @@
 <main class="min-hscreen">
+    <!-- mobile -->
     <div class="md:hidden mx-5 mt-40">
         <!-- biodata -->
         <div class="relative flex justify-center">
             <img src="../img/bg-profil-mobile.png" alt="">
             <div class="absolute -top-14">
-                <div class="bg-gray-200 rounded-full w-20 h-20 shadow-md">
-                    <img src="../img/beruang.jpg" alt=""
-                        class="bg-gray-200 rounded-full p-2 w-20 h-20 shadow-md">
+                <div class="relative bg-gray-200 rounded-full w-20 h-20 shadow-md">
+                    <img src="../img/beruang.jpg" alt="" class="bg-gray-200 rounded-full p-1 w-20 h-20 shadow-md">
+                    <div class="absolute top-1 -left-2">
+                        <button wire:click="$dispatch('toggleEditProfilPopup')">
+                            <div class="flex justify-center items-center rounded-full border-white w-5 h-5 transition-all duration-100 active:scale-95 bg-[#489BF9] hover:bg-[#1565C0]"> 
+                                <div class="p-1">
+                                    <iconify-icon icon="line-md:pencil-twotone" class="text-xs text-white"></iconify-icon>
+                                </div>                               
+                            </div>                            
+                        </button>
+                        <livewire:components.modal.modal-edit-profil />
+                    </div>
                 </div>
             </div>
             <div class="absolute top-10 left-5">
@@ -113,9 +123,18 @@
             <div class="relative">
                 <img src="../img/bg-profil.png" alt="">
                 <div class="absolute -top-36 left-24">
-                    <div class="bg-gray-200 rounded-full w-48 h-48 shadow-md">
-                        <img src="../img/beruang.jpg" alt=""
-                            class="bg-gray-200 rounded-full p-2 w-48 h-48 shadow-md">
+                    <div class="relative bg-gray-200 rounded-full w-48 h-48 shadow-md">
+                        <img src="../img/beruang.jpg" alt="" class="bg-gray-200 rounded-full p-2 w-48 h-48 shadow-md">
+                        <div class="absolute top-4 -left-2">
+                            <button wire:click="$dispatch('toggleEditProfilPopup')">
+                                <div class="flex justify-center items-center rounded-full border-white w-10 h-10 transition-all duration-100 active:scale-95 bg-[#489BF9] hover:bg-[#1565C0]"> 
+                                    <div class="p-1">
+                                        <iconify-icon icon="line-md:pencil-twotone" class="text-xl text-white"></iconify-icon>
+                                    </div>                               
+                                </div>                            
+                            </button>
+                            <livewire:components.modal.modal-edit-profil />
+                        </div>
                     </div>
                 </div>
                 <div class="absolute top-28 left-20">

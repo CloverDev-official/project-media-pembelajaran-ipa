@@ -4,7 +4,7 @@
     <!-- Overlay -->
     <div @click="open = false" id="overlayTambah" class="absolute inset-0 bg-black/50"></div>
     <!-- Konten Modal -->
-    <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-80 md:w-96">
+    <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-[90%] max-w-3xl">
         <div class="flex flex-col mb-4 text-center">
             <h2 class="text-xl font-semibold capitalize">edit materi</h2>
             <p class="font-normal text-gray-400 text-sm capitalize">edit materi disini</p>
@@ -62,9 +62,15 @@
             </select>
             <div class="flex justify-between gap-2 mt-4">
                 <button wire:click="close" type="button" id="btnCloseTambah"
-                    class="px-4 py-2 bg-red-500 text-white rounded-lg transition-all duration-150 hover:bg-red-600 hover:scale-105 active:scale-95">Batal</button>
+                class="flex items-center px-4 py-2 bg-red-200 text-red-700 rounded-lg transition-all duration-150 hover:bg-red-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="line-md:close-small"></iconify-icon>
+                    Batal
+                </button>
                 <button wire:click="save" type="submit"
-                    class="px-4 py-2 bg-green-500 text-white rounded-lg transition-all duration-150 hover:bg-green-600 hover:scale-105 active:scale-95">Simpan</button>
+                class="flex items-center gap-1 px-4 py-2 bg-green-200 text-green-700 rounded-lg transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="line-md:confirm" class="text-sm"></iconify-icon>
+                    Simpan
+                </button>
             </div>
         </form>
     </div>

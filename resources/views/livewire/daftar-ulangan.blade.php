@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <!-- daftar ulangan -->
+    <!-- daftar ulangan dekstop -->
     <div class="hidden md:block mt-40 relative">
         <img src="../img/bg-materi.png" class="w-full" alt="">
         <div class="absolute top-[1.8rem] right-24">
@@ -65,34 +65,36 @@
                 Klik salah satu ulangan bab untuk mulai mengerjakan.
             </p>
         </div>
-        <div class="absolute top-60 left-28">
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
-                @foreach ($daftarUlangan as $ulangan)
-                    <div class="flex justify-center items-center">
-                        <div class="bg-white p-2 rounded-lg min-w-[15rem] shadow">
-                            <!-- container gambar ulangan -->
-                            <div class="flex justify-center">
-                                <img src="{{ $ulangan->gambar ? asset('storage/' . $ulangan->gambar) : '' }}"
-                                    class="bg-gray-200 w-full h-[12rem] rounded-lg border-0">
+        <div class="flex justify-start mx-20">
+            <div class="absolute top-60">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
+                    @foreach ($daftarUlangan as $ulangan)
+                        <div class="flex justify-center items-center">
+                            <div class="bg-white p-2 rounded-lg min-w-[15rem] shadow">
+                                <!-- container gambar ulangan -->
+                                <div class="flex justify-center">
+                                    <img src="{{ $ulangan->gambar ? asset('storage/' . $ulangan->gambar) : '' }}"
+                                        class="bg-gray-200 w-full h-[12rem] rounded-lg border-0">
+                                </div>
+    
+                                <div class="mb-3 py-2">
+                                    <h2 class="font-bold text-blue-500 text-lg capitalize">
+                                        {{ $ulangan->judul }}</h2>
+                                    <p class="font-normal text-xs capitalize">{{ $ulangan->deskripsi }}
+                                    </p>
+                                </div>
+    
+                                <a wire:navigate href="{{ route('ulangan', $ulangan->id) }}"
+                                    class="flex flex-col items-center">
+                                    <button
+                                        class="mt-2 py-1 text-sm w-full rounded-lg transition-all duration-150 bg-yellow-300 hover:bg-yellow-500 active:scale-95 capitalize">
+                                        mulai ulangan
+                                    </button>
+                                </a>
                             </div>
-
-                            <div class="mb-3 py-2">
-                                <h2 class="font-bold text-blue-500 text-lg capitalize">
-                                    {{ $ulangan->judul }}</h2>
-                                <p class="font-normal text-xs capitalize">{{ $ulangan->deskripsi }}
-                                </p>
-                            </div>
-
-                            <a wire:navigate href="{{ route('ulangan', $ulangan->id) }}"
-                                class="flex flex-col items-center">
-                                <button
-                                    class="mt-2 py-1 text-sm w-full rounded-lg transition-all duration-150 bg-yellow-300 hover:bg-yellow-500 active:scale-95 capitalize">
-                                    mulai ulangan
-                                </button>
-                            </a>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

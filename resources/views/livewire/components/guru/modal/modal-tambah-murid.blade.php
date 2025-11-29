@@ -23,9 +23,15 @@
 
             <div class="flex justify-between gap-2 mt-4">
                 <button wire:click="close" type="button" id="btnCloseTambah"
-                    class="px-4 py-2 bg-red-500 text-white rounded-lg transition-all duration-150 hover:bg-red-600 hover:scale-105 active:scale-95">Batal</button>
+                    class="flex items-center gap-1 px-4 py-2 bg-red-200 text-red-700 rounded-lg transition-all duration-150 hover:bg-red-300 hover:scale-105 active:scale-95">
+                        <iconify-icon icon="line-md:close-small"></iconify-icon>
+                        Batal
+                </button>
                 <button type="submit"
-                    class="px-4 py-2 bg-green-500 text-white rounded-lg transition-all duration-150 hover:bg-green-600 hover:scale-105 active:scale-95">Simpan</button>
+                    class="flex items-center gap-1 px-4 py-2 bg-green-200 text-green-700 rounded-lg transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                        <iconify-icon icon="line-md:confirm" class="text-sm"></iconify-icon>
+                        Simpan
+                </button>
             </div>
         </form>
     </div>

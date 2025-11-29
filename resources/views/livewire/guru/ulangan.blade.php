@@ -19,7 +19,7 @@
                 @foreach ($daftarUlangan as $ulangan)
                     <div class="flex justify-center items-center">
                         <div
-                            class="bg-white border border-l-4 border-b-4 border-gray-300 p-2 rounded-lg min-w-[15rem] shadow">
+                            class="bg-white p-2 rounded-lg min-w-[15rem] shadow">
                             <!-- container gambar -->
                             <div class="flex justify-center">
                                 <img src="{{ $ulangan->gambar ? asset('storage/' . $ulangan->gambar) : '' }}"

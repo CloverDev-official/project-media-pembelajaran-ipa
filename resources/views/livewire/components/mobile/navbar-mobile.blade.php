@@ -46,6 +46,13 @@
                 <x-nav-link-mobile href="gim" :active="request()->routeIs('gim')"><iconify-icon icon="healthicons:i-exam-qualification-outline" class="text-xl"></iconify-icon>gim</x-nav-link-mobile>
                 <!-- games -->
                 <x-nav-link-mobile href="daftar-ulangan" :active="request()->routeIs('daftar-ulangan')"><iconify-icon icon="ion:game-controller-outline" class="text-xl"></iconify-icon> ulangan</x-nav-link-mobile>
+                <li>
+                    <button wire:click="logout"
+                        class="flex items-center gap-2 w-full  text-start font-bold text-white hover:bg-blue-400 py-2 px-4 rounded-full">
+                        <i class="bi bi-box-arrow-right" class="text-xl"></i>
+                        Logout
+                    </button>
+                </li>
             </ul>
         </div>
     </div>

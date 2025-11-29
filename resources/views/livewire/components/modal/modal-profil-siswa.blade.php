@@ -15,7 +15,7 @@
 
         <li>
             <button wire:click="logout"
-                class="block px-3 py-2 text-red-600 hover:bg-red-50 rounded active:bg-red-50">
+                class="w-full block text-start px-3 py-2 text-red-600 hover:bg-red-50 rounded active:bg-red-50">
                 <i class="bi bi-box-arrow-right"></i>
                 Logout
             </button>

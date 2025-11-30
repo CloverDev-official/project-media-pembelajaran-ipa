@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Components\Mobile;
 
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
 class NavbarMobile extends Component
@@ -13,6 +15,23 @@ class NavbarMobile extends Component
         $murid = auth('murid')->user();
         $this->infoMurid = $murid->load('kelas');
     }
+
+    public function logout()
+    {
+        $token = Cookie::get('token_murid');
+
+        if ($token) {
+            try {
+                Http::withToken($token)->post(route('murid.auth.logout'));
+            } catch (\Exception $e) {
+            }
+        }
+
+        Cookie::queue(Cookie::forget('token_murid'));
+
+        $this->redirectRoute('auth.login-murid', navigate: true);
+    }
+
 
     public function render()
     {

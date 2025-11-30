@@ -50,7 +50,7 @@ document.addEventListener('livewire:init', () => {
                     type: 'bar',
                     barWidth: '60%',
                     itemStyle: {
-                        color: '#4CAF50',
+                        color: '#3b82f6',
                         borderRadius: [6, 6, 0, 0],
                     },
                     data: values,

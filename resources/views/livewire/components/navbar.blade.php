@@ -10,19 +10,20 @@
         <ul class="hidden md:flex gap-10 items-center capitalize">
             <!-- beranda -->
             <li>
-                <x-nav-link href="/" :active="request()->routeIs('beranda')">Beranda</x-nav-link>
+                <x-nav-link href="{{ route('beranda') }}" :active="request()->routeIs('beranda')">Beranda</x-nav-link>
             </li>
             <!-- materi -->
             <li>
-                <x-nav-link href="materi" :active="request()->routeIs('materi')">materi</x-nav-link>
+                <x-nav-link href="{{ route('materi') }}" :active="request()->routeIs('materi')">materi</x-nav-link>
             </li>
             <!-- gim -->
             <li>
-                <x-nav-link href="gim" :active="request()->routeIs('gim')">gim</x-nav-link>
+                <x-nav-link href="{{ route('gim') }}" :active="request()->routeIs('gim')">gim</x-nav-link>
             </li>
             <!-- ulangan -->
             <li>
-                <x-nav-link href="daftar-ulangan" :active="request()->routeIs('daftar-ulangan')">ulangan</x-nav-link>
+                <x-nav-link href="{{ route('daftar-ulangan') }}"
+                    :active="request()->routeIs('daftar-ulangan')">ulangan</x-nav-link>
             </li>
             <!-- User Dropdown -->
             <li class="relative">

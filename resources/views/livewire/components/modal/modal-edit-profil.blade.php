@@ -54,7 +54,7 @@
         </label>
 
         <!-- tombol hapus -->
-        <button type="button"
+        <button wire:click="hapusGambar" type="button"
             class="w-full bg-red-600 hover:bg-red-700 text-white text-lg py-3 rounded-lg shadow-md flex justify-center items-center gap-2 mt-3 transition">
             <iconify-icon icon="mdi:trash-can-outline"></iconify-icon>
             <span>Hapus Foto</span>

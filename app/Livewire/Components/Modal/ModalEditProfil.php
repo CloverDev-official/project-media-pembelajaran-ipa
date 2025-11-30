@@ -3,6 +3,7 @@
 namespace App\Livewire\Components\Modal;
 
 use App\Helpers\ToastMagic;
+use App\Helpers\ValidateMagic;
 use App\Models\SMPN11Murid;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -27,11 +28,26 @@ class ModalEditProfil extends Component
     public function hapusGambar()
     {
         $murid = auth('murid')->user();
+        SMPN11Murid::find($murid->id)->update([
+            'gambar' => null,
+        ]);
         Storage::disk('public')->delete($murid->gambar);
+        $this->toggle();
+        return redirect()->route('profil');
     }
 
     public function uploadGambar()
     {
+        ValidateMagic::run(
+            [
+                'gambar' => 'nullable|image|max:5120', // 5MB
+            ],
+            [
+                'gambar.max' => 'Ukuran gambar maksimal adalah 5MB.',
+                'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            ]
+        );
+
         $murid = auth('murid')->user();
         $gambarPath = $murid->gambar;
         if ($this->gambar instanceof TemporaryUploadedFile) {
@@ -51,10 +67,9 @@ class ModalEditProfil extends Component
         SMPN11Murid::find($murid->id)->update([
             'gambar' => $gambarPath,
         ]);
-
-        ToastMagic::success('Berhasil memperbarui foto profil!');
+        
         $this->toggle();
-        $this->dispatch('refreshFotoProfil');
+        return redirect()->route('profil');
     }
 
     public function render()

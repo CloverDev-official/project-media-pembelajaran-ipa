@@ -20,11 +20,6 @@ class NavbarMobile extends Component
         $this->infoMurid = $this->murid->load('kelas');
     }
 
-    public function refresh(): void
-    {
-        $this->murid = auth('murid')->user();
-    }
-
     public function logout()
     {
         $token = Cookie::get('token_murid');

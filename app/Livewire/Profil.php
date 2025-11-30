@@ -22,8 +22,7 @@ class Profil extends Component
 
     public function mount()
     {
-        $this->refresh();
-
+        $this->murid = auth('murid')->user();
         $this->infoMurid = $this->murid->load('kelas');
 
         // Ambil seluruh nilai (latihan + ulangan) dalam 2 query
@@ -64,11 +63,6 @@ class Profil extends Component
         $this->nilaiRataRata = $semuaNilai->count() > 0 ? round($semuaNilai->avg(), 2) : 0;
 
         $this->chart();
-    }
-
-    public function refresh(): void
-    {
-        $this->murid = auth('murid')->user();
     }
 
     public function chart()

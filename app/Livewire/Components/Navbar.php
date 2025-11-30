@@ -18,11 +18,6 @@ class Navbar extends Component
         $this->infoMurid = $this->murid->load('kelas');
     }
 
-    public function refresh(): void
-    {
-        $this->murid = auth('murid')->user();
-    }
-
     public function render()
     {
         return view('livewire.components.navbar');

@@ -52,17 +52,15 @@
                 <p class="text-sm text-gray-600">Klik untuk memilih foto dari galeri</p>
             </div>
         </label>
-
         <!-- tombol hapus -->
         <button wire:click="hapusGambar" type="button"
-            class="w-full bg-red-600 hover:bg-red-700 text-white text-lg py-3 rounded-lg shadow-md flex justify-center items-center gap-2 mt-3 transition">
+            class="w-full bg-red-200 hover:bg-red-300 text-red-700 text-lg py-3 rounded-lg shadow-md flex justify-center items-center gap-2 mt-3 transition">
             <iconify-icon icon="mdi:trash-can-outline"></iconify-icon>
             <span>Hapus Foto</span>
         </button>
-
         <!-- tombol simpan -->
         <button wire:click="uploadGambar" type="button"
-            class="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-3 rounded-lg shadow-md flex justify-center items-center gap-2 mt-3 transition">
+            class="w-full bg-green-200 hover:bg-green-300 text-green-700 text-lg py-3 rounded-lg shadow-md flex justify-center items-center gap-2 mt-3 transition">
             <iconify-icon icon="mdi:content-save-outline"></iconify-icon>
             <span>Simpan Foto</span>
         </button>

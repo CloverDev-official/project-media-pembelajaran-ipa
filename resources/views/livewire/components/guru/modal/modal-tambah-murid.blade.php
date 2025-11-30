@@ -9,7 +9,7 @@
             <h2 class="text-xl font-semibold capitalize">tambah siswa</h2>
             <p class="font-normal text-gray-400 text-sm capitalize">tambahkan siswa baru disini</p>
         </div>
-
+        <div class ></div>
         <form id="formTambah" class="flex flex-col gap-4" wire:submit.prevent="save">
             <input type="text" id="NIPD" wire:model.defer="nipd" required
                 placeholder="NIPD siswa"

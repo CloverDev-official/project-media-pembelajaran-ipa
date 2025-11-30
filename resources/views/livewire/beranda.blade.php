@@ -128,9 +128,9 @@
                             <i class="bi bi-bar-chart-fill"></i>
                         </h1>
                         <p class="mt-2">Pantau perkembangan nilai kamu setiap ujian!</p>
-                        <div class="mt-5  p-4">
+                        <div class="mt-5  p-2">
                             <!-- atur ukuran manual -->
-                            <canvas id="nilaiChart" width="500" height="100"></canvas>
+                            <livewire:components.chart />
                         </div>
                     </div>
                 </div>

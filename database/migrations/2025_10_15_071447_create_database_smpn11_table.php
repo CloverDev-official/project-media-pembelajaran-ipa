@@ -21,27 +21,26 @@ return new class extends Migration {
             $table->string('email', 255)->unique();
             $table->string('password', 255);
             $table->timestamps();
-            $table->softDeletes();
         });
 
         // === MURID ===
         Schema::create('murid', function (Blueprint $table) {
             $table->id();
             $table->string('nipd', 50)->unique();
-            $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->unsignedInteger('gambar')->nullable();
+            $table->unsignedBigInteger('kelas_id');
             $table->string('nama', 255);
-            $table->string('sekolah', 255)->nullable();
-            $table->unsignedInteger('absen')->nullable();
+            $table->string('sekolah', 255);
+            $table->unsignedInteger('absen');
             $table->string('password', 255);
             $table->timestamps();
-            $table->softDeletes();
 
             $table
                 ->foreign('kelas_id')
                 ->references('id')
                 ->on('kelas')
                 ->onUpdate('cascade')
-                ->onDelete('set null');
+                ->onDelete('cascade');
         });
 
         // === BAB (Materi) ===
@@ -60,7 +59,7 @@ return new class extends Migration {
                 ->references('id')
                 ->on('guru')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
 
             $table
                 ->foreign('kelas_id')
@@ -99,7 +98,7 @@ return new class extends Migration {
                 ->references('id')
                 ->on('guru')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
 
             $table
                 ->foreign('bab_id')
@@ -148,7 +147,7 @@ return new class extends Migration {
                 ->references('id')
                 ->on('guru')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
 
             $table
                 ->foreign('kelas_id')

@@ -32,7 +32,7 @@
                         alt="User" class="rounded-full w-[30px] hover:brightness-75 transition">
                 </button>
 
-                <livewire:components.modal.modal-profil-siswa lazy />
+                <livewire:components.modal.modal-profil-siswa />
             </li>
         </ul>
     </nav>

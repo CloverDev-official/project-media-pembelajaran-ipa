@@ -108,7 +108,7 @@
                     <div class="w-72">
                         <div class="bg-white rounded-lg p-1">
                             <div class="mt-5  p-4">
-                                <livewire:components.chart />
+                                {{-- <livewire:components.chart /> --}}
                             </div>
                         </div>
                     </div>

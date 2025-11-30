@@ -13,13 +13,13 @@
         <form id="formTambah" class="flex flex-col gap-4" wire:submit.prevent="save">
             <input type="text" id="NIPD" wire:model.defer="nipd" required
                 placeholder="NIPD siswa"
-                class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700">
             <input type="text" id="nama" wire:model.defer="nama" required
                 placeholder="Nama siswa"
-                class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
-            <input type="text" id="absen" wire:model.defer="absen" required
-                placeholder="Nomor Absen Siswa"
-                class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700">
+            <input type="number" min="1" id="absen" wire:model.defer="absen" required
+                placeholder="Nomor Absen Siswa" 
+                class="w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700">
 
             <div class="flex justify-between gap-2 mt-4">
                 <button wire:click="close" type="button" id="btnCloseTambah"
@@ -34,5 +34,5 @@
                 </button>
             </div>
         </form>
-    </div>
+    </div> 
 </div>

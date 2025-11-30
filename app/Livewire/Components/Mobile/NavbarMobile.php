@@ -8,12 +8,21 @@ use Livewire\Component;
 
 class NavbarMobile extends Component
 {
+    public $murid;
     public $infoMurid;
+    protected $listeners = [
+        'refreshFotoProfil' => 'refresh'
+    ];
 
     public function mount()
     {
-        $murid = auth('murid')->user();
-        $this->infoMurid = $murid->load('kelas');
+        $this->murid = auth('murid')->user();
+        $this->infoMurid = $this->murid->load('kelas');
+    }
+
+    public function refresh(): void
+    {
+        $this->murid = auth('murid')->user();
     }
 
     public function logout()

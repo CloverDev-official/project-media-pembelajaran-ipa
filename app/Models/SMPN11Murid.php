@@ -11,7 +11,7 @@ class SMPN11Murid extends Authenticatable implements JWTSubject
     protected $table = 'murid';
     protected $guarded = [];
     public $timestamps = true;
-    protected $fillable = ['nipd', 'nama', 'sekolah', 'absen', 'kelas_id', 'password'];
+    protected $fillable = ['nipd', 'gambar', 'nama', 'sekolah', 'absen', 'kelas_id', 'password'];
     protected $hidden = ['password'];
 
     public function getJWTIdentifier()

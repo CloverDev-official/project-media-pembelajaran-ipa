@@ -3,6 +3,7 @@
     x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
     x-transition:leave="transition ease-in duration-150"
     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
+    @click.outside="open = false" @click.self="open = false"
     class="border-gray-300 absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg p-2 z-50 transition transform origin-top scale-95">
     <ul class="flex flex-col gap-2">
         <li>

@@ -29,12 +29,14 @@
                 <div
                     class="flex items-center gap-3 p-2 rounded-lg transition-all duration-100 hover:bg-blue-400 active:bg-blue-700 active:scale-95">
                     <!-- foto profil -->
-                    <img src="../img/beruang.jpg" alt=""
-                        class="w-10 h-10 p-1 rounded-full bg-white shadow">
+                    <img src="{{ $infoMurid->gambar ? asset('storage/' . $infoMurid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                        alt="" class="w-10 h-10 p-1 rounded-full bg-white shadow">
                     <!-- username dan status -->
                     <div class="flex flex-col">
-                        <h1 class="font-bold text-yellow-300 text-shadow-2xs capitalize">admin</h1>
-                        <h1 class="text-sm text-white text-shadow-2xs capitalize">murid</h1>
+                        <h1 class="font-bold text-yellow-300 text-shadow-2xs capitalize">
+                            {{ $infoMurid->nama }}</h1>
+                        <h1 class="text-sm text-white text-shadow-2xs capitalize">
+                            Kelas: {{ $infoMurid->kelas->nama_kelas }}</h1>
                     </div>
                 </div>
             </a>

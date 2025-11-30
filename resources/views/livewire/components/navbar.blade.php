@@ -28,14 +28,14 @@
             <!-- User Dropdown -->
             <li class="relative">
                 <button wire:click="$dispatch('toggleProfilPopup')">
-                    <img src="{{ asset('img/beruang.jpg') }}" alt="User"
-                        class="rounded-full w-[30px] hover:brightness-75 transition">
+                    <img src="{{ $infoMurid->gambar ? asset('storage/' . $infoMurid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                        alt="User" class="rounded-full w-[30px] hover:brightness-75 transition">
                 </button>
 
-                <livewire:components.modal.modal-profil-siswa />
+                <livewire:components.modal.modal-profil-siswa lazy />
             </li>
         </ul>
     </nav>
 
-    <livewire:components.mobile.navbar-mobile />
+    <livewire:components.mobile.navbar-mobile lazy />
 </header>

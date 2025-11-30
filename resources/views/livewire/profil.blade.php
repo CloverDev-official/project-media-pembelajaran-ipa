@@ -1,4 +1,5 @@
 <main class="min-hscreen">
+    <livewire:components.modal.modal-edit-profil lazy />
     <!-- mobile -->
     <div class="md:hidden mx-5 mt-40">
         <!-- biodata -->
@@ -6,16 +7,18 @@
             <img src="../img/bg-profil-mobile.png" alt="">
             <div class="absolute -top-14">
                 <div class="relative bg-gray-200 rounded-full w-20 h-20 shadow-md">
-                    <img src="../img/beruang.jpg" alt="" class="bg-gray-200 rounded-full p-1 w-20 h-20 shadow-md">
+                    <img src="{{ $murid->gambar ? asset('storage/' . $murid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                        alt="" class="bg-gray-200 rounded-full p-1 w-20 h-20 shadow-md">
                     <div class="absolute top-1 -left-2">
                         <button wire:click="$dispatch('toggleEditProfilPopup')">
-                            <div class="flex justify-center items-center rounded-full border-white w-5 h-5 transition-all duration-100 active:scale-95 bg-[#489BF9] hover:bg-[#1565C0]"> 
+                            <div
+                                class="flex justify-center items-center rounded-full border-white w-5 h-5 transition-all duration-100 active:scale-95 bg-[#489BF9] hover:bg-[#1565C0]">
                                 <div class="p-1">
-                                    <iconify-icon icon="line-md:pencil-twotone" class="text-xs text-white"></iconify-icon>
-                                </div>                               
-                            </div>                            
+                                    <iconify-icon icon="line-md:pencil-twotone"
+                                        class="text-xs text-white"></iconify-icon>
+                                </div>
+                            </div>
                         </button>
-                        <livewire:components.modal.modal-edit-profil />
                     </div>
                 </div>
             </div>
@@ -32,7 +35,7 @@
                     <div class="flex flex-col gap-1">
                         <h1 class="font-bold text-sm text-yellow-400 capitalize">Kelas</h1>
                         <p class="font-semibold text-xs text-white capitalize">
-                            {{ $infoMurid->kelas->kelas }} 11
+                            {{ $infoMurid->kelas->nama_kelas }}
                         </p>
                     </div>
                     <!-- sekolah murid -->
@@ -58,7 +61,7 @@
                         <h1 class="font-bold text-center text-sm  text-white capitalize">nilai
                             tertinggi</h1>
                         <p class="font-semibold text-lg text-white capitalize">
-                            98
+                            {{ $nilaiTertinggi ? $nilaiTertinggi : '-' }}
                         </p>
                     </div>
                 </div>
@@ -70,7 +73,7 @@
                         <h1 class="font-bold text-center text-sm  text-white capitalize">nilai
                             terendah</h1>
                         <p class="font-semibold text-lg text-white capitalize">
-                            98
+                            {{ $nilaiTerendah ? $nilaiTerendah : '-' }}
                         </p>
                     </div>
                 </div>
@@ -82,7 +85,7 @@
                         <h1 class="font-bold text-center text-sm  text-white capitalize">nilai rata
                             - rata</h1>
                         <p class="font-semibold text-lg text-white capitalize">
-                            98
+                            {{ $nilaiRataRata ? $nilaiRataRata : '-' }}
                         </p>
                     </div>
                 </div>
@@ -105,8 +108,7 @@
                     <div class="w-72">
                         <div class="bg-white rounded-lg p-1">
                             <div class="mt-5  p-4">
-                                <!-- atur ukuran manual -->
-                                <canvas id="nilaiChart" width="100" height="120"></canvas>
+                                <livewire:components.chart />
                             </div>
                         </div>
                     </div>
@@ -124,16 +126,18 @@
                 <img src="../img/bg-profil.png" alt="">
                 <div class="absolute -top-36 left-24">
                     <div class="relative bg-gray-200 rounded-full w-48 h-48 shadow-md">
-                        <img src="../img/beruang.jpg" alt="" class="bg-gray-200 rounded-full p-2 w-48 h-48 shadow-md">
+                        <img src="{{ $murid->gambar ? asset('storage/' . $murid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                            alt="" class="bg-gray-200 rounded-full p-2 w-48 h-48 shadow-md">
                         <div class="absolute top-4 -left-2">
                             <button wire:click="$dispatch('toggleEditProfilPopup')">
-                                <div class="flex justify-center items-center rounded-full border-white w-10 h-10 transition-all duration-100 active:scale-95 bg-[#489BF9] hover:bg-[#1565C0]"> 
+                                <div
+                                    class="flex justify-center items-center rounded-full border-white w-10 h-10 transition-all duration-100 active:scale-95 bg-[#489BF9] hover:bg-[#1565C0]">
                                     <div class="p-1">
-                                        <iconify-icon icon="line-md:pencil-twotone" class="text-xl text-white"></iconify-icon>
-                                    </div>                               
-                                </div>                            
+                                        <iconify-icon icon="line-md:pencil-twotone"
+                                            class="text-xl text-white"></iconify-icon>
+                                    </div>
+                                </div>
                             </button>
-                            <livewire:components.modal.modal-edit-profil />
                         </div>
                     </div>
                 </div>
@@ -151,7 +155,7 @@
                         <div class="flex flex-col gap-2">
                             <h1 class="font-bold text-5xl text-yellow-400 capitalize">Kelas</h1>
                             <p class="font-semibold text-3xl text-white capitalize">
-                                {{ $infoMurid->kelas->kelas }}
+                                {{ $infoMurid->kelas->nama_kelas }}
                             </p>
                         </div>
                         <!-- sekolah murid -->
@@ -173,9 +177,10 @@
                     <img src="../img/bg-nilai.png" alt="">
                     <div class="absolute top-5 left-16">
                         <div class="flex flex-col items-center gap-4">
-                            <h1 class="font-bold text-xl text-white capitalize">nilai tertinggi</h1>
+                            <h1 class="font-bold text-xl text-white capitalize">nilai tertinggi
+                            </h1>
                             <p class="font-semibold text-5xl text-white capitalize">
-                                98
+                                {{ $nilaiTertinggi ? $nilaiTertinggi : '-' }}
                             </p>
                         </div>
                     </div>
@@ -186,7 +191,7 @@
                         <div class="flex flex-col items-center gap-4">
                             <h1 class="font-bold text-xl text-white capitalize">nilai terendah</h1>
                             <p class="font-semibold text-5xl text-white capitalize">
-                                98
+                                {{ $nilaiTerendah ? $nilaiTerendah : '-' }}
                             </p>
                         </div>
                     </div>
@@ -198,7 +203,7 @@
                             <h1 class="font-bold text-xl text-white capitalize">nilai rata - rata
                             </h1>
                             <p class="font-semibold text-5xl text-white capitalize">
-                                98
+                                {{ $nilaiRataRata ? $nilaiRataRata : '-' }}
                             </p>
                         </div>
                     </div>
@@ -227,7 +232,6 @@
                             </h1>
                             <p class="mt-2">Pantau perkembangan nilai kamu setiap ujian!</p>
                             <div class="mt-5  p-4">
-                                <!-- atur ukuran manual -->
                                 <livewire:components.chart />
                             </div>
                         </div>

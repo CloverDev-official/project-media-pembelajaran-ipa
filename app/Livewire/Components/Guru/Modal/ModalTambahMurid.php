@@ -37,12 +37,16 @@ class ModalTambahMurid extends Component
             [
                 'nipd' => 'required|string|unique:murid,nipd',
                 'nama' => 'required|string|max:255',
+                'absen' => 'required|integer|unique:murid,absen',
             ],
             [
                 'nipd.required' => 'NIPD wajib diisi!',
                 'nipd.unique' => 'NIPD sudah terdaftar!',
                 'nama.required' => 'Nama wajib diisi!',
                 'nama.max' => 'Nama tidak boleh lebih dari 255 karakter!',
+                'absen.required' => 'Nomor absen wajib diisi!',
+                'absen.integer' => 'Nomor absen harus berupa angka!',
+                'absen.unique' => 'Nomor absen sudah terdaftar!',
             ],
             'error',
         );

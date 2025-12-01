@@ -18,7 +18,7 @@
             <!-- dasboard -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.dashboard') }}" :active="$currentRoute === 'guru.dashboard'">
-                    <iconify-icon icon="material-symbols:dashboard" class="text-2xl"></iconify-icon>
+                    <iconify-icon icon="mdi:view-dashboard" class="text-2xl"></iconify-icon>
                     <span class="menu-text">dasboard</span>
                     <span class="tooltip">dasboard</span>
                 </x-guru.nav-link>
@@ -26,7 +26,7 @@
             <!-- data siswa -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.data-murid') }}" :active="$currentRoute === 'guru.data-murid'">
-                    <iconify-icon icon="hugeicons:student" class="text-2xl"></iconify-icon>
+                    <iconify-icon icon="mdi:account-student" class="text-2xl"></iconify-icon>
                     <span class="menu-text">data murid</span>
                     <span class="tooltip">data murid</span>
                 </x-guru.nav-link>
@@ -34,7 +34,7 @@
             <!-- rekap nilai -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.rekap-nilai') }}" :active="$currentRoute === 'guru.rekap-nilai'">
-                    <iconify-icon icon="healthicons:i-exam-qualification-outline"
+                    <iconify-icon icon="healthicons:i-exam-qualification"
                         class="text-2xl"></iconify-icon>
                     <span class="menu-text">rekap nilai</span>
                     <span class="tooltip">rekap nilai</span>
@@ -43,7 +43,7 @@
             <!-- materi -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.materi') }}" :active="$currentRoute === 'guru.materi'">
-                    <iconify-icon icon="fluent:book-add-28-regular" class="text-2xl"></iconify-icon>
+                    <iconify-icon icon="mdi:book" class="text-2xl"></iconify-icon>
                     <span class="menu-text">materi</span>
                     <span class="tooltip">materi</span>
                 </x-guru.nav-link>
@@ -51,7 +51,7 @@
             <!-- ulangan -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.ulangan') }}" :active="$currentRoute === 'guru.ulangan'">
-                    <iconify-icon icon="healthicons:i-exam-multiple-choice-outline"
+                    <iconify-icon icon="healthicons:i-exam-multiple-choice"
                         class="text-2xl"></iconify-icon>
                     <span class="menu-text">ulangan</span>
                     <span class="tooltip">ulangan</span>
@@ -60,7 +60,7 @@
             <!-- video interaktif -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.video-interaktif') }}" :active="$currentRoute === 'guru.video-interaktif'">
-                    <iconify-icon icon="carbon:video" class="text-2xl"></iconify-icon>
+                    <iconify-icon icon="mdi:video" class="text-2xl"></iconify-icon>
                     <span class="menu-text">video interaktif</span>
                     <span class="tooltip">video interaktif</span>
                 </x-guru.nav-link>
@@ -68,7 +68,7 @@
             <!-- game (gim) - Sekarang mengarah ke GimLevelManager -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.gim') }}" :active="$currentRoute === 'guru.gim'">
-                    <iconify-icon icon="bx:joystick" class="text-2xl"></iconify-icon>
+                    <iconify-icon icon="mdi:google-gamepad" class="text-2xl"></iconify-icon>
                     <span class="menu-text">gim</span>
                     <span class="tooltip">gim</span>
                 </x-guru.nav-link>

@@ -1,15 +1,14 @@
-<div class="container mx-auto p-4 mt-8">
-    <h2 class="text-2xl font-bold mb-6 text-gray-800">Manajemen Level Gim Pencocokan</h2>
-
+<div class="container">
     @if(session()->has('message'))
         <div class="alert alert-success bg-green-100 text-green-800 p-3 rounded mb-4">
             {{ session('message') }}
         </div>
     @endif
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h3 class="text-xl font-semibold mb-4">{{ $editId ? 'Edit Level' : 'Tambah Level Baru' }}</h3>
-        <form wire:submit.prevent="simpan" enctype="multipart/form-data">
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-10">
+        <h3 class="text-3xl font-semibold">{{ $editId ? 'Edit Level' : 'Form Tambah Level' }}</h3>
+        <p class="text-gray-600 mt-2">Kelola gim untuk hiburan dalam pembelajaran</p>
+        <form wire:submit.prevent="simpan" enctype="multipart/form-data" class="mt-10" >
             <div class="mb-4">
                 <label class="block text-gray-700 mb-2" for="judul_level">Judul Level</label>
                 <input type="text" id="judul_level" wire:model="judul_level" class="w-full px-3 py-2 border border-gray-300 rounded-md">
@@ -31,7 +30,7 @@
                 @endif
                 <input type="file" id="thumbnail" wire:model="thumbnail" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                 @error('thumbnail') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                
+
                 @if($thumbnail && !$editId)
                     <div class="mt-3">
                         <p class="text-sm text-gray-600 mb-2">Preview:</p>
@@ -53,11 +52,17 @@
                             @error('pasangan.' . $index . '.kanan') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
                         @if(count($pasangan) > 1)
-                            <button type="button" wire:click="hapusPasangan({{ $index }})" class="bg-red-500 text-white px-3 py-2 rounded">Hapus</button>
+                            <button type="button" wire:click="hapusPasangan({{ $index }})" class="flex items-center gap-1 px-4 py-2 bg-red-200 text-red-700 rounded-lg transition-all duration-150 hover:bg-red-300 hover:scale-105 active:scale-95">
+                                <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
+                                Hapus
+                            </button>
                         @endif
                     </div>
                 @endforeach
-                <button type="button" wire:click="tambahPasangan" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">+ Tambah Pasangan</button>
+                <button type="button" wire:click="tambahPasangan" class="mt-4 flex items-center gap-1 px-4 py-2 bg-green-200 text-green-700 rounded-lg transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
+                    Tambah Pasangan
+                </button>
                 @error('pasangan') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
@@ -68,15 +73,19 @@
                 </label>
             </div>
 
-            <div class="flex justify-end gap-2">
-                <button type="button" wire:click="batal" class="gap-1 items-center flex px-6 py-3 bg-red-300 focus:outline-none focus:ring-2 transition-all duration-100 hover:bg-red-400 hover:scale-105 active:scale-95 rounded-xl shadow-sm disabled:cursor-not-allowed"><iconify-icon icon="line-md:close-small"></iconify-icon>Batal</button>
-                <button type="submit" class="gap-1 items-center flex px-6 py-3 bg-yellow-300 focus:outline-none focus:ring-2 transition-all duration-100 hover:bg-yellow-400 hover:scale-105 active:scale-95 rounded-xl shadow-sm disabled:cursor-not-allowed"><iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>Simpan</button>
-                
+            <div class="flex justify-end gap-4">
+                <button type="button" wire:click="batal" class="capitalize flex items-center gap-1 px-4 py-3 shadow-sm bg-red-200 text-red-700 rounded-xl transition-all duration-150 hover:bg-red-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="line-md:close-small"></iconify-icon>
+                    batal
+                </button>
+                <button type="submit" class="capitalize flex items-center gap-1 px-4 py-3 shadow-sm bg-green-200 text-green-700 rounded-xl transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="mdi:content-save" class="text-lg"></iconify-icon>
+                    simpan gim
+                </button>
+
             </div>
         </form>
     </div>
-
-    <hr class="my-6">
 
     <div class="bg-white p-6 rounded-lg shadow-md">
         <h3 class="text-xl font-semibold mb-4">Daftar Level</h3>
@@ -105,8 +114,14 @@
                         <td class="py-2 px-4 border-b">{{ $level->judul_level }}</td>
                         <td class="py-2 px-4 border-b">{{ $level->aktif ? 'Ya' : 'Tidak' }}</td>
                         <td class="py-2 px-4 border-b">
-                            <button wire:click="edit({{ $level->id }})" class="gap-1 items-center flex bg-yellow-500 text-white px-3 py-1 rounded mr-2"><iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>Edit</button>
-                            <button wire:click="hapus({{ $level->id }})" class="gap-1 items-center flex bg-red-500 text-white px-3 py-1 rounded"><iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>Hapus</button>
+                            <button wire:click="edit({{ $level->id }})" class="gap-1 items-center flex bg-yellow-500 text-white px-3 py-1 rounded mr-2">
+                                <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
+                                Edit
+                            </button>
+                            <button wire:click="hapus({{ $level->id }})" class="gap-1 items-center flex bg-red-500 text-white px-3 py-1 rounded">
+                                <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
+                                Hapus
+                            </button>
                         </td>
                     </tr>
                 @empty

@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\GimLevel;
 use Livewire\Component;
 
+#[Title('Gim Pencocokan')]
 class GimPencocokan extends Component
 {
     public $levelId;
@@ -14,7 +15,9 @@ class GimPencocokan extends Component
     public $hasilAkhir = []; // Untuk menyimpan hasil benar/salah per item kiri
     public $selesai = false;
     public $skor = 0;
+    public $title = 'Gim Pencocokan';
     public $semuaLevel;
+    public $pesan = 'Taruh semua item ke drop slot terlebih dahulu!'; // Untuk menyimpan pesan validasi
 
     public function mount($levelId = null)
     {
@@ -49,10 +52,22 @@ class GimPencocokan extends Component
 
     public function resetPermainan()
     {
+        $this->acakPasangan(); // Acak ulang saat permainan diulang secara penuh
         $this->jawabanMurid = [];
         $this->hasilAkhir = [];
         $this->selesai = false;
         $this->skor = 0;
+        $this->pesan = '';
+    }
+
+    // Method baru untuk mereset hanya slot drop
+    public function resetSlot()
+    {
+        $this->jawabanMurid = [];
+        $this->hasilAkhir = [];
+        $this->skor = 0;
+        $this->selesai = false; // Karena jawaban direset, permainan kembali aktif
+        $this->pesan = '';
     }
 
     /**
@@ -66,9 +81,17 @@ class GimPencocokan extends Component
 
     public function submit()
     {
+        // Validasi: periksa apakah semua item sudah diisi
+        $totalPasangan = count($this->level->pasangan);
+        if (count($this->jawabanMurid) < $totalPasangan) {
+            $this->pesan = 'Mohon lengkapi semua pasangan terlebih dahulu!';
+            return;
+        }
+
         $pasanganBenar = $this->level->pasangan;
         $benar = 0;
         $this->hasilAkhir = []; // Reset hasil
+        $this->pesan = ''; // Reset pesan
 
         // Buat peta (map) untuk pencarian cepat: ['teks_kanan' => 'teks_kiri']
         $petaBenar = [];

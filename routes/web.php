@@ -27,7 +27,7 @@ Route::middleware('auth.murid')->group(function () {
     Route::get('/', Beranda::class)->name('beranda');
     Route::get('/materi', Materi::class)->name('materi');
     Route::get('/gim', Gim::class)->name('gim');
-    Route::get('/gim/main/{levelId}', GimPencocokan::class)->name('gim.main'); // Route untuk memainkan level
+    Route::get('/gim/pencocokan/{levelId}', GimPencocokan::class)->name('gim.main');
     Route::get('/profil', Profil::class)->name('profil');
     Route::get('/daftar-ulangan', DaftarUlangan::class)->name('daftar-ulangan');
     Route::get('/ulangan/{ulanganId}', Ulangan::class)->name('ulangan');

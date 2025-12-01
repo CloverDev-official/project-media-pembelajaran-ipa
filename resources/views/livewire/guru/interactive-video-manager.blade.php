@@ -89,16 +89,12 @@
 
                     <div class="flex justify-end">
                         <button type="submit"
-                            class="px-6 py-3 bg-yellow-300 focus:outline-none focus:ring-2 transition-all duration-100 hover:bg-yellow-400 hover:scale-105 active:scale-95 rounded-xl shadow-sm disabled:cursor-not-allowed"
+                            class="px-6 py-3 flex items-center gap-1 bg-yellow-300 focus:outline-none focus:ring-2 transition-all duration-100 hover:bg-yellow-400 hover:scale-105 active:scale-95 rounded-xl shadow-sm disabled:cursor-not-allowed"
                             wire:loading.attr="disabled"
                             wire:target="saveVideo, videoFile, thumbnailFile">
+                            <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
                             <span wire:loading.remove wire:target="saveVideo"
                                 class="flex items-center">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
                                 Simpan Video
                             </span>
                             <span wire:loading wire:target="saveVideo" class="flex items-center">

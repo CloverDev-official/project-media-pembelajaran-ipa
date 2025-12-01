@@ -1,3 +1,4 @@
+<!-- File Blade Navigasi Bawah Guru -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 bg-blue-500  shadow-md z-20">
     <ul
         class="flex justify-start items-center p-2 h-16 space-x-4 mx-2 overflow-x-auto flex-nowrap scrollbar-hide">
@@ -48,7 +49,7 @@
                 <iconify-icon icon="carbon:video-player" class="text-2xl"></iconify-icon>
             </x-guru.nav-link-bottom>
         </li>
-        <!-- game -->
+        <!-- game (gim) - Sekarang mengarah ke GimLevelManager -->
         <li>
             <x-guru.nav-link-bottom href="{{ route('guru.gim') }}" :active="request()->routeIs('guru.gim')"
                 :label="'gim'">

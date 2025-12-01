@@ -73,7 +73,7 @@
                     <!-- Template bab -->
                     @foreach ($daftarMateri as $materi)
                         <!-- card materi -->
-                        <div class="flex justify-center items-center">
+                        <div class="w-[15rem] flex justify-center items-center">
                             <div class="bg-white p-2 rounded-lg min-w-[15rem] shadow">
                                 <!-- container gambar materi -->
                                 <div class="flex justify-center">

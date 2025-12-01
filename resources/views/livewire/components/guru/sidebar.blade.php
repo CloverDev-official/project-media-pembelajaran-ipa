@@ -1,3 +1,4 @@
+<!-- File Blade Sidebar Guru -->
 <aside id="sidebar" wire:navigate.ignore
     class="
         {{ $sidebarCollapsed ? 'sidebar-collapsed md:w-2/12' : 'md:w-1/6' }}
@@ -64,7 +65,7 @@
                     <span class="tooltip">video interaktif</span>
                 </x-guru.nav-link>
             </li>
-            <!-- game -->
+            <!-- game (gim) - Sekarang mengarah ke GimLevelManager -->
             <li class="transition-all rounded-lg relative">
                 <x-guru.nav-link href="{{ route('guru.gim') }}" :active="$currentRoute === 'guru.gim'">
                     <iconify-icon icon="bx:joystick" class="text-2xl"></iconify-icon>

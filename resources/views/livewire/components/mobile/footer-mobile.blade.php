@@ -11,7 +11,7 @@
         </div>            
     </div>
     <div class="absolute top-56 ">
-        <img src="../img/paw-paw.png" alt="" class="w-36 h-32">
+        <img src="{{ asset('img/paw-paw.png') }}" alt="" class="w-36 h-32">
     </div>
     <div class="absolute left-2 bottom-2">
         <p class="text-[8px]">

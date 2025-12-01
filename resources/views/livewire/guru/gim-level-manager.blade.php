@@ -92,45 +92,86 @@
         <div class="mb-4">
             <input type="text" wire:model.live="search" placeholder="Cari level..." class="w-full px-3 py-2 border border-gray-300 rounded-md">
         </div>
-        <table class="min-w-full bg-white">
-            <thead>
-                <tr>
-                    <th class="py-2 px-4 border-b">Thumbnail</th>
-                    <th class="py-2 px-4 border-b">Judul</th>
-                    <th class="py-2 px-4 border-b">Aktif</th>
-                    <th class="py-2 px-4 border-b">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($levels as $level)
+        <div class="overflow-x-auto rounded-lg shadow">
+            <table class="min-w-full bg-white divide-y divide-gray-200">
+                <thead class="bg-gray-100">
                     <tr>
-                        <td class="py-2 px-4 border-b">
-                            @if($level->thumbnail)
-                                <img src="{{ asset('storage/' . $level->thumbnail) }}" alt="Thumbnail" class="h-12 w-auto rounded">
-                            @else
-                                <div class="h-12 w-12 bg-gray-200 rounded flex items-center justify-center text-gray-500">No Image</div>
-                            @endif
-                        </td>
-                        <td class="py-2 px-4 border-b">{{ $level->judul_level }}</td>
-                        <td class="py-2 px-4 border-b">{{ $level->aktif ? 'Ya' : 'Tidak' }}</td>
-                        <td class="py-2 px-4 border-b">
-                            <button wire:click="edit({{ $level->id }})" class="gap-1 items-center flex bg-yellow-500 text-white px-3 py-1 rounded mr-2">
-                                <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
-                                Edit
-                            </button>
-                            <button wire:click="hapus({{ $level->id }})" class="gap-1 items-center flex bg-red-500 text-white px-3 py-1 rounded">
-                                <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
-                                Hapus
-                            </button>
-                        </td>
+                        <th scope="col"
+                            class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Thumbnail</th>
+                        <th scope="col"
+                            class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Judul</th>
+                        <th scope="col"
+                            class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Aktif</th>
+                        <th scope="col"
+                            class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Aksi</th>
                     </tr>
-                @empty
-                    <tr>
-                        <td colspan="4" class="py-2 px-4 border-b text-center">Tidak ada level ditemukan.</td>
-                    </tr>
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @forelse($levels as $level)
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                @if ($level->thumbnail)
+                                    <img src="{{ asset('storage/' . $level->thumbnail) }}"
+                                        alt="Thumbnail - {{ $level->judul_level }}"
+                                        class="h-16 w-16 object-cover rounded-lg shadow-sm">
+                                @else
+                                    <div
+                                        class="h-16 w-16 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 shadow-sm">
+                                        <span class="text-xs">No Image</span>
+                                    </div>
+                                @endif
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">
+                                    {{ $level->judul_level }}</div>
+                                <div class="text-sm text-gray-500">
+                                    {{ Str::limit(strip_tags($level->deskripsi), 50) }}</div>
+                                <!-- Contoh menampilkan deskripsi singkat -->
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $level->aktif ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                    {{ $level->aktif ? 'Ya' : 'Tidak' }}
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm">
+                                <div class="flex space-x-2">
+                                    <button wire:click="edit({{ $level->id }})"
+                                        class="mt-0 mb-1 mr-2 flex items-center gap-1 px-4 py-2 bg-yellow-200 rounded-lg text-yellow-700 font-medium transition-all duration-100 shadow-sm hover:bg-yellow-300 capitalize hover:scale-105 active:scale-95">
+                                        <iconify-icon icon="line-md:edit"class="text-sm"></iconify-icon>
+                                        Edit
+                                    </button>
+                                    <button wire:click="hapus({{ $level->id }})"
+                                        class="mt-0 mb-1 mr-2 flex items-center gap-1 px-4 py-2 bg-red-200 rounded-lg text-red-700 font-medium transition-all duration-100 shadow-sm hover:bg-red-300 capitalize hover:scale-105 active:scale-95">
+                                        <iconify-icon icon="line-md:trash"class="text-sm"></iconify-icon>
+                                        Hapus
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="py-8 px-6 text-center">
+                                <div class="flex flex-col items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-12 w-12 text-gray-400 mb-2" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <p class="text-gray-500">Tidak ada level ditemukan.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
         {{ $levels->links() }}
     </div>
 </div>

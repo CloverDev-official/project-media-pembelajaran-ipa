@@ -163,14 +163,16 @@
                                     <!-- tombol -->
                                     <a wire:navigate
                                         href="{{ route('guru.edit-pertanyaan-video-interaktif', ['video' => $video->id]) }}"
-                                        class="mt-2 py-2 font-medium text-sm w-full rounded-lg transition-all text-center duration-150 bg-yellow-300 hover:bg-yellow-400 active:scale-95 text-black capitalize block">
-                                        edit
+                                        class="flex justify-center gap-1 items-center mt-2 py-2 font-medium text-sm w-full rounded-lg transition-all text-center duration-150 bg-yellow-300 hover:bg-yellow-400 active:scale-95 text-black capitalize ">
+                                            <iconify-icon icon="line-md:edit"class="text-sm"></iconify-icon>
+                                            edit
                                     </a>
 
                                     <button x-data
                                         x-on:click.prevent="if (confirm('Apakah kamu yakin ingin menghapus video ini? Tindakan ini tidak dapat dibatalkan.')) $wire.deleteVideo({{ $video->id }})"
-                                        class="btn-hapus mt-2 py-2 font-medium text-sm w-full rounded-lg transition-all duration-150 bg-red-400 hover:bg-[#d85555] active:scale-95 text-black capitalize">
-                                        hapus
+                                        class="flex justify-center gap-1 items-center mt-2 py-2 font-medium text-sm w-full rounded-lg transition-all duration-150 bg-red-400 hover:bg-[#d85555] active:scale-95 text-black capitalize">
+                                            <iconify-icon icon="line-md:trash"class="text-sm"></iconify-icon>
+                                            hapus
                                     </button>
                                 </div>
                             </div>

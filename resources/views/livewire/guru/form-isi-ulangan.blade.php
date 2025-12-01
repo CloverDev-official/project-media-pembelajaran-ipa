@@ -53,7 +53,10 @@
 
         <div class="flex gap-3">
             <button type="submit"
-                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">Simpan</button>
+                class="capitalize flex items-center gap-1 px-4 py-3 shadow-sm bg-green-200 text-green-700 rounded-xl transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="mdi:content-save" class="text-lg"></iconify-icon>
+                    Simpan ulangan
+            </button>
         </div>
     </form>
 </main>

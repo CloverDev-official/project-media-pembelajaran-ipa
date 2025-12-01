@@ -27,7 +27,7 @@
                                 <div class="flex justify-center">
                                     <!-- gambar gim -->
                                     @if($level->thumbnail)
-                                        <img src="{{ asset('storage/' . $level->thumbnail) }}" 
+                                        <img src="{{ asset('storage/' . $level->thumbnail) }}"
                                              alt="{{ $level->judul_level }}"
                                              class="w-full h-32 rounded-lg object-cover">
                                     @else
@@ -53,10 +53,6 @@
                             </div>
                         </div>
                     @endforeach
-                @else
-                    <div class="col-span-2 text-center text-white py-12">
-                        <p>Belum ada gim yang tersedia.</p>
-                    </div>
                 @endif
             </div>
         </div>
@@ -91,7 +87,7 @@
                                     <div class="flex justify-center">
                                         <!-- gambar gim -->
                                         @if($level->thumbnail)
-                                            <img src="{{ asset('storage/' . $level->thumbnail) }}" 
+                                            <img src="{{ asset('storage/' . $level->thumbnail) }}"
                                                  alt="{{ $level->judul_level }}"
                                                  class="w-full h-[12rem] rounded-lg object-cover">
                                         @else
@@ -117,10 +113,6 @@
                                 </div>
                             </div>
                         @endforeach
-                    @else
-                        <div class="col-span-4 text-center text-gray-500 py-12">
-                            <p class="text-lg">Belum ada gim yang tersedia.</p>
-                        </div>
                     @endif
                 </div>
             </div>

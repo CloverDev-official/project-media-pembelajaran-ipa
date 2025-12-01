@@ -1,10 +1,4 @@
-<div class="p-6">
-    <div class="mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">Edit Pertanyaan - {{ $video->title }}</h2>
-        <a href="{{ route('guru.video-interaktif') }}"
-            class="text-blue-600 hover:text-blue-800 text-sm">← Kembali ke daftar video</a>
-    </div>
-
+<div>
     <!-- Notifikasi ToastMagic -->
     <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
@@ -30,8 +24,8 @@
         </div>
     @endif
 
-    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h3 class="text-lg font-semibold mb-4">Tambah Pertanyaan Interaktif</h3>
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 mt-10">
+        <h3 class="text-3xl font-semibold mb-4 capitalize">tambah pertanyaan video interaktif {{ $video->title }}</h3>
         <form wire:submit.prevent="addQuestion" class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -94,8 +88,9 @@
             </div>
 
             <button type="submit"
-                class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                Tambah Pertanyaan
+                class="mt-4 flex items-center gap-1 px-4 py-2 bg-green-200 text-green-700 rounded-lg transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                    <iconify-icon icon="line-md:plus" class="text-sm"></iconify-icon>
+                        Tambah Pertanyaan
             </button>
         </form>
     </div>

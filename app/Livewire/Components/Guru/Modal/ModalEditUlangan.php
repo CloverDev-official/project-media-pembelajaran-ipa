@@ -138,11 +138,12 @@ class ModalEditUlangan extends Component
         if ($this->gambar instanceof TemporaryUploadedFile) {
             Storage::disk('public')->delete($this->ulangan->gambar);
 
+            $uniq = uniqid();
             $ext = $this->gambar->extension();
             $judulFolder = Str::slug($this->judul, '_');
             $gambarPath = $this->gambar->storeAs(
                 "gambar_ulangan/{$judulFolder}",
-                "sampul.{$ext}",
+                "sampul-{$uniq}.{$ext}",
                 'public',
             );
         }

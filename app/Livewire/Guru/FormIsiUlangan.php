@@ -60,11 +60,12 @@ class FormIsiUlangan extends Component
                     Storage::disk('public')->delete($soal->gambar);
                 }
 
+                $uniq = uniqid();
                 $ext = $soalData['gambar']->extension();
 
                 $gambarPath = $soalData['gambar']->storeAs(
                     "gambar_ulangan/gambar_soal/{$judulFolder}",
-                    "soal-{$soalData['id']}.{$ext}",
+                    "soal-{$soalData['id']}-{$uniq}.{$ext}",
                     'public',
                 );
             }

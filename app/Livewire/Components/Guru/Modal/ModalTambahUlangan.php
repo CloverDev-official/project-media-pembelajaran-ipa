@@ -89,11 +89,12 @@ class ModalTambahUlangan extends Component
 
         $gambarPath = null;
         if ($this->gambar) {
+            $uniq = uniqid();
             $ext = $this->gambar->extension();
             $judulFolder = Str::slug($this->judul, '_');
             $gambarPath = $this->gambar->storeAs(
                 "gambar_ulangan/{$judulFolder}",
-                "sampul.{$ext}",
+                "sampul-{$uniq}.{$ext}",
                 'public',
             );
         }

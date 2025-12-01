@@ -33,7 +33,7 @@
     <!-- content -->
     <div class="md:hidden p-4">
         <!-- wrapper preview card materi  -->
-        <div class="flex flex-col items-center mt-10 px-4">
+        <div class="flex flex-col items-center mt-10">
             <!-- judul section -->
             <div class="text-center mb-10 ">
                 <h1
@@ -49,38 +49,29 @@
                 </p>
             </div>
             <!-- Container preview materi -->
-            <div class="container mx-auto px-4">
-                <!-- Mobile mode (swiper) -->
+            <div class="container px-4">
                 <div class="block md:hidden">
-                    <div class="swiper mySwiper w-full">
+                    <!-- Swiper Container -->
+                    <div class="swiper mySwiper pb-10">
                         <div class="swiper-wrapper">
-
-                            <!-- Slide card -->
                             @foreach ($daftarMateri as $materi)
-                                <div class="swiper-slide flex justify-center">
-                                    <div
-                                        class="bg-white rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-black shadow-md transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px]">
-
-                                        <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
-                                            alt=""
-                                            class="h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl w-full object-cover">
-
-                                        <div class="p-3 ">
-                                            <h1 class="font-semibold text-xl">
-                                                {{ $materi->judul_bab }}
-                                            </h1>
-                                            <p class="text-sm">
-                                                {{ $materi->deskripsi }}
-                                            </p>
+                                <div class="swiper-slide">
+                                    <div class="bg-white w-64 mx-auto rounded-xl text-black shadow-md transition-all duration-150 active:scale-95 mb-10">
+                                        <img
+                                            src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar%Materi' }}"
+                                            class="h-56 w-full object-cover rounded-xl"
+                                            alt="{{ $materi->judul_bab }}">
+                                        <div class="p-3">
+                                            <h1 class="font-semibold text-xl">{{ $materi->judul_bab }}</h1>
+                                            <p class="text-sm line-clamp-2">{{ $materi->deskripsi }}</p>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-
                         </div>
 
-                        <!-- Pagination -->
-                        <div class="swiper-pagination"></div>
+                        <!-- pagination -->
+                        <div class="swiper-pagination !bottom-2"></div>
                     </div>
                 </div>
             </div>

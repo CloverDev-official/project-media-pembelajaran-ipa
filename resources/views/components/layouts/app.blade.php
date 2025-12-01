@@ -17,6 +17,8 @@
     <!-- iconify icon -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <!-- swiper js -->
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>{{ $title ?? 'Page Title' }}</title>
     {!! ToastMagic::styles() !!}
@@ -32,8 +34,9 @@
     <livewire:components.header />
     {{ $slot }}
     <livewire:components.footer />
-    @livewireScripts
-
+    @if (Route::is('beranda'))
+        @vite(['resources/js/slideshow.js'])
+    @endif
     {!! ToastMagic::scripts() !!}
 </body>
 

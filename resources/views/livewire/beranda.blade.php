@@ -64,11 +64,11 @@
                     <!-- card -->
                     @foreach ($daftarMateri as $materi)
                         <div
-                            class="bg-white  active:translate-x-[-13.5px] active:bg-gray-50 text-black active:text-gray-500 hover:scale-[1.02] transition-all  active:border-l active:border-b active:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl shadow-md rounded-b-lg min-w-[20rem] h-[25rem] relative">
+                            class="bg-white  active:translate-x-[-13.5px] active:bg-gray-50 text-black active:text-gray-500 hover:scale-[1.02] transition-all   active:scale-95  shadow-md  rounded-lg min-w-[20rem] h-[23rem] relative">
                             <!-- img card materi -->
-                            <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
+                            <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/900x600?text=Gambar\nMateri' }}"
                                 alt=""
-                                class="h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
+                                class="h-60 rounded-t-lg w-full">
 
                             <!-- judul card materi -->
                             <div class="p-3  text-shadow-2xs">

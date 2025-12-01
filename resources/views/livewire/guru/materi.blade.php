@@ -14,7 +14,7 @@
             </button>
         </div>
         <!-- mobile -->
-        <div class="md:hidden grid grid-cols-2 lg:grid-cols-4 gap-1">
+        <div class="md:hidden grid grid-cols-2 lg:grid-cols-4 gap-2">
             <!-- template bab -->
             @foreach ($daftarBab as $bab)
                 <!-- card materi -->
@@ -31,21 +31,19 @@
                             <h2 class="font-bold text-blue-500 text-sm capitalize">
                                 {{ $bab->judul_bab }}
                             </h2>
-                            <h3 class="font-normal text-xs capitalize">
+                            <h2 class="font-normal text-xs capitalize">
                                 {{ $bab->deskripsi }}
-                            </h3>
+                            </h2>
                         </div>
                         <!-- btn edit & hapus -->
                         <div class="flex flex-col items-center gap-2 mt-3 md:mt-0">
                             <!-- edit -->
-                            <a>
                                 <button
                                     wire:click="$dispatch('openEditMateri', { babId: '{{ $bab->id }}' })"
-                                    class="w-full justify-center flex items-center gap-1 px-4 py-2 bg-red-400 rounded-lg text-black font-medium text-xs transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                    class="w-full justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300 rounded-lg text-black font-medium text-xs transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
                                         <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
                                         edit Materi
                                 </button>
-                            </a>
                             <!-- hapus -->
                             <button
                                 wire:click="$dispatch('openHapusMateri', { id: '{{ $bab->id }}' })"
@@ -63,7 +61,7 @@
             @foreach ($daftarBab as $bab)
                 <!-- card materi -->
                 <div class="w-[15rem]">
-                    <div class="bg-white p-2 rounded-lg min-w-[15rem] shadow">
+                    <div class="bg-white p-2 rounded-lg min-w-[15rem] min-h-[22rem] shadow flex flex-col justify-between">
                         <!-- container gambar materi -->
                         <div class="flex justify-center">
                             <!-- gambar materi -->
@@ -72,25 +70,26 @@
                         </div>
                         <!-- judul dan deskripsi materi -->
                         <div class="mb-3 py-2">
-                            <h2 class="font-bold text-blue-500 capitalize">
+                            <h2 class="font-bold text-blue-500 capitalize w-56 truncate">
                                 {{ $bab->judul_bab }}
+                            </h2>
+                            <h2 class="font-normal text-xs capitalize w-56 truncate">
+                                {{ $bab->deskripsi }}
                             </h2>
                         </div>
                         <!-- btn edit & hapus -->
-                        <div class="flex flex-col items-center gap-2 mt-3 md:mt-0">
+                        <div class="flex flex-col items-end gap-2 mt-3 md:mt-0">
                             <!-- edit -->
-                            <a>
-                                <button
-                                    wire:click="$dispatch('openEditMateri', { babId: '{{ $bab->id }}' })"
-                                    class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300  rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
-                                    <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
-                                    edit Materi
-                                </button>
-                            </a>
+                            <button
+                                wire:click="$dispatch('openEditMateri', { babId: '{{ $bab->id }}' })"
+                                class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-yellow-300  rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-yellow-400 hover:scale-[1.02] active:scale-95">
+                                <iconify-icon icon="line-md:edit" class="text-sm"></iconify-icon>
+                                edit Materi
+                            </button>
                             <!-- hapus -->
                             <button
                                 wire:click="$dispatch('openHapusMateri', { id: '{{ $bab->id }}' })"
-                                class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-red-400 rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:scale-105 active:scale-95">
+                                class="w-[14rem] justify-center flex items-center gap-1 px-4 py-2 bg-red-400 rounded-lg text-black font-medium text-sm transition-all duration-100 shadow-sm capitalize hover:bg-[#d85555] hover:scale-[1.02] active:scale-95">
                                 <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
                                 hapus materi
                             </button>

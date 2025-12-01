@@ -1,7 +1,6 @@
 <main class="min-h-screen bg-blue-50">
     <!-- beranda mobile -->
     <livewire:mobile.beranda-mobile />
-
     <!-- hero section dekstop -->
     <div class="hidden relative md:flex items-center justify-center m-10">
         <img src="../img/background-hero-section.png" class="w-full h-[60rem]" alt="">

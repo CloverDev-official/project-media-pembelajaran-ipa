@@ -63,8 +63,9 @@
 
                     <!-- Video File Input -->
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">File
-                            Video</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            File Video (.MP4, .AVI, .MOV, .WMV, .MKV, .FLV, dan .MPEG)
+                        </label>
                         <input type="file" wire:model="videoFile" accept="video/*"
                             class="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg p-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500">
 
@@ -178,13 +179,13 @@
                                     <!-- tombol -->
                                     <a wire:navigate
                                         href="{{ route('guru.edit-pertanyaan-video-interaktif', ['video' => $video->id]) }}"
-                                        class="mt-2 py-1 font-semibold text-sm w-full rounded-lg transition-all text-center duration-150 bg-yellow-400 hover:bg-yellow-500 active:scale-95 text-white capitalize block">
+                                        class="mt-2 py-2 font-medium text-sm w-full rounded-lg transition-all text-center duration-150 bg-yellow-300 hover:bg-yellow-400 active:scale-95 text-black capitalize block">
                                         edit
                                     </a>
 
                                     <button x-data
                                         x-on:click.prevent="if (confirm('Apakah kamu yakin ingin menghapus video ini? Tindakan ini tidak dapat dibatalkan.')) $wire.deleteVideo({{ $video->id }})"
-                                        class="btn-hapus mt-2 py-1 font-semibold text-sm w-full rounded-lg transition-all duration-150 bg-red-500 hover:bg-red-600 active:scale-95 text-white capitalize">
+                                        class="btn-hapus mt-2 py-2 font-medium text-sm w-full rounded-lg transition-all duration-150 bg-red-400 hover:bg-[#d85555] active:scale-95 text-black capitalize">
                                         hapus
                                     </button>
                                 </div>

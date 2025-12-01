@@ -37,7 +37,7 @@ class FormIsiMateri extends Component
         }
 
         $this->judulBab = $bab->judul_bab;
-        $this->deskripsiBab = $bab->deskripsi_bab;
+        $this->deskripsiBab = $bab->deskripsi;
 
         // Check if isiBab exists before accessing its properties
         if ($bab->isiBab) {

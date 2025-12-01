@@ -22,7 +22,7 @@ class ModalEditMateri extends Component
     public $bab;
     public $babId;
     public $kelasId;
-    public $diskripsi;
+    public $deskripsi;
     public $daftarKelas;
     public $gambar;
 
@@ -53,6 +53,7 @@ class ModalEditMateri extends Component
     {
         $this->bab = Bab::find($this->babId);
         $this->judul = $this->bab->judul_bab;
+        $this->deskripsi = $this->bab->deskripsi;
     }
 
     public function loadKelas()

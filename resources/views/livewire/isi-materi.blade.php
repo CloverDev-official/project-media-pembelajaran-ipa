@@ -73,7 +73,7 @@
                                 @else
                                     @if ($selesai)
                                         <button disabled
-                                            class="w-auto md:w-[25rem] px-7 py-4 rounded-full text-white text-xl bg-green-300">
+                                            class="w-auto md:w-[25rem] shadow-md px-7 py-4 rounded-full text-green-700 text-xl bg-green-200">
                                             Telah Selesai
                                         </button>
                                     @else

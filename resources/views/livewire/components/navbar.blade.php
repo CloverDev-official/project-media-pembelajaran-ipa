@@ -27,9 +27,9 @@
             <!-- User Dropdown -->
             @if($infoMurid)
                 <li class="relative">
-                    <button wire:click="$dispatch('toggleProfilPopup')">
-                        <img src="{{ $infoMurid->gambar ? asset('storage/' . $infoMurid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
-                            alt="User" class="rounded-full w-[30px] hover:brightness-75 transition">
+                    <button wire:click="$dispatch('toggleProfilPopup')" >
+                        <img src="{{ $infoMurid->gambar ? asset('storage/' . $infoMurid->gambar) : 'https://placehold.co/500x500?text=foto+profil' }}"
+                            alt="User" class="rounded-full w-[30px] h-[30px] hover:brightness-75 transition">
                     </button>
                     <livewire:components.modal.modal-profil-siswa />
                 </li>

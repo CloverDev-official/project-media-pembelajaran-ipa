@@ -7,7 +7,7 @@
             <img src="../img/bg-profil-mobile.png" alt="">
             <div class="absolute -top-14">
                 <div class="relative bg-gray-200 rounded-full w-20 h-20 shadow-md">
-                    <img src="{{ $murid->gambar ? asset('storage/' . $murid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                    <img src="{{ $murid->gambar ? asset('storage/' . $murid->gambar) : 'https://placehold.co/500x500?text=foto+profil' }}"
                         alt="" class="bg-gray-200 rounded-full p-1 w-20 h-20 shadow-md">
                     <div class="absolute top-1 -left-2">
                         <button wire:click="$dispatch('toggleEditProfilPopup')">
@@ -126,7 +126,7 @@
                 <img src="../img/bg-profil.png" alt="">
                 <div class="absolute -top-36 left-24">
                     <div class="relative bg-gray-200 rounded-full w-48 h-48 shadow-md">
-                        <img src="{{ $murid->gambar ? asset('storage/' . $murid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                        <img src="{{ $murid->gambar ? asset('storage/' . $murid->gambar) : 'https://placehold.co/500x500?text=foto+profil' }}"
                             alt="" class="bg-gray-200 rounded-full p-2 w-48 h-48 shadow-md">
                         <div class="absolute top-4 -left-2">
                             <button wire:click="$dispatch('toggleEditProfilPopup')">

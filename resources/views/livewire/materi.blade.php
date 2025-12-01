@@ -26,7 +26,7 @@
                             <!-- container gambar materi -->
                             <div class="flex justify-center">
                                 <!-- gambar materi -->
-                                <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMaterisadasd' }}"
+                                <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
                                     class="bg-gray-200 w-full h-32 rounded-lg border-0">
                             </div>
                             <!-- judul dan deskripsi materi -->

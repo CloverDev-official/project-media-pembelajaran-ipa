@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Bab;
 use App\Models\NilaiLatihan;
 use App\Models\NilaiUlangan;
 use Livewire\Attributes\Title;
@@ -11,6 +12,7 @@ use Livewire\Volt\Compilers\Mount;
 #[Title('Beranda')]
 class Beranda extends Component
 {
+    public $daftarMateri;
     public $jumlahNilai;
     public $nilaiRataRata;
     public $daftarNilai = [];
@@ -18,6 +20,8 @@ class Beranda extends Component
     public function mount()
     {
         $murid = auth('murid')->user();
+
+        $this->daftarMateri = Bab::inRandomOrder()->take(3)->get();
 
         // Ambil seluruh nilai (latihan + ulangan) dalam 2 query
         $ulangan = NilaiUlangan::select('id', 'nilai', 'ulangan_id', 'murid_id')

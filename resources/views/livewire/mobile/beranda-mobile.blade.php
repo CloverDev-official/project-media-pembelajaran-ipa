@@ -30,7 +30,7 @@
             <img src="../img/kucing-hero-section-bawah.png" class="w-28 h-20" alt="">
         </div>
     </div>
-        <!-- content -->
+    <!-- content -->
     <div class="md:hidden p-4">
         <!-- wrapper preview card materi  -->
         <div class="flex flex-col items-center mt-10 px-4">
@@ -38,13 +38,14 @@
             <div class="text-center mb-10 ">
                 <h1
                     class="font-bold text-4xl mt-2 animate-float  text-shadow-2xs text-shadow-green-900  text-main">
-                        Materi
-                        <span class="text-blue-500">
-                            belajar
-                        </span>
+                    Materi
+                    <span class="text-blue-500">
+                        belajar
+                    </span>
                 </h1>
                 <p class="text-gray-700 mt-5">
-                    Belajar menjadi lebih mudah dan menyenangkan dengan penjelasan lengkap dan mudah dipahami.
+                    Belajar menjadi lebih mudah dan menyenangkan dengan penjelasan lengkap dan mudah
+                    dipahami.
                 </p>
             </div>
             <!-- Container preview materi -->
@@ -54,25 +55,27 @@
                     <div class="swiper w-full h-40rem] ">
                         <div class="swiper-wrapper flex ">
                             <!-- Slide card -->
-                            @for($i = 1; $i <= 3; $i++)
+                            @foreach ($daftarMateri as $materi)
                                 <div class="swiper-slide">
                                     <div class="flex justify-center">
                                         <div
                                             class="bg-white rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-black text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px] active:translate shadow-md">
 
-                                            <div
-                                                class="bg-blue-500 h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
-                                            </div>
+                                            <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
+                                                alt=""
+                                                class="h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
+
                                             <div class="p-3 ">
-                                                <h1 class="font-semibold text-xl ">Fisika Dasar</h1>
+                                                <h1 class="font-semibold text-xl ">
+                                                    {{ $materi->judul_bab }}</h1>
                                                 <p class="text-sm">
-                                                    Jelajahi Konsep dasar dalam ilmu Fisika.
+                                                    {{ $materi->deskripsi }}
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            @endforeach
                         </div>
                         <!-- Pagination -->
                         <div class="swiper-pagination "></div>
@@ -90,12 +93,13 @@
         </div>
     </div>
     <!-- grafik  -->
-     <div class="md:hidden relative flex justify-center flex-col items-center m-5">
+    <div class="md:hidden relative flex justify-center flex-col items-center m-5">
         <img src="../img/bg-grafik-mobile.png" class="h-[40rem]" alt="">
         <div class=" flex justify-center items-center">
-            <div class="absolute top-16 rounded-4xl flex flex-col justify-center items-center gap-10 p-4">            
+            <div
+                class="absolute top-16 rounded-4xl flex flex-col justify-center items-center gap-10 p-4">
                 <!-- Progres Pembelajaran -->
-                 <div class="w-full">                                        
+                <div class="w-full">
                     <div class="bg-white rounded-lg p-5 h-52">
                         <h1 class="font-bold text-lg text-black text-center">
                             Progres Pembelajaran
@@ -113,14 +117,14 @@
                                 <p class="font-semibold text-lg">85%</p>
                             </div>
                         </div>
-                    </div>                    
-                 </div>
+                    </div>
+                </div>
 
                 <!-- Nilai seiring waktu -->
-                <div class="flex justify-center">                    
+                <div class="flex justify-center">
                     <div class="bg-white rounded-lg p-5 text-center">
                         <h1 class="font-bold text-lg text-black">
-                            Nilai Seiring Waktu     
+                            Nilai Seiring Waktu
                             <i class="bi bi-bar-chart-fill"></i>
                         </h1>
                         <p class="mt-2 text-sm">Pantau perkembangan nilai kamu setiap ujian!</p>
@@ -128,9 +132,9 @@
                             <!-- atur ukuran manual -->
                             <canvas id="nilaiChart" width="200" height="50"></canvas>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
-     </div>
+    </div>
 </div>

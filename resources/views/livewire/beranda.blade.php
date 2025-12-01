@@ -62,21 +62,21 @@
                 <!-- Desktop mode (flex) -->
                 <div class="hidden md:flex flex-wrap justify-center gap-6 mb-5">
                     <!-- card -->
-                    @for ($i = 1; $i <= 3; $i++)
+                    @foreach ($daftarMateri as $materi)
                         <div
                             class="bg-white  active:translate-x-[-13.5px] active:bg-gray-50 text-black active:text-gray-500 hover:scale-[1.02] transition-all  active:border-l active:border-b active:scale-95 rounded-tl-xl rounded-tr-3xl rounded-bl-xl shadow-md rounded-b-lg min-w-[20rem] h-[25rem] relative">
                             <!-- img card materi -->
-                            <div
-                                class="bg-blue-500 h-72 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
-                            </div>
+                            <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
+                                alt=""
+                                class="h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
+
                             <!-- judul card materi -->
                             <div class="p-3  text-shadow-2xs">
-                                <h1 class="font-bold text-xl">Fisika Dasar</h1>
-                                <p class="text-sm font-normal">Jelajahi Konsep dasar dalam ilmu
-                                    Fisika.</p>
+                                <h1 class="font-bold text-xl">{{ $materi->judul_bab }}</h1>
+                                <p class="text-sm font-normal">{{ $materi->deskripsi }}</p>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
 

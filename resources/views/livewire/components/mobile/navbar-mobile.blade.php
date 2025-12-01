@@ -1,9 +1,10 @@
+<!-- File Blade Navigasi Mobile Siswa -->
 <div>
     <nav
         class="md:hidden flex bg-opacity-30 backdrop-blur-lg shadow-lg rounded-full  justify-between items-center  py-1 px-7  w-[20rem]">
         <!-- Logo -->
         <div class="flex gap-2 md:gap-4 items-center">
-            <img src="../img/paw-paw.png" class="w-8 h-7 md:w-10 md:h-8" alt="">
+            <img src="{{ asset('img/paw-paw.png') }}" class="w-8 h-7 md:w-10 md:h-8" alt="">
             <h1 class="md:text-2xl text-black text-shadow-2xs font-extrabold uppercase">ipawn</h1>
         </div>
 
@@ -29,7 +30,7 @@
                 <div
                     class="flex items-center gap-3 p-2 rounded-lg transition-all duration-100 hover:bg-blue-400 active:bg-blue-700 active:scale-95">
                     <!-- foto profil -->
-                    <img src="{{ $infoMurid->gambar ? asset('storage/' . $infoMurid->gambar) : 'https://placehold.co/300x200?text=foto+profil' }}"
+                    <img src="{{ $infoMurid->gambar ? asset('storage/' . $infoMurid->gambar) : 'https://placehold.co/300x200?text=foto+profil  ' }}"
                         alt="" class="w-10 h-10 p-1 rounded-full bg-white shadow">
                     <!-- username dan status -->
                     <div class="flex flex-col">
@@ -49,13 +50,13 @@
                 <x-nav-link-mobile href="{{ route('materi') }}" :active="request()->routeIs('materi')"><iconify-icon
                         icon="tdesign:book" class="text-xl"></iconify-icon>
                     materi</x-nav-link-mobile>
-                <!-- ulangan -->
+                <!-- gim (untuk siswa) -->
                 <x-nav-link-mobile href="{{ route('gim') }}" :active="request()->routeIs('gim')"><iconify-icon
-                        icon="healthicons:i-exam-qualification-outline"
+                        icon="healthicons:i-exam-qualification-outline" <!-- Icon ini sepertinya untuk ulangan, mungkin ingin diganti -->
                         class="text-xl"></iconify-icon>gim</x-nav-link-mobile>
-                <!-- games -->
+                <!-- daftar ulangan -->
                 <x-nav-link-mobile href="{{ route('daftar-ulangan') }}"
-                    :active="request()->routeIs('daftar-ulangan')"><iconify-icon icon="ion:game-controller-outline"
+                    :active="request()->routeIs('daftar-ulangan')"><iconify-icon icon="ion:game-controller-outline" <!-- Icon ini sepertinya untuk gim, mungkin ingin diganti -->
                         class="text-xl"></iconify-icon> ulangan</x-nav-link-mobile>
                 <li>
                     <button wire:click="logout"

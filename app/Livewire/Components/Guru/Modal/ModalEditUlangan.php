@@ -81,6 +81,24 @@ class ModalEditUlangan extends Component
         }
     }
 
+    public function updatedGambar()
+    {
+        $validate = ValidateMagic::run(
+            [
+                'gambar' => 'nullable|image|max:5120', // 5MB
+            ],
+            [
+                'gambar.max' => 'Ukuran gambar maksimal adalah 5MB.',
+                'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            ]
+        );
+
+        if (!$validate && $this->gambar instanceof TemporaryUploadedFile){
+            $this->gambar->delete();
+            $this->reset('gambar');
+        }
+    }
+
     public function update()
     {
         $validated = ValidateMagic::run(

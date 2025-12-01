@@ -11,6 +11,7 @@ use App\Models\Latihan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class ModalEditMateri extends Component
@@ -62,20 +63,38 @@ class ModalEditMateri extends Component
         $this->kelasId = $this->daftarKelas->first()->id ?? null;
     }
 
+    public function updatedGambar()
+    {
+        $validate = ValidateMagic::run(
+            [
+                'gambar' => 'nullable|image|max:5120', // 5MB
+            ],
+            [
+                'gambar.max' => 'Ukuran gambar maksimal adalah 5MB.',
+                'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            ]
+        );
+
+        if (!$validate && $this->gambar instanceof TemporaryUploadedFile){
+            $this->gambar->delete();
+            $this->reset('gambar');
+        }
+    }
+
     public function save()
     {
         $validated = ValidateMagic::run(
             [
                 'judul' => 'required|string|max:255',
                 'gambar' => 'nullable|image|max:5120',
-                'diskripsi' => 'nullable|string',
+                'deskripsi' => 'nullable|string',
             ],
             [
                 'judul.required' => 'Judul wajib diisi!',
                 'judul.max' => 'Judul tidak boleh lebih dari 255 karakter!',
                 'gambar.image' => 'File harus berupa gambar!',
                 'gambar.max' => 'Gambar tidak boleh lebih dari 5MB!',
-                'diskripsi.string' => 'Diskripsi harus berupa teks!',
+                'deskripsi.string' => 'Deskripsi harus berupa teks!',
             ],
             'error',
         );
@@ -102,11 +121,11 @@ class ModalEditMateri extends Component
             'kelas_id' => $this->kelasId,
             'judul_bab' => $this->judul,
             'gambar' => $gambarPath,
-            'diskripsi' => $this->diskripsi,
+            'deskripsi' => $this->deskripsi,
         ]);
 
         $this->close();
-        $this->reset(['judul','diskripsi','gambar','kelasId']);
+        $this->reset(['judul','deskripsi','gambar','kelasId']);
         return redirect()->route('guru.form-isi-materi', $this->babId);
     }
 

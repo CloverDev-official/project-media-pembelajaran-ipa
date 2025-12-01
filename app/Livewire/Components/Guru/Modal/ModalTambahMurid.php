@@ -6,6 +6,7 @@ use App\Helpers\ToastMagic;
 use App\Helpers\ValidateMagic;
 use App\Models\SMPN11Murid;
 use Livewire\Component;
+use Illuminate\Validation\Rule;
 
 class ModalTambahMurid extends Component
 {
@@ -37,7 +38,11 @@ class ModalTambahMurid extends Component
             [
                 'nipd' => 'required|string|unique:murid,nipd',
                 'nama' => 'required|string|max:255',
-                'absen' => 'required|integer|unique:murid,absen',
+                'absen' => [
+                    'required',
+                    'integer',
+                    Rule::unique('murid', 'absen')->where('kelas_id', $this->kelasId),
+                ],
             ],
             [
                 'nipd.required' => 'NIPD wajib diisi!',
@@ -46,7 +51,7 @@ class ModalTambahMurid extends Component
                 'nama.max' => 'Nama tidak boleh lebih dari 255 karakter!',
                 'absen.required' => 'Nomor absen wajib diisi!',
                 'absen.integer' => 'Nomor absen harus berupa angka!',
-                'absen.unique' => 'Nomor absen sudah terdaftar!',
+                'absen.unique' => 'Nomor absen sudah terdaftar di kelas ini!',
             ],
             'error',
         );

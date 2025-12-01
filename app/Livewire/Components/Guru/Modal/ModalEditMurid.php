@@ -5,6 +5,7 @@ namespace App\Livewire\Components\Guru\Modal;
 use App\Helpers\ToastMagic;
 use App\Helpers\ValidateMagic;
 use App\Models\SMPN11Murid;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class ModalEditMurid extends Component
@@ -41,15 +42,24 @@ class ModalEditMurid extends Component
             [
                 'nipd' => 'required|string|unique:murid,nipd,' . $this->murid->id,
                 'nama' => 'required|string|max:255',
+                'absen' => [
+                    'required',
+                    'integer',
+                    Rule::unique('murid', 'absen')->where('kelas_id', $this->murid->kelas_id)->ignore($this->murid->id),
+                ],
             ],
             [
                 'nipd.required' => 'NIPD wajib diisi!',
                 'nipd.unique' => 'NIPD sudah terdaftar!',
                 'nama.required' => 'Nama wajib diisi!',
                 'nama.max' => 'Nama tidak boleh lebih dari 255 karakter!',
+                'absen.required' => 'Nomor absen wajib diisi!',
+                'absen.integer' => 'Nomor absen harus berupa angka!',
+                'absen.unique' => 'Nomor absen sudah terdaftar di kelas ini!',
             ],
             'error',
         );
+
 
         if (!$validated) {
             return;

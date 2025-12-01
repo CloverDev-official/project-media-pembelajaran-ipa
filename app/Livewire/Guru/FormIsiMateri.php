@@ -5,7 +5,7 @@ namespace App\Livewire\Guru;
 use App\Helpers\ToastMagic;
 use App\Models\Bab;
 use App\Models\InteractiveVideo;
-use App\Models\IsiBab; // Add this import
+use App\Models\IsiBab;
 use Livewire\Component;
 
 class FormIsiMateri extends Component
@@ -18,18 +18,19 @@ class FormIsiMateri extends Component
     public $editorId = 'teksBab';
     public $selectedVideos = [];
     public $showVideoModal = false;
+    public $formChanged = false; // Track if form has changed
 
     protected $listeners = [
         'openVideoModal' => 'openVideoModal',
         'closeVideoModal' => 'closeVideoModal',
-        'saveMateri' => 'save',
+        // Remove the automatic save listener
     ];
 
     public function mount($babId)
     {
         $this->babId = $babId;
         $bab = Bab::with(['isiBab' => function($query) {
-            $query->with('interactiveVideos'); // Eager load videos
+            $query->with('interactiveVideos');
         }])->find($this->babId);
 
         if (!$bab) {
@@ -37,50 +38,65 @@ class FormIsiMateri extends Component
         }
 
         $this->judulBab = $bab->judul_bab;
-        $this->deskripsiBab = $bab->deskripsi;
+        $this->deskripsiBab = $bab->deskripsi_bab;
 
-        // Check if isiBab exists before accessing its properties
         if ($bab->isiBab) {
             $this->isiBab = $bab->isiBab;
             $this->teksBab = ['main' => $bab->isiBab->isi_materi ?? ''];
-            
-            // Safely get selected videos
             $this->selectedVideos = $bab->isiBab->interactiveVideos ? 
                 $bab->isiBab->interactiveVideos->pluck('id')->toArray() : [];
         } else {
-            // Initialize empty values if no isiBab exists
             $this->isiBab = null;
             $this->teksBab = ['main' => ''];
             $this->selectedVideos = [];
         }
     }
 
-    public function save($paksa = false)
+    public function updated($propertyName)
     {
-        // If isiBab doesn't exist, create it first
+        $this->formChanged = true;
+    }
+
+    public function save()
+    {
+        $this->validate([
+            'teksBab.main' => 'required|string',
+        ]);
+
         if (!$this->isiBab) {
             $this->isiBab = IsiBab::create([
                 'bab_id' => $this->babId,
                 'isi_materi' => $this->teksBab['main'],
             ]);
         } else {
-            // Update existing isiBab
             $this->isiBab->update([
                 'isi_materi' => $this->teksBab['main'],
             ]);
         }
 
-        // Sync videos (will work even if isiBab was just created)
         $this->isiBab->interactiveVideos()->sync($this->selectedVideos);
 
-        $this->reset([ 'teksBab', 'selectedVideos']);
-
         ToastMagic::success('Materi berhasil disimpan', useSessionFlash: true);
+        $this->formChanged = false;
+        
+        $this->redirectRoute('guru.materi', navigate: true);
+    }
 
-        if(!$paksa) 
-        {
-            $this->redirectRoute('guru.materi', navigate: true);
+    public function cancel()
+    {
+        if ($this->formChanged) {
+            $this->dispatchBrowserEvent('confirm-cancel', [
+                'message' => 'Perubahan yang belum disimpan akan hilang. Apakah Anda yakin ingin membatalkan?'
+            ]);
+            return;
         }
+        
+        $this->redirectRoute('guru.materi', navigate: true);
+    }
+
+    public function forceCancel()
+    {
+        $this->redirectRoute('guru.materi', navigate: true);
     }
 
     public function openVideoModal()

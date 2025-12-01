@@ -63,7 +63,7 @@
                 </button>
                 <button type="submit"
                     class="flex items-center gap-1 px-4 py-2 bg-green-200 text-green-700 rounded-lg transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
-                        <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="line-md:confirm" class="text-sm"></iconify-icon>
                         Simpan
                 </button>
             </div>

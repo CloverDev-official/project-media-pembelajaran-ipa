@@ -52,36 +52,39 @@
             <div class="container mx-auto px-4">
                 <!-- Mobile mode (swiper) -->
                 <div class="block md:hidden">
-                    <div class="swiper w-full h-40rem] ">
-                        <div class="swiper-wrapper flex ">
+                    <div class="swiper mySwiper w-full">
+                        <div class="swiper-wrapper">
+
                             <!-- Slide card -->
                             @foreach ($daftarMateri as $materi)
-                                <div class="swiper-slide">
-                                    <div class="flex justify-center">
-                                        <div
-                                            class="bg-white rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-black text-shadow-sm transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px] active:translate shadow-md">
+                                <div class="swiper-slide flex justify-center">
+                                    <div
+                                        class="bg-white rounded-tl-xl rounded-tr-3xl rounded-b-lg w-64 mx-auto relative text-black shadow-md transition-all duration-150 active:border-[1px] active:scale-95 active:translate-x-[-13.5px]">
 
-                                            <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
-                                                alt=""
-                                                class="h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl">
+                                        <img src="{{ $materi->gambar ? asset('storage/' . $materi->gambar) : 'https://placehold.co/700x600?text=Gambar\nMateri' }}"
+                                            alt=""
+                                            class="h-56 rounded-tl-md rounded-tr-3xl rounded-bl-3xl w-full object-cover">
 
-                                            <div class="p-3 ">
-                                                <h1 class="font-semibold text-xl ">
-                                                    {{ $materi->judul_bab }}</h1>
-                                                <p class="text-sm">
-                                                    {{ $materi->deskripsi }}
-                                                </p>
-                                            </div>
+                                        <div class="p-3 ">
+                                            <h1 class="font-semibold text-xl">
+                                                {{ $materi->judul_bab }}
+                                            </h1>
+                                            <p class="text-sm">
+                                                {{ $materi->deskripsi }}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+
                         </div>
+
                         <!-- Pagination -->
-                        <div class="swiper-pagination "></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
+
 
             <a href="materi" class="flex justify-center items-center p-5 mt-5">
                 <button

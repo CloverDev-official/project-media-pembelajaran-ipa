@@ -16,6 +16,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- iconify icon -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>{{ $title ?? 'Page Title' }}</title>
     {!! ToastMagic::styles() !!}
     {{-- <link rel="stylesheet" href="{{ asset('css/tema.css') }}"> --}}

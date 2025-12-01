@@ -12,6 +12,7 @@ class FormIsiMateri extends Component
 {
     public $babId;
     public $judulBab;
+    public $deskripsiBab;
     public $isiBab;
     public $teksBab;
     public $editorId = 'teksBab';
@@ -36,6 +37,7 @@ class FormIsiMateri extends Component
         }
 
         $this->judulBab = $bab->judul_bab;
+        $this->deskripsiBab = $bab->deskripsi_bab;
 
         // Check if isiBab exists before accessing its properties
         if ($bab->isiBab) {

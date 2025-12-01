@@ -2,10 +2,11 @@
     <livewire:components.guru.modal.modal-form-latihan lazy />
     <livewire:components.guru.modal.modal-konfirmasi-save-materi lazy />
     <!-- hero section -->
-    <div class="h-[50vh] bg-[radial-gradient(circle,#489BF9_0%,#1565C0_100%)] flex justify-between items-center">
+    <div
+        class="h-[50vh] bg-[radial-gradient(circle,#489BF9_0%,#1565C0_100%)] flex justify-between items-center">
         <div class="flex flex-col capitalize text-white m-5">
             <h1 class="text-5xl font-bold text-shadow-2xs">{{ $judulBab }}</h1>
-            <h3 class="text-2xl font-medium text-shadow-2xs mt-4">tambahkan deskripsi</h3>
+            <h3 class="text-2xl font-medium text-shadow-2xs mt-4">{{ $deskripsiBab }}</h3>
         </div>
     </div>
     <form action="#" method="post" class="mt-5" wire:submit.prevent="save">
@@ -16,8 +17,8 @@
 
             <button wire:click="$dispatch('wordToHTML')" type="button"
                 class="mt-5 mb-4 flex items-center justify-center gap-1 px-5 py-3 bg-blue-200 rounded-xl text-blue-700 font-medium  transition-all duration-100 shadow-sm hover:bg-blue-300 capitalize hover:scale-105 active:scale-95">
-                    <i class="bi bi-file-earmark-word-fill text-lg"></i>
-                    import materi dari word
+                <i class="bi bi-file-earmark-word-fill text-lg"></i>
+                import materi dari word
             </button>
         </div>
 
@@ -28,8 +29,8 @@
         <!-- Tombol Pilih Video Interaktif (Hanya satu) -->
         <button type="button" wire:click="openVideoModal"
             class="mt-5 mb-2 mr-4 flex items-center gap-1 px-5 py-3 bg-red-200 rounded-xl text-red-700 font-medium transition-all duration-100 shadow-sm hover:bg-red-300 capitalize hover:scale-105 active:scale-95">
-                <i class="bi bi-file-earmark-play-fill text-lg"></i>
-                Pilih Video Interaktif
+            <i class="bi bi-file-earmark-play-fill text-lg"></i>
+            Pilih Video Interaktif
         </button>
 
         <div class="flex justify-center lg:mb-14 mt-14 lg:mt-12 z-40 ">
@@ -75,8 +76,8 @@
         <button onclick="toastMagic.info('Sedang menyimpan data, mohon tunggu sebentar…');"
             type="submit"
             class="mt-5 flex items-center gap-1 px-4 py-3 bg-green-200 text-green-700 text-lg rounded-xl shadow-sm transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
-                <iconify-icon icon="line-md:confirm" class="text-lg"></iconify-icon>
-                simpan materi
+            <iconify-icon icon="line-md:confirm" class="text-lg"></iconify-icon>
+            simpan materi
         </button>
 
         <!-- Modal Pilih Video Interaktif -->

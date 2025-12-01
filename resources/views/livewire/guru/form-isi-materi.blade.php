@@ -81,12 +81,13 @@
         </button>
 
         <!-- Modal Pilih Video Interaktif -->
+        <!-- Modal Pilih Video Interaktif -->
         @if ($showVideoModal)
             <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                 <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold">Pilih Video Interaktif</h3>
-                        <button wire:click="closeVideoModal"
+                        <button type="button" wire:click="closeVideoModal"
                             class="text-gray-500 hover:text-gray-700">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -119,8 +120,8 @@
                     </div>
 
                     <div class="mt-4 flex justify-end">
-                        <button wire:click="closeVideoModal"
-                            class="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                        <button type="button" wire:click="closeVideoModal"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                             Tutup
                         </button>
                     </div>

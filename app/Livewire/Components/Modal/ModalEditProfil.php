@@ -54,12 +54,13 @@ class ModalEditProfil extends Component
             if ($murid->gambar) {
                 Storage::disk('public')->delete($gambarPath);
             }
-
+            
+            $uniq = uniqid();
             $ext = $this->gambar->extension();
             $judulFile = Str::slug($murid->nama, '-');
             $gambarPath = $this->gambar->storeAs(
                 "gambar_profil",
-                "{$murid->nipd}-{$judulFile}.{$ext}",
+                "{$murid->nipd}-{$judulFile}-{$uniq}.{$ext}",
                 'public',
             );
         }

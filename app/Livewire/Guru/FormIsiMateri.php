@@ -21,6 +21,7 @@ class FormIsiMateri extends Component
     protected $listeners = [
         'openVideoModal' => 'openVideoModal',
         'closeVideoModal' => 'closeVideoModal',
+        'saveMateri' => 'save',
     ];
 
     public function mount($babId)

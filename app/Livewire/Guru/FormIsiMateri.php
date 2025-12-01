@@ -38,7 +38,7 @@ class FormIsiMateri extends Component
         }
 
         $this->judulBab = $bab->judul_bab;
-        $this->deskripsiBab = $bab->deskripsi_bab;
+        $this->deskripsiBab = $bab->deskripsi;
 
         if ($bab->isiBab) {
             $this->isiBab = $bab->isiBab;

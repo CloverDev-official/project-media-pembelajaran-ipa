@@ -96,14 +96,14 @@
             <!-- Progres Pembelajaran -->
             <div class="flex justify-center">
                 <div class="w-[30rem]">
-                    <div class="bg-white rounded-lg p-5">
+                    <div class="bg-white rounded-lg p-5 w-[30rem] h-[21.4rem]">
                         <h1 class="font-bold text-2xl lg:text-3xl text-black text-shadow-2xsl">
                             Progres Pembelajaran
                         </h1>
                         <p class="mt-2">Pantau Terus Pencapaian Kamu!</p>
-                        <div class="flex flex-col sm:flex-row gap-5 mt-5">
+                        <div class="flex flex-col sm:flex-row gap-5 mt-5 h-[10rem]">
                             <div
-                                class="p-4 bg-white border border-l-4 border-b-4  rounded-md p  -4 border-gray-300 flex-3">
+                                class="p-4 bg-white border border-l-4 border-b-4  rounded-md p-4 border-gray-300 flex-3">
                                 <p class="text-gray-700">Pembelajaran yang selesai</p>
                                 <p class="font-semibold text-2xl">
                                     {{ $jumlahNilai ? $jumlahNilai : '-' }}</p>

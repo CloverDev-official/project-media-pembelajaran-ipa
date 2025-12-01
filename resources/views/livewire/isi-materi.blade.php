@@ -199,20 +199,20 @@
                                     <!-- BUTTON NEXT PREV -->
                                     <div class="flex flex-col sm:flex-row justify-between gap-3">
                                         <button id="prevBtn"
-                                            class="px-4 py-2 rounded-xl border bg-gray-600 border-b-4 border-gray-700 text-white shadow-sm hover:scale-110 active:scale-95">
+                                            class="px-4 py-2 rounded-xl  bg-gray-600  text-white shadow-sm transition-all duration-100  hover:scale-110 active:scale-95">
                                             Sebelumnya
                                         </button>
 
                                         @if ($halamanSekarang == $jumlahSoal)
                                             <button wire:click="tampilkanHasil"
-                                                class="px-4 py-2 rounded-xl border bg-green-600 border-b-4 border-green-700 text-white shadow-sm hover:scale-110 active:scale-95">
+                                                class="px-4 py-2 rounded-xl  bg-green-600  text-white shadow-sm transition-all duration-100  hover:scale-110 active:scale-95">
                                                 Kirim Jawaban
                                             </button>
                                         @else
                                             <button
                                                 wire:click="goToPage({{ $halamanSekarang + 1 }})"
                                                 id="nextBtn"
-                                                class="px-4 py-2 rounded-xl border bg-blue-600 border-b-4 border-blue-700 text-white shadow-sm hover:scale-110 active:scale-95">
+                                                class="px-4 py-2 rounded-xl bg-blue-500 border-b-4  text-white shadow-sm transition-all duration-100 hover:scale-110 active:scale-95">
                                                 Selanjutnya
                                             </button>
                                         @endif

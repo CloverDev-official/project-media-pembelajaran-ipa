@@ -111,7 +111,7 @@
     height: auto;
     margin: 1.5rem auto;
     border-radius: 0.75rem;
-    border: 3px solid #10b981;
+    border: none;
     box-shadow: 0 6px 12px rgba(16, 185, 129, 0.15);
 }
 

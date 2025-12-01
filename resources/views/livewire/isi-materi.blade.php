@@ -6,12 +6,10 @@
         <img src="../img/bg-isi-materi-mobile.png" class="w-full" alt="">
         <div class="absolute">
             <div class="flex flex-col gap-2">
-                <img src="https://placehold.co/300x400?text=Hello+World" class="w-40 h-50 rounded-lg"
-                    alt="">
-                <h1 class="text-sm text-center text-white font-bold text-shadow-2xs">
+                <h1 class="text-lg text-center text-white font-bold text-shadow-2xs">
                     {{ $bab->judul_bab }}
                 </h1>
-                <h1 class="text-xs text-center text-white font-medium text-shadow-2xs">
+                <h1 class="text-sm text-center text-white font-medium text-shadow-2xs">
                     {{ $bab->deskripsi }}
                 </h1>
             </div>
@@ -28,10 +26,6 @@
             <h1 class="mt-5 text-4xl  text-white font-medium text-shadow-2xs">
                 {{ $bab->deskripsi }}
             </h1>
-        </div>
-        <div class="absolute right-20">
-            <img src="https://placehold.co/600x400?text=Hello+World" class="w-50 h-50 rounded-lg"
-                alt="">
         </div>
     </div>
 

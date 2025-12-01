@@ -13,12 +13,13 @@ class GimLevelManager extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $judul_level, $deskripsi, $urutan, $aktif = false;
+    // Hapus properti 'urutan'
+    public $judul_level, $deskripsi, $aktif = false;
     public $pasangan = [['kiri' => '', 'kanan' => '']];
     public $editId = null;
     public $search = '';
-    public $thumbnail; // For file upload
-    public $thumbnailPath; // For storing the path when editing
+    public $thumbnail;
+    public $thumbnailPath;
 
     public function render()
     {
@@ -28,7 +29,7 @@ class GimLevelManager extends Component
 
         return view('livewire.guru.gim-level-manager', [
             'levels' => $levels
-        ])->layout('components.layouts.app-guru'); // Gunakan layout guru
+        ])->layout('components.layouts.app-guru');
     }
 
     public function tambahPasangan()
@@ -52,7 +53,6 @@ class GimLevelManager extends Component
             'thumbnail' => 'nullable|image|max:2048', // 2MB Max
         ]);
 
-        // Handle thumbnail upload
         $thumbnailPath = $this->thumbnailPath;
         
         if ($this->thumbnail) {
@@ -65,7 +65,7 @@ class GimLevelManager extends Component
                 'judul_level' => $this->judul_level,
                 'deskripsi' => $this->deskripsi,
                 'pasangan' => $this->pasangan,
-                'urutan' => $this->urutan,
+                // Hapus 'urutan' dari update
                 'aktif' => $this->aktif,
                 'thumbnail' => $thumbnailPath,
             ]);
@@ -75,7 +75,7 @@ class GimLevelManager extends Component
                 'judul_level' => $this->judul_level,
                 'deskripsi' => $this->deskripsi,
                 'pasangan' => $this->pasangan,
-                'urutan' => $this->urutan,
+                // Hapus 'urutan' dari create
                 'aktif' => $this->aktif,
                 'thumbnail' => $thumbnailPath,
             ]);
@@ -92,10 +92,10 @@ class GimLevelManager extends Component
         $this->judul_level = $level->judul_level;
         $this->deskripsi = $level->deskripsi;
         $this->pasangan = $level->pasangan;
-        $this->urutan = $level->urutan;
+        // Hapus assignment untuk 'urutan'
         $this->aktif = $level->aktif;
         $this->thumbnailPath = $level->thumbnail;
-        $this->thumbnail = null; // Reset the uploaded file
+        $this->thumbnail = null;
     }
 
     public function hapus($id)
@@ -111,7 +111,8 @@ class GimLevelManager extends Component
 
     private function resetInput()
     {
-        $this->reset(['judul_level', 'deskripsi', 'pasangan', 'urutan', 'aktif', 'editId', 'thumbnail', 'thumbnailPath']);
+        // Hapus 'urutan' dari reset
+        $this->reset(['judul_level', 'deskripsi', 'pasangan', 'aktif', 'editId', 'thumbnail', 'thumbnailPath']);
         $this->pasangan = [['kiri' => '', 'kanan' => '']];
     }
 }

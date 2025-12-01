@@ -36,38 +36,41 @@ class IsiMateri extends Component
 
     public function mount($babId)
     {
-        $this->bab = Bab::with('isiBab')->find($babId);
-        $latihan = Latihan::where('bab_id', $babId);
-        $this->latihanId = $latihan->value('id');
-        $this->latihanAda = IsiLatihan::where('latihan_id', $this->latihanId)->exists();
-        if ($this->latihanAda) {
-            $this->loadLatihan();
+        $this->bab = Bab::with('isiBab.interactiveVideos')->find($babId);
+        
+        if (!$this->bab) {
+            abort(404, 'Bab tidak ditemukan');
         }
 
-        if (!$this->bab) {
-            abort(403, 'Bab tidak ditemukan');
+        $latihan = Latihan::where('bab_id', $babId)->first();
+        
+        if ($latihan) {
+            $this->latihanId = $latihan->id;
+            $this->latihanAda = IsiLatihan::where('latihan_id', $this->latihanId)->exists();
+            
+            if ($this->latihanAda) {
+                $this->loadLatihan();
+            }
         }
     }
 
     public function loadLatihan(): void
     {
         $this->waktuMulai = now();
-        $this->waktuPengerjaanFormated = $this->decimalToTime(
-            Latihan::find($this->latihanId, ['waktu_pengerjaan'])->waktu_pengerjaan,
-        );
+        $latihan = Latihan::find($this->latihanId);
+        $this->waktuPengerjaanFormated = $this->decimalToTime($latihan->waktu_pengerjaan);
+        
         $this->daftarSoal = IsiLatihan::where('latihan_id', $this->latihanId)
             ->inRandomOrder()
             ->get()
-            ->map(
-                fn($soal) => [
-                    'id' => $soal->id,
-                    'soal' => $soal->soal,
-                    'a' => $soal->jawaban_a,
-                    'b' => $soal->jawaban_b,
-                    'c' => $soal->jawaban_c,
-                    'd' => $soal->jawaban_d,
-                ],
-            )
+            ->map(fn($soal) => [
+                'id' => $soal->id,
+                'soal' => $soal->soal,
+                'a' => $soal->jawaban_a,
+                'b' => $soal->jawaban_b,
+                'c' => $soal->jawaban_c,
+                'd' => $soal->jawaban_d,
+            ])
             ->toArray();
 
         $sudahDikerjakan = NilaiLatihan::where('latihan_id', $this->latihanId)
@@ -79,7 +82,7 @@ class IsiMateri extends Component
             return;
         }
 
-        $this->soalSekarang = $this->daftarSoal[$this->halamanSekarang - 1];
+        $this->soalSekarang = $this->daftarSoal[0] ?? null;
         $this->jumlahSoal = count($this->daftarSoal);
     }
 
@@ -95,11 +98,17 @@ class IsiMateri extends Component
 
     public function cekJawabanKosong()
     {
-        foreach ($this->daftarSoal as $soal) {
+        $kosong = [];
+        foreach ($this->daftarSoal as $index => $soal) {
             if (!isset($this->jawaban[$soal['id']])) {
-                ToastMagic::warning('Masih ada jawaban yang kosong, silakan periksa kembali.');
-                return true;
+                $kosong[] = $index + 1;
             }
+        }
+
+        if (!empty($kosong)) {
+            $nomorSoal = implode(', ', $kosong);
+            ToastMagic::warning("Soal nomor {$nomorSoal} belum dijawab. Silakan periksa kembali.");
+            return true;
         }
 
         return false;
@@ -115,23 +124,27 @@ class IsiMateri extends Component
         $soal = $this->getSoalById($soalId) ?? [];
 
         return [
-            'soal' => $soal['soal'] ?? null,
-            'a' => $soal['a'] ?? null,
-            'b' => $soal['b'] ?? null,
-            'c' => $soal['c'] ?? null,
-            'd' => $soal['d'] ?? null,
-            'jawaban_user' => $jawabanUser ?? null,
-            'jawaban_benar' => $jawabanBenar ?? null,
+            'soal' => $soal['soal'] ?? 'Soal tidak ditemukan',
+            'a' => $soal['a'] ?? '',
+            'b' => $soal['b'] ?? '',
+            'c' => $soal['c'] ?? '',
+            'd' => $soal['d'] ?? '',
+            'jawaban_user' => $jawabanUser,
+            'jawaban_benar' => $jawabanBenar,
             'benar' => $jawabanBenar !== null && $jawabanBenar === $jawabanUser,
         ];
     }
 
     public function periksaSemuaJawaban($paksa = false)
     {
-        if ($paksa) {
-        } elseif ($this->cekJawabanKosong()) {
-            return;
+        if (!$paksa && $this->cekJawabanKosong()) {
+            return false;
         }
+
+        // Reset counters
+        $this->jumlahBenar = 0;
+        $this->jumlahSalah = 0;
+        $this->hasilJawaban = [];
 
         $jawabanBenar = IsiLatihan::where('latihan_id', $this->latihanId)
             ->pluck('jawaban_benar', 'id')
@@ -144,16 +157,23 @@ class IsiMateri extends Component
             $hasil = $this->formatHasilJawaban(
                 $soalId,
                 $jawabanUser,
-                $jawabanBenar[$soalId] ?? null,
+                $jawabanBenar[$soalId] ?? null
             );
 
             $this->hasilJawaban[] = $hasil;
 
-            $this->jumlahBenar += $hasil['benar'] ? 1 : 0;
-            $this->jumlahSalah += !$hasil['benar'] ? 1 : 0;
+            if ($hasil['benar']) {
+                $this->jumlahBenar++;
+            } else {
+                $this->jumlahSalah++;
+            }
         }
 
-        $this->nilai = round(($this->jumlahBenar / $this->jumlahSoal) * 100, 2);
+        $this->nilai = $this->jumlahSoal > 0 
+            ? round(($this->jumlahBenar / $this->jumlahSoal) * 100, 2) 
+            : 0;
+
+        return true;
     }
 
     public function masukanNilai()
@@ -170,21 +190,29 @@ class IsiMateri extends Component
 
     public function tampilkanHasil()
     {
-        $this->periksaSemuaJawaban();
-        $this->masukanNilai();
-        $this->tampilkanHasilLatihan = true;
+        if ($this->periksaSemuaJawaban()) {
+            $this->masukanNilai();
+            $this->tampilkanHasilLatihan = true;
+            
+            // Scroll to top smoothly
+            $this->dispatch('scroll-to-top');
+            
+            ToastMagic::success('Latihan berhasil diselesaikan!');
+        }
     }
 
     public function waktuHabis()
     {
-        $waktuPengerjaan = Latihan::find($this->latihanId, ['waktu_pengerjaan'])->waktu_pengerjaanl;
-        $waktuSelesai = $this->waktuMulai->copy()->addMinutes($waktuPengerjaan);
+        $latihan = Latihan::find($this->latihanId);
+        $waktuSelesai = $this->waktuMulai->copy()->addMinutes($latihan->waktu_pengerjaan);
         $remaining = now()->diffInSeconds($waktuSelesai, false);
 
         if ($remaining <= 0) {
             $this->periksaSemuaJawaban(paksa: true);
             $this->masukanNilai();
             $this->tampilkanHasilLatihan = true;
+            
+            ToastMagic::info('Waktu pengerjaan telah habis. Latihan diselesaikan otomatis.');
         }
     }
 
@@ -200,6 +228,7 @@ class IsiMateri extends Component
     {
         $this->mulai = true;
         $this->dispatch('closeMulaiLatihan');
+        $this->dispatch('scroll-to-section', ['section' => 'latihan']);
     }
 
     public function render()

@@ -5,6 +5,7 @@
     <div class="h-[50vh] bg-[radial-gradient(circle,#489BF9_0%,#1565C0_100%)] flex justify-between items-center">
         <div class="flex flex-col capitalize text-white m-5">
             <h1 class="text-5xl font-bold text-shadow-2xs">{{ $judulBab }}</h1>
+            <h3 class="text-2xl font-medium text-shadow-2xs mt-4">tambahkan deskripsi</h3>
         </div>
     </div>
     <form action="#" method="post" class="mt-5" wire:submit.prevent="save">
@@ -14,15 +15,22 @@
             <input type="file" id="importWord" accept=".docx" hidden>
 
             <button wire:click="$dispatch('wordToHTML')" type="button"
-                class="mt-5 mb-2 flex items-center gap-1 px-3 py-3 bg-blue-200 rounded-xl text-blue-700 font-medium text-sm transition-all duration-100 shadow-sm hover:bg-blue-300 capitalize hover:scale-105 active:scale-95">
-                    <i class="bi bi-file-earmark-word-fill"></i>
-                    Word
+                class="mt-5 mb-4 flex items-center justify-center gap-1 px-5 py-3 bg-blue-200 rounded-xl text-blue-700 font-medium  transition-all duration-100 shadow-sm hover:bg-blue-300 capitalize hover:scale-105 active:scale-95">
+                    <i class="bi bi-file-earmark-word-fill text-lg"></i>
+                    import materi dari word
             </button>
         </div>
 
         <!-- teks -->
         <livewire:ckeditor5 wire:model.defer="teksBab" :editorId="$editorId" editableHeight="800"
             :content="$teksBab" />
+
+        <!-- Tombol Pilih Video Interaktif (Hanya satu) -->
+        <button type="button" wire:click="openVideoModal"
+            class="mt-5 mb-2 mr-4 flex items-center gap-1 px-5 py-3 bg-red-200 rounded-xl text-red-700 font-medium transition-all duration-100 shadow-sm hover:bg-red-300 capitalize hover:scale-105 active:scale-95">
+                <i class="bi bi-file-earmark-play-fill text-lg"></i>
+                Pilih Video Interaktif
+        </button>
 
         <div class="flex justify-center lg:mb-14 mt-14 lg:mt-12 z-40 ">
             <div class="z-40 w-[20rem] md:w-[50rem] mx-auto">
@@ -39,20 +47,14 @@
                         <button
                             wire:click="$dispatch('openModalKonfirmasiSaveMateri', { babId: '{{ $babId }}' })"
                             type="button"
-                            class="flex gap-2 items-center justify-center w-auto md:w-xs px-2 py-3 rounded-xl text-white border border-main-dark border-l-4 border-b-4 bg-blue-500 shadow-sm text-xl transition-all duration-150 hover:scale-105 active:scale-95 active:shadow-inner">
+                            class="flex gap-2 items-center justify-center w-auto md:w-xs px-2 py-3 rounded-xl text-white  bg-blue-500 hover:bg-blue-600 shadow-sm text-xl transition-all duration-150 hover:scale-[1.03] active:scale-95 active:shadow-inner">
                             <iconify-icon icon="bx:edit" class="text-2xl"></iconify-icon>
-                            Latihan
+                            Tambah Soal Latihan
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Tombol Pilih Video Interaktif (Hanya satu) -->
-        <button type="button" wire:click="openVideoModal"
-            class="mt-5 mb-2 mr-4 flex items-center gap-1 px-3 py-3 bg-red-200 rounded-xl text-red-700 font-medium text-sm transition-all duration-100 shadow-sm hover:bg-red-300 capitalize hover:scale-105 active:scale-95">
-                <i class="bi bi-file-earmark-play-fill"></i>
-                Pilih Video Interaktif
-        </button>
 
         <!-- Preview Video -->
         <div id="preview" class="mt-4 hidden relative w-full">
@@ -72,8 +74,9 @@
         <!-- btn simpan -->
         <button onclick="toastMagic.info('Sedang menyimpan data, mohon tunggu sebentar…');"
             type="submit"
-            class="mt-5 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95  rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
-            simpan
+            class="mt-5 flex items-center gap-1 px-4 py-3 bg-green-200 text-green-700 text-lg rounded-xl shadow-sm transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                <iconify-icon icon="line-md:confirm" class="text-lg"></iconify-icon>
+                simpan materi
         </button>
 
         <!-- Modal Pilih Video Interaktif -->

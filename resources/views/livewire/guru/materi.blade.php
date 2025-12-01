@@ -28,10 +28,10 @@
                         </div>
                         <!-- judul dan deskripsi materi -->
                         <div class="mb-3 py-2">
-                            <h2 class="font-bold text-blue-500 text-sm capitalize">
+                            <h2 class="font-bold text-blue-500 text-sm capitalize w-24 truncate">
                                 {{ $bab->judul_bab }}
                             </h2>
-                            <h2 class="font-normal text-xs capitalize">
+                            <h2 class="font-normal text-xs capitalize w-24 truncate">
                                 {{ $bab->deskripsi }}
                             </h2>
                         </div>
@@ -56,7 +56,7 @@
                 </div>
             @endforeach
         </div>
-        <!-- dekstop     -->
+        <!-- dekstop-->
         <div class="hidden md:flex grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 w-full">
             @foreach ($daftarBab as $bab)
                 <!-- card materi -->

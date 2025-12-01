@@ -117,14 +117,16 @@
             </div>
 
             <!-- Tombol Aksi -->
-            <div class="p-6 border-t flex justify-end gap-3">
+            <div class="p-6 border-t flex justify-between gap-3">
                 <button type="button" id="btnCloseTambah" @click="open = false"
-                    class="px-5 py-2 bg-red-500 text-white rounded-lg transition-all duration-150 hover:bg-red-600 hover:scale-105 active:scale-95">
-                    Batal
+                    class="flex items-center gap-1 px-4 py-2 bg-red-200 text-red-700 rounded-lg transition-all duration-150 hover:bg-red-300 hover:scale-105 active:scale-95">
+                        <iconify-icon icon="line-md:close-small"></iconify-icon>
+                        Batal
                 </button>
                 <button type="submit"
-                    class="px-5 py-2 bg-green-500 text-white rounded-lg transition-all duration-150 hover:bg-green-600 hover:scale-105 active:scale-95">
-                    Simpan
+                    class="flex items-center gap-1 px-4 py-2 bg-green-200 text-green-700 rounded-lg transition-all duration-150 hover:bg-green-300 hover:scale-105 active:scale-95">
+                        <iconify-icon icon="line-md:trash" class="text-sm"></iconify-icon>
+                        Simpan
                 </button>
             </div>
         </form>

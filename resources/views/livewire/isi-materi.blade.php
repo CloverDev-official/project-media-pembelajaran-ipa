@@ -102,7 +102,8 @@
                         <!-- HEADER -->
                         <div class="flex bg-blue-500 p-3 sm:p-4 rounded-t-lg text-white w-full">
                             <p class="font-bold text-lg sm:text-xl">
-                                <i class="fa-solid fa-pen-to-square"></i> Latihan
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                Latihan
                             </p>
                         </div>
 

@@ -36,9 +36,9 @@ class ModalEditProfil extends Component
         return redirect()->route('profil');
     }
 
-    public function uploadGambar()
+    public function updatedGambar()
     {
-        ValidateMagic::run(
+        $validate = ValidateMagic::run(
             [
                 'gambar' => 'nullable|image|max:5120', // 5MB
             ],
@@ -47,6 +47,28 @@ class ModalEditProfil extends Component
                 'gambar.image' => 'File yang diunggah harus berupa gambar.',
             ]
         );
+
+        if (!$validate && $this->gambar instanceof TemporaryUploadedFile){
+            $this->gambar->delete();
+            $this->reset('gambar');
+        }
+    }
+
+    public function uploadGambar()
+    {
+        $validate = ValidateMagic::run(
+            [
+                'gambar' => 'nullable|image|max:5120', // 5MB
+            ],
+            [
+                'gambar.max' => 'Ukuran gambar maksimal adalah 5MB.',
+                'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            ]
+        );
+
+        if (!$validate){
+            return;
+        }
 
         $murid = auth('murid')->user();
         $gambarPath = $murid->gambar;

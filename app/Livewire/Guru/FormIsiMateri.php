@@ -53,7 +53,7 @@ class FormIsiMateri extends Component
         }
     }
 
-    public function save()
+    public function save($paksa = false)
     {
         // If isiBab doesn't exist, create it first
         if (!$this->isiBab) {
@@ -75,7 +75,10 @@ class FormIsiMateri extends Component
 
         ToastMagic::success('Materi berhasil disimpan', useSessionFlash: true);
 
-        $this->redirectRoute('guru.materi', navigate: true);
+        if(!$paksa) 
+        {
+            $this->redirectRoute('guru.materi', navigate: true);
+        }
     }
 
     public function openVideoModal()

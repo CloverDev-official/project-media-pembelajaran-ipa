@@ -61,6 +61,7 @@ class ModalTambahMateri extends Component
                 'judul.max' => 'Judul tidak boleh lebih dari 255 karakter!',
                 'gambar.image' => 'File yang diunggah harus berupa gambar!',
                 'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 5MB!',
+                'deskripsi.string' => 'Deskripsi harus berupa teks!',
             ],
             'error',
         );
@@ -71,11 +72,12 @@ class ModalTambahMateri extends Component
 
         $gambarPath = null;
         if ($this->gambar) {
+            $uniq = uniqid();
             $ext = $this->gambar->extension();
             $judulFolder = Str::slug($this->judul, '_');
             $gambarPath = $this->gambar->storeAs(
                 "gambar_materi/{$judulFolder}",
-                "sampul.{$ext}",
+                "sampul-{$uniq}.{$ext}",
                 'public',
             );
         }

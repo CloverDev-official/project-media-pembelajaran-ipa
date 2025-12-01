@@ -22,6 +22,7 @@ class ModalEditMateri extends Component
     public $bab;
     public $babId;
     public $kelasId;
+    public $diskripsi;
     public $daftarKelas;
     public $gambar;
 
@@ -66,12 +67,14 @@ class ModalEditMateri extends Component
             [
                 'judul' => 'required|string|max:255',
                 'gambar' => 'nullable|image|max:5120',
+                'diskripsi' => 'nullable|string',
             ],
             [
                 'judul.required' => 'Judul wajib diisi!',
                 'judul.max' => 'Judul tidak boleh lebih dari 255 karakter!',
                 'gambar.image' => 'File harus berupa gambar!',
                 'gambar.max' => 'Gambar tidak boleh lebih dari 5MB!',
+                'diskripsi.string' => 'Diskripsi harus berupa teks!',
             ],
             'error',
         );
@@ -84,11 +87,12 @@ class ModalEditMateri extends Component
         if ($this->gambar instanceof TemporaryUploadedFile) {
             Storage::disk('public')->delete($this->bab->gambar);
 
+            $uniq = uniqid();
             $ext = $this->gambar->extension();
             $judulFolder = Str::slug($this->judul, '_');
             $gambarPath = $this->gambar->storeAs(
                 "gambar_materi/{$judulFolder}",
-                "sampul.{$ext}",
+                "sampul-{$uniq}.{$ext}",
                 'public',
             );
         }
@@ -97,6 +101,7 @@ class ModalEditMateri extends Component
             'kelas_id' => $this->kelasId,
             'judul_bab' => $this->judul,
             'gambar' => $gambarPath,
+            'diskripsi' => $this->diskripsi,
         ]);
 
         $this->close();

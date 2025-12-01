@@ -28,7 +28,7 @@ class ModalKonfirmasiSaveMateri extends Component
 
     public function confirmSave()
     {
-        $this->dispatch('saveMateri');
+        $this->dispatch('saveMateri', ['paksa' => true]);
         $this->close();
     }
 

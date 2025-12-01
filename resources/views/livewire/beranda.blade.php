@@ -96,7 +96,7 @@
         <div class="absolute rounded-4xl flex flex-col lg:flex-row gap-10 lg:gap-32  p-4 lg:py-40">
             <!-- Progres Pembelajaran -->
             <div class="flex justify-center">
-                <div class="w-full">
+                <div class="w-[30rem]">
                     <div class="bg-white rounded-lg p-5">
                         <h1 class="font-bold text-2xl lg:text-3xl text-black text-shadow-2xsl">
                             Progres Pembelajaran
@@ -121,7 +121,7 @@
             </div>
             <!-- Nilai seiring waktu -->
             <div class="flex justify-center">
-                <div class=" w-full">
+                <div class=" w-[30rem]">
                     <div class="bg-white rounded-lg p-5">
                         <h1 class="font-bold text-2xl lg:text-3xl text-black text-shadow-2xs">
                             Nilai Seiring Waktu

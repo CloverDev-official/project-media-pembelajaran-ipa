@@ -4,7 +4,7 @@
     <!-- Overlay -->
     <div @click="open = false" id="overlayTambah" class="absolute inset-0 bg-black/50"></div>
     <!-- Konten Modal -->
-    <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-80 md:w-96">
+    <div class="relative bg-white rounded-lg shadow-md p-6 z-10 w-[90%] max-w-3xl">
         <div class="flex flex-col mb-4 text-center">
             <h2 class="text-xl font-semibold capitalize">tambah materi</h2>
             <p class="font-normal text-gray-400 text-sm capitalize">tambahkan materi baru disini</p>
@@ -15,7 +15,7 @@
                 <label for="gambar" class="font-semibold text-lg capitalize">Gambar Soal
                     (opsional)</label>
                 <input type="file" id="gambar" wire:model="gambar" accept="image/*"
-                    class="w-full mt-2 py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    class="w-full mt-2 py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700">
 
                 <!-- Status Upload -->
                 <div wire:loading wire:target="gambar"
@@ -39,16 +39,16 @@
                 <label for="judul" class="font-semibold text-lg capitalize">judul</label>
                 <input type="text" id="judul" wire:model.defer="judul" required
                     placeholder="Judul Materi"
-                    class="w-full mt-2 py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                    class="w-full mt-2 py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700">
             </div>
             <div>
                 <label for="deskripsi" class="font-semibold text-lg capitalize">Deskripsi</label>
                 <textarea id="deskripsi" wire:model.defer="deskripsi" rows="3"
                     placeholder="Deskripsi (opsional)"
-                    class="w-full mt-2 py-3 px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                    class="w-full mt-2 py-3 px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"></textarea>
             </div>
             <select id="kelas" name="kelas" wire:model="kelasId"
-                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-blue-700">
                 @forelse ($daftarKelas as $kelas)
                     <option value="{{ $kelas->id }}">Kelas {{ $kelas->nama_kelas }}</option>
                 @empty

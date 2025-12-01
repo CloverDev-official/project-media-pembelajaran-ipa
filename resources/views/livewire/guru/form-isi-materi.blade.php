@@ -72,7 +72,7 @@
         <!-- btn simpan -->
         <button onclick="toastMagic.info('Sedang menyimpan data, mohon tunggu sebentar…');"
             type="submit"
-            class="mt-5 border-l-4 border-b-4 border-main-dark px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95  rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
+            class="mt-5 px-4 py-2 bg-blue-500 hover:scale-[01.1] active:scale-95  rounded-lg text-white text-shadow-md font-semibold transition-all duration-100 shadow-md capitalize">
             simpan
         </button>
 
